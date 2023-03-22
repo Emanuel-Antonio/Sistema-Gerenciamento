@@ -1,4 +1,4 @@
 package com.example.sistemaparagerenciamento.dao.controller;
 
-public class Controller {
+public interface ControllerDAO {
 }
