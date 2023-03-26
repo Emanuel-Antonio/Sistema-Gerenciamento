@@ -1,25 +1,12 @@
 package com.example.sistemaparagerenciamento.model;
 
-public class OrdemCompra {
-
-    private Peca peca;
+public class OrdemCompra extends Peca{
 
     private Integer qnt;
 
-    private Double valorunitario;
-
-    public OrdemCompra(Peca peca, Integer qnt, Double valorunitario) {
-        this.peca = peca;
+    public OrdemCompra(String nome, Double valor, Integer qnt) {
+        super(nome, valor);
         this.qnt = qnt;
-        this.valorunitario = valorunitario;
-    }
-
-    public Peca getPeca() {
-        return peca;
-    }
-
-    public void setPeca(Peca peca) {
-        this.peca = peca;
     }
 
     public Integer getQnt() {
@@ -28,13 +15,5 @@ public class OrdemCompra {
 
     public void setQnt(Integer qnt) {
         this.qnt = qnt;
-    }
-
-    public Double getValorunitario() {
-        return valorunitario;
-    }
-
-    public void setValorunitario(Double valorunitario) {
-        this.valorunitario = valorunitario;
     }
 }
