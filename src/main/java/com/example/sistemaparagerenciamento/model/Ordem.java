@@ -4,7 +4,7 @@ import com.example.sistemaparagerenciamento.model.StatusOrdem;
 
 public class Ordem {
 
-    //private List<Servico> servico;
+    //private ArrayList<Servico> servico;
 
     private StatusOrdem status;
 
@@ -21,13 +21,13 @@ public class Ordem {
     public Ordem() {
     }
 
-    /*public List<Servico> getServico() {
+    public ArrayList<Servico> getServico() {
         return servico;
-    }*/
+    }
 
-    /*public void setServico(List<Servico> servico) {
+    public void setServico(List<Servico> servico) {
         this.servico = servico;
-    }*/
+    }
 
     public StatusOrdem getStatus() {
         return status;
@@ -37,13 +37,13 @@ public class Ordem {
         this.status = status;
     }
 
-    /*public Fatura getFatura() {
+    public Fatura getFatura() {
         return fatura;
-    }*/
+    }
 
-    /*public void setFatura(Fatura fatura) {
+    public void setFatura(Fatura fatura) {
         this.fatura = fatura;
-    }*/
+    }
 
     public Integer getClienteid() {
         return clienteid;
@@ -75,14 +75,6 @@ public class Ordem {
 
     public void setAvaliacaofinal(String avaliacaofinal) {
         this.avaliacaofinal = avaliacaofinal;
-    }
-
-    public void adicionarServico(Servico servico) {
-        this.servico.add(servico);
-    }
-
-    public List<Servico> removerServico(Servico servico) {
-        return servico.remove(servico);
     }
 
 }

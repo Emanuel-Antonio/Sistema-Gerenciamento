@@ -7,7 +7,7 @@ public class Cliente {
 
     private String telefone;
 
-    //private List<Ordem> ordem;
+    private ArrayList<Ordem> ordem;
 
     private Integer clienteid;
 
@@ -45,12 +45,4 @@ public class Cliente {
     public void setClienteid(Integer clienteid) {
         this.clienteid = clienteid;
     }
-
-    /*public List<Ordem> getOrdem() {
-        return ordem;
-    }*/
-
-    /*public void setOrdem(List<Ordem> ordem) {
-        this.ordem = ordem;
-    }*/
 }
