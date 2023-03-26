@@ -13,12 +13,6 @@ public class Fatura {
 
     private Integer faturaid;
 
-    //Rever método novoPagamento, devido a possivel validação
-    public void novoPagamento(Pagamento p) {
-        this.valorpago += p.getValor();
-        this.pagamentos.add(p);
-    }
-
     public Double getValortotal() {
         return valortotal;
     }
