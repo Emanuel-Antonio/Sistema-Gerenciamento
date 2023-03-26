@@ -1,71 +1,71 @@
 package com.example.sistemaparagerenciamento.model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Controller {
 
-    private ArrayList<Tecnico> tecnicoscadastrados;
+    private List<Tecnico> tecnicoscadastrados;
 
-    private ArrayList<Cliente> clientescadastrados;
+    private List<Cliente> clientescadastrados;
 
-    private ArrayList<Ordem> ordenscadastradas;
+    private List<Ordem> ordenscadastradas;
 
-    private ArrayList<Ordem> ordensabertas;
+    private List<Ordem> ordensabertas;
 
-    private ArrayList<Ordem> ordensfinalizadas;
+    private List<Ordem> ordensfinalizadas;
 
-    private ArrayList<Ordem> ordenscompra;
+    private List<Ordem> ordenscompra;
 
     private Fatura fatura;
 
     public Controller() {
     }
 
-    public ArrayList<Tecnico> getTecnicoscadastrados() {
+    public List<Tecnico> getTecnicoscadastrados() {
         return tecnicoscadastrados;
     }
 
-    public void setTecnicoscadastrados(ArrayList<Tecnico> tecnicoscadastrados) {
+    public void setTecnicoscadastrados(List<Tecnico> tecnicoscadastrados) {
         this.tecnicoscadastrados = tecnicoscadastrados;
     }
 
-    public ArrayList<Cliente> getClientescadastrados() {
+    public List<Cliente> getClientescadastrados() {
         return clientescadastrados;
     }
 
-    public void setClientescadastrados(ArrayList<Cliente> clientescadastrados) {
+    public void setClientescadastrados(List<Cliente> clientescadastrados) {
         this.clientescadastrados = clientescadastrados;
     }
 
-    public ArrayList<Ordem> getOrdenscadastradas() {
+    public List<Ordem> getOrdenscadastradas() {
         return ordenscadastradas;
     }
 
-    public void setOrdenscadastradas(ArrayList<Ordem> ordenscadastradas) {
+    public void setOrdenscadastradas(List<Ordem> ordenscadastradas) {
         this.ordenscadastradas = ordenscadastradas;
     }
 
-    public ArrayList<Ordem> getOrdensabertas() {
+    public List<Ordem> getOrdensabertas() {
         return ordensabertas;
     }
 
-    public void setOrdensabertas(ArrayList<Ordem> ordensabertas) {
+    public void setOrdensabertas(List<Ordem> ordensabertas) {
         this.ordensabertas = ordensabertas;
     }
 
-    public ArrayList<Ordem> getOrdensfinalizadas() {
+    public List<Ordem> getOrdensfinalizadas() {
         return ordensfinalizadas;
     }
 
-    public void setOrdensfinalizadas(ArrayList<Ordem> ordensfinalizadas) {
+    public void setOrdensfinalizadas(List<Ordem> ordensfinalizadas) {
         this.ordensfinalizadas = ordensfinalizadas;
     }
 
-    public ArrayList<Ordem> getOrdenscompra() {
+    public List<Ordem> getOrdenscompra() {
         return ordenscompra;
     }
 
-    public void setOrdenscompra(ArrayList<Ordem> ordenscompra) {
+    public void setOrdenscompra(List<Ordem> ordenscompra) {
         this.ordenscompra = ordenscompra;
     }
 

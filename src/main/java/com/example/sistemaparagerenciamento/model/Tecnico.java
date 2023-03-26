@@ -1,7 +1,6 @@
 package com.example.sistemaparagerenciamento.model;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.List;
 
 public class Tecnico {
 
@@ -13,9 +12,9 @@ public class Tecnico {
 
     private Integer tecnicoid;
 
-    private ArrayList<Ordem> ordens;
+    private List<Ordem> ordens;
 
-    private LinkedList<OrdemCompra> carrinhocompras;
+    private List<OrdemCompra> carrinhocompras;
 
     private Estoque estoque;
 
@@ -54,19 +53,19 @@ public class Tecnico {
         this.tecnicoid = tecnicoid;
     }
 
-    public ArrayList<Ordem> getOrdens() {
+    public List<Ordem> getOrdens() {
         return ordens;
     }
 
-    public void setOrdens(ArrayList<Ordem> ordens) {
+    public void setOrdens(List<Ordem> ordens) {
         this.ordens = ordens;
     }
 
-    public LinkedList<OrdemCompra> getCarrinhocompras() {
+    public List<OrdemCompra> getCarrinhocompras() {
         return carrinhocompras;
     }
 
-    public void setCarrinhocompras(LinkedList<OrdemCompra> carrinhocompras) {
+    public void setCarrinhocompras(List<OrdemCompra> carrinhocompras) {
         this.carrinhocompras = carrinhocompras;
     }
 

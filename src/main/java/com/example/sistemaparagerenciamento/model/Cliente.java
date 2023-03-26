@@ -1,5 +1,7 @@
 package com.example.sistemaparagerenciamento.model;
 
+import java.util.List;
+
 public class Cliente {
     private String nome;
 
@@ -7,11 +9,13 @@ public class Cliente {
 
     private String telefone;
 
-    private ArrayList<Ordem> ordem;
+    private List<Ordem> ordem;
 
     private Integer clienteid;
 
-    public Cliente() {
+    public Cliente(String nome, Integer clienteid) {
+        this.nome = nome;
+        this.clienteid = clienteid;
     }
 
     public String getNome() {
@@ -36,6 +40,14 @@ public class Cliente {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public List<Ordem> getOrdem() {
+        return ordem;
+    }
+
+    public void setOrdem(List<Ordem> ordem) {
+        this.ordem = ordem;
     }
 
     public Integer getClienteid() {

@@ -2,13 +2,15 @@ package com.example.sistemaparagerenciamento.model;
 
 import com.example.sistemaparagerenciamento.model.StatusOrdem;
 
+import java.util.List;
+
 public class Ordem {
 
-    //private ArrayList<Servico> servico;
+    private List<Servico> servico;
 
     private StatusOrdem status;
 
-    //private Fatura fatura;
+    private Fatura fatura;
 
     private Integer clienteid;
 
@@ -18,10 +20,14 @@ public class Ordem {
 
     private String avaliacaofinal;
 
-    public Ordem() {
+    public Ordem(List<Servico> servico, Integer clienteid, Integer tecnicoid, Integer ordemid) {
+        this.servico = servico;
+        this.clienteid = clienteid;
+        this.tecnicoid = tecnicoid;
+        this.ordemid = ordemid;
     }
 
-    public ArrayList<Servico> getServico() {
+    public List<Servico> getServico() {
         return servico;
     }
 
