@@ -14,12 +14,13 @@ public class Controller {
 
     private List<Ordem> ordensfinalizadas;
 
-    private List<Ordem> ordenscompra;
+    private List<OrdemCompra> ordenscompra;
 
     private Fatura fatura;
 
     public Controller() {
     }
+
 
     public List<Tecnico> getTecnicoscadastrados() {
         return tecnicoscadastrados;
@@ -61,11 +62,11 @@ public class Controller {
         this.ordensfinalizadas = ordensfinalizadas;
     }
 
-    public List<Ordem> getOrdenscompra() {
+    public List<OrdemCompra> getOrdenscompra() {
         return ordenscompra;
     }
 
-    public void setOrdenscompra(List<Ordem> ordenscompra) {
+    public void setOrdenscompra(List<OrdemCompra> ordenscompra) {
         this.ordenscompra = ordenscompra;
     }
 
