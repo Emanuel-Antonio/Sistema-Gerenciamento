@@ -1,4 +1,8 @@
 package com.example.sistemaparagerenciamento.dao.ordem;
 
-public interface OrdemDAO {
+import com.example.sistemaparagerenciamento.dao.CRUD;
+import com.example.sistemaparagerenciamento.model.Ordem;
+
+public interface OrdemDAO extends CRUD<Ordem> {
+
 }
