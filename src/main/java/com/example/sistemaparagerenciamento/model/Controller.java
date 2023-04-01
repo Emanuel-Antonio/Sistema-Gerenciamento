@@ -4,70 +4,69 @@ import java.util.List;
 
 public class Controller {
 
-    private List<Tecnico> tecnicoscadastrados;
+    private List<Tecnico> tecnicosCadastrados;
 
-    private List<Cliente> clientescadastrados;
+    private List<Cliente> clientesCadastrados;
 
-    private List<Ordem> ordenscadastradas;
+    private List<Ordem> ordensCadastradas;
 
-    private List<Ordem> ordensabertas;
+    private List<Ordem> ordensAbertas;
 
-    private List<Ordem> ordensfinalizadas;
+    private List<Ordem> ordensFinalizadas;
 
-    private List<OrdemCompra> ordenscompra;
+    private List<OrdemCompra> ordensCompra;
 
     private Fatura fatura;
 
     public Controller() {
     }
 
-
-    public List<Tecnico> getTecnicoscadastrados() {
-        return tecnicoscadastrados;
+    public List<Tecnico> getTecnicosCadastrados() {
+        return tecnicosCadastrados;
     }
 
-    public void setTecnicoscadastrados(List<Tecnico> tecnicoscadastrados) {
-        this.tecnicoscadastrados = tecnicoscadastrados;
+    public void setTecnicosCadastrados(List<Tecnico> tecnicosCadastrados) {
+        this.tecnicosCadastrados = tecnicosCadastrados;
     }
 
-    public List<Cliente> getClientescadastrados() {
-        return clientescadastrados;
+    public List<Cliente> getClientesCadastrados() {
+        return clientesCadastrados;
     }
 
-    public void setClientescadastrados(List<Cliente> clientescadastrados) {
-        this.clientescadastrados = clientescadastrados;
+    public void setClientesCadastrados(List<Cliente> clientesCadastrados) {
+        this.clientesCadastrados = clientesCadastrados;
     }
 
-    public List<Ordem> getOrdenscadastradas() {
-        return ordenscadastradas;
+    public List<Ordem> getOrdensCadastradas() {
+        return ordensCadastradas;
     }
 
-    public void setOrdenscadastradas(List<Ordem> ordenscadastradas) {
-        this.ordenscadastradas = ordenscadastradas;
+    public void setOrdensCadastradas(List<Ordem> ordensCadastradas) {
+        this.ordensCadastradas = ordensCadastradas;
     }
 
-    public List<Ordem> getOrdensabertas() {
-        return ordensabertas;
+    public List<Ordem> getOrdensAbertas() {
+        return ordensAbertas;
     }
 
-    public void setOrdensabertas(List<Ordem> ordensabertas) {
-        this.ordensabertas = ordensabertas;
+    public void setOrdensAbertas(List<Ordem> ordensAbertas) {
+        this.ordensAbertas = ordensAbertas;
     }
 
-    public List<Ordem> getOrdensfinalizadas() {
-        return ordensfinalizadas;
+    public List<Ordem> getOrdensFinalizadas() {
+        return ordensFinalizadas;
     }
 
-    public void setOrdensfinalizadas(List<Ordem> ordensfinalizadas) {
-        this.ordensfinalizadas = ordensfinalizadas;
+    public void setOrdensFinalizadas(List<Ordem> ordensFinalizadas) {
+        this.ordensFinalizadas = ordensFinalizadas;
     }
 
-    public List<OrdemCompra> getOrdenscompra() {
-        return ordenscompra;
+    public List<OrdemCompra> getOrdensCompra() {
+        return ordensCompra;
     }
 
-    public void setOrdenscompra(List<OrdemCompra> ordenscompra) {
-        this.ordenscompra = ordenscompra;
+    public void setOrdensCompra(List<OrdemCompra> ordensCompra) {
+        this.ordensCompra = ordensCompra;
     }
 
     public Fatura getFatura() {

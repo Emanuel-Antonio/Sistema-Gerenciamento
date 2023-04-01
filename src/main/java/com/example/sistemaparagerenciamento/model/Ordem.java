@@ -12,19 +12,19 @@ public class Ordem {
 
     private Fatura fatura;
 
-    private Integer clienteid;
+    private Integer clienteId;
 
-    private Integer tecnicoid;
+    private Integer tecnicoId;
 
-    private Integer ordemid;
+    private Integer ordemId;
 
-    private String avaliacaofinal;
+    private String avaliacaoFinal;
 
-    public Ordem(List<Servico> servico, Integer clienteid, Integer tecnicoid, Integer ordemid) {
+    public Ordem(List<Servico> servico, Integer clienteId, Integer tecnicoId, Integer ordemId) {
         this.servico = servico;
-        this.clienteid = clienteid;
-        this.tecnicoid = tecnicoid;
-        this.ordemid = ordemid;
+        this.clienteId = clienteId;
+        this.tecnicoId = tecnicoId;
+        this.ordemId = ordemId;
     }
 
     public List<Servico> getServico() {
@@ -51,37 +51,36 @@ public class Ordem {
         this.fatura = fatura;
     }
 
-    public Integer getClienteid() {
-        return clienteid;
+    public Integer getClienteId() {
+        return clienteId;
     }
 
-    public void setClienteid(Integer clienteid) {
-        this.clienteid = clienteid;
+    public void setClienteId(Integer clienteId) {
+        this.clienteId = clienteId;
     }
 
-    public Integer getTecnicoid() {
-        return tecnicoid;
+    public Integer getTecnicoId() {
+        return tecnicoId;
     }
 
-    public void setTecnicoid(Integer tecnicoid) {
-        this.tecnicoid = tecnicoid;
+    public void setTecnicoId(Integer tecnicoId) {
+        this.tecnicoId = tecnicoId;
     }
 
-    public Integer getOrdemid() {
-        return ordemid;
+    public Integer getOrdemId() {
+        return ordemId;
     }
 
-    public void setOrdemid(Integer ordemid) {
-        this.ordemid = ordemid;
+    public void setOrdemId(Integer ordemId) {
+        this.ordemId = ordemId;
     }
 
-    public String getAvaliacaofinal() {
-        return avaliacaofinal;
+    public String getAvaliacaoFinal() {
+        return avaliacaoFinal;
     }
 
-    public void setAvaliacaofinal(String avaliacaofinal) {
-        this.avaliacaofinal = avaliacaofinal;
+    public void setAvaliacaoFinal(String avaliacaoFinal) {
+        this.avaliacaoFinal = avaliacaoFinal;
     }
-
 }
 

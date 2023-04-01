@@ -1,38 +1,27 @@
 package com.example.sistemaparagerenciamento.model;
 
 public class Pagamento {
-    private String tipopagamento;
+    private String tipoPagamento;
 
     private Double valor;
 
-    private Integer faturaid;
+    private Integer faturaId;
 
-    public Pagamento(Integer faturaid) {
-        this.faturaid = faturaid;
+    public Pagamento(String tipoPagamento, Double valor, Integer faturaId) {
+        this.tipoPagamento = tipoPagamento;
+        this.valor = valor;
+        this.faturaId = faturaId;
     }
 
-    public Integer getFaturaid() {
-        return faturaid;
-    }
-
-    public void setFaturaid(Integer faturaid) {
-        this.faturaid = faturaid;
-    }
-
-    public String getTipopagamento() {
-        return tipopagamento;
-    }
-
-    public void setTipopagamento(String tipopagamento) {
-        this.tipopagamento = tipopagamento;
+    public String getTipoPagamento() {
+        return tipoPagamento;
     }
 
     public Double getValor() {
         return valor;
     }
 
-    public void setValor(Double valor) {
-        this.valor = valor;
+    public Integer getFaturaId() {
+        return faturaId;
     }
-
 }

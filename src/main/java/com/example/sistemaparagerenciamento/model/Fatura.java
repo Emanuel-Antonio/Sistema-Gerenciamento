@@ -3,22 +3,22 @@ package com.example.sistemaparagerenciamento.model;
 import java.util.List;
 
 public class Fatura {
-    private Double valortotal;
+    private Double valorTotal;
 
     private List<Pagamento> pagamentos;
 
-    private Integer ordemid;
+    private Integer ordemId;
 
-    private Double valorpago;
+    private Double valorPago;
 
-    private Integer faturaid;
+    private Integer faturaId;
 
-    public Double getValortotal() {
-        return valortotal;
+    public Double getValorTotal() {
+        return valorTotal;
     }
 
-    public void setValortotal(Double valortotal) {
-        this.valortotal = valortotal;
+    public void setValorTotal(Double valorTotal) {
+        this.valorTotal = valorTotal;
     }
 
     public List<Pagamento> getPagamentos() {
@@ -29,27 +29,27 @@ public class Fatura {
         this.pagamentos = pagamentos;
     }
 
-    public Integer getOrdemid() {
-        return ordemid;
+    public Integer getOrdemId() {
+        return ordemId;
     }
 
-    public void setOrdemid(Integer ordemid) {
-        this.ordemid = ordemid;
+    public void setOrdemId(Integer ordemId) {
+        this.ordemId = ordemId;
     }
 
-    public Double getValorpago() {
-        return valorpago;
+    public Double getValorPago() {
+        return valorPago;
     }
 
-    public void setValorpago(Double valorpago) {
-        this.valorpago = valorpago;
+    public void setValorPago(Double valorPago) {
+        this.valorPago = valorPago;
     }
 
-    public Integer getFaturaid() {
-        return faturaid;
+    public Integer getFaturaId() {
+        return faturaId;
     }
 
-    public void setFaturaid(Integer faturaid) {
-        this.faturaid = faturaid;
+    public void setFaturaId(Integer faturaId) {
+        this.faturaId = faturaId;
     }
 }

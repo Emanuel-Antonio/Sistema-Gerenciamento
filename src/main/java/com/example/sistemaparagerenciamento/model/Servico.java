@@ -8,20 +8,20 @@ public class Servico {
 
     private Double valor;
 
-    private Calendar horarioabertura;
+    private Calendar horarioAbertura;
 
-    private Calendar horariofechamento;
+    private Calendar horarioFechamento;
 
-    private Double avaliacaocliente;
+    private Double avaliacaoCliente;
 
-    private Integer ordemid;
+    private Integer ordemId;
 
     private Peca peca;
 
     private String descricao;
 
     public Servico(Integer ordemid) {
-        this.ordemid = ordemid;
+        this.ordemId = ordemId;
     }
 
     public CategoriaServico getCategoria() {
@@ -40,36 +40,36 @@ public class Servico {
         this.valor = valor;
     }
 
-    public Calendar getHorarioabertura() {
-        return horarioabertura;
+    public Calendar getHorarioAbertura() {
+        return horarioAbertura;
     }
 
-    public void setHorarioabertura(Calendar horarioabertura) {
-        this.horarioabertura = horarioabertura;
+    public void setHorarioAbertura(Calendar horarioAbertura) {
+        this.horarioAbertura = horarioAbertura;
     }
 
-    public Calendar getHorariofechamento() {
-        return horariofechamento;
+    public Calendar getHorarioFechamento() {
+        return horarioFechamento;
     }
 
-    public void setHorariofechamento(Calendar horariofechamento) {
-        this.horariofechamento = horariofechamento;
+    public void setHorarioFechamento(Calendar horarioFechamento) {
+        this.horarioFechamento = horarioFechamento;
     }
 
-    public Double getAvaliacaocliente() {
-        return avaliacaocliente;
+    public Double getAvaliacaoCliente() {
+        return avaliacaoCliente;
     }
 
-    public void setAvaliacaocliente(Double avaliacaocliente) {
-        this.avaliacaocliente = avaliacaocliente;
+    public void setAvaliacaoCliente(Double avaliacaoCliente) {
+        this.avaliacaoCliente = avaliacaoCliente;
     }
 
-    public Integer getOrdemid() {
-        return ordemid;
+    public Integer getOrdemId() {
+        return ordemId;
     }
 
-    public void setOrdemid(Integer ordemid) {
-        this.ordemid = ordemid;
+    public void setOrdemId(Integer ordemId) {
+        this.ordemId = ordemId;
     }
 
     public Peca getPeca() {

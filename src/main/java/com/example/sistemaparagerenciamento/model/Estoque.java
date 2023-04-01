@@ -6,7 +6,7 @@ public class Estoque {
 
     private List<Peca> pecas;
 
-    private List<OrdemCompra> ordenscompra;
+    private List<OrdemCompra> ordensCompra;
 
     public Estoque() {
     }
@@ -19,11 +19,11 @@ public class Estoque {
         this.pecas = pecas;
     }
 
-    public List<OrdemCompra> getOrdenscompra() {
-        return ordenscompra;
+    public List<OrdemCompra> getOrdensCompra() {
+        return ordensCompra;
     }
 
-    public void setOrdenscompra(List<OrdemCompra> ordenscompra) {
-        this.ordenscompra = ordenscompra;
+    public void setOrdensCompra(List<OrdemCompra> ordensCompra) {
+        this.ordensCompra = ordensCompra;
     }
 }

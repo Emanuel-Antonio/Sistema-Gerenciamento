@@ -4,13 +4,13 @@ public class OrdemCompra {
 
     private Integer qnt;
 
-    private Double valorunitario;
+    private Double valorUnitario;
 
     private String nome;
 
-    public OrdemCompra(Integer qnt, Double valorunitario, String nome) {
+    public OrdemCompra(Integer qnt, Double valorUnitario, String nome) {
         this.qnt = qnt;
-        this.valorunitario = valorunitario;
+        this.valorUnitario = valorUnitario;
         this.nome = nome;
     }
 
@@ -22,12 +22,12 @@ public class OrdemCompra {
         this.qnt = qnt;
     }
 
-    public Double getValorunitario() {
-        return valorunitario;
+    public Double getValorUnitario() {
+        return valorUnitario;
     }
 
-    public void setValor(Double valorunitario) {
-        this.valorunitario = valorunitario;
+    public void setValorUnitario(Double valorUnitario) {
+        this.valorUnitario = valorUnitario;
     }
 
     public String getNome() {

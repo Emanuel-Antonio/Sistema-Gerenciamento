@@ -10,11 +10,11 @@ public class Tecnico {
 
     private String senha;
 
-    private Integer tecnicoid;
+    private Integer tecnicoId;
 
     private List<Ordem> ordens;
 
-    private List<OrdemCompra> carrinhocompras;
+    private List<OrdemCompra> carrinhoCompras;
 
     private Estoque estoque;
 
@@ -45,14 +45,6 @@ public class Tecnico {
         this.senha = senha;
     }
 
-    public Integer getTecnicoid() {
-        return tecnicoid;
-    }
-
-    public void setTecnicoid(Integer tecnicoid) {
-        this.tecnicoid = tecnicoid;
-    }
-
     public List<Ordem> getOrdens() {
         return ordens;
     }
@@ -61,19 +53,27 @@ public class Tecnico {
         this.ordens = ordens;
     }
 
-    public List<OrdemCompra> getCarrinhocompras() {
-        return carrinhocompras;
-    }
-
-    public void setCarrinhocompras(List<OrdemCompra> carrinhocompras) {
-        this.carrinhocompras = carrinhocompras;
-    }
-
     public Estoque getEstoque() {
         return estoque;
     }
 
     public void setEstoque(Estoque estoque) {
         this.estoque = estoque;
+    }
+
+    public Integer getTecnicoId() {
+        return tecnicoId;
+    }
+
+    public void setTecnicoId(Integer tecnicoId) {
+        this.tecnicoId = tecnicoId;
+    }
+
+    public List<OrdemCompra> getCarrinhoCompras() {
+        return carrinhoCompras;
+    }
+
+    public void setCarrinhoCompras(List<OrdemCompra> carrinhoCompras) {
+        this.carrinhoCompras = carrinhoCompras;
     }
 }

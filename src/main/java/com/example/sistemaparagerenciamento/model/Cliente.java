@@ -11,11 +11,11 @@ public class Cliente {
 
     private List<Ordem> ordem;
 
-    private Integer clienteid;
+    private Integer clienteId;
 
-    public Cliente(String nome, Integer clienteid) {
+    public Cliente(String nome, Integer clienteId) {
         this.nome = nome;
-        this.clienteid = clienteid;
+        this.clienteId = clienteId;
     }
 
     public String getNome() {
@@ -50,11 +50,11 @@ public class Cliente {
         this.ordem = ordem;
     }
 
-    public Integer getClienteid() {
-        return clienteid;
+    public Integer getClienteId() {
+        return clienteId;
     }
 
-    public void setClienteid(Integer clienteid) {
-        this.clienteid = clienteid;
+    public void setClienteId(Integer clienteId) {
+        this.clienteId = clienteId;
     }
 }
