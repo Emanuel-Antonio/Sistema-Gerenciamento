@@ -5,13 +5,13 @@ import com.example.sistemaparagerenciamento.model.Ordem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrdemListImpl {
+public class OrdemListImpl implements OrdemDAO {
 
     private int novoId;
 
     private List<Ordem> ordens;
 
-    public OrdemFileImpl() {
+    public OrdemListImpl() {
         this.novoId = 0;
         this.ordens = new ArrayList<Ordem>();
     }
@@ -48,4 +48,5 @@ public class OrdemListImpl {
             }
         }
     }
+
 }
