@@ -6,7 +6,7 @@ import com.example.sistemaparagerenciamento.model.Tecnico;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ControllerFileImpl implements Recepcao {
+public class RecepcaoFileImpl implements Recepcao {
 
     public List<Cliente> registroClientes;
 
@@ -16,7 +16,7 @@ public class ControllerFileImpl implements Recepcao {
 
     public List<Tecnico> registroTecnicos;
 
-    public ControllerFileImpl() {
+    public RecepcaoFileImpl() {
         this.registroClientes = new ArrayList<Cliente>();
         this.registroTecnicos = new ArrayList<Tecnico>();
         this.novoIdCliente = 0;
