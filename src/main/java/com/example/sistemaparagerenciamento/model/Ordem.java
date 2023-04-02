@@ -100,6 +100,14 @@ public class Ordem {
         if(this.fatura.getValorPago() == this.fatura.getValorTotal()){
             this.status = StatusOrdem.FECHADA;
         }
+        else {
+            this.status = StatusOrdem.PAGAMENTO;
+        }
     }
+
+    public void cancelarStatusOrdem(){
+        this.status = StatusOrdem.CANCELADA;
+    }
+
 }
 
