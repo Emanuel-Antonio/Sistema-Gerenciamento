@@ -13,12 +13,13 @@ public class Fatura {
 
     private Integer faturaId;
 
-    public Double getValorTotal() {
-        return valorTotal;
+    public Fatura(Double valorTotal, Integer ordemId) {
+        this.valorTotal = valorTotal;
+        this.ordemId = ordemId;
     }
 
-    public void setValorTotal(Double valorTotal) {
-        this.valorTotal = valorTotal;
+    public Double getValorTotal() {
+        return valorTotal;
     }
 
     public List<Pagamento> getPagamentos() {
@@ -31,10 +32,6 @@ public class Fatura {
 
     public Integer getOrdemId() {
         return ordemId;
-    }
-
-    public void setOrdemId(Integer ordemId) {
-        this.ordemId = ordemId;
     }
 
     public Double getValorPago() {
