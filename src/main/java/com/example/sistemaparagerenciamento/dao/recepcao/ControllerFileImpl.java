@@ -1,13 +1,12 @@
-package com.example.sistemaparagerenciamento.dao.controller;
+package com.example.sistemaparagerenciamento.dao.recepcao;
 
 import com.example.sistemaparagerenciamento.model.Cliente;
-import com.example.sistemaparagerenciamento.model.Controller;
 import com.example.sistemaparagerenciamento.model.Tecnico;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ControllerFileImpl {
+public class ControllerFileImpl implements Recepcao {
 
     public List<Cliente> registroClientes;
 

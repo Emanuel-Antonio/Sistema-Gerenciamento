@@ -2,7 +2,7 @@ package com.example.sistemaparagerenciamento.model;
 
 import java.util.List;
 
-public class Controller {
+public class Recepcao {
 
     private List<Tecnico> tecnicosCadastrados;
 
@@ -18,7 +18,7 @@ public class Controller {
 
     private Fatura fatura;
 
-    public Controller() {
+    public Recepcao() {
     }
 
     public List<Tecnico> getTecnicosCadastrados() {

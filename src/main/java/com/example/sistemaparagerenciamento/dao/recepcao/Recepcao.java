@@ -1,10 +1,9 @@
-package com.example.sistemaparagerenciamento.dao.controller;
+package com.example.sistemaparagerenciamento.dao.recepcao;
 
 import com.example.sistemaparagerenciamento.model.Cliente;
-import com.example.sistemaparagerenciamento.model.Controller;
 import com.example.sistemaparagerenciamento.model.Tecnico;
 
-public interface ControllerDAO {
+public interface Recepcao {
     public Cliente registrarCliente(Cliente cliente);
 
     public Cliente buscarClienteId(int id);
