@@ -25,6 +25,7 @@ public class Ordem {
         this.clienteId = clienteId;
         this.tecnicoId = tecnicoId;
         this.ordemId = ordemId;
+        this.status = StatusOrdem.ABERTA;
     }
 
     public List<Servico> getServico() {
@@ -81,6 +82,24 @@ public class Ordem {
 
     public void setAvaliacaoFinal(String avaliacaoFinal) {
         this.avaliacaoFinal = avaliacaoFinal;
+    }
+
+    public void gerarFatura(){
+
+    }
+
+    public void adicionarServico(){
+
+    }
+
+    public void removerServico(){
+
+    }
+
+    public void atualizarStatus(){
+        if(this.fatura.getValorPago() == this.fatura.getValorTotal()){
+            this.status = StatusOrdem.FECHADA;
+        }
     }
 }
 
