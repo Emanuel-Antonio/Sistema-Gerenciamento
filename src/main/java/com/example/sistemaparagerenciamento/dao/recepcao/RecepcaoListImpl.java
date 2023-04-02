@@ -6,7 +6,7 @@ import com.example.sistemaparagerenciamento.model.Tecnico;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecepcaoListImpl {
+public class RecepcaoListImpl implements RecepcaoDAO{
 
 
     public List<Cliente> registroClientes;
