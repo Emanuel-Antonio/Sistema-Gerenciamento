@@ -7,6 +7,4 @@ public interface CRUD <T> {
     public void atualizar(T obj);
     public void deletar(int id);
 
-    public void deleta(int id);
-
 }

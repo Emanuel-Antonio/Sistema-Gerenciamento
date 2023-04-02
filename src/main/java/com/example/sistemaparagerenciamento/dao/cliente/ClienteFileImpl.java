@@ -11,26 +11,13 @@ public class ClienteFileImpl implements ClienteDAO {
 
     private List<Cliente> clientes;
 
-    public ClienteFileImpl() {
-        this.novoId = 0;
-        this.clientes = new ArrayList<Cliente>();
-    }
-
     @Override
-    public Cliente criar(Cliente cliente) {
-        cliente.setClienteId(this.novoId);
-        this.novoId++;
-
-        this.clientes.add(cliente);
-
-        return cliente;
+    public Cliente criar(Cliente obj) {
+        return null;
     }
 
     @Override
     public Cliente buscarPorId(int id) {
-        for (Cliente cliente : this.clientes)
-            if(cliente.getClienteId() == id)
-                return cliente;
         return null;
     }
 
