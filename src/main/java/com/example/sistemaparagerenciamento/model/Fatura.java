@@ -49,4 +49,9 @@ public class Fatura {
     public void setFaturaId(Integer faturaId) {
         this.faturaId = faturaId;
     }
+
+    public void novoPagamento(String tipopagamento, Double valor, Integer faturaid){
+        this.pagamentos.add(new Pagamento(tipopagamento,valor,faturaid));
+        this.valorPago += valor;
+    }
 }
