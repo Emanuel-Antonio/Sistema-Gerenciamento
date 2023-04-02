@@ -2,7 +2,7 @@ package com.example.sistemaparagerenciamento.dao.tecnico;
 
 import com.example.sistemaparagerenciamento.model.Tecnico;
 
-public class TecnicoListImpl {
+public class TecnicoListImpl implements TecnicoDAO{
 
     @Override
     public Tecnico criar(Tecnico obj) {

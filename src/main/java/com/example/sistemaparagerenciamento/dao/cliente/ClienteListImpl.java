@@ -4,7 +4,7 @@ import com.example.sistemaparagerenciamento.model.Cliente;
 
 import java.util.List;
 
-public class ClienteListImpl {
+public class ClienteListImpl implements ClienteDAO{
 
     private int novoId;
 

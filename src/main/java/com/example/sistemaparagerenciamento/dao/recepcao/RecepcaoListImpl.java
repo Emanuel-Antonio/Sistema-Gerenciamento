@@ -17,7 +17,7 @@ public class RecepcaoListImpl {
 
     public List<Tecnico> registroTecnicos;
 
-    public RecepcaoFileImpl() {
+    public RecepcaoListImpl() {
         this.registroClientes = new ArrayList<Cliente>();
         this.registroTecnicos = new ArrayList<Tecnico>();
         this.novoIdCliente = 0;
