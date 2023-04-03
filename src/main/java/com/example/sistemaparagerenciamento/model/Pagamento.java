@@ -5,9 +5,9 @@ public class Pagamento {
 
     private Double valor;
 
-    private Integer faturaId;
+    private int faturaId;
 
-    public Pagamento(String tipoPagamento, Double valor, Integer faturaId) {
+    public Pagamento(String tipoPagamento, Double valor, int faturaId) {
         this.tipoPagamento = tipoPagamento;
         this.valor = valor;
         this.faturaId = faturaId;
@@ -22,7 +22,7 @@ public class Pagamento {
     }
 
 
-    public Integer getFaturaId() {
+    public int getFaturaId() {
         return faturaId;
     }
 

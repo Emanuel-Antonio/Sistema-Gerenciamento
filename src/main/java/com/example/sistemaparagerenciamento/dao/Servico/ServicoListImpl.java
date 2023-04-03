@@ -10,7 +10,7 @@ public class ServicoListImpl implements ServicoDAO {
     public List<Peca> pecas;
 
     public Peca peca;
-    private Integer ordemId;
+    private int ordemId;
 
     public ServicoListImpl() {
         this.pecas = new ArrayList<Peca>();

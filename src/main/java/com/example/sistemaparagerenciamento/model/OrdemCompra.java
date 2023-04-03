@@ -2,23 +2,23 @@ package com.example.sistemaparagerenciamento.model;
 
 public class OrdemCompra {
 
-    private Integer qnt;
+    private int qnt;
 
     private Double valorUnitario;
 
     private String nome;
 
-    public OrdemCompra(Integer qnt, Double valorUnitario, String nome) {
+    public OrdemCompra(int qnt, Double valorUnitario, String nome) {
         this.qnt = qnt;
         this.valorUnitario = valorUnitario;
         this.nome = nome;
     }
 
-    public Integer getQnt() {
+    public int getQnt() {
         return qnt;
     }
 
-    public void setQnt(Integer qnt) {
+    public void setQnt(int qnt) {
         this.qnt = qnt;
     }
 

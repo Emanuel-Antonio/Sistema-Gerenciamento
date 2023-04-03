@@ -11,7 +11,7 @@ public class TecnicoListImpl implements TecnicoDAO{
 
     private List<Tecnico> tecnicos;
 
-    private Integer novoId;
+    private int novoId;
 
     public TecnicoListImpl() {
         this.novoId = 0;
@@ -27,10 +27,11 @@ public class TecnicoListImpl implements TecnicoDAO{
     }
 
     @Override
-    public Tecnico buscarPorId(Integer id) {
-        for(Tecnico tecnico : this.tecnicos){
-            if(Objects.equals(tecnico.getTecnicoId(),id))
+    public Tecnico buscarPorId(int id) {
+        for (Tecnico tecnico : this.tecnicos) {
+            if (tecnico.getTecnicoId() == id) {
                 return tecnico;
+            }
         }
         return null;
     }
@@ -38,16 +39,16 @@ public class TecnicoListImpl implements TecnicoDAO{
     @Override
     public void atualizar(Tecnico tecnico) {
         for (int i = 0; i < this.tecnicos.size(); i++) {
-            if (this.tecnicos.get(i).equals(tecnico)) {
+            if (this.tecnicos.get(i).getTecnicoId() == tecnico.getTecnicoId()) {
                 this.tecnicos.set(i, tecnico);
             }
         }
     }
 
     @Override
-    public void deletar(Integer id) {
+    public void deletar(int id) {
         for (int i = 0; i < this.tecnicos.size(); i++) {
-            if (Objects.equals(this.tecnicos.get(i).getTecnicoId(),id)) {
+            if (this.tecnicos.get(i).getTecnicoId() == id) {
                 this.tecnicos.remove(i);
             }
         }

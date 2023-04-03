@@ -12,15 +12,15 @@ public class Ordem {
 
     private Fatura fatura;
 
-    private Integer clienteId;
+    private int clienteId;
 
-    private Integer tecnicoId;
+    private int tecnicoId;
 
-    private Integer ordemId;
+    private int ordemId;
 
     private String avaliacaoFinal;
 
-    public Ordem(List<Servico> servico, Integer clienteId, Integer tecnicoId, Integer ordemId) {
+    public Ordem(List<Servico> servico, int clienteId, int tecnicoId, int ordemId) {
         this.servico = servico;
         this.clienteId = clienteId;
         this.tecnicoId = tecnicoId;
@@ -52,27 +52,27 @@ public class Ordem {
         this.fatura = fatura;
     }
 
-    public Integer getClienteId() {
+    public int getClienteId() {
         return clienteId;
     }
 
-    public void setClienteId(Integer clienteId) {
+    public void setClienteId(int clienteId) {
         this.clienteId = clienteId;
     }
 
-    public Integer getTecnicoId() {
+    public int getTecnicoId() {
         return tecnicoId;
     }
 
-    public void setTecnicoId(Integer tecnicoId) {
+    public void setTecnicoId(int tecnicoId) {
         this.tecnicoId = tecnicoId;
     }
 
-    public Integer getOrdemId() {
+    public int getOrdemId() {
         return ordemId;
     }
 
-    public void setOrdemId(Integer ordemId) {
+    public void setOrdemId(int ordemId) {
         this.ordemId = ordemId;
     }
 

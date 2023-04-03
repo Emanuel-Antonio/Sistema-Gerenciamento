@@ -10,7 +10,7 @@ import java.util.spi.CalendarDataProvider;
 
 public class OrdemListImpl implements OrdemDAO {
 
-    private Integer novoId;
+    private int novoId;
 
     private List<Ordem> ordens;
 
@@ -33,7 +33,7 @@ public class OrdemListImpl implements OrdemDAO {
     }
 
     @Override
-    public Ordem buscarPorId(Integer id) {
+    public Ordem buscarPorId(int id) {
         for(Ordem ordem : this.ordens){
             if(ordem.getOrdemId() == id)
                 return ordem;
@@ -74,7 +74,7 @@ public class OrdemListImpl implements OrdemDAO {
     }
 
     @Override
-    public void deletar(Integer id) {
+    public void deletar(int id) {
         for (int i = 0; i < this.ordens.size(); i++) {
             if (this.ordens.get(i).getOrdemId() == id) {
                 this.ordens.remove(i);

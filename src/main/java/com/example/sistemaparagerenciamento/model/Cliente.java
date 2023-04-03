@@ -12,9 +12,9 @@ public class Cliente {
 
     private List<Ordem> ordem;
 
-    private Integer clienteId;
+    private int clienteId;
 
-    public Cliente(String nome, Integer clienteId) {
+    public Cliente(String nome, int clienteId) {
         this.nome = nome;
         this.clienteId = clienteId;
     }
@@ -51,11 +51,11 @@ public class Cliente {
         this.ordem = ordem;
     }
 
-    public Integer getClienteId() {
+    public int getClienteId() {
         return clienteId;
     }
 
-    public void setClienteId(Integer clienteId) {
+    public void setClienteId(int clienteId) {
         this.clienteId = clienteId;
     }
 
@@ -63,7 +63,7 @@ public class Cliente {
     public boolean equals(Object obj) {
         if(obj instanceof Cliente){
             Cliente c = (Cliente) obj;
-            if(Objects.equals(c.getClienteId(), this.clienteId)){
+            if(c.getClienteId() == this.clienteId){
                 return true;
             }
         }

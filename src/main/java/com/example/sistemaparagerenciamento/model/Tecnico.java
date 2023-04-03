@@ -11,7 +11,7 @@ public class Tecnico {
 
     private String senha;
 
-    private Integer tecnicoId;
+    private int tecnicoId;
 
     private List<Ordem> ordens;
 
@@ -72,11 +72,11 @@ public class Tecnico {
         this.estoque = estoque;
     }
 
-    public Integer getTecnicoId() {
+    public int getTecnicoId() {
         return tecnicoId;
     }
 
-    public void setTecnicoId(Integer tecnicoId) {
+    public void setTecnicoId(int tecnicoId) {
         this.tecnicoId = tecnicoId;
     }
 
@@ -92,7 +92,7 @@ public class Tecnico {
     public boolean equals(Object obj) {
         if(obj instanceof Tecnico){
             Tecnico t = (Tecnico) obj;
-            if(Objects.equals(t.tecnicoId, this.tecnicoId)){
+            if(t.tecnicoId == this.tecnicoId){
                 return true;
             }
         }

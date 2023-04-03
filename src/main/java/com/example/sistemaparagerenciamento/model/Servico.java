@@ -15,13 +15,13 @@ public class Servico {
 
     private Double avaliacaoCliente;
 
-    private Integer ordemId;
+    private int ordemId;
 
     private Peca peca;
 
     private String descricao;
 
-    public Servico(Integer ordemId) {
+    public Servico(int ordemId) {
         this.ordemId = ordemId;
     }
 
@@ -65,11 +65,11 @@ public class Servico {
         this.avaliacaoCliente = avaliacaoCliente;
     }
 
-    public Integer getOrdemId() {
+    public int getOrdemId() {
         return ordemId;
     }
 
-    public void setOrdemId(Integer ordemId) {
+    public void setOrdemId(int ordemId) {
         this.ordemId = ordemId;
     }
 

@@ -12,7 +12,7 @@ public class FaturaListImpl implements FaturaDAO {
 
     public Fatura fatura;
 
-    public Integer novoId;
+    public int novoId;
 
     public Pagamento pagamento;
 
@@ -30,7 +30,7 @@ public class FaturaListImpl implements FaturaDAO {
     }
 
     @Override
-    public Fatura buscarPorId(Integer id) {
+    public Fatura buscarPorId(int id) {
         return null;
     }
 
@@ -40,7 +40,7 @@ public class FaturaListImpl implements FaturaDAO {
     }
 
     @Override
-    public void deletar(Integer id) {
+    public void deletar(int id) {
 
     }
 

@@ -8,7 +8,7 @@ import java.util.Objects;
 
 public class ClienteListImpl implements ClienteDAO{
 
-    private Integer novoId;
+    private int novoId;
 
     private List<Cliente> clientes;
 
@@ -26,9 +26,9 @@ public class ClienteListImpl implements ClienteDAO{
     }
 
     @Override
-    public Cliente buscarPorId(Integer id) {
+    public Cliente buscarPorId(int id) {
         for(Cliente cliente : this.clientes){
-            if(Objects.equals(cliente.getClienteId(), id)){
+            if(cliente.getClienteId() == id){
                 return cliente;
             }
         }
@@ -38,16 +38,16 @@ public class ClienteListImpl implements ClienteDAO{
     @Override
     public void atualizar(Cliente cliente) {
         for(int i = 0; i < this.clientes.size(); i++){
-            if(this.clientes.get(i).equals(cliente)){
+            if(this.clientes.get(i).getClienteId() == cliente.getClienteId()){
                 this.clientes.set(i,cliente);
             }
         }
     }
 
     @Override
-    public void deletar(Integer id) {
+    public void deletar(int id) {
         for (int i = 0; i < this.clientes.size(); i++) {
-            if (Objects.equals(this.clientes.get(i).getClienteId(), id)) {
+            if (this.clientes.get(i).getClienteId() == id) {
                 this.clientes.remove(i);
             }
         }

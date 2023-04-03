@@ -7,13 +7,13 @@ public class Fatura {
 
     private List<Pagamento> pagamentos;
 
-    private Integer ordemId;
+    private int ordemId;
 
     private Double valorPago;
 
-    private Integer faturaId;
+    private int faturaId;
 
-    public Fatura(Double valorTotal, Integer ordemId) {
+    public Fatura(Double valorTotal, int ordemId) {
         this.valorTotal = valorTotal;
         this.ordemId = ordemId;
         this.valorPago = 0.0;
@@ -31,7 +31,7 @@ public class Fatura {
         this.pagamentos = pagamentos;
     }
 
-    public Integer getOrdemId() {
+    public int getOrdemId() {
         return ordemId;
     }
 
@@ -43,11 +43,11 @@ public class Fatura {
         this.valorPago += valorPago;
     }
 
-    public Integer getFaturaId() {
+    public int getFaturaId() {
         return faturaId;
     }
 
-    public void setFaturaId(Integer faturaId) {
+    public void setFaturaId(int faturaId) {
         this.faturaId = faturaId;
     }
 
