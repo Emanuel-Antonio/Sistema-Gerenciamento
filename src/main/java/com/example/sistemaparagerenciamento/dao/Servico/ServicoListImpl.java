@@ -18,7 +18,11 @@ public class ServicoListImpl implements ServicoDAO {
 
     @Override
     public void removerPecaDoServico(Peca peca) {
-        this.pecas.remove(peca);
+        for(Peca item : this.pecas){
+            if(item.getNome() == peca.getNome())
+                this.pecas.remove(peca);
+        }
+
 
     }
 
