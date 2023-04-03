@@ -1,6 +1,7 @@
 package com.example.sistemaparagerenciamento.model;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Tecnico {
 
@@ -17,6 +18,16 @@ public class Tecnico {
     private List<OrdemCompra> carrinhoCompras;
 
     private Estoque estoque;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    private String email;
 
     public Tecnico() {
     }
@@ -75,5 +86,21 @@ public class Tecnico {
 
     public void setCarrinhoCompras(List<OrdemCompra> carrinhoCompras) {
         this.carrinhoCompras = carrinhoCompras;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof Tecnico){
+            Tecnico t = (Tecnico) obj;
+            if(Objects.equals(t.tecnicoId, this.tecnicoId)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Nome: " + this.getNome() + "\n" + "Email: " + this.getEmail() + "\n" + "Id:" + this.getTecnicoId() + "\n" + "Administrador:" + this.isAdm();
     }
 }
