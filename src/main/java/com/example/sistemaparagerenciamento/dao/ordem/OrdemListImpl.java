@@ -4,7 +4,9 @@ import com.example.sistemaparagerenciamento.model.Ordem;
 import com.example.sistemaparagerenciamento.model.Servico;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.spi.CalendarDataProvider;
 
 public class OrdemListImpl implements OrdemDAO {
 
@@ -41,6 +43,11 @@ public class OrdemListImpl implements OrdemDAO {
 
     @Override
     public Servico adicionarServico(Servico servico) {
+        for(Servico i : this.servicos){
+            if(i.getHorarioAbertura().equals(servico.getHorarioAbertura())){
+                return servico;
+            }
+        }
         this.servicos.add(servico);
 
         return servico;
@@ -48,11 +55,12 @@ public class OrdemListImpl implements OrdemDAO {
 
     @Override
     public Boolean removerServico(Servico servico) {
-        for(Servico i : this.servicos)
-            if(i.getHorarioAbertura() == servico.getHorarioAbertura()){
+        for(Servico i : this.servicos) {
+            if (i.getHorarioAbertura().equals(servico.getHorarioAbertura())) {
                 this.servicos.remove(servico);
                 return true;
             }
+        }
         return false;
     }
 
