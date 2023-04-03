@@ -12,15 +12,21 @@ public class FaturaListImpl implements FaturaDAO {
 
     public Fatura fatura;
 
+    public int novoId;
+
     public Pagamento pagamento;
 
     public FaturaListImpl() {
         this.pagamentos = new ArrayList<Pagamento>();
+        this.novoId = 0;
     }
 
     @Override
     public Fatura criar(Fatura obj) {
-        return null;
+        this.fatura.setFaturaId(this.novoId);
+        this.novoId++;
+
+        return fatura;
     }
 
     @Override
@@ -38,14 +44,12 @@ public class FaturaListImpl implements FaturaDAO {
 
     }
 
-
     @Override
     public Pagamento novoPagamento(Pagamento pagamento) {
-        if(this.fatura.getValorTotal() != this.fatura.getValorPago(0.0))
+        if(this.fatura.getValorTotal() >= (this.fatura.getValorPago() + pagamento.getValor()))
             this.pagamentos.add(pagamento);
 
-            this.fatura.getValorPago(pagamento.getValor());
-
+            this.fatura.setValorPago(pagamento.getValor());
 
         return pagamento;
     }

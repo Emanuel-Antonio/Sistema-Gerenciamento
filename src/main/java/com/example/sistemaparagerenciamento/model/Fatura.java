@@ -35,13 +35,12 @@ public class Fatura {
         return ordemId;
     }
 
-    public Double getValorPago(Double valorPago) {
-        this.valorPago += valorPago;
+    public Double getValorPago() {
         return valorPago;
     }
 
     public void setValorPago(Double valorPago) {
-        this.valorPago = valorPago;
+        this.valorPago += valorPago;
     }
 
     public Integer getFaturaId() {
