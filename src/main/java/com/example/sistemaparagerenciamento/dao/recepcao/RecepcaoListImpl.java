@@ -41,10 +41,4 @@ public class RecepcaoListImpl implements RecepcaoDAO{
         return tecnico;
     }
 
-    public Tecnico buscarTecnicoId(int id) {
-        for (Tecnico tecnico : registroTecnicos)
-            if(tecnico.getTecnicoId() == id)
-                return tecnico;
-        return null;
-    }
 }

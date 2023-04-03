@@ -6,5 +6,5 @@ import com.example.sistemaparagerenciamento.model.Pagamento;
 
 public interface FaturaDAO extends CRUD<Fatura> {
 
-    public Pagamento novoPagamento(Pagamento pagamento);
+    public Boolean novoPagamento(Pagamento pagamento);
 }
