@@ -6,7 +6,7 @@ import com.example.sistemaparagerenciamento.model.Servico;
 
 public interface ServicoDAO {
 
-    public Boolean removerPecaDoServico(Peca peca);
+    public void removerPecaDoServico(Peca peca);
 
     public Peca adicionarPecaAoServico(Peca peca);
 }

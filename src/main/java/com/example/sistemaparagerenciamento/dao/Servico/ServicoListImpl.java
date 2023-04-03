@@ -1,7 +1,6 @@
 package com.example.sistemaparagerenciamento.dao.Servico;
 
 import com.example.sistemaparagerenciamento.model.Peca;
-import com.example.sistemaparagerenciamento.model.Servico;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +17,9 @@ public class ServicoListImpl implements ServicoDAO {
     }
 
     @Override
-    public Boolean removerPecaDoServico(Peca peca) {
+    public void removerPecaDoServico(Peca peca) {
         this.pecas.remove(peca);
 
-        return null;
     }
 
     @Override
