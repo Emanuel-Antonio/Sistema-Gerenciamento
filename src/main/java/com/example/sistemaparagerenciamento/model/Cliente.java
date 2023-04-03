@@ -1,6 +1,7 @@
 package com.example.sistemaparagerenciamento.model;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Cliente {
     private String nome;
@@ -60,11 +61,19 @@ public class Cliente {
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if(obj instanceof Cliente){
+            Cliente c = (Cliente) obj;
+            if(Objects.equals(c.getClienteId(), this.clienteId)){
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Nome: " + this.getNome() + "Id: " + this.getClienteId() + "Endereço: " +
+                this.getEndereco() + "Telefone: " + this.getTelefone() + "Ordem: " + this.getOrdem();
+
     }
 }

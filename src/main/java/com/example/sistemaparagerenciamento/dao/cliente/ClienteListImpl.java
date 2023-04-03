@@ -4,6 +4,7 @@ import com.example.sistemaparagerenciamento.model.Cliente;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ClienteListImpl implements ClienteDAO{
 
@@ -27,7 +28,7 @@ public class ClienteListImpl implements ClienteDAO{
     @Override
     public Cliente buscarPorId(Integer id) {
         for(Cliente cliente : this.clientes){
-            if(cliente.getClienteId() == id){
+            if(Objects.equals(cliente.getClienteId(), id)){
                 return cliente;
             }
         }
@@ -37,7 +38,7 @@ public class ClienteListImpl implements ClienteDAO{
     @Override
     public void atualizar(Cliente cliente) {
         for(int i = 0; i < this.clientes.size(); i++){
-            if(this.clientes.get(i).getClienteId() == cliente.getClienteId()){
+            if(this.clientes.get(i).equals(cliente)){
                 this.clientes.set(i,cliente);
             }
         }
@@ -46,7 +47,7 @@ public class ClienteListImpl implements ClienteDAO{
     @Override
     public void deletar(Integer id) {
         for (int i = 0; i < this.clientes.size(); i++) {
-            if (this.clientes.get(i).getClienteId() == id) {
+            if (Objects.equals(this.clientes.get(i).getClienteId(), id)) {
                 this.clientes.remove(i);
             }
         }
