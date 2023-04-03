@@ -93,13 +93,16 @@ public class Servico {
     public boolean equals(Object obj) {
         if(obj instanceof Servico){
             Servico s = (Servico) obj;
-            return Objects.equals(s.ordemId, this.ordemId) && s.horarioAbertura.equals(this.horarioAbertura) && s.descricao.equals(this.descricao);
+            return s.getHorarioAbertura().equals(this.horarioAbertura);
         }
         return false;
     }
 
     @Override
     public String toString() {
-        return "Descrição: " + this.getDescricao() + "\n" + "Categoria: " + this.getCategoria() + this.get
-    }
+        return "Descrição: " + this.getDescricao() + "\n" + "Categoria: " +
+                this.getCategoria() + "Valor: " + this.getValor() + "Ordem: " + this.getOrdemId()
+                + "Inicio: " + this.getHorarioAbertura() + "Fim: " + this.getHorarioFechamento()
+                + "Avaliação: " + this.getAvaliacaoCliente() + "Peca: " + this.getPeca();
+     }
 }
