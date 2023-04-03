@@ -5,7 +5,7 @@ import com.example.sistemaparagerenciamento.model.Cliente;
 import com.example.sistemaparagerenciamento.model.Recepcao;
 import com.example.sistemaparagerenciamento.model.Tecnico;
 
-public interface RecepcaoDAO extends CRUD<Recepcao> {
+public interface RecepcaoDAO {
     public Cliente registrarCliente(Cliente cliente);
 
     public Tecnico registrarTecnico(Tecnico tecnico);
