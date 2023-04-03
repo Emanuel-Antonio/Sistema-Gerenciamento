@@ -37,4 +37,14 @@ public class OrdemCompra {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

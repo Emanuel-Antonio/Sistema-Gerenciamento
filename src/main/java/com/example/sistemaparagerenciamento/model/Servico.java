@@ -1,6 +1,7 @@
 package com.example.sistemaparagerenciamento.model;
 
 import java.util.Calendar;
+import java.util.Objects;
 
 public class Servico {
 
@@ -20,7 +21,7 @@ public class Servico {
 
     private String descricao;
 
-    public Servico(Integer ordemid) {
+    public Servico(Integer ordemId) {
         this.ordemId = ordemId;
     }
 
@@ -88,4 +89,17 @@ public class Servico {
         this.descricao = descricao;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof Servico){
+            Servico s = (Servico) obj;
+            return Objects.equals(s.ordemId, this.ordemId) && s.horarioAbertura.equals(this.horarioAbertura) && s.descricao.equals(this.descricao);
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Descrição: " + this.getDescricao() + "\n" + "Categoria: " + this.getCategoria() + this.get
+    }
 }

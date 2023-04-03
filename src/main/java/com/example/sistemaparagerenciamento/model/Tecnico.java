@@ -101,6 +101,6 @@ public class Tecnico {
 
     @Override
     public String toString() {
-        return "Nome: " + this.getNome() + "\n" + "Email: " + this.getEmail() + "\n" + "Id:" + this.getTecnicoId() + "\n" + "Administrador:" + this.isAdm();
+        return "Nome: " + this.getNome() + "\n" + "Email: " + this.getEmail() + "\n" + "Id: " + this.getTecnicoId() + "\n" + "Administrador: " + this.isAdm();
     }
 }

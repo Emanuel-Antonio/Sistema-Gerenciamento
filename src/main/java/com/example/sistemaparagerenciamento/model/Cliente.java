@@ -57,4 +57,14 @@ public class Cliente {
     public void setClienteId(Integer clienteId) {
         this.clienteId = clienteId;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

@@ -5,12 +5,13 @@ import com.example.sistemaparagerenciamento.model.Tecnico;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class TecnicoListImpl implements TecnicoDAO{
 
     private List<Tecnico> tecnicos;
 
-    private int novoId;
+    private Integer novoId;
 
     public TecnicoListImpl() {
         this.novoId = 0;
@@ -26,9 +27,9 @@ public class TecnicoListImpl implements TecnicoDAO{
     }
 
     @Override
-    public Tecnico buscarPorId(int id) {
+    public Tecnico buscarPorId(Integer id) {
         for(Tecnico tecnico : this.tecnicos){
-            if(tecnico.getTecnicoId() == id)
+            if(Objects.equals(tecnico.getTecnicoId(),id))
                 return tecnico;
         }
         return null;
@@ -37,16 +38,16 @@ public class TecnicoListImpl implements TecnicoDAO{
     @Override
     public void atualizar(Tecnico tecnico) {
         for (int i = 0; i < this.tecnicos.size(); i++) {
-            if (this.tecnicos.get(i).getTecnicoId() == tecnico.getTecnicoId()) {
+            if (this.tecnicos.get(i).equals(tecnico)) {
                 this.tecnicos.set(i, tecnico);
             }
         }
     }
 
     @Override
-    public void deletar(int id) {
+    public void deletar(Integer id) {
         for (int i = 0; i < this.tecnicos.size(); i++) {
-            if (this.tecnicos.get(i).getTecnicoId() == id) {
+            if (Objects.equals(this.tecnicos.get(i).getTecnicoId(),id)) {
                 this.tecnicos.remove(i);
             }
         }

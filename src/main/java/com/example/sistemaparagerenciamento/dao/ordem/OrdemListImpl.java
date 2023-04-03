@@ -8,7 +8,7 @@ import java.util.List;
 
 public class OrdemListImpl implements OrdemDAO {
 
-    private int novoId;
+    private Integer novoId;
 
     private List<Ordem> ordens;
 
@@ -31,7 +31,7 @@ public class OrdemListImpl implements OrdemDAO {
     }
 
     @Override
-    public Ordem buscarPorId(int id) {
+    public Ordem buscarPorId(Integer id) {
         for(Ordem ordem : this.ordens){
             if(ordem.getOrdemId() == id)
                 return ordem;
@@ -66,7 +66,7 @@ public class OrdemListImpl implements OrdemDAO {
     }
 
     @Override
-    public void deletar(int id) {
+    public void deletar(Integer id) {
         for (int i = 0; i < this.ordens.size(); i++) {
             if (this.ordens.get(i).getOrdemId() == id) {
                 this.ordens.remove(i);

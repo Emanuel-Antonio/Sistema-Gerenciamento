@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ClienteListImpl implements ClienteDAO{
 
-    private int novoId;
+    private Integer novoId;
 
     private List<Cliente> clientes;
 
@@ -25,7 +25,7 @@ public class ClienteListImpl implements ClienteDAO{
     }
 
     @Override
-    public Cliente buscarPorId(int id) {
+    public Cliente buscarPorId(Integer id) {
         for(Cliente cliente : this.clientes){
             if(cliente.getClienteId() == id){
                 return cliente;
@@ -44,7 +44,7 @@ public class ClienteListImpl implements ClienteDAO{
     }
 
     @Override
-    public void deletar(int id) {
+    public void deletar(Integer id) {
         for (int i = 0; i < this.clientes.size(); i++) {
             if (this.clientes.get(i).getClienteId() == id) {
                 this.clientes.remove(i);

@@ -21,7 +21,18 @@ public class Pagamento {
         return valor;
     }
 
+
     public Integer getFaturaId() {
         return faturaId;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }
