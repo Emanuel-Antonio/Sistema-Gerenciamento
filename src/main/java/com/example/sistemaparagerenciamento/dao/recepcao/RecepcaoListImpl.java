@@ -33,13 +33,6 @@ public class RecepcaoListImpl implements RecepcaoDAO{
         return cliente;
     }
 
-    public Cliente buscarClienteId(int id) {
-        for (Cliente cliente : registroClientes)
-            if(cliente.getClienteId() == id)
-                return cliente;
-        return null;
-    }
-
     public Tecnico registrarTecnico(Tecnico tecnico){
         tecnico.setTecnicoId(this.novoIdTecnico);
         this.novoIdTecnico++;

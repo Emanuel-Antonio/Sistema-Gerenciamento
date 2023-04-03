@@ -36,17 +36,20 @@ public class OrdemListImpl implements OrdemDAO {
     }
 
     @Override
-    public void atualizar(Ordem obj) {
-
-    }
-
-    @Override
-    public void deletar(int id) {
-        for(Ordem ordem : this.ordens){
-            if(ordem.getOrdemId() == id){
-                ordens.remove(id);
+    public void atualizar(Ordem ordem) {
+        for (int i = 0; i < this.ordens.size(); i++) {
+            if (this.ordens.get(i).getOrdemId() == ordem.getOrdemId()) {
+                this.ordens.set(i, ordem);
             }
         }
     }
 
+    @Override
+    public void deletar(int id) {
+        for (int i = 0; i < this.ordens.size(); i++) {
+            if (this.ordens.get(i).getOrdemId() == id) {
+                this.ordens.remove(i);
+            }
+        }
+    }
 }
