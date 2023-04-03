@@ -16,6 +16,7 @@ public class Fatura {
     public Fatura(Double valorTotal, Integer ordemId) {
         this.valorTotal = valorTotal;
         this.ordemId = ordemId;
+        this.valorPago = 0.0;
     }
 
     public Double getValorTotal() {
@@ -34,7 +35,8 @@ public class Fatura {
         return ordemId;
     }
 
-    public Double getValorPago() {
+    public Double getValorPago(Double valorPago) {
+        this.valorPago += valorPago;
         return valorPago;
     }
 
