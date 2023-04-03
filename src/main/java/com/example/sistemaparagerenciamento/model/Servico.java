@@ -88,17 +88,4 @@ public class Servico {
         this.descricao = descricao;
     }
 
-    public boolean removerPecaDoServico(){
-        if(this.peca != null){
-            this.valor -= this.peca.getValor();
-            this.peca = null;
-        }
-        return true;
-    }
-
-    public boolean adicionarPecaAoServico(String nome, Double valor){
-
-        this.peca = new Peca(nome,valor);
-        return true;
-    }
 }

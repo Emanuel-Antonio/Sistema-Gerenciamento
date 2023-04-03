@@ -50,12 +50,4 @@ public class Fatura {
         this.faturaId = faturaId;
     }
 
-    public boolean novoPagamento(String tipopagamento, Double valor, Integer faturaid) {
-        if (this.valorTotal - valor >= 0) {
-            this.pagamentos.add(new Pagamento(tipopagamento, valor, faturaid));
-            this.valorPago += valor;
-            return true;
-        }
-        return false;
-    }
 }
