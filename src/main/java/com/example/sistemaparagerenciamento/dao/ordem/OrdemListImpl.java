@@ -1,6 +1,7 @@
 package com.example.sistemaparagerenciamento.dao.ordem;
 
 import com.example.sistemaparagerenciamento.model.Ordem;
+import com.example.sistemaparagerenciamento.model.Servico;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +12,12 @@ public class OrdemListImpl implements OrdemDAO {
 
     private List<Ordem> ordens;
 
+    private List<Servico> servicos;
+
     public OrdemListImpl() {
         this.novoId = 0;
         this.ordens = new ArrayList<Ordem>();
+        this.servicos = new ArrayList<Servico>();
     }
 
     @Override
@@ -33,6 +37,23 @@ public class OrdemListImpl implements OrdemDAO {
                 return ordem;
         }
         return null;
+    }
+
+    @Override
+    public Servico adicionarServico(Servico servico) {
+        this.servicos.add(servico);
+
+        return servico;
+    }
+
+    @Override
+    public Boolean removerServico(Servico servico) {
+        for(Servico i : this.servicos)
+            if(i.getHorarioAbertura() == servico.getHorarioAbertura()){
+                this.servicos.remove(servico);
+                return true;
+            }
+        return false;
     }
 
     @Override
