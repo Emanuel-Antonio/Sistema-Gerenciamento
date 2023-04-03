@@ -73,7 +73,7 @@ public class Cliente {
     @Override
     public String toString() {
         return "Nome: " + this.getNome() + "Id: " + this.getClienteId() + "Endereço: " +
-                this.getEndereco() + "Telefone: " + this.getTelefone() + "Ordem: " + this.getOrdem();
+                this.getEndereco() + "Telefone: " + this.getTelefone();
 
     }
 }
