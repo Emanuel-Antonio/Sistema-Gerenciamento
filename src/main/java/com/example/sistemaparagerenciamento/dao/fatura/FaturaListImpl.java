@@ -12,36 +12,8 @@ public class FaturaListImpl implements FaturaDAO {
 
     public Fatura fatura;
 
-    public int novoId;
-
-    public Pagamento pagamento;
-
     public FaturaListImpl() {
         this.pagamentos = new ArrayList<Pagamento>();
-        this.novoId = 0;
-    }
-
-    @Override
-    public Fatura criar(Fatura obj) {
-        this.fatura.setFaturaId(this.novoId);
-        this.novoId++;
-
-        return fatura;
-    }
-
-    @Override
-    public Fatura buscarPorId(int id) {
-        return null;
-    }
-
-    @Override
-    public void atualizar(Fatura obj) {
-
-    }
-
-    @Override
-    public void deletar(int id) {
-
     }
 
     @Override

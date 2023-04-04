@@ -21,7 +21,11 @@ public class Peca {
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if(obj instanceof Peca){
+            Peca p = (Peca) obj;
+            return p.getNome().equals(this.getNome());
+        }
+        return false;
     }
     @Override
     public String toString() {

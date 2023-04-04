@@ -1,11 +1,9 @@
 package com.example.sistemaparagerenciamento.dao.tecnico;
 
-import com.example.sistemaparagerenciamento.model.Ordem;
 import com.example.sistemaparagerenciamento.model.Tecnico;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class TecnicoListImpl implements TecnicoDAO{
 
@@ -29,7 +27,7 @@ public class TecnicoListImpl implements TecnicoDAO{
     @Override
     public Tecnico buscarPorId(int id) {
         for (Tecnico tecnico : this.tecnicos) {
-            if (tecnico.getTecnicoId() == id) {
+            if (tecnico.equals(id)) {
                 return tecnico;
             }
         }

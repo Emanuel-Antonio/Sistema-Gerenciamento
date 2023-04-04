@@ -1,12 +1,11 @@
 package com.example.sistemaparagerenciamento.dao.ordem;
 
+import com.example.sistemaparagerenciamento.model.Fatura;
 import com.example.sistemaparagerenciamento.model.Ordem;
 import com.example.sistemaparagerenciamento.model.Servico;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
-import java.util.spi.CalendarDataProvider;
 
 public class OrdemListImpl implements OrdemDAO {
 
@@ -15,6 +14,7 @@ public class OrdemListImpl implements OrdemDAO {
     private List<Ordem> ordens;
 
     private List<Servico> servicos;
+
 
     public OrdemListImpl() {
         this.novoId = 0;
@@ -35,7 +35,7 @@ public class OrdemListImpl implements OrdemDAO {
     @Override
     public Ordem buscarPorId(int id) {
         for(Ordem ordem : this.ordens){
-            if(ordem.getOrdemId() == id)
+            if(ordem.equals(id))
                 return ordem;
         }
         return null;
@@ -44,7 +44,7 @@ public class OrdemListImpl implements OrdemDAO {
     @Override
     public Servico adicionarServico(Servico servico) {
         for(Servico i : this.servicos){
-            if(i.getHorarioAbertura().equals(servico.getHorarioAbertura())){
+            if(i.equals(servico)){
                 return servico;
             }
         }
@@ -55,9 +55,9 @@ public class OrdemListImpl implements OrdemDAO {
 
     @Override
     public Boolean removerServico(Servico servico) {
-        for(Servico i : this.servicos) {
-            if (i.getHorarioAbertura().equals(servico.getHorarioAbertura())) {
-                this.servicos.remove(servico);
+        for(int i = 0;i < this.servicos.size(); i++) {
+            if (this.servicos.get(i).equals(servico)) {
+                this.servicos.remove(i);
                 return true;
             }
         }
@@ -67,7 +67,7 @@ public class OrdemListImpl implements OrdemDAO {
     @Override
     public void atualizar(Ordem ordem) {
         for (int i = 0; i < this.ordens.size(); i++) {
-            if (this.ordens.get(i).getOrdemId() == ordem.getOrdemId()) {
+            if (this.ordens.get(i).equals(ordem)) {
                 this.ordens.set(i, ordem);
             }
         }

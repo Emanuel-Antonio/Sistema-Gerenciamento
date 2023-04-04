@@ -1,7 +1,5 @@
 package com.example.sistemaparagerenciamento.model;
 
-import com.example.sistemaparagerenciamento.model.StatusOrdem;
-
 import java.util.List;
 
 public class Ordem {
@@ -86,12 +84,50 @@ public class Ordem {
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if(obj instanceof Ordem){
+            Ordem o = (Ordem) obj;
+            if(o.getOrdemId()==this.ordemId)
+                return true;
+        }
+        return false;
     }
 
     @Override
     public String toString() {
         return super.toString();
     }
+
+    public Fatura gerarFatura(Double valorTotal, int ordemId) {
+        Fatura fatura = new Fatura(valorTotal, ordemId);
+
+        return fatura;
+    }
+
+    public Boolean atualizarStatusPagamento(Ordem ordem){
+        if(ordem.getStatus() == StatusOrdem.ABERTA && fatura.getValorPago() < fatura.getValorTotal()) {
+            ordem.setStatus(StatusOrdem.PAGAMENTO);
+            return true;
+        }
+        return false;
+    }
+
+    public Boolean atualizarStatusFechada(Ordem ordem){
+        if(ordem.getStatus() == StatusOrdem.PAGAMENTO || ordem.getStatus() == StatusOrdem.ABERTA && fatura.getValorPago() == fatura.getValorTotal()){
+            ordem.setStatus(StatusOrdem.FECHADA);
+            return true;
+        }
+        return false;
+    }
+
+    public Boolean atualizarStatusCancelada(Ordem ordem){
+        if(ordem.getStatus() == StatusOrdem.ABERTA){
+            ordem.setStatus(StatusOrdem.CANCELADA);
+            return true;
+        }
+        return false;
+    }
+
+
+
 }
 

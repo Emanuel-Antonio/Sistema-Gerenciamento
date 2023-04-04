@@ -11,8 +11,6 @@ public class Fatura {
 
     private Double valorPago;
 
-    private int faturaId;
-
     public Fatura(Double valorTotal, int ordemId) {
         this.valorTotal = valorTotal;
         this.ordemId = ordemId;
@@ -43,14 +41,6 @@ public class Fatura {
         this.valorPago += valorPago;
     }
 
-    public int getFaturaId() {
-        return faturaId;
-    }
-
-    public void setFaturaId(int faturaId) {
-        this.faturaId = faturaId;
-    }
-
     @Override
     public boolean equals(Object obj) {
         return super.equals(obj);
@@ -60,4 +50,5 @@ public class Fatura {
     public String toString() {
         return super.toString();
     }
+
 }
