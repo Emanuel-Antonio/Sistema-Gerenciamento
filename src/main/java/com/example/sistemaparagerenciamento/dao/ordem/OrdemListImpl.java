@@ -41,7 +41,7 @@ public class OrdemListImpl implements OrdemDAO {
         return null;
     }
 
-    @Override
+    /*@Override
     public Servico adicionarServico(Servico servico) {
         for(Servico i : this.servicos){
             if(i.equals(servico)){
@@ -51,9 +51,9 @@ public class OrdemListImpl implements OrdemDAO {
         this.servicos.add(servico);
 
         return servico;
-    }
+    }*/
 
-    @Override
+    /*@Override
     public Boolean removerServico(Servico servico) {
         for(int i = 0;i < this.servicos.size(); i++) {
             if (this.servicos.get(i).equals(servico)) {
@@ -62,7 +62,7 @@ public class OrdemListImpl implements OrdemDAO {
             }
         }
         return false;
-    }
+    }*/
 
     @Override
     public void atualizar(Ordem ordem) {

@@ -7,10 +7,9 @@ import com.example.sistemaparagerenciamento.model.Servico;
 import com.example.sistemaparagerenciamento.model.StatusOrdem;
 
 public interface OrdemDAO extends CRUD<Ordem> {
-    public Ordem buscarPorId(int id);
 
-    public Servico adicionarServico(Servico servico);
+    //public Servico adicionarServico(Servico servico);
 
-    public Boolean removerServico(Servico servico);
+    //public Boolean removerServico(Servico servico);
 
 }
