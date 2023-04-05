@@ -8,6 +8,8 @@ public class OrdemCompra {
 
     private String nome;
 
+    private int ordemCompraId;
+
     public OrdemCompra(int qnt, Double valorUnitario, String nome) {
         this.qnt = qnt;
         this.valorUnitario = valorUnitario;
@@ -46,5 +48,13 @@ public class OrdemCompra {
     @Override
     public String toString() {
         return super.toString();
+    }
+
+    public int getOrdemCompraId() {
+        return ordemCompraId;
+    }
+
+    public void setOrdemCompraId(int ordemCompraId) {
+        this.ordemCompraId = ordemCompraId;
     }
 }
