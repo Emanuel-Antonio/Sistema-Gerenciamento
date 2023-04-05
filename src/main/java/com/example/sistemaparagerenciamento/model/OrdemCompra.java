@@ -42,7 +42,11 @@ public class OrdemCompra {
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if(obj instanceof OrdemCompra){
+            OrdemCompra o = (OrdemCompra) obj;
+            return o.getOrdemCompraId() == (this.getOrdemCompraId());
+        }
+        return false;
     }
 
     @Override

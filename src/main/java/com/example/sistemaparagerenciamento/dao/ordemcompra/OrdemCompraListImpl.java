@@ -28,9 +28,9 @@ public class OrdemCompraListImpl implements OrdemCompraDAO{
     }
 
     @Override
-    public void deletar(int id) {
+    public void deletar(OrdemCompra ordemCompra) {
         for(int i = 0; i < this.ordensCompra.size(); i++){
-            if (this.ordensCompra.get(i).getOrdemCompraId() == id)
+            if (this.ordensCompra.get(i).equals(ordemCompra))
                 this.ordensCompra.remove(i);
         }
     }
