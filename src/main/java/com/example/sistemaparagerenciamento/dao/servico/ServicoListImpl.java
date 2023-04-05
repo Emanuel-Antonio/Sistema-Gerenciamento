@@ -11,8 +11,6 @@ public class ServicoListImpl implements ServicoDAO {
 
     public List<Servico> servicos;
 
-    public int novoId;
-
     public ServicoListImpl() {
         this.servicos = new ArrayList<Servico>();
     }
