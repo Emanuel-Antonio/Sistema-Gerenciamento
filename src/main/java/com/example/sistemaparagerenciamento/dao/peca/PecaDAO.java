@@ -1,7 +1,6 @@
 package com.example.sistemaparagerenciamento.dao.peca;
 
 import com.example.sistemaparagerenciamento.model.Peca;
-import com.example.sistemaparagerenciamento.model.Servico;
 
 public interface PecaDAO {
 

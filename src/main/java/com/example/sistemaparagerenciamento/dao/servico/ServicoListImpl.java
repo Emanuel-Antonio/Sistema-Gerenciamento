@@ -1,6 +1,5 @@
 package com.example.sistemaparagerenciamento.dao.servico;
 
-import com.example.sistemaparagerenciamento.model.Peca;
 import com.example.sistemaparagerenciamento.model.Servico;
 
 import java.util.ArrayList;
