@@ -14,10 +14,6 @@ public class OrdemListImpl implements OrdemDAO {
 
     private List<Servico> servicos;
 
-    public List<Ordem> listOrdens() {
-        return this.ordens;
-    }
-
     public OrdemListImpl() {
         this.novoId = 0;
         this.ordens = new ArrayList<Ordem>();
@@ -60,5 +56,10 @@ public class OrdemListImpl implements OrdemDAO {
                 this.ordens.remove(i);
             }
         }
+    }
+
+    @Override
+    public List<Ordem> listaOrdens() {
+        return this.listaOrdens();
     }
 }
