@@ -7,6 +7,8 @@ public class Pagamento {
 
     private int faturaId;
 
+    private int pagamentoId;
+
     public Pagamento(String tipoPagamento, Double valor, int faturaId) {
         this.tipoPagamento = tipoPagamento;
         this.valor = valor;
@@ -28,11 +30,25 @@ public class Pagamento {
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if(obj instanceof Pagamento){
+            Pagamento p = (Pagamento) obj;
+            if(p.getPagamentoId() == this.pagamentoId){
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
     public String toString() {
         return super.toString();
+    }
+
+    public int getPagamentoId() {
+        return pagamentoId;
+    }
+
+    public void setPagamentoId(int pagamentoId) {
+        this.pagamentoId = pagamentoId;
     }
 }

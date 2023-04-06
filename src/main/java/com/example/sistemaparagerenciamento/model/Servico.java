@@ -21,6 +21,8 @@ public class Servico {
 
     private String descricao;
 
+    private int servicoId;
+
     public Servico(int ordemId) {
         this.ordemId = ordemId;
     }
@@ -105,4 +107,12 @@ public class Servico {
                 + "Inicio: " + this.getHorarioAbertura() + "Fim: " + this.getHorarioFechamento()
                 + "Avaliação: " + this.getAvaliacaoCliente() + "Peca: " + this.getPeca();
      }
+
+    public int getServicoId() {
+        return servicoId;
+    }
+
+    public void setServicoId(int servicoId) {
+        this.servicoId = servicoId;
+    }
 }

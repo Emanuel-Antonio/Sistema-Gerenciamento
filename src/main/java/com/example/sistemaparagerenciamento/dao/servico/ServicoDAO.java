@@ -10,9 +10,7 @@ public interface ServicoDAO {
 
     public void deletar(Servico servico);
 
-    public Servico buscarPorHorarioAbertura(Servico servico);
+    public Servico buscarPorId(int id);
 
-    //public void removerPecaDoServico(Peca peca);
 
-    //public Peca adicionarPecaAoServico(Peca peca);
 }

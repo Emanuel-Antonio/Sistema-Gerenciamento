@@ -24,9 +24,9 @@ public class ServicoListImpl implements ServicoDAO {
     }
 
     @Override
-    public Servico buscarPorHorarioAbertura(Servico servico) {
-        for (Servico i : this.servicos) {
-            if (i.equals(servico))
+    public Servico buscarPorId(int id) {
+        for (Servico servico : this.servicos) {
+            if (servico.getServicoId() == id)
                 return servico;
 
         }
@@ -36,7 +36,7 @@ public class ServicoListImpl implements ServicoDAO {
     @Override
     public void atualizar(Servico servico) {
         for(int i = 0; i < this.servicos.size(); i++){
-            if (this.servicos.get(i).getHorarioAbertura().equals(servico.getHorarioAbertura()))
+            if (this.servicos.get(i).equals(servico))
                 this.servicos.set(i, servico);
         }
     }
@@ -44,7 +44,7 @@ public class ServicoListImpl implements ServicoDAO {
     @Override
     public void deletar(Servico servico) {
         for(int i = 0; i < this.servicos.size(); i++){
-            if (this.servicos.get(i).getHorarioAbertura().equals(servico.getHorarioAbertura()))
+            if (this.servicos.get(i).equals(servico))
                 this.servicos.remove(i);
         }
     }

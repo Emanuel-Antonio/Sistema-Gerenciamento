@@ -10,5 +10,5 @@ public interface PecaDAO {
 
     public void deletar(Peca peca);
 
-    public Peca buscarPorNome(Peca peca);
+    public Peca buscarPorNome(String nome);
 }

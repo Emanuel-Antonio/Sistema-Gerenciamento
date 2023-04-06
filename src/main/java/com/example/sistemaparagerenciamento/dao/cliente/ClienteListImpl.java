@@ -4,7 +4,6 @@ import com.example.sistemaparagerenciamento.model.Cliente;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class ClienteListImpl implements ClienteDAO{
 

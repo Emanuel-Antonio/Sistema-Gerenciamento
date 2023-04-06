@@ -24,7 +24,7 @@ public class PecaListImpl implements PecaDAO{
     @Override
     public void atualizar(Peca peca) {
         for(int i = 0; i < this.pecas.size(); i++){
-            if (this.pecas.get(i).getNome().equals(peca.getNome()))
+            if (this.pecas.get(i).equals(peca))
                 this.pecas.set(i, peca);
         }
     }
@@ -32,15 +32,15 @@ public class PecaListImpl implements PecaDAO{
     @Override
     public void deletar(Peca peca) {
         for(int i = 0; i < this.pecas.size(); i++){
-            if (this.pecas.get(i).getNome().equals(peca.getNome()))
+            if (this.pecas.get(i).equals(peca))
                 this.pecas.remove(i);
         }
     }
 
     @Override
-    public Peca buscarPorNome(Peca peca) {
-        for (Peca i : this.pecas) {
-            if (i.equals(peca))
+    public Peca buscarPorNome(String nome) {
+        for (Peca peca : this.pecas) {
+            if (peca.getNome().equals(nome))
                 return peca;
 
         }

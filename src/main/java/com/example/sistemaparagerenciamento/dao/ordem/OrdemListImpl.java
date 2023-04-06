@@ -1,6 +1,5 @@
 package com.example.sistemaparagerenciamento.dao.ordem;
 
-import com.example.sistemaparagerenciamento.model.Fatura;
 import com.example.sistemaparagerenciamento.model.Ordem;
 import com.example.sistemaparagerenciamento.model.Servico;
 
@@ -40,29 +39,6 @@ public class OrdemListImpl implements OrdemDAO {
         }
         return null;
     }
-
-    /*@Override
-    public Servico adicionarServico(Servico servico) {
-        for(Servico i : this.servicos){
-            if(i.equals(servico)){
-                return servico;
-            }
-        }
-        this.servicos.add(servico);
-
-        return servico;
-    }*/
-
-    /*@Override
-    public Boolean removerServico(Servico servico) {
-        for(int i = 0;i < this.servicos.size(); i++) {
-            if (this.servicos.get(i).equals(servico)) {
-                this.servicos.remove(i);
-                return true;
-            }
-        }
-        return false;
-    }*/
 
     @Override
     public void atualizar(Ordem ordem) {

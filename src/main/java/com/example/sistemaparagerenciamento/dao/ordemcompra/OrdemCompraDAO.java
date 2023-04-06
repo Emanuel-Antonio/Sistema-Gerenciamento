@@ -7,4 +7,9 @@ public interface OrdemCompraDAO {
     public OrdemCompra criar(OrdemCompra ordemCompra);
 
     public void deletar(OrdemCompra ordemCompra);
+
+    public void atualizar(OrdemCompra ordemCompra);
+
+    public OrdemCompra buscarPorId(int id);
 }
+

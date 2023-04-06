@@ -28,6 +28,25 @@ public class OrdemCompraListImpl implements OrdemCompraDAO{
     }
 
     @Override
+    public OrdemCompra buscarPorId(int id) {
+        for(OrdemCompra ordemCompra : this.ordensCompra){
+            if(ordemCompra.getOrdemCompraId() == id){
+                return ordemCompra;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void atualizar(OrdemCompra ordemCompra) {
+        for(int i = 0; i < this.ordensCompra.size(); i++){
+            if(this.ordensCompra.get(i).equals(ordemCompra)){
+                this.ordensCompra.set(i,ordemCompra);
+            }
+        }
+    }
+
+    @Override
     public void deletar(OrdemCompra ordemCompra) {
         for(int i = 0; i < this.ordensCompra.size(); i++){
             if (this.ordensCompra.get(i).equals(ordemCompra))
