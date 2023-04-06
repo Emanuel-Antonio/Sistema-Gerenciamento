@@ -18,12 +18,12 @@ public class Ordem {
 
     private String avaliacaoFinal;
 
-    public Ordem(List<Servico> servico, int clienteId, int tecnicoId, int ordemId) {
+    public Ordem(List<Servico> servico, int clienteId, int ordemId) {
         this.servico = servico;
         this.clienteId = clienteId;
-        this.tecnicoId = tecnicoId;
         this.ordemId = ordemId;
         this.status = StatusOrdem.ABERTA;
+        this.tecnicoId = -1;
     }
 
     public List<Servico> getServico() {
@@ -97,11 +97,6 @@ public class Ordem {
         return super.toString();
     }
 
-    public Fatura gerarFatura(Double valorTotal, int ordemId) {
-        Fatura fatura = new Fatura(valorTotal, ordemId);
-
-        return fatura;
-    }
 
     public Boolean atualizarStatusPagamento(Ordem ordem){
         if(ordem.getStatus() == StatusOrdem.ABERTA && fatura.getValorPago() < fatura.getValorTotal()) {

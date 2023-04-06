@@ -1,7 +1,6 @@
 package com.example.sistemaparagerenciamento.model;
 
 import java.util.List;
-import java.util.Objects;
 
 public class Tecnico {
 
@@ -13,11 +12,9 @@ public class Tecnico {
 
     private int tecnicoId;
 
-    private List<Ordem> ordens;
+    private Ordem orden;
 
     private List<OrdemCompra> carrinhoCompras;
-
-    private Estoque estoque;
 
     public String getEmail() {
         return email;
@@ -56,21 +53,14 @@ public class Tecnico {
         this.senha = senha;
     }
 
-    public List<Ordem> getOrdens() {
-        return ordens;
+    public Ordem getOrden() {
+        return orden;
     }
 
-    public void setOrdens(List<Ordem> ordens) {
-        this.ordens = ordens;
+    public void setOrden(Ordem orden) {
+        this.orden = orden;
     }
 
-    public Estoque getEstoque() {
-        return estoque;
-    }
-
-    public void setEstoque(Estoque estoque) {
-        this.estoque = estoque;
-    }
 
     public int getTecnicoId() {
         return tecnicoId;

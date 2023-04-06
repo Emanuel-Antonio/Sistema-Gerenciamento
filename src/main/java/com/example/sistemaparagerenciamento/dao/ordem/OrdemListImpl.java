@@ -14,12 +14,16 @@ public class OrdemListImpl implements OrdemDAO {
 
     private List<Servico> servicos;
 
+    public List<Ordem> listOrdens() {
+        return this.ordens;
+    }
 
     public OrdemListImpl() {
         this.novoId = 0;
         this.ordens = new ArrayList<Ordem>();
         this.servicos = new ArrayList<Servico>();
     }
+
 
     @Override
     public Ordem criar(Ordem ordem) {
