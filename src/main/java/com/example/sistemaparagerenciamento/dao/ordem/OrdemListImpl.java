@@ -59,7 +59,7 @@ public class OrdemListImpl implements OrdemDAO {
     }
 
     @Override
-    public List<Ordem> listaOrdens() {
-        return this.listaOrdens();
+    public List<Ordem> getOrdens() {
+        return ordens;
     }
 }

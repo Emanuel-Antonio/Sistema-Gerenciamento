@@ -11,6 +11,6 @@ public interface OrdemDAO extends CRUD<Ordem> {
 
     //public Boolean removerServico(Servico servico);
 
-    public List<Ordem> listaOrdens();
+    public List<Ordem> getOrdens();
 
 }

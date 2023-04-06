@@ -51,4 +51,8 @@ public class ClienteListImpl implements ClienteDAO{
             }
         }
     }
+
+    public List<Cliente> getClientes() {
+        return clientes;
+    }
 }

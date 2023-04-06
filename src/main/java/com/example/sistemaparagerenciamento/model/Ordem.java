@@ -97,32 +97,5 @@ public class Ordem {
         return super.toString();
     }
 
-
-    public Boolean atualizarStatusPagamento(Ordem ordem){
-        if(ordem.getStatus() == StatusOrdem.ABERTA && fatura.getValorPago() < fatura.getValorTotal()) {
-            ordem.setStatus(StatusOrdem.PAGAMENTO);
-            return true;
-        }
-        return false;
-    }
-
-    public Boolean atualizarStatusFechada(Ordem ordem){
-        if(ordem.getStatus() == StatusOrdem.PAGAMENTO || ordem.getStatus() == StatusOrdem.ABERTA && fatura.getValorPago() == fatura.getValorTotal()){
-            ordem.setStatus(StatusOrdem.FECHADA);
-            return true;
-        }
-        return false;
-    }
-
-    public Boolean atualizarStatusCancelada(Ordem ordem){
-        if(ordem.getStatus() == StatusOrdem.ABERTA){
-            ordem.setStatus(StatusOrdem.CANCELADA);
-            return true;
-        }
-        return false;
-    }
-
-
-
 }
 

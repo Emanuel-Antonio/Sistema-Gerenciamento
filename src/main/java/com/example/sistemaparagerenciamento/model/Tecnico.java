@@ -16,18 +16,20 @@ public class Tecnico {
 
     private List<OrdemCompra> carrinhoCompras;
 
+    private String email;
+
+    public Tecnico(String email,String nome, String senha) {
+        this.senha = senha;
+        this.email = email;
+        this.adm = false;
+        this.nome = nome;
+    }
+
+
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    private String email;
-
-    public Tecnico() {
-    }
 
     public boolean isAdm() {
         return adm;
@@ -41,9 +43,6 @@ public class Tecnico {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 
     public String getSenha() {
         return senha;

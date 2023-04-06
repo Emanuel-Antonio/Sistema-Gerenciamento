@@ -51,4 +51,8 @@ public class TecnicoListImpl implements TecnicoDAO{
             }
         }
     }
+
+    public List<Tecnico> getTecnicos(){
+        return tecnicos;
+    }
 }

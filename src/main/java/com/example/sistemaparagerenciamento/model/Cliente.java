@@ -14,9 +14,10 @@ public class Cliente {
 
     private int clienteId;
 
-    public Cliente(String nome, int clienteId) {
+    public Cliente(String nome, String endereco, String telefone) {
         this.nome = nome;
-        this.clienteId = clienteId;
+        this.endereco = endereco;
+        this.telefone = telefone;
     }
 
     public String getNome() {
