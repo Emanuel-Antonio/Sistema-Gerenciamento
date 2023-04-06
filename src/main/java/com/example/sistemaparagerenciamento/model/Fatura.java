@@ -11,8 +11,8 @@ public class Fatura {
 
     private Double valorPago;
 
-    public Fatura(Double valorTotal, int ordemId) {
-        this.valorTotal = valorTotal;
+    public Fatura(int ordemId) {
+        this.valorTotal = 0.0;
         this.ordemId = ordemId;
         this.valorPago = 0.0;
     }
@@ -39,6 +39,10 @@ public class Fatura {
 
     public void setValorPago(Double valorPago) {
         this.valorPago += valorPago;
+    }
+
+    public void setValorTotal(Double valorTotal) {
+        this.valorTotal = valorTotal;
     }
 
     @Override

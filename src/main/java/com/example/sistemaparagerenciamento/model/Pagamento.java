@@ -5,14 +5,14 @@ public class Pagamento {
 
     private Double valor;
 
-    private int faturaId;
+    private Fatura fatura;
 
     private int pagamentoId;
 
-    public Pagamento(String tipoPagamento, Double valor, int faturaId) {
+    public Pagamento(String tipoPagamento, Double valor, Fatura fatura) {
         this.tipoPagamento = tipoPagamento;
         this.valor = valor;
-        this.faturaId = faturaId;
+        this.fatura = fatura;
     }
 
     public String getTipoPagamento() {
@@ -24,8 +24,8 @@ public class Pagamento {
     }
 
 
-    public int getFaturaId() {
-        return faturaId;
+    public Fatura getFatura() {
+        return fatura;
     }
 
     @Override
