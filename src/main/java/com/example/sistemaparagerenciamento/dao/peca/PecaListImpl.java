@@ -46,4 +46,8 @@ public class PecaListImpl implements PecaDAO{
         }
         return null;
     }
+
+    public List<Peca> getPecas() {
+        return pecas;
+    }
 }

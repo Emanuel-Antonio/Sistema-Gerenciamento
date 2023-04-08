@@ -53,4 +53,8 @@ public class OrdemCompraListImpl implements OrdemCompraDAO{
                 this.ordensCompra.remove(i);
         }
     }
+
+    public List<OrdemCompra> getOrdensCompra() {
+        return ordensCompra;
+    }
 }
