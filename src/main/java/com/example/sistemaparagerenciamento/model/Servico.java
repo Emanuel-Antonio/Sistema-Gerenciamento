@@ -23,7 +23,7 @@ public class Servico {
 
     private int servicoId;
 
-    public Servico(int ordemId) {
+    public Servico(int ordemId, CategoriaServico categoria) {
         this.ordemId = ordemId;
         this.horarioFechamento = null;
     }

@@ -21,7 +21,7 @@ public class Ordem {
     public Ordem(List<Servico> servicos, int clienteId) {
         this.servicos = servicos;
         this.clienteId = clienteId;
-        this.status = StatusOrdem.ABERTA;
+        this.status = StatusOrdem.ANDAMENTO;
         this.tecnicoId = -1;
     }
 

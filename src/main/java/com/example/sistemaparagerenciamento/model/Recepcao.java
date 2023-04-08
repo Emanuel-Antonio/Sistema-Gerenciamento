@@ -74,7 +74,7 @@ public class Recepcao {
         return true;
     }
 
-    public boolean registrarCliente(String nome, String endereco, String telefone) {
+    public boolean cadastrarCliente(String nome, String endereco, String telefone) {
         for (int i = 0; i < DAO.getCliente().getClientes().size(); i++) {
             if (DAO.getCliente().getClientes().get(i).getNome().equals(nome) && DAO.getCliente().getClientes().get(i).getEndereco().equals(endereco) && DAO.getCliente().getClientes().get(i).getTelefone().equals(telefone)) {
                 return false;
@@ -86,7 +86,7 @@ public class Recepcao {
     }
 
     public Boolean atualizarStatusPagamento(Ordem ordem) {
-        if (ordem.getStatus().equals(StatusOrdem.ABERTA) && ordem.getFatura().getValorPago() < ordem.getFatura().getValorTotal()) {
+        if (ordem.getStatus().equals(StatusOrdem.ANDAMENTO) && ordem.getFatura().getValorPago() < ordem.getFatura().getValorTotal()) {
             DAO.getOrdem().buscarPorId(ordem.getOrdemId()).setStatus(StatusOrdem.PAGAMENTO);
             return true;
         }
@@ -94,7 +94,7 @@ public class Recepcao {
     }
 
     public Boolean atualizarStatusFechada(Ordem ordem) {
-        if (ordem.getStatus().equals(StatusOrdem.PAGAMENTO) || ordem.getStatus().equals(StatusOrdem.ABERTA) && ordem.getFatura().getValorPago() == ordem.getFatura().getValorTotal()) {
+        if (ordem.getStatus().equals(StatusOrdem.PAGAMENTO) && ordem.getFatura().getValorPago() == ordem.getFatura().getValorTotal() || ordem.getStatus().equals(StatusOrdem.ANDAMENTO) && ordem.getFatura().getValorPago() == ordem.getFatura().getValorTotal()) {
             DAO.getOrdem().buscarPorId((ordem.getOrdemId())).setStatus(StatusOrdem.FECHADA);
             return true;
         }
@@ -102,21 +102,26 @@ public class Recepcao {
     }
 
     public Boolean atualizarStatusCancelada(Ordem ordem) {
-        if (ordem.getStatus().equals(StatusOrdem.ABERTA)) {
+        if (ordem.getStatus().equals(StatusOrdem.ANDAMENTO)) {
             DAO.getOrdem().buscarPorId(ordem.getOrdemId()).setStatus(StatusOrdem.CANCELADA);
-
             return true;
         }
         return false;
     }
 
-    public boolean adicionarServico(Servico servico) {
-        for (int i = 0; i < DAO.getServico().getServicos().size(); i++) {
-            if (DAO.getServico().getServicos().get(i).getHorarioAbertura() == servico.getHorarioAbertura()) {
-                return false;
-            }
-        }
+    public boolean cadastrarServico(int ordemId, CategoriaServico categoria) {
+        Servico servico = new Servico(ordemId, categoria);
         DAO.getServico().criar(servico);
+        if(CategoriaServico.LIMPEZA.equals(categoria)){
+            DAO.getServico().buscarPorId(servico.getServicoId()).setValor(70);
+        }
+        else if(CategoriaServico.FORMATACAO_INSTALACAO.equals(categoria)){
+            DAO.getServico().buscarPorId(servico.getServicoId()).setValor(60);
+        }
+        DAO.getOrdem().buscarPorId(ordemId).getFatura().setValorTotal(DAO.getOrdem().buscarPorId(servico.getOrdemId()).getFatura().getValorTotal() + servico.getValor());
+        List<Servico> servicos =  DAO.getOrdem().buscarPorId(ordemId).getServicos();
+        servicos.add(servico);
+        DAO.getOrdem().buscarPorId(ordemId).setServicos(servicos);
         return true;
     }
 
@@ -124,6 +129,8 @@ public class Recepcao {
         for (int i = 0; i < DAO.getServico().getServicos().size(); i++) {
             if (DAO.getServico().getServicos().get(i).equals(servico)) {
                 DAO.getServico().getServicos().remove(i);
+                DAO.getOrdem().buscarPorId(servico.getOrdemId()).getServicos().remove(servico);
+                DAO.getOrdem().buscarPorId(servico.getOrdemId()).getFatura().setValorTotal(DAO.getOrdem().buscarPorId(servico.getOrdemId()).getFatura().getValorTotal() - servico.getValor());
                 return true;
             }
         }
@@ -136,7 +143,8 @@ public class Recepcao {
                 for (int j = 0; j < DAO.getServico().getServicos().get(i).getPecas().size(); j++) {
                     if (DAO.getServico().getServicos().get(i).getPecas().get(j).equals(peca)) {
                         DAO.getServico().getServicos().get(i).getPecas().remove(j);
-                        DAO.getServico().getServicos().get(i).setValor(DAO.getServico().getServicos().get(i).getValor()-DAO.getServico().getServicos().get(i).getPecas().get(j).getValor());
+                        DAO.getPeca().buscarPorNome(peca.getNome()).setQnt(DAO.getPeca().buscarPorNome(peca.getNome()).getQnt() + peca.getQnt());
+                        DAO.getServico().getServicos().get(i).setValor(DAO.getServico().getServicos().get(i).getValor() - DAO.getServico().getServicos().get(i).getPecas().get(j).getValor());
                         return true;
                     }
                 }
@@ -147,10 +155,19 @@ public class Recepcao {
 
     public boolean adicionarPecaAoServico(Servico servico, Peca peca) {
         for (int i = 0; i < DAO.getServico().getServicos().size(); i++) {
-            if (DAO.getServico().getServicos().get(i).equals(servico)) {
+            if (DAO.getServico().getServicos().get(i).equals(servico) && DAO.getServico().getServicos().get(i).getCategoria().equals(CategoriaServico.MONTAGEM_INSTALACAO)) {
                 List<Peca> p = DAO.getServico().getServicos().get(i).getPecas();
                 p.add(peca);
+                DAO.getPeca().buscarPorNome(peca.getNome()).setQnt(DAO.getPeca().buscarPorNome(peca.getNome()).getQnt() - peca.getQnt());
                 DAO.getServico().getServicos().get(i).setPeca(p);
+
+                if(peca.getNome().equals("RAM"))
+                    DAO.getServico().getServicos().get(i).setValor(20);
+                else if(peca.getNome().equals("Placa mãe") || peca.getNome().equals("placa de vídeo"))
+                    DAO.getServico().getServicos().get(i).setValor(100);
+                else if(peca.getNome().equals("fonte") || peca.getNome().equals("HD") || peca.getNome().equals("SSD"))
+                    DAO.getServico().getServicos().get(i).setValor(30);
+
                 DAO.getServico().getServicos().get(i).setValor(DAO.getServico().getServicos().get(i).getValor() + peca.getValor());
                 return true;
             }
