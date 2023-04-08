@@ -14,8 +14,6 @@ public class Tecnico {
 
     private Ordem ordem;
 
-    private List<OrdemCompra> carrinhoCompras;
-
     private String email;
 
     public Tecnico(String email,String nome, String senha) {
@@ -67,14 +65,6 @@ public class Tecnico {
 
     public void setTecnicoId(int tecnicoId) {
         this.tecnicoId = tecnicoId;
-    }
-
-    public List<OrdemCompra> getCarrinhoCompras() {
-        return carrinhoCompras;
-    }
-
-    public void setCarrinhoCompras(List<OrdemCompra> carrinhoCompras) {
-        this.carrinhoCompras = carrinhoCompras;
     }
 
     @Override
