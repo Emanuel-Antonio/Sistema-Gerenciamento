@@ -52,7 +52,8 @@ public class Fatura {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Id da ordem: " + "\n" + this.getOrdemId() + "Valor total: " + "\n" + this.getValorTotal() +
+                "Valor pago: " + this.getValorPago();
     }
 
 }
