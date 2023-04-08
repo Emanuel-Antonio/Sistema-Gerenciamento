@@ -12,7 +12,7 @@ public class Tecnico {
 
     private int tecnicoId;
 
-    private Ordem orden;
+    private Ordem ordem;
 
     private List<OrdemCompra> carrinhoCompras;
 
@@ -52,12 +52,12 @@ public class Tecnico {
         this.senha = senha;
     }
 
-    public Ordem getOrden() {
-        return orden;
+    public Ordem getOrdem() {
+        return ordem;
     }
 
-    public void setOrden(Ordem orden) {
-        this.orden = orden;
+    public void setOrdem(Ordem ordem) {
+        this.ordem = ordem;
     }
 
 

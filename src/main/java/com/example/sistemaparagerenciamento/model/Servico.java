@@ -1,7 +1,7 @@
 package com.example.sistemaparagerenciamento.model;
 
 import java.util.Calendar;
-import java.util.Objects;
+import java.util.List;
 
 public class Servico {
 
@@ -17,7 +17,7 @@ public class Servico {
 
     private int ordemId;
 
-    private Peca peca;
+    private List<Peca> pecas;
 
     private String descricao;
 
@@ -25,6 +25,7 @@ public class Servico {
 
     public Servico(int ordemId) {
         this.ordemId = ordemId;
+        this.horarioFechamento = null;
     }
 
     public CategoriaServico getCategoria() {
@@ -75,12 +76,12 @@ public class Servico {
         this.ordemId = ordemId;
     }
 
-    public Peca getPeca() {
-        return peca;
+    public List<Peca> getPecas() {
+        return pecas;
     }
 
-    public void setPeca(Peca peca) {
-        this.peca = peca;
+    public void setPeca(List<Peca> pecas) {
+        this.pecas = pecas;
     }
 
     public String getDescricao() {
@@ -105,7 +106,7 @@ public class Servico {
         return "Descrição: " + this.getDescricao() + "\n" + "Categoria: " +
                 this.getCategoria() + "Valor: " + this.getValor() + "Ordem: " + this.getOrdemId()
                 + "Inicio: " + this.getHorarioAbertura() + "Fim: " + this.getHorarioFechamento()
-                + "Avaliação: " + this.getAvaliacaoCliente() + "Peca: " + this.getPeca();
+                + "Avaliação: " + this.getAvaliacaoCliente() + "Peca: " + this.getPecas();
      }
 
     public int getServicoId() {

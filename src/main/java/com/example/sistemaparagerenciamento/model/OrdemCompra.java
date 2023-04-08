@@ -51,7 +51,7 @@ public class OrdemCompra {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Nome: " + this.getNome() + "\n" + "Valor: " + this.getValorUnitario() + "\n" + " Quantidade: " + this.getQnt() + "\n" + "Id : " + this.getOrdemCompraId();
     }
 
     public int getOrdemCompraId() {

@@ -1,7 +1,7 @@
 package com.example.sistemaparagerenciamento.model;
 
 public enum CategoriaServico {
-    Formatacao,
+    Formatação,
     Montagem,
     Limpeza,
 }

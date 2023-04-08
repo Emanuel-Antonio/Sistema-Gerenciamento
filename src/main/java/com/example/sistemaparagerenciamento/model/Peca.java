@@ -6,9 +6,20 @@ public class Peca {
 
     private Double valor;
 
-    public Peca(String nome, Double valor) {
+    private int qnt;
+
+    public Peca(String nome) {
         this.nome = nome;
-        this.valor = valor;
+        this.valor = 0.0;
+        this.qnt = 0;
+    }
+
+    public int getQnt() {
+        return qnt;
+    }
+
+    public void setQnt(int qnt) {
+        this.qnt = qnt;
     }
 
     public String getNome() {
@@ -29,7 +40,10 @@ public class Peca {
     }
     @Override
     public String toString() {
-        return super.toString();
+        return "Nome: " + this.getNome() + "\n" + "Valor: " + this.getValor() + "\n" + "Quantidade: " + this.getQnt();
     }
 
+    public void setValor(Double valor) {
+        this.valor = valor;
+    }
 }

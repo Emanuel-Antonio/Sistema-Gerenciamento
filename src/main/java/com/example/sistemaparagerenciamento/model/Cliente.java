@@ -10,7 +10,7 @@ public class Cliente {
 
     private String telefone;
 
-    private List<Ordem> ordem;
+    private List<Ordem> ordens;
 
     private int clienteId;
 
@@ -44,12 +44,12 @@ public class Cliente {
         this.telefone = telefone;
     }
 
-    public List<Ordem> getOrdem() {
-        return ordem;
+    public List<Ordem> getOrdens() {
+        return ordens;
     }
 
-    public void setOrdem(List<Ordem> ordem) {
-        this.ordem = ordem;
+    public void setOrdens(List<Ordem> ordens) {
+        this.ordens = ordens;
     }
 
     public int getClienteId() {

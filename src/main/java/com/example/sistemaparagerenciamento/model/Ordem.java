@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Ordem {
 
-    private List<Servico> servico;
+    private List<Servico> servicos;
 
     private StatusOrdem status;
 
@@ -18,20 +18,19 @@ public class Ordem {
 
     private String avaliacaoFinal;
 
-    public Ordem(List<Servico> servico, int clienteId, int ordemId) {
-        this.servico = servico;
+    public Ordem(List<Servico> servicos, int clienteId) {
+        this.servicos = servicos;
         this.clienteId = clienteId;
-        this.ordemId = ordemId;
         this.status = StatusOrdem.ABERTA;
         this.tecnicoId = -1;
     }
 
-    public List<Servico> getServico() {
-        return servico;
+    public List<Servico> getServicos() {
+        return servicos;
     }
 
-    public void setServico(List<Servico> servico) {
-        this.servico = servico;
+    public void setServicos(List<Servico> servicos) {
+        this.servicos = servicos;
     }
 
     public StatusOrdem getStatus() {
