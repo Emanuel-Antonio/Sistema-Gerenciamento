@@ -27,12 +27,10 @@ public class Recepcao {
     }
 
     public String gerarFatura(int ordemId) {
-        String fatura = "";
         if (DAO.getOrdem().buscarPorId(ordemId).getFatura() == null && DAO.getOrdem().buscarPorId(ordemId).getServicos() != null) {
             Fatura f = new Fatura(ordemId);
             DAO.getOrdem().buscarPorId(ordemId).setFatura(f);
-            fatura = fatura + f;
-            return fatura;
+            return f.toString();
         }
         return DAO.getOrdem().buscarPorId(ordemId).getFatura().toString();
     }
