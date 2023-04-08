@@ -3,13 +3,13 @@ package com.example.sistemaparagerenciamento.model;
 public class Pagamento {
     private String tipoPagamento;
 
-    private Double valor;
+    private double valor;
 
     private Fatura fatura;
 
     private int pagamentoId;
 
-    public Pagamento(String tipoPagamento, Double valor, Fatura fatura) {
+    public Pagamento(String tipoPagamento, double valor, Fatura fatura) {
         this.tipoPagamento = tipoPagamento;
         this.valor = valor;
         this.fatura = fatura;
@@ -19,7 +19,7 @@ public class Pagamento {
         return tipoPagamento;
     }
 
-    public Double getValor() {
+    public double getValor() {
         return valor;
     }
 
