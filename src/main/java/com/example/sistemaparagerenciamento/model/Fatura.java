@@ -3,13 +3,13 @@ package com.example.sistemaparagerenciamento.model;
 import java.util.List;
 
 public class Fatura {
-    private Double valorTotal;
+    private double valorTotal;
 
     private List<Pagamento> pagamentos;
 
     private int ordemId;
 
-    private Double valorPago;
+    private double valorPago;
 
     public Fatura(int ordemId) {
         this.valorTotal = 0.0;
@@ -17,7 +17,7 @@ public class Fatura {
         this.valorPago = 0.0;
     }
 
-    public Double getValorTotal() {
+    public double getValorTotal() {
         return valorTotal;
     }
 
@@ -33,15 +33,15 @@ public class Fatura {
         return ordemId;
     }
 
-    public Double getValorPago() {
+    public double getValorPago() {
         return valorPago;
     }
 
-    public void setValorPago(Double valorPago) {
+    public void setValorPago(double valorPago) {
         this.valorPago += valorPago;
     }
 
-    public void setValorTotal(Double valorTotal) {
+    public void setValorTotal(double valorTotal) {
         this.valorTotal = valorTotal;
     }
 

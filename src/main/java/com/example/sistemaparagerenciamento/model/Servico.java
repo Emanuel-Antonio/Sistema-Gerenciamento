@@ -7,13 +7,13 @@ public class Servico {
 
     private CategoriaServico categoria;
 
-    private Double valor;
+    private double valor;
 
     private Calendar horarioAbertura;
 
     private Calendar horarioFechamento;
 
-    private Double avaliacaoCliente;
+    private double avaliacaoCliente;
 
     private int ordemId;
 
@@ -36,11 +36,11 @@ public class Servico {
         this.categoria = categoria;
     }
 
-    public Double getValor() {
+    public double getValor() {
         return valor;
     }
 
-    public void setValor(Double valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
 
@@ -60,11 +60,11 @@ public class Servico {
         this.horarioFechamento = horarioFechamento;
     }
 
-    public Double getAvaliacaoCliente() {
+    public double getAvaliacaoCliente() {
         return avaliacaoCliente;
     }
 
-    public void setAvaliacaoCliente(Double avaliacaoCliente) {
+    public void setAvaliacaoCliente(double avaliacaoCliente) {
         this.avaliacaoCliente = avaliacaoCliente;
     }
 

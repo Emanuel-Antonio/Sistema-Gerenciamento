@@ -4,7 +4,7 @@ public class Peca {
 
     private String nome;
 
-    private Double valor;
+    private double valor;
 
     private int qnt;
 
@@ -26,7 +26,7 @@ public class Peca {
         return nome;
     }
 
-    public Double getValor() {
+    public double getValor() {
         return valor;
     }
 

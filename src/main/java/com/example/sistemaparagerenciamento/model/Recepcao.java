@@ -7,7 +7,7 @@ import java.util.List;
 public class Recepcao {
     private String tipoPagamento;
 
-    private Double valor;
+    private double valor;
 
     private String email;
 
@@ -26,12 +26,15 @@ public class Recepcao {
         return false;
     }
 
-    public Fatura gerarFatura(int ordemId) {
+    public String gerarFatura(int ordemId) {
+        String fatura = "";
         if (DAO.getOrdem().buscarPorId(ordemId).getFatura() == null && DAO.getOrdem().buscarPorId(ordemId).getServicos() != null) {
-            Fatura fatura = new Fatura(ordemId);
+            Fatura f = new Fatura(ordemId);
+            DAO.getOrdem().buscarPorId(ordemId).setFatura(f);
+            fatura = fatura + f;
             return fatura;
         }
-        return null;
+        return DAO.getOrdem().buscarPorId(ordemId).getFatura().toString();
     }
 
     public Ordem pegarOrdem(Tecnico tecnico) {
@@ -135,6 +138,7 @@ public class Recepcao {
                 for (int j = 0; j < DAO.getServico().getServicos().get(i).getPecas().size(); j++) {
                     if (DAO.getServico().getServicos().get(i).getPecas().get(j).equals(peca)) {
                         DAO.getServico().getServicos().get(i).getPecas().remove(j);
+                        DAO.getServico().getServicos().get(i).setValor(DAO.getServico().getServicos().get(i).getValor()-DAO.getServico().getServicos().get(i).getPecas().get(j).getValor());
                         return true;
                     }
                 }
@@ -149,6 +153,7 @@ public class Recepcao {
                 List<Peca> p = DAO.getServico().getServicos().get(i).getPecas();
                 p.add(peca);
                 DAO.getServico().getServicos().get(i).setPeca(p);
+                DAO.getServico().getServicos().get(i).setValor(DAO.getServico().getServicos().get(i).getValor() + peca.getValor());
                 return true;
             }
         }
@@ -176,7 +181,7 @@ public class Recepcao {
         return false;
     }
 
-    public boolean cadastrarOrdemCompra(int qnt, Double valorUnitario, String nome){
+    public boolean cadastrarOrdemCompra(int qnt, double valorUnitario, String nome){
         if(qnt <= 0 || valorUnitario <= 0) {
             return  false;
         }
@@ -199,10 +204,10 @@ public class Recepcao {
         return ordenscompra;
     }
 
-    public void controlarCustoPeca(Peca peca, int qnt, Double valor){
+    public void controlarCustoPeca(Peca peca, int qnt, double valor){
         for(int i = 0; i < DAO.getPeca().getPecas().size(); i++){
             if(DAO.getPeca().getPecas().get(i).equals(peca)){
-                Double mediaValor = ((DAO.getPeca().getPecas().get(i).getValor() * DAO.getPeca().getPecas().get(i).getQnt()) + (valor * qnt))/(DAO.getPeca().getPecas().get(i).getQnt() + qnt);
+                double mediaValor = ((DAO.getPeca().getPecas().get(i).getValor() * DAO.getPeca().getPecas().get(i).getQnt()) + (valor * qnt))/(DAO.getPeca().getPecas().get(i).getQnt() + qnt);
                 DAO.getPeca().getPecas().get(i).setValor(mediaValor);
 
                 DAO.getPeca().getPecas().get(i).setQnt(DAO.getPeca().getPecas().get(i).getQnt() + qnt);
@@ -242,7 +247,7 @@ public class Recepcao {
         return custoPeca;
     }
 
-    public String relatório(Ordem ordem){
+    public String relatorioGeral(Ordem ordem){
         String relatorio = "Desempenho do serviço:\n\n";
         relatorio = relatorio + "Tempo de espera: " + mediaTempoDeEspera(ordem) + "\n" + "Satisfação: " + ordem.getAvaliacaoFinal() + "\n" +
                 "Custo pecas: " + custoPeca(ordem) + "\n" + "Situação do estoque: " + visualizarEstoque();
