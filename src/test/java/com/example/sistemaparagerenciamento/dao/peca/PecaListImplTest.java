@@ -1,7 +1,6 @@
 package com.example.sistemaparagerenciamento.dao.peca;
 
 import com.example.sistemaparagerenciamento.dao.DAO;
-import com.example.sistemaparagerenciamento.model.Pagamento;
 import com.example.sistemaparagerenciamento.model.Peca;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -79,9 +78,9 @@ class PecaListImplTest {
 
         DAO.getPeca().criar(peca1);
 
-        assertEquals(peca, DAO.getPeca().buscarPorNome("RAM"), "1° Teste de buscar por id pagamento!");
+        assertEquals(peca, DAO.getPeca().buscarPorNome("RAM"), "1° Teste de buscar por id peca!");
 
-        assertEquals(peca1, DAO.getPeca().buscarPorNome("SSD"), "2° Teste de buscar por id pagamento!");
+        assertEquals(peca1, DAO.getPeca().buscarPorNome("SSD"), "2° Teste de buscar por id peca!");
     }
 
     @Test
