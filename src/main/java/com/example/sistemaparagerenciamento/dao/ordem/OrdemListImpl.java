@@ -30,7 +30,7 @@ public class OrdemListImpl implements OrdemDAO {
     @Override
     public Ordem buscarPorId(int id) {
         for(Ordem ordem : this.ordens){
-            if(ordem.equals(id))
+            if(ordem.getOrdemId() == id)
                 return ordem;
         }
         return null;
