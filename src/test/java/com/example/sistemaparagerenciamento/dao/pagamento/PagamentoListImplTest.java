@@ -74,13 +74,9 @@ class PagamentoListImplTest {
         Pagamento pagamento1 = new Pagamento("dinheiro", 20.0, this.fatura);
         DAO.getPagamento().criar(pagamento1);
 
-        assertEquals(10.0, DAO.getPagamento().buscarPorId(0).getValor(), "1° Teste de buscar por id pagamento!");
-        assertEquals("pix", DAO.getPagamento().buscarPorId(0).getTipoPagamento(), "2° Teste de buscar por id pagamento!");
-        assertEquals(this.fatura, DAO.getPagamento().buscarPorId(0).getFatura(), "3° Teste de buscar por id pagamento!");
+        assertEquals(pagamento, DAO.getPagamento().buscarPorId(0), "1° Teste de buscar por id pagamento!");
 
-        assertEquals(20.0, DAO.getPagamento().buscarPorId(1).getValor(), "4° Teste de buscar por id pagamento!");
-        assertEquals("dinheiro", DAO.getPagamento().buscarPorId(1).getTipoPagamento(), "5° Teste de buscar por id pagamento!");
-        assertEquals(this.fatura, DAO.getPagamento().buscarPorId(1).getFatura(), "6° Teste de buscar por id pagamento!");
+        assertEquals(pagamento1, DAO.getPagamento().buscarPorId(1), "2° Teste de buscar por id pagamento!");
     }
 
     @Test
