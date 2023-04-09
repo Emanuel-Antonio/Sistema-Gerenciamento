@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class FaturaTest {
+class OrdemTest {
 
     @BeforeEach
     void setUp() {
@@ -17,15 +17,43 @@ class FaturaTest {
     }
 
     @Test
-    void getValorTotal() {
+    void getServicos() {
     }
 
     @Test
-    void getPagamentos() {
+    void setServicos() {
     }
 
     @Test
-    void setPagamentos() {
+    void getStatus() {
+    }
+
+    @Test
+    void setStatus() {
+    }
+
+    @Test
+    void getFatura() {
+    }
+
+    @Test
+    void setFatura() {
+    }
+
+    @Test
+    void getClienteId() {
+    }
+
+    @Test
+    void setClienteId() {
+    }
+
+    @Test
+    void getTecnicoId() {
+    }
+
+    @Test
+    void setTecnicoId() {
     }
 
     @Test
@@ -33,15 +61,15 @@ class FaturaTest {
     }
 
     @Test
-    void getValorPago() {
+    void setOrdemId() {
     }
 
     @Test
-    void setValorPago() {
+    void getAvaliacaoFinal() {
     }
 
     @Test
-    void setValorTotal() {
+    void setAvaliacaoFinal() {
     }
 
     @Test
