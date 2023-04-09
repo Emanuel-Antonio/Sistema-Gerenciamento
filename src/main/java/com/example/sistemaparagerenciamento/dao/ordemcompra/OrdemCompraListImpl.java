@@ -54,7 +54,14 @@ public class OrdemCompraListImpl implements OrdemCompraDAO{
         }
     }
 
+    @Override
     public List<OrdemCompra> getOrdensCompra() {
         return ordensCompra;
+    }
+
+    @Override
+    public void resetar(){
+        this.ordensCompra = new ArrayList<>();
+        this.novoId = 0;
     }
 }

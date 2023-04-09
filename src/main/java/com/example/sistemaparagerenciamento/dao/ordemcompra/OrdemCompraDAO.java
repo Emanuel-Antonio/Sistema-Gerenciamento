@@ -16,5 +16,7 @@ public interface OrdemCompraDAO {
 
     public List<OrdemCompra> getOrdensCompra();
 
+    public void resetar();
+
 }
 
