@@ -1,11 +1,11 @@
 package com.example.sistemaparagerenciamento.model;
 
 public class Pagamento {
-    private String tipoPagamento;
+    private final String tipoPagamento;
 
-    private double valor;
+    private final double valor;
 
-    private Fatura fatura;
+    private final Fatura fatura;
 
     private int pagamentoId;
 
@@ -30,11 +30,8 @@ public class Pagamento {
 
     @Override
     public boolean equals(Object obj) {
-        if(obj instanceof Pagamento){
-            Pagamento p = (Pagamento) obj;
-            if(p.getPagamentoId() == this.pagamentoId){
-                return true;
-            }
+        if(obj instanceof Pagamento p){
+            return p.getPagamentoId() == this.pagamentoId;
         }
         return false;
     }

@@ -1,20 +1,18 @@
 package com.example.sistemaparagerenciamento.model;
 
-import java.util.List;
-
 public class Tecnico {
 
     private boolean adm;
 
-    private String nome;
+    private final String nome;
 
-    private String senha;
+    private final String senha;
 
     private int tecnicoId;
 
     private Ordem ordem;
 
-    private String email;
+    private final String email;
 
     public Tecnico(String email,String nome, String senha) {
         this.senha = senha;
@@ -23,11 +21,9 @@ public class Tecnico {
         this.nome = nome;
     }
 
-
     public String getEmail() {
         return email;
     }
-
 
     public boolean isAdm() {
         return adm;
@@ -41,13 +37,8 @@ public class Tecnico {
         return nome;
     }
 
-
     public String getSenha() {
         return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     public Ordem getOrdem() {
@@ -57,7 +48,6 @@ public class Tecnico {
     public void setOrdem(Ordem ordem) {
         this.ordem = ordem;
     }
-
 
     public int getTecnicoId() {
         return tecnicoId;
@@ -69,11 +59,8 @@ public class Tecnico {
 
     @Override
     public boolean equals(Object obj) {
-        if(obj instanceof Tecnico){
-            Tecnico t = (Tecnico) obj;
-            if(t.tecnicoId == this.tecnicoId){
-                return true;
-            }
+        if(obj instanceof Tecnico t){
+            return t.tecnicoId == this.tecnicoId;
         }
         return false;
     }

@@ -7,7 +7,7 @@ public class Fatura {
 
     private List<Pagamento> pagamentos;
 
-    private int ordemId;
+    private final int ordemId;
 
     private double valorPago;
 
@@ -43,11 +43,6 @@ public class Fatura {
 
     public void setValorTotal(double valorTotal) {
         this.valorTotal = valorTotal;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
     }
 
     @Override

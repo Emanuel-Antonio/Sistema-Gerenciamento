@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Servico {
 
-    private CategoriaServico categoria;
+    private final CategoriaServico categoria;
 
     private double valor;
 
@@ -15,7 +15,7 @@ public class Servico {
 
     private double avaliacaoCliente;
 
-    private int ordemId;
+    private final int ordemId;
 
     private List<Peca> pecas;
 
@@ -26,14 +26,11 @@ public class Servico {
     public Servico(int ordemId, CategoriaServico categoria) {
         this.ordemId = ordemId;
         this.horarioFechamento = null;
+        this.categoria = categoria;
     }
 
     public CategoriaServico getCategoria() {
         return categoria;
-    }
-
-    public void setCategoria(CategoriaServico categoria) {
-        this.categoria = categoria;
     }
 
     public double getValor() {
@@ -72,10 +69,6 @@ public class Servico {
         return ordemId;
     }
 
-    public void setOrdemId(int ordemId) {
-        this.ordemId = ordemId;
-    }
-
     public List<Peca> getPecas() {
         return pecas;
     }
@@ -94,8 +87,7 @@ public class Servico {
 
     @Override
     public boolean equals(Object obj) {
-        if(obj instanceof Servico){
-            Servico s = (Servico) obj;
+        if(obj instanceof Servico s){
             return s.getHorarioAbertura().equals(this.horarioAbertura);
         }
         return false;

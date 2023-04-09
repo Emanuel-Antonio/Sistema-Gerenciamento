@@ -2,7 +2,7 @@ package com.example.sistemaparagerenciamento.model;
 
 public class Peca {
 
-    private String nome;
+    private final String nome;
 
     private double valor;
 
@@ -32,8 +32,7 @@ public class Peca {
 
     @Override
     public boolean equals(Object obj) {
-        if(obj instanceof Peca){
-            Peca p = (Peca) obj;
+        if(obj instanceof Peca p){
             return p.getNome().equals(this.getNome());
         }
         return false;

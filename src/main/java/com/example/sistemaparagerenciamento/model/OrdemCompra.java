@@ -2,11 +2,11 @@ package com.example.sistemaparagerenciamento.model;
 
 public class OrdemCompra {
 
-    private int qnt;
+    private final int qnt;
 
-    private double valorUnitario;
+    private final double valorUnitario;
 
-    private String nome;
+    private final String nome;
 
     private int ordemCompraId;
 
@@ -20,30 +20,17 @@ public class OrdemCompra {
         return qnt;
     }
 
-    public void setQnt(int qnt) {
-        this.qnt = qnt;
-    }
-
     public double getValorUnitario() {
         return valorUnitario;
-    }
-
-    public void setValorUnitario(double valorUnitario) {
-        this.valorUnitario = valorUnitario;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     @Override
     public boolean equals(Object obj) {
-        if(obj instanceof OrdemCompra){
-            OrdemCompra o = (OrdemCompra) obj;
+        if(obj instanceof OrdemCompra o){
             return o.getOrdemCompraId() == (this.getOrdemCompraId());
         }
         return false;

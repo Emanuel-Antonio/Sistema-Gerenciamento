@@ -10,7 +10,7 @@ public class Ordem {
 
     private Fatura fatura;
 
-    private int clienteId;
+    private final int clienteId;
 
     private int tecnicoId;
 
@@ -53,10 +53,6 @@ public class Ordem {
         return clienteId;
     }
 
-    public void setClienteId(int clienteId) {
-        this.clienteId = clienteId;
-    }
-
     public int getTecnicoId() {
         return tecnicoId;
     }
@@ -83,17 +79,15 @@ public class Ordem {
 
     @Override
     public boolean equals(Object obj) {
-        if(obj instanceof Ordem){
-            Ordem o = (Ordem) obj;
-            if(o.getOrdemId()==this.ordemId)
-                return true;
+        if(obj instanceof Ordem o){
+            return o.getOrdemId() == this.ordemId;
         }
         return false;
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Id Ordem: " + this.getOrdemId() + "\n" + "Tecnico: " + this.getTecnicoId() + "\n" + "Cliente: " + this.getClienteId() + "\n" + "Status: " +this.getStatus();
     }
 
 }

@@ -1,10 +1,9 @@
 package com.example.sistemaparagerenciamento.model;
 
 import java.util.List;
-import java.util.Objects;
 
 public class Cliente {
-    private String nome;
+    private final String nome;
 
     private String endereco;
 
@@ -22,10 +21,6 @@ public class Cliente {
 
     public String getNome() {
         return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public String getEndereco() {
@@ -62,11 +57,8 @@ public class Cliente {
 
     @Override
     public boolean equals(Object obj) {
-        if(obj instanceof Cliente){
-            Cliente c = (Cliente) obj;
-            if(c.getClienteId() == this.clienteId){
-                return true;
-            }
+        if(obj instanceof Cliente c){
+            return c.getClienteId() == this.clienteId;
         }
         return false;
     }
