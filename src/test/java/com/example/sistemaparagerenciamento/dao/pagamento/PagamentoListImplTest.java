@@ -65,6 +65,8 @@ class PagamentoListImplTest {
         DAO.getPagamento().deletar(pagamento);
 
         assertNotNull(DAO.getPagamento().buscarPorId(pagamento1.getPagamentoId()), "1° Teste de deletar pagamento!");
+        assertNull(DAO.getPagamento().buscarPorId(pagamento.getPagamentoId()), "2° Teste de deletar pagamento!");
+
     }
 
     @Test
@@ -89,6 +91,8 @@ class PagamentoListImplTest {
         DAO.getPagamento().resetar();
 
         assertNull(DAO.getPagamento().buscarPorId(pagamento.getPagamentoId()), "1° Teste de resetar pagamento!");
+        assertNull(DAO.getPagamento().buscarPorId(pagamento1.getPagamentoId()), "2° Teste de resetar pagamento!");
+
     }
 
 }
