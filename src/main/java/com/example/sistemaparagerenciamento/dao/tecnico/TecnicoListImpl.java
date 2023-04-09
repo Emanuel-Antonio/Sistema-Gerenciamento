@@ -55,4 +55,10 @@ public class TecnicoListImpl implements TecnicoDAO{
     public List<Tecnico> getTecnicos(){
         return tecnicos;
     }
+
+    @Override
+    public void resetar() {
+        this.tecnicos = new ArrayList<>();
+        this.novoId = 0;
+    }
 }

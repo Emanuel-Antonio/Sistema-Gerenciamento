@@ -55,4 +55,10 @@ public class PagamentoListImpl implements PagamentoDAO {
         return null;
     }
 
+    @Override
+    public void resetar() {
+        this.pagamentos = new ArrayList<>();
+        this.novoId = 0;
+    }
+
 }

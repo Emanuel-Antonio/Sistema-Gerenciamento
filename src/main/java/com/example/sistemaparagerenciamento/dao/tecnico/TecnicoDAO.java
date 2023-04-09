@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface TecnicoDAO extends CRUD<Tecnico> {
     public List<Tecnico> getTecnicos();
+
+    public void resetar();
 }

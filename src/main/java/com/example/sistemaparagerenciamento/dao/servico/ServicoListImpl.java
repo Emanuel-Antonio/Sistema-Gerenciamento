@@ -53,4 +53,9 @@ public class ServicoListImpl implements ServicoDAO {
         return servicos;
     }
 
+    @Override
+    public void resetar() {
+        this.servicos = new ArrayList<>();
+    }
+
 }

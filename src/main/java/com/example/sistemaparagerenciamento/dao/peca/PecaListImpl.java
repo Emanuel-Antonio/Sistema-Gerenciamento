@@ -50,4 +50,9 @@ public class PecaListImpl implements PecaDAO{
     public List<Peca> getPecas() {
         return pecas;
     }
+
+    @Override
+    public void resetar() {
+        this.pecas = new ArrayList<>();
+    }
 }
