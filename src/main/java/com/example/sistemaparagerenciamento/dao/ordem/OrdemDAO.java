@@ -7,10 +7,8 @@ import java.util.List;
 
 public interface OrdemDAO extends CRUD<Ordem> {
 
-    //public Servico adicionarServico(Servico servico);
-
-    //public Boolean removerServico(Servico servico);
-
     public List<Ordem> getOrdens();
+
+    public void resetar();
 
 }

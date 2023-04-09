@@ -62,4 +62,10 @@ public class OrdemListImpl implements OrdemDAO {
     public List<Ordem> getOrdens() {
         return ordens;
     }
+
+    @Override
+    public void resetar(){
+        this.servicos = new ArrayList<>();
+        this.novoId = 0;
+    }
 }

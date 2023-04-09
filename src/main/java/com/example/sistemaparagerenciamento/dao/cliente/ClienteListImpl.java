@@ -51,11 +51,12 @@ public class ClienteListImpl implements ClienteDAO{
             }
         }
     }
-
+    @Override
     public List<Cliente> getClientes() {
         return clientes;
     }
 
+    @Override
     public void resetar(){
         this.clientes = new ArrayList<>();
         this.novoId = 0;
