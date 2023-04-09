@@ -17,9 +17,9 @@ class FaturaTest {
     @Test
     void setValorPago() {
         this.fatura.setValorPago(10.0);
-        assertEquals( 10.0, this.fatura.getValorPago());
+        assertEquals( 10.0, this.fatura.getValorPago(), "1° Teste setValor pago!");
         this.fatura.setValorPago(20.0);
-        assertEquals(30.0,this.fatura.getValorPago());
+        assertEquals(30.0,this.fatura.getValorPago(), "2° Teste setValor pago!");
     }
 
 }
