@@ -9,4 +9,6 @@ public interface ClienteDAO extends CRUD<Cliente> {
     public Cliente buscarPorId(int id);
 
     public List<Cliente> getClientes();
+
+    public void resetar();
 }

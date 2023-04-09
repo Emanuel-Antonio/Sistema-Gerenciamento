@@ -55,4 +55,9 @@ public class ClienteListImpl implements ClienteDAO{
     public List<Cliente> getClientes() {
         return clientes;
     }
+
+    public void resetar(){
+        this.clientes = new ArrayList<>();
+        this.novoId = 0;
+    }
 }

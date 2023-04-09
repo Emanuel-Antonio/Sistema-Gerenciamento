@@ -176,11 +176,11 @@ public class Recepcao {
     }
 
     public String visualizarEstoque(){
-        String estoque = "Estoque: ";
+        StringBuilder estoque = new StringBuilder("Estoque: ");
         for(int i = 0; i < DAO.getPeca().getPecas().size(); i++){
-            estoque = estoque + "\n\n" + DAO.getPeca().getPecas().get(i).toString();
+            estoque.append("\n\n").append(DAO.getPeca().getPecas().get(i).toString());
         }
-        return estoque;
+        return estoque.toString();
     }
 
     public boolean cadastrarOrdem(int clienteId){
@@ -212,14 +212,14 @@ public class Recepcao {
     }
 
     public String visualizarOrdensCompra(){
-        String ordenscompra = "Ordens de compra: ";
+        StringBuilder ordenscompra = new StringBuilder("Ordens de compra: ");
         for(int i = 0; i < DAO.getOrdemCompra().getOrdensCompra().size(); i++){
-            ordenscompra = ordenscompra + "\n\n" + DAO.getOrdemCompra().getOrdensCompra().get(i).toString();
+            ordenscompra.append("\n\n").append(DAO.getOrdemCompra().getOrdensCompra().get(i).toString());
         }
-        return ordenscompra;
+        return ordenscompra.toString();
     }
 
-    public void controlarCustoPeca(Peca peca, int qnt, double valor){
+    public void adicionarPeca(Peca peca, int qnt, double valor){
         for(int i = 0; i < DAO.getPeca().getPecas().size(); i++){
             if(DAO.getPeca().getPecas().get(i).equals(peca)){
                 double mediaValor = ((DAO.getPeca().getPecas().get(i).getValor() * DAO.getPeca().getPecas().get(i).getQnt()) + (valor * qnt))/(DAO.getPeca().getPecas().get(i).getQnt() + qnt);
@@ -253,13 +253,13 @@ public class Recepcao {
 
 
     public String custoPeca(Ordem ordem) {
-        String custoPeca = "";
+        StringBuilder custoPeca = new StringBuilder();
         for(int i = 0; i < ordem.getServicos().size(); i++) {
             for(int ii = 0; ii < ordem.getServicos().get(i).getPecas().size(); ii++) {
-                custoPeca = custoPeca + "\n\n" + ordem.getServicos().get(i).getPecas().get(ii).getValor();
+                custoPeca.append("\n\n").append(ordem.getServicos().get(i).getPecas().get(ii).getValor());
             }
         }
-        return custoPeca;
+        return custoPeca.toString();
     }
 
     public String relatorioGeral(Ordem ordem){
