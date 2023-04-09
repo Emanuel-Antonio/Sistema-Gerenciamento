@@ -11,4 +11,7 @@ public interface PagamentoDAO {
     public void deletar(Pagamento pagamento);
 
     public Pagamento buscarPorId(int id);
+
+    public void resetar();
+
 }

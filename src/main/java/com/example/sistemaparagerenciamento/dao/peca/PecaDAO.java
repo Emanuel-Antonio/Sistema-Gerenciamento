@@ -16,4 +16,6 @@ public interface PecaDAO {
 
     public List<Peca> getPecas();
 
+    public void resetar();
+
 }

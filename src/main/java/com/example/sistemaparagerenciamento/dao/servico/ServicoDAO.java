@@ -16,4 +16,6 @@ public interface ServicoDAO {
 
     public List<Servico> getServicos();
 
+    public void resetar();
+
 }
