@@ -4,7 +4,6 @@ import com.example.sistemaparagerenciamento.dao.DAO;
 import com.example.sistemaparagerenciamento.model.Peca;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class PecaListImplTest {
@@ -22,9 +21,9 @@ class PecaListImplTest {
 
         DAO.getPeca().criar(peca);
 
-        assertEquals(10, DAO.getPeca().buscarPorNome(peca.getNome()).getQnt(), "1° Teste de criar Peca!");
-        assertEquals(20.0, DAO.getPeca().buscarPorNome(peca.getNome()).getValor(), "2° Teste de criar Peca!");
-        assertEquals("RAM", DAO.getPeca().buscarPorNome(peca.getNome()).getNome(), "3° Teste de criar Peca!");
+        assertEquals(10, DAO.getPeca().buscarPorNome("RAM").getQnt(), "1° Teste de criar Peca!");
+        assertEquals(20.0, DAO.getPeca().buscarPorNome("RAM").getValor(), "2° Teste de criar Peca!");
+        assertEquals("RAM", DAO.getPeca().buscarPorNome("RAM").getNome(), "3° Teste de criar Peca!");
     }
 
     @Test
@@ -34,14 +33,13 @@ class PecaListImplTest {
         peca.setQnt(10);
         DAO.getPeca().criar(peca);
 
-        Peca peca1 = new Peca("RAM");
-        peca1.setValor(10.0);
-        peca1.setQnt(20);
-        DAO.getPeca().atualizar(peca1);
+        peca.setValor(10.0);
+        peca.setQnt(20);
+        DAO.getPeca().atualizar(peca);
 
-        assertEquals(10.0, DAO.getPeca().buscarPorNome(peca.getNome()).getValor(), "1° Teste de atualizar peca!");
-        assertEquals("RAM", DAO.getPeca().buscarPorNome(peca.getNome()).getNome(), "2° Teste de atualizar peca!");
-        assertEquals(20, DAO.getPeca().buscarPorNome(peca.getNome()).getQnt(), "3° Teste de atualizar peca!");
+        assertEquals(10.0, DAO.getPeca().buscarPorNome("RAM").getValor(), "1° Teste de atualizar peca!");
+        assertEquals("RAM", DAO.getPeca().buscarPorNome("RAM").getNome(), "2° Teste de atualizar peca!");
+        assertEquals(20, DAO.getPeca().buscarPorNome("RAM").getQnt(), "3° Teste de atualizar peca!");
     }
 
     @Test
@@ -60,8 +58,8 @@ class PecaListImplTest {
 
         DAO.getPeca().deletar(peca);
 
-        assertNotNull(DAO.getPeca().buscarPorNome(peca1.getNome()), " 1° Teste de deletar peca!");
-        assertNull(DAO.getPeca().buscarPorNome(peca.getNome()), " 2° Teste de deletar peca!");
+        assertNotNull(DAO.getPeca().buscarPorNome("SSD"), " 1° Teste de deletar peca!");
+        assertNull(DAO.getPeca().buscarPorNome("RAM"), " 2° Teste de deletar peca!");
     }
 
     @Test
@@ -99,8 +97,7 @@ class PecaListImplTest {
 
         DAO.getPeca().resetar();
 
-        assertNull(DAO.getPeca().buscarPorNome(peca.getNome()), " 1° Teste de resetar peca!");
-        assertNull(DAO.getPeca().buscarPorNome(peca1.getNome()), " 2° Teste de resetar peca!");
-
+        assertNull(DAO.getPeca().buscarPorNome("RAM"), " 1° Teste de resetar peca!");
+        assertNull(DAO.getPeca().buscarPorNome("SSD"), " 2° Teste de resetar peca!");
     }
 }

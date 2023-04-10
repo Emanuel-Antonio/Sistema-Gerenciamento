@@ -5,9 +5,7 @@ import com.example.sistemaparagerenciamento.model.CategoriaServico;
 import com.example.sistemaparagerenciamento.model.Servico;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.Calendar;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class ServicoListImplTest {
@@ -29,12 +27,11 @@ class ServicoListImplTest {
 
         DAO.getServico().criar(servico);
 
-        assertEquals(70, DAO.getServico().buscarPorId(servico.getServicoId()).getValor());
-        assertNull(DAO.getServico().buscarPorId(servico.getServicoId()).getPecas());
-        assertEquals(5, DAO.getServico().buscarPorId(servico.getServicoId()).getAvaliacaoCliente());
-        assertEquals("Limpeza interna e externa", DAO.getServico().buscarPorId(servico.getServicoId()).getDescricao());
-        assertEquals(calendar, DAO.getServico().buscarPorId(servico.getServicoId()).getHorarioFechamento());
-
+        assertEquals(70, DAO.getServico().buscarPorId(0).getValor(), " 1° Teste criar servico");
+        assertNull(DAO.getServico().buscarPorId(0).getPecas(), " 2° Teste criar servico");
+        assertEquals(5, DAO.getServico().buscarPorId(0).getAvaliacaoCliente(), " 3° Teste criar servico");
+        assertEquals("Limpeza interna e externa", DAO.getServico().buscarPorId(0).getDescricao(), " 4° Teste criar servico");
+        assertEquals(calendar, DAO.getServico().buscarPorId(0).getHorarioFechamento(), " 5° Teste criar servico");
     }
 
     @Test
@@ -59,8 +56,8 @@ class ServicoListImplTest {
 
         DAO.getServico().criar(servico1);
 
-        assertEquals(servico, DAO.getServico().buscarPorId(servico.getServicoId()));
-        assertEquals(servico1, DAO.getServico().buscarPorId(servico1.getServicoId()));
+        assertEquals(servico, DAO.getServico().buscarPorId(0), " 1° Teste BuscarPorId servico");
+        assertEquals(servico1, DAO.getServico().buscarPorId(1), " 2° Teste BuscarPorId servico");
     }
 
     @Test
@@ -84,11 +81,11 @@ class ServicoListImplTest {
 
         DAO.getServico().atualizar(servico);
 
-        assertEquals(60, DAO.getServico().buscarPorId(servico.getServicoId()).getValor());
-        assertNull(DAO.getServico().buscarPorId(servico.getServicoId()).getPecas());
-        assertEquals(5, DAO.getServico().buscarPorId(servico.getServicoId()).getAvaliacaoCliente());
-        assertEquals("Formatação e instalação de programas", DAO.getServico().buscarPorId(servico.getServicoId()).getDescricao());
-        assertEquals(calendar1, DAO.getServico().buscarPorId(servico.getServicoId()).getHorarioFechamento());
+        assertEquals(60, DAO.getServico().buscarPorId(0).getValor(), " 1° Teste atualizar servico");
+        assertNull(DAO.getServico().buscarPorId(0).getPecas(), " 2° Teste atualizar servico");
+        assertEquals(5, DAO.getServico().buscarPorId(0).getAvaliacaoCliente(), " 3° Teste atualizar servico");
+        assertEquals("Formatação e instalação de programas", DAO.getServico().buscarPorId(0).getDescricao(), " 4° Teste atualizar servico");
+        assertEquals(calendar1, DAO.getServico().buscarPorId(0).getHorarioFechamento(), " 5° Teste atualizar servico");
     }
 
     @Test
@@ -115,8 +112,8 @@ class ServicoListImplTest {
 
         DAO.getServico().deletar(servico);
 
-        assertNull(DAO.getServico().buscarPorId(servico.getServicoId()), " 1° Teste deletar servico!");
-        assertNotNull(DAO.getServico().buscarPorId(servico1.getServicoId()), " 2° Teste deletar servico! ");
+        assertNull(DAO.getServico().buscarPorId(0), " 1° Teste deletar servico!");
+        assertNotNull(DAO.getServico().buscarPorId(1), " 2° Teste deletar servico!");
     }
 
     @Test
@@ -143,7 +140,7 @@ class ServicoListImplTest {
 
         DAO.getServico().resetar();
 
-        assertNull(DAO.getServico().buscarPorId(servico.getServicoId()), " 1° Teste resetar servico!");
-        assertNull(DAO.getServico().buscarPorId(servico1.getServicoId()), " 2° Teste resetar servico! ");
+        assertNull(DAO.getServico().buscarPorId(0), " 1° Teste resetar servico!");
+        assertNull(DAO.getServico().buscarPorId(1), " 2° Teste resetar servico! ");
     }
 }
