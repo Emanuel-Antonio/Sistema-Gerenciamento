@@ -88,7 +88,7 @@ public class Servico {
     @Override
     public boolean equals(Object obj) {
         if(obj instanceof Servico s){
-            return s.getHorarioAbertura().equals(this.horarioAbertura);
+            return s.getServicoId() == (this.getServicoId());
         }
         return false;
     }

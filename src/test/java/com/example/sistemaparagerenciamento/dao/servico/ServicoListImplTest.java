@@ -54,7 +54,7 @@ class ServicoListImplTest {
         DAO.getServico().criar(servico1);
 
         assertEquals(servico, DAO.getServico().buscarPorId(servico.getServicoId()), " 1° Teste BuscarPorId servico");
-        assertEquals(servico1, DAO.getServico().buscarPorId(servico.getServicoId()), " 2° Teste BuscarPorId servico");
+        assertEquals(servico1, DAO.getServico().buscarPorId(servico1.getServicoId()), " 2° Teste BuscarPorId servico");
     }
 
     @Test
