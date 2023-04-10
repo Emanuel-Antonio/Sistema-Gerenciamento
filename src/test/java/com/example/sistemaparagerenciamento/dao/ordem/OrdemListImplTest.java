@@ -6,9 +6,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class OrdemListImplTest {
@@ -16,8 +13,6 @@ class OrdemListImplTest {
     private Cliente cliente;
 
     private Tecnico tecnico;
-
-    private Servico servico;
 
     private Ordem ordem;
 
@@ -50,8 +45,7 @@ class OrdemListImplTest {
 
     @Test
     void buscarPorId() {
-
-        assertEquals(ordem, DAO.getOrdem().buscarPorId(ordem.getOrdemId()));
+        assertEquals(ordem, DAO.getOrdem().buscarPorId(ordem.getOrdemId()), "1° Teste de buscar por id ordem!");
     }
 
     @Test
