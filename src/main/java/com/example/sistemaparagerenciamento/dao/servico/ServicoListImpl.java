@@ -14,14 +14,14 @@ public class ServicoListImpl implements ServicoDAO {
 
     public ServicoListImpl() {
         this.servicos = new ArrayList<Servico>();
-        novoId = 0;
+        this.novoId = 0;
     }
 
     @Override
     public Servico criar(Servico servico) {
         servico.setHorarioAbertura(Calendar.getInstance());
-        servico.setServicoId(novoId);
-        novoId++;
+        servico.setServicoId(this.novoId);
+        this.novoId++;
         this.servicos.add(servico);
 
         return servico;
