@@ -36,9 +36,9 @@ class PagamentoListImplTest {
         Pagamento pagamento = new Pagamento("pix", 10.0, this.fatura);
         DAO.getPagamento().criar(pagamento);
 
-        assertEquals(10.0, DAO.getPagamento().buscarPorId(pagamento.getPagamentoId()).getValor(), "1° Teste de criar pagamento!");
-        assertEquals("pix", DAO.getPagamento().buscarPorId(pagamento.getPagamentoId()).getTipoPagamento(), "2° Teste de criar pagamento!");
-        assertEquals(this.fatura, DAO.getPagamento().buscarPorId(pagamento.getPagamentoId()).getFatura(), "3° Teste de criar pagamento!");
+        assertEquals(10.0, DAO.getPagamento().buscarPorId(0).getValor(), "1° Teste de criar pagamento!");
+        assertEquals("pix", DAO.getPagamento().buscarPorId(0).getTipoPagamento(), "2° Teste de criar pagamento!");
+        assertEquals(this.fatura, DAO.getPagamento().buscarPorId(0).getFatura(), "3° Teste de criar pagamento!");
     }
 
     @Test
@@ -50,9 +50,9 @@ class PagamentoListImplTest {
         pagamento1.setPagamentoId(0);
         DAO.getPagamento().atualizar(pagamento1);
 
-        assertEquals(20.0, DAO.getPagamento().buscarPorId(pagamento.getPagamentoId()).getValor(), "1° Teste de atualizar pagamento!");
-        assertEquals("dinheiro", DAO.getPagamento().buscarPorId(pagamento.getPagamentoId()).getTipoPagamento(), "2° Teste de atualizar pagamento!");
-        assertEquals(this.fatura, DAO.getPagamento().buscarPorId(pagamento.getPagamentoId()).getFatura(), "3° Teste de atualizar pagamento!");
+        assertEquals(20.0, DAO.getPagamento().buscarPorId(0).getValor(), "1° Teste de atualizar pagamento!");
+        assertEquals("dinheiro", DAO.getPagamento().buscarPorId(0).getTipoPagamento(), "2° Teste de atualizar pagamento!");
+        assertEquals(this.fatura, DAO.getPagamento().buscarPorId(0).getFatura(), "3° Teste de atualizar pagamento!");
     }
 
     @Test
@@ -64,8 +64,8 @@ class PagamentoListImplTest {
 
         DAO.getPagamento().deletar(pagamento);
 
-        assertNotNull(DAO.getPagamento().buscarPorId(pagamento1.getPagamentoId()), "1° Teste de deletar pagamento!");
-        assertNull(DAO.getPagamento().buscarPorId(pagamento.getPagamentoId()), "2° Teste de deletar pagamento!");
+        assertNotNull(DAO.getPagamento().buscarPorId(1), "1° Teste de deletar pagamento!");
+        assertNull(DAO.getPagamento().buscarPorId(0), "2° Teste de deletar pagamento!");
 
     }
 
@@ -90,8 +90,8 @@ class PagamentoListImplTest {
 
         DAO.getPagamento().resetar();
 
-        assertNull(DAO.getPagamento().buscarPorId(pagamento.getPagamentoId()), "1° Teste de resetar pagamento!");
-        assertNull(DAO.getPagamento().buscarPorId(pagamento1.getPagamentoId()), "2° Teste de resetar pagamento!");
+        assertNull(DAO.getPagamento().buscarPorId(0), "1° Teste de resetar pagamento!");
+        assertNull(DAO.getPagamento().buscarPorId(1), "2° Teste de resetar pagamento!");
 
     }
 

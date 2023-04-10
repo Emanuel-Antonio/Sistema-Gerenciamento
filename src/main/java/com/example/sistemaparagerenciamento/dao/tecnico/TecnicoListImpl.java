@@ -27,7 +27,7 @@ public class TecnicoListImpl implements TecnicoDAO{
     @Override
     public Tecnico buscarPorId(int id) {
         for (Tecnico tecnico : this.tecnicos) {
-            if (tecnico.equals(id)) {
+            if (tecnico.getTecnicoId() == id) {
                 return tecnico;
             }
         }
