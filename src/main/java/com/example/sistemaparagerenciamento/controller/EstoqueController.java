@@ -14,19 +14,15 @@ public class EstoqueController {
         return estoque.toString();
     }
 
-    public boolean cadastrarOrdemCompra(int qnt, double valorUnitario, String nome){
+    public Boolean cadastrarOrdemCompra(int qnt, double valorUnitario, String nome){
         if(qnt <= 0 || valorUnitario <= 0) {
-            return  false;
+            return false;
         }
         else {
-            for (int i = 0; i < DAO.getPeca().getPecas().size(); i++) {
-                if (DAO.getPeca().getPecas().get(i).getNome().equals(nome)) {
-                    OrdemCompra ordemcompra = new OrdemCompra(qnt,valorUnitario,nome);
-                    DAO.getOrdemCompra().criar(ordemcompra);
-                }
-            }
+            OrdemCompra ordemcompra = new OrdemCompra(qnt,valorUnitario,nome);
+            DAO.getOrdemCompra().criar(ordemcompra);
+            return true;
         }
-        return false;
     }
 
     public String visualizarOrdensCompra(){
@@ -37,25 +33,27 @@ public class EstoqueController {
         return ordenscompra.toString();
     }
 
-    public Peca cadastrarPeca(String nome){
+    public Boolean cadastrarPeca(String nome){
         for(int i = 0; i < DAO.getPeca().getPecas().size(); i++){
             if(DAO.getPeca().getPecas().get(i).getNome().equals(nome))
-                return null;
+                return false;
         }
         Peca peca = new Peca(nome);
         DAO.getPeca().criar(peca);
-        return peca;
+        return true;
     }
 
-    public void adicionarPeca(Peca peca, int qnt, double valor){
+    public Boolean adicionarPeca(Peca peca, int qnt, double valor){
         for(int i = 0; i < DAO.getPeca().getPecas().size(); i++){
             if(DAO.getPeca().getPecas().get(i).equals(peca)){
                 double mediaValor = ((DAO.getPeca().getPecas().get(i).getValor() * DAO.getPeca().getPecas().get(i).getQnt()) + (valor * qnt))/(DAO.getPeca().getPecas().get(i).getQnt() + qnt);
                 DAO.getPeca().getPecas().get(i).setValor(mediaValor);
 
                 DAO.getPeca().getPecas().get(i).setQnt(DAO.getPeca().getPecas().get(i).getQnt() + qnt);
+                return true;
             }
         }
+        return false;
     }
 
 }
