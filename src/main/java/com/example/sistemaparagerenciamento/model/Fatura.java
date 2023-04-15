@@ -38,7 +38,7 @@ public class Fatura {
     }
 
     public void setValorPago(double valorPago) {
-        this.valorPago += valorPago;
+        this.valorPago = valorPago;
     }
 
     public void setValorTotal(double valorTotal) {

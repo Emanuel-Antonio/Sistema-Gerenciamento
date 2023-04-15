@@ -78,7 +78,7 @@ public class OrdemController {
         if (fatura.getValorTotal() >= (fatura.getValorPago() + pagamento.getValor())) {
             DAO.getPagamento().criar(pagamento);
 
-            DAO.getPagamento().buscarPorId(pagamento.getPagamentoId()).getFatura().setValorPago(pagamento.getValor());
+            DAO.getPagamento().buscarPorId(pagamento.getPagamentoId()).getFatura().setValorPago(fatura.getValorPago() + pagamento.getValor());
             return true;
         }
         return false;
