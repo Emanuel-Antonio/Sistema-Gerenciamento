@@ -1,7 +1,9 @@
-package com.example.sistemaparagerenciamento.model;
+package com.example.sistemaparagerenciamento.controller;
 
 
 import com.example.sistemaparagerenciamento.dao.DAO;
+import com.example.sistemaparagerenciamento.model.*;
+
 import java.util.List;
 
 public class Recepcao {
