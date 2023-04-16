@@ -1,5 +1,6 @@
 package com.example.sistemaparagerenciamento.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Ordem {
@@ -23,6 +24,11 @@ public class Ordem {
         this.clienteId = clienteId;
         this.status = StatusOrdem.ANDAMENTO;
         this.tecnicoId = -1;
+    }
+
+    public Ordem(int clienteId) {
+        this.clienteId = clienteId;
+        this.servicos = new ArrayList<>();
     }
 
     public List<Servico> getServicos() {

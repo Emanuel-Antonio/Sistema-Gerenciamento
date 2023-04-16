@@ -1,5 +1,6 @@
 package com.example.sistemaparagerenciamento.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Fatura {
@@ -15,6 +16,7 @@ public class Fatura {
         this.valorTotal = 0.0;
         this.ordemId = ordemId;
         this.valorPago = 0.0;
+        this.pagamentos = new ArrayList<>();
     }
 
     public double getValorTotal() {
@@ -47,7 +49,7 @@ public class Fatura {
 
     @Override
     public String toString() {
-        return "Id da ordem: " + "\n" + this.getOrdemId() + "Valor total: " + "\n" + this.getValorTotal() +
+        return "Id da ordem: " + this.getOrdemId() + "\n" + "Valor total: " + this.getValorTotal() + "\n" +
                 "Valor pago: " + this.getValorPago();
     }
 
