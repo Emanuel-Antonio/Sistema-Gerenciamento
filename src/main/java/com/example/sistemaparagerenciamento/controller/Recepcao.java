@@ -20,6 +20,7 @@ public class Recepcao {
                 if (DAO.getOrdem().getOrdens().get(i).getTecnicoId() == -1) {
                     DAO.getTecnico().buscarPorId(tecnico.getTecnicoId()).setOrdem(DAO.getOrdem().getOrdens().get(i));
                     DAO.getOrdem().getOrdens().get(i).setTecnicoId(tecnico.getTecnicoId());
+                    return DAO.getOrdem().getOrdens().get(i);
                 }
             }
         }
@@ -46,7 +47,7 @@ public class Recepcao {
             }
         }
         Tecnico tecnico = new Tecnico(email, nome, senha);
-        if (DAO.getTecnico().getTecnicos() == null) {
+        if (DAO.getTecnico().getTecnicos().size() == 0) {
             tecnico.setAdm(true);
         }
         DAO.getTecnico().criar(tecnico);
@@ -79,7 +80,7 @@ public class Recepcao {
         StringBuilder custoPeca = new StringBuilder();
         for(int i = 0; i < ordem.getServicos().size(); i++) {
             for(int ii = 0; ii < ordem.getServicos().get(i).getPecas().size(); ii++) {
-                custoPeca.append("\n\n").append(ordem.getServicos().get(i).getPecas().get(ii).getValor());
+                custoPeca.append("\n\n").append(ordem.getServicos().get(i).getPecas().get(ii));
             }
         }
         return custoPeca.toString();
