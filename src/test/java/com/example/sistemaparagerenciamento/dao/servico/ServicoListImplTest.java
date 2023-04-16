@@ -5,7 +5,6 @@ import com.example.sistemaparagerenciamento.model.CategoriaServico;
 import com.example.sistemaparagerenciamento.model.Servico;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-import java.util.Calendar;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ServicoListImplTest {
@@ -22,8 +21,6 @@ class ServicoListImplTest {
         servico.setPeca(null);
         servico.setAvaliacaoCliente(5);
         servico.setDescricao("Limpeza interna e externa");
-        Calendar calendar = Calendar.getInstance();
-        servico.setHorarioFechamento(calendar);
 
         DAO.getServico().criar(servico);
 
@@ -38,8 +35,6 @@ class ServicoListImplTest {
         servico.setPeca(null);
         servico.setAvaliacaoCliente(5);
         servico.setDescricao("Limpeza interna e externa");
-        Calendar calendar = Calendar.getInstance();
-        servico.setHorarioFechamento(calendar);
 
         DAO.getServico().criar(servico);
 
@@ -48,8 +43,6 @@ class ServicoListImplTest {
         servico1.setPeca(null);
         servico1.setAvaliacaoCliente(5);
         servico1.setDescricao("Formatação e instalação de programas");
-        Calendar calendar1 = Calendar.getInstance();
-        servico1.setHorarioFechamento(calendar1);
 
         DAO.getServico().criar(servico1);
 
@@ -64,8 +57,6 @@ class ServicoListImplTest {
         servico.setPeca(null);
         servico.setAvaliacaoCliente(5);
         servico.setDescricao("Limpeza interna e externa");
-        Calendar calendar = Calendar.getInstance();
-        servico.setHorarioFechamento(calendar);
 
         DAO.getServico().criar(servico);
 
@@ -73,8 +64,6 @@ class ServicoListImplTest {
         servico.setPeca(null);
         servico.setAvaliacaoCliente(5);
         servico.setDescricao("Formatação e instalação de programas");
-        Calendar calendar1 = Calendar.getInstance();
-        servico.setHorarioFechamento(calendar1);
 
         DAO.getServico().atualizar(servico);
 
@@ -82,7 +71,6 @@ class ServicoListImplTest {
         assertNull(DAO.getServico().buscarPorId(servico.getServicoId()).getPecas(), " 2° Teste atualizar servico");
         assertEquals(5, DAO.getServico().buscarPorId(servico.getServicoId()).getAvaliacaoCliente(), " 3° Teste atualizar servico");
         assertEquals("Formatação e instalação de programas", DAO.getServico().buscarPorId(servico.getServicoId()).getDescricao(), " 4° Teste atualizar servico");
-        assertEquals(calendar1, DAO.getServico().buscarPorId(servico.getServicoId()).getHorarioFechamento(), " 5° Teste atualizar servico");
     }
 
     @Test
@@ -92,8 +80,6 @@ class ServicoListImplTest {
         servico.setPeca(null);
         servico.setAvaliacaoCliente(5);
         servico.setDescricao("Limpeza interna e externa");
-        Calendar calendar = Calendar.getInstance();
-        servico.setHorarioFechamento(calendar);
 
         DAO.getServico().criar(servico);
 
@@ -102,8 +88,6 @@ class ServicoListImplTest {
         servico1.setPeca(null);
         servico1.setAvaliacaoCliente(5);
         servico1.setDescricao("Formatação e instalação de programas");
-        Calendar calendar1 = Calendar.getInstance();
-        servico1.setHorarioFechamento(calendar1);
 
         DAO.getServico().criar(servico1);
 
@@ -120,8 +104,6 @@ class ServicoListImplTest {
         servico.setPeca(null);
         servico.setAvaliacaoCliente(5);
         servico.setDescricao("Limpeza interna e externa");
-        Calendar calendar = Calendar.getInstance();
-        servico.setHorarioFechamento(calendar);
 
         DAO.getServico().criar(servico);
 
@@ -130,8 +112,6 @@ class ServicoListImplTest {
         servico1.setPeca(null);
         servico1.setAvaliacaoCliente(5);
         servico1.setDescricao("Formatação e instalação de programas");
-        Calendar calendar1 = Calendar.getInstance();
-        servico1.setHorarioFechamento(calendar1);
 
         DAO.getServico().criar(servico1);
 
