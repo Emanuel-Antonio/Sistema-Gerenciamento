@@ -15,7 +15,7 @@ public class ServicoController {
                 for (int j = 0; j < DAO.getServico().getServicos().get(i).getPecas().size(); j++) {
                     if (DAO.getServico().getServicos().get(i).getPecas().get(j).equals(peca)) {
                         DAO.getServico().getServicos().get(i).getPecas().remove(j);
-                        DAO.getPeca().buscarPorNome(peca.getNome()).setQnt(DAO.getPeca().buscarPorNome(peca.getNome()).getQnt() + peca.getQnt());
+                        DAO.getPeca().buscarPorNome(peca.getNome()).setQnt(DAO.getPeca().buscarPorNome(peca.getNome()).getQnt() + 1);
                         DAO.getServico().getServicos().get(i).setValor(DAO.getServico().getServicos().get(i).getValor() - DAO.getServico().getServicos().get(i).getPecas().get(j).getValor());
                         return true;
                     }
@@ -30,7 +30,7 @@ public class ServicoController {
             if (DAO.getServico().getServicos().get(i).equals(servico) && DAO.getServico().getServicos().get(i).getCategoria().equals(CategoriaServico.MONTAGEM_INSTALACAO)) {
                 List<Peca> p = DAO.getServico().getServicos().get(i).getPecas();
                 p.add(peca);
-                DAO.getPeca().buscarPorNome(peca.getNome()).setQnt(DAO.getPeca().buscarPorNome(peca.getNome()).getQnt() - peca.getQnt());
+                DAO.getPeca().buscarPorNome(peca.getNome()).setQnt(DAO.getPeca().buscarPorNome(peca.getNome()).getQnt() - 1);
                 DAO.getServico().getServicos().get(i).setPeca(p);
 
                 if(peca.getNome().equals("RAM"))

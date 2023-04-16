@@ -48,8 +48,9 @@ class ServicoControllerTest {
 
         DAO.getServico().buscarPorId(this.servico.getServicoId()).setPeca(pecas);
 
-        assertEquals(true,servicoController.removerPecaDoServico(this.servico, this.peca1), "3 Teste de remover peca do Servico!");
-        assertEquals(1, DAO.getServico().buscarPorId(this.servico.getServicoId()).getPecas().size(), "4 Teste de remover peca do Servico!");
+        assertEquals(true,servicoController.removerPecaDoServico(this.servico, this.peca1), "1 Teste de remover peca do Servico!");
+        assertEquals(1, DAO.getServico().buscarPorId(this.servico.getServicoId()).getPecas().size(), "2 Teste de remover peca do Servico!");
+        assertEquals(1, DAO.getPeca().buscarPorNome(this.peca1.getNome()).getQnt(), "3 Teste de remover peca do Servico!");
     }
 
     @Test
