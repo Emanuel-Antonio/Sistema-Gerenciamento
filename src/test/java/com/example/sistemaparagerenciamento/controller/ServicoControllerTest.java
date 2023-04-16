@@ -25,6 +25,7 @@ class ServicoControllerTest {
     void setUp() {
         this.servico = new Servico(0, CategoriaServico.MONTAGEM_INSTALACAO);
         this.peca1 = new Peca("RAM");
+        this.peca1.setQnt(1);
         this.peca2 = new Peca("SSD");
     }
 
@@ -50,7 +51,7 @@ class ServicoControllerTest {
 
         assertEquals(true,servicoController.removerPecaDoServico(this.servico, this.peca1), "1 Teste de remover peca do Servico!");
         assertEquals(1, DAO.getServico().buscarPorId(this.servico.getServicoId()).getPecas().size(), "2 Teste de remover peca do Servico!");
-        assertEquals(1, DAO.getPeca().buscarPorNome(this.peca1.getNome()).getQnt(), "3 Teste de remover peca do Servico!");
+        assertEquals(2, DAO.getPeca().buscarPorNome(this.peca1.getNome()).getQnt(), "3 Teste de remover peca do Servico!");
     }
 
     @Test
@@ -63,6 +64,7 @@ class ServicoControllerTest {
 
         assertEquals(true, servicoController.adicionarPecaAoServico(this.servico, this.peca1), "1 Teste de adicionar peca do Servico!");
         assertEquals(true, servicoController.adicionarPecaAoServico(this.servico, this.peca2), "2 Teste de adicionar peca do Servico!");
+        assertEquals(0, DAO.getPeca().buscarPorNome(this.peca1.getNome()).getQnt(), "3 Teste de remover peca do Servico!");
 
     }
 }
