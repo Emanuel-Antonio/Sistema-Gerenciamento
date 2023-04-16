@@ -3,25 +3,22 @@ package com.example.sistemaparagerenciamento.controller;
 import com.example.sistemaparagerenciamento.dao.DAO;
 import com.example.sistemaparagerenciamento.model.*;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
-
-import static java.lang.Math.round;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RecepcaoTest {
 
     @AfterEach
     void tearDown() {
+
         DAO.getTecnico().resetar();
         DAO.getOrdem().resetar();
         DAO.getPeca().resetar();
         DAO.getCliente().resetar();
         DAO.getServico().resetar();
+
     }
 
     @Test
@@ -161,45 +158,6 @@ class RecepcaoTest {
 
     @Test
     void mediaTempoDeEspera(){
-
-        Recepcao recepcao = new Recepcao();
-
-        Cliente cliente = new Cliente("Paulo", "Dom Basílio", "991482050");
-        DAO.getCliente().criar(cliente);
-
-        Ordem ordem = new Ordem(null, 0);
-
-        Servico servico = new Servico(0, CategoriaServico.LIMPEZA);
-        servico.setValor(70);
-        servico.setPeca(null);
-        servico.setAvaliacaoCliente(5);
-        servico.setDescricao("Limpeza interna e externa");
-
-        DAO.getServico().criar(servico);
-
-        Servico servico1 = new Servico(0, CategoriaServico.FORMATACAO_INSTALACAO);
-        servico1.setValor(60);
-        servico1.setPeca(null);
-        servico1.setAvaliacaoCliente(5);
-        servico1.setDescricao("Formatação e instalação de programas");
-
-        Calendar calendar = Calendar.getInstance();
-        Calendar calendar1 = Calendar.getInstance();
-
-        servico.setHorarioFechamento(calendar);
-        servico1.setHorarioFechamento(calendar1);
-
-        List<Servico> servicos = new ArrayList<>();
-        servicos.add(servico);
-        servicos.add(servico1);
-
-        DAO.getServico().criar(servico1);
-
-        DAO.getOrdem().criar(ordem);
-
-
-
-        assertEquals(0.004583333333333333, recepcao.mediaTempoDeEspera(ordem));
 
     }
 

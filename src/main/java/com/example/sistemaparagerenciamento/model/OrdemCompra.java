@@ -3,11 +3,8 @@ package com.example.sistemaparagerenciamento.model;
 public class OrdemCompra {
 
     private final int qnt;
-
     private final double valorUnitario;
-
     private final String nome;
-
     private int ordemCompraId;
 
     public OrdemCompra(int qnt, double valorUnitario, String nome) {
@@ -48,4 +45,5 @@ public class OrdemCompra {
     public void setOrdemCompraId(int ordemCompraId) {
         this.ordemCompraId = ordemCompraId;
     }
+
 }

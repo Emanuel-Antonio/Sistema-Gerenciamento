@@ -1,14 +1,12 @@
 package com.example.sistemaparagerenciamento.dao.ordem;
 
 import com.example.sistemaparagerenciamento.model.Ordem;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class OrdemListImpl implements OrdemDAO {
 
     private int novoId;
-
     private List<Ordem> ordens;
 
     public OrdemListImpl() {
@@ -16,14 +14,11 @@ public class OrdemListImpl implements OrdemDAO {
         this.ordens = new ArrayList<Ordem>();
     }
 
-
     @Override
     public Ordem criar(Ordem ordem) {
         ordem.setOrdemId(this.novoId);
         this.novoId++;
-
         this.ordens.add(ordem);
-
         return ordem;
     }
 
@@ -64,4 +59,5 @@ public class OrdemListImpl implements OrdemDAO {
         this.ordens = new ArrayList<>();
         this.novoId = 0;
     }
+
 }

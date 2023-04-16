@@ -3,14 +3,11 @@ package com.example.sistemaparagerenciamento.model;
 import java.util.List;
 
 public class Cliente {
+
     private final String nome;
-
     private String endereco;
-
     private String telefone;
-
     private List<Ordem> ordens;
-
     private int clienteId;
 
     public Cliente(String nome, String endereco, String telefone) {
@@ -67,6 +64,6 @@ public class Cliente {
     public String toString() {
         return "Nome: " + this.getNome() + "Id: " + this.getClienteId() + "Endereço: " +
                 this.getEndereco() + "Telefone: " + this.getTelefone();
-
     }
+
 }

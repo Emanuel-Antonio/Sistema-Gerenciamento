@@ -16,6 +16,7 @@ class ServicoListImplTest {
 
     @Test
     void criar() {
+
         Servico servico = new Servico(0, CategoriaServico.LIMPEZA);
         servico.setValor(70);
         servico.setPeca(null);
@@ -30,6 +31,7 @@ class ServicoListImplTest {
 
     @Test
     void buscarPorId() {
+
         Servico servico = new Servico(0, CategoriaServico.LIMPEZA);
         servico.setValor(70);
         servico.setPeca(null);
@@ -48,10 +50,12 @@ class ServicoListImplTest {
 
         assertEquals(servico, DAO.getServico().buscarPorId(servico.getServicoId()), " 1° Teste BuscarPorId servico");
         assertEquals(servico1, DAO.getServico().buscarPorId(servico1.getServicoId()), " 2° Teste BuscarPorId servico");
+
     }
 
     @Test
     void atualizar() {
+
         Servico servico = new Servico(0, CategoriaServico.LIMPEZA);
         servico.setValor(70);
         servico.setPeca(null);
@@ -71,10 +75,12 @@ class ServicoListImplTest {
         assertNull(DAO.getServico().buscarPorId(servico.getServicoId()).getPecas(), " 2° Teste atualizar servico");
         assertEquals(5, DAO.getServico().buscarPorId(servico.getServicoId()).getAvaliacaoCliente(), " 3° Teste atualizar servico");
         assertEquals("Formatação e instalação de programas", DAO.getServico().buscarPorId(servico.getServicoId()).getDescricao(), " 4° Teste atualizar servico");
+
     }
 
     @Test
     void deletar() {
+
         Servico servico = new Servico(0, CategoriaServico.LIMPEZA);
         servico.setValor(70);
         servico.setPeca(null);
@@ -95,10 +101,12 @@ class ServicoListImplTest {
 
         assertNull(DAO.getServico().buscarPorId(servico1.getServicoId()), " 1° Teste deletar servico!");
         assertNotNull(DAO.getServico().buscarPorId(servico.getServicoId()), " 2° Teste deletar servico!");
+
     }
 
     @Test
     void resetar() {
+
         Servico servico = new Servico(0, CategoriaServico.LIMPEZA);
         servico.setValor(70);
         servico.setPeca(null);
@@ -119,5 +127,7 @@ class ServicoListImplTest {
 
         assertNull(DAO.getServico().buscarPorId(0), " 1° Teste resetar servico!");
         assertNull(DAO.getServico().buscarPorId(1), " 2° Teste resetar servico! ");
+
     }
+
 }

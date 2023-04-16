@@ -5,15 +5,16 @@ import com.example.sistemaparagerenciamento.model.OrdemCompra;
 import com.example.sistemaparagerenciamento.model.Peca;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class EstoqueControllerTest {
 
     @AfterEach
     void tearDown() {
+
         DAO.getPeca().resetar();
         DAO.getOrdemCompra().resetar();
+
     }
 
     @Test
@@ -34,6 +35,7 @@ class EstoqueControllerTest {
         DAO.getPeca().criar(peca1);
 
         assertEquals("Estoque: \n" + "\n" + "Nome: RAM\n" + "Valor: 10.0\n" + "Quantidade: 20\n" + "\n" + "Nome: SSD\n" + "Valor: 20.0\n" + "Quantidade: 10", estoqueController.visualizarEstoque(), "1° teste visualizarEstoque");
+
     }
 
     @Test
@@ -48,6 +50,7 @@ class EstoqueControllerTest {
         DAO.getOrdemCompra().criar(ordemCompra1);
 
         assertEquals("Ordens de compra: \n" + "\n" + "Nome: RAM\n" + "Valor: 79.0\n" + "Quantidade: 10\n" + "Id : 0\n" + "\n" + "Nome: SSD\n" + "Valor: 109.0\n" + "Quantidade: 10\n" + "Id : 1", estoqueController.visualizarOrdensCompra(), "1° teste visualizarOrdensCompra");
+
     }
 
     @Test
@@ -77,6 +80,7 @@ class EstoqueControllerTest {
 
         assertEquals(true, estoqueController.cadastrarPeca("SSD"), "1° teste cadastrarPeca");
         assertEquals(false, estoqueController.cadastrarPeca("RAM"), "2° teste cadastrarPeca");
+
     }
 
     @Test

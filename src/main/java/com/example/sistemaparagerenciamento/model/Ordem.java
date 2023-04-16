@@ -6,17 +6,11 @@ import java.util.List;
 public class Ordem {
 
     private List<Servico> servicos;
-
     private StatusOrdem status;
-
     private Fatura fatura;
-
     private final int clienteId;
-
     private int tecnicoId;
-
     private int ordemId;
-
     private String avaliacaoFinal;
 
     public Ordem(List<Servico> servicos, int clienteId) {
@@ -97,4 +91,3 @@ public class Ordem {
     }
 
 }
-

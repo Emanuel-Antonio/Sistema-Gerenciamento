@@ -3,15 +3,10 @@ package com.example.sistemaparagerenciamento.model;
 public class Tecnico {
 
     private boolean adm;
-
     private final String nome;
-
     private final String senha;
-
     private int tecnicoId;
-
     private Ordem ordem;
-
     private final String email;
 
     public Tecnico(String email,String nome, String senha) {
@@ -69,4 +64,5 @@ public class Tecnico {
     public String toString() {
         return "Nome: " + this.getNome() + "\n" + "Email: " + this.getEmail() + "\n" + "Id: " + this.getTecnicoId() + "\n" + "Administrador: " + this.isAdm();
     }
+
 }

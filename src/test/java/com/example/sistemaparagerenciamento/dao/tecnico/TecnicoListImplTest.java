@@ -10,11 +10,14 @@ class TecnicoListImplTest {
 
     @AfterEach
     void tearDown() {
+
         DAO.getTecnico().resetar();
+
     }
 
     @Test
     void criar() {
+
         Tecnico tecnico = new Tecnico("antonystark@gmail.com", "Antony Stark", "jarvis");
         tecnico.setAdm(true);
         tecnico.setOrdem(null);
@@ -22,10 +25,12 @@ class TecnicoListImplTest {
         DAO.getTecnico().criar(tecnico);
 
         assertEquals(tecnico, DAO.getTecnico().buscarPorId(0), " 1° Teste criar tecnico");
+
     }
 
     @Test
     void buscarPorId() {
+
         Tecnico tecnico = new Tecnico("antonystark@gmail.com", "Antony Stark", "jarvis");
         tecnico.setAdm(true);
         tecnico.setOrdem(null);
@@ -40,10 +45,12 @@ class TecnicoListImplTest {
 
         assertEquals(tecnico, DAO.getTecnico().buscarPorId(0), " 1° Teste BuscarPorId tecnico!");
         assertEquals(tecnico1, DAO.getTecnico().buscarPorId(1), " 2° Teste BuscarPorId tecnico!");
+
     }
 
     @Test
     void atualizar() {
+
         Tecnico tecnico = new Tecnico("antonystark@gmail.com", "Antony Stark", "jarvis");
         tecnico.setAdm(true);
         tecnico.setOrdem(null);
@@ -56,10 +63,12 @@ class TecnicoListImplTest {
 
         assertEquals(false, DAO.getTecnico().buscarPorId(0).isAdm(), " 1° Teste atualizar tecnico");
         assertEquals(tecnico, DAO.getTecnico().buscarPorId(0), " 2° Teste atualizar tecnico");
+
     }
 
     @Test
     void deletar() {
+
         Tecnico tecnico = new Tecnico("antonystark@gmail.com", "Antony Stark", "jarvis");
         tecnico.setAdm(true);
         tecnico.setOrdem(null);
@@ -76,10 +85,12 @@ class TecnicoListImplTest {
 
         assertNull(DAO.getTecnico().buscarPorId(0), " 1° Teste deletar tecnico!");
         assertNotNull(DAO.getTecnico().buscarPorId(1), " 2° Teste deletar tecnico!");
+
     }
 
     @Test
     void resetar() {
+
         Tecnico tecnico = new Tecnico("antonystark@gmail.com", "Antony Stark", "jarvis");
         tecnico.setAdm(true);
         tecnico.setOrdem(null);
@@ -96,5 +107,7 @@ class TecnicoListImplTest {
 
         assertNull(DAO.getTecnico().buscarPorId(0), " 1° Teste resetar tecnico!");
         assertNull(DAO.getTecnico().buscarPorId(1), " 2° Teste resetar Tecnico!");
+
     }
+
 }

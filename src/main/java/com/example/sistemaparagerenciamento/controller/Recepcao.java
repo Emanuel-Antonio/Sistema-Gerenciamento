@@ -1,17 +1,12 @@
 package com.example.sistemaparagerenciamento.controller;
 
-
 import com.example.sistemaparagerenciamento.dao.DAO;
 import com.example.sistemaparagerenciamento.model.*;
-
-import java.util.List;
 
 public class Recepcao {
 
     private String email;
-
     private String senha;
-
     private String nome;
 
     public Ordem pegarOrdem(Tecnico tecnico) {

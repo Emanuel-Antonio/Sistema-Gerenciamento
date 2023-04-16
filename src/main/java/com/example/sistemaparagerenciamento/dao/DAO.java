@@ -18,17 +18,11 @@ import com.example.sistemaparagerenciamento.dao.tecnico.TecnicoListImpl;
 public class DAO {
 
         private static ClienteDAO clienteDAO;
-
         private static OrdemDAO ordemDAO;
-
         private static TecnicoDAO tecnicoDAO;
-
         private static ServicoDAO servicoDAO;
-
         private static PagamentoDAO pagamentoDAO;
-
         private static PecaDAO pecaDAO;
-
         private static OrdemCompraDAO ordemCompraDAO;
 
         public static ClienteDAO getCliente() {

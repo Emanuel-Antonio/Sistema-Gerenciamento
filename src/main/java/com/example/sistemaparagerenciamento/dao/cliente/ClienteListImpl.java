@@ -1,14 +1,12 @@
 package com.example.sistemaparagerenciamento.dao.cliente;
 
 import com.example.sistemaparagerenciamento.model.Cliente;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class ClienteListImpl implements ClienteDAO{
 
     private int novoId;
-
     private List<Cliente> clientes;
 
     public ClienteListImpl() {
@@ -51,6 +49,7 @@ public class ClienteListImpl implements ClienteDAO{
             }
         }
     }
+
     @Override
     public List<Cliente> getClientes() {
         return clientes;
@@ -61,4 +60,5 @@ public class ClienteListImpl implements ClienteDAO{
         this.clientes = new ArrayList<>();
         this.novoId = 0;
     }
+
 }

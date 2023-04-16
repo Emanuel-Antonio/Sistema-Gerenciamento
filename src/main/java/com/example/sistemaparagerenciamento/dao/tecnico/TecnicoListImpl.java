@@ -1,14 +1,12 @@
 package com.example.sistemaparagerenciamento.dao.tecnico;
 
 import com.example.sistemaparagerenciamento.model.Tecnico;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class TecnicoListImpl implements TecnicoDAO{
 
     private List<Tecnico> tecnicos;
-
     private int novoId;
 
     public TecnicoListImpl() {
@@ -61,4 +59,5 @@ public class TecnicoListImpl implements TecnicoDAO{
         this.tecnicos = new ArrayList<>();
         this.novoId = 0;
     }
+
 }

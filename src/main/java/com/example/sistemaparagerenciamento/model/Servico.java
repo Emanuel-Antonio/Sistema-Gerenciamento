@@ -7,21 +7,13 @@ import java.util.List;
 public class Servico {
 
     private final CategoriaServico categoria;
-
     private double valor;
-
     private Calendar horarioAbertura;
-
     private Calendar horarioFechamento;
-
     private double avaliacaoCliente;
-
     private final int ordemId;
-
     private List<Peca> pecas;
-
     private String descricao;
-
     private int servicoId;
 
     public Servico(int ordemId, CategoriaServico categoria) {
@@ -110,4 +102,5 @@ public class Servico {
     public void setServicoId(int servicoId) {
         this.servicoId = servicoId;
     }
+
 }

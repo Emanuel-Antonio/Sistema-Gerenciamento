@@ -19,18 +19,18 @@ public class EstoqueController {
             return false;
         }
         else {
-            OrdemCompra ordemcompra = new OrdemCompra(qnt,valorUnitario,nome);
-            DAO.getOrdemCompra().criar(ordemcompra);
+            OrdemCompra ordemCompra = new OrdemCompra(qnt,valorUnitario,nome);
+            DAO.getOrdemCompra().criar(ordemCompra);
             return true;
         }
     }
 
     public String visualizarOrdensCompra(){
-        StringBuilder ordenscompra = new StringBuilder("Ordens de compra: ");
+        StringBuilder ordensCompra = new StringBuilder("Ordens de compra: ");
         for(int i = 0; i < DAO.getOrdemCompra().getOrdensCompra().size(); i++){
-            ordenscompra.append("\n\n").append(DAO.getOrdemCompra().getOrdensCompra().get(i).toString());
+            ordensCompra.append("\n\n").append(DAO.getOrdemCompra().getOrdensCompra().get(i).toString());
         }
-        return ordenscompra.toString();
+        return ordensCompra.toString();
     }
 
     public Boolean cadastrarPeca(String nome){
@@ -48,7 +48,6 @@ public class EstoqueController {
             if(DAO.getPeca().getPecas().get(i).equals(peca)){
                 double mediaValor = ((DAO.getPeca().getPecas().get(i).getValor() * DAO.getPeca().getPecas().get(i).getQnt()) + (valor * qnt))/(DAO.getPeca().getPecas().get(i).getQnt() + qnt);
                 DAO.getPeca().getPecas().get(i).setValor(mediaValor);
-
                 DAO.getPeca().getPecas().get(i).setQnt(DAO.getPeca().getPecas().get(i).getQnt() + qnt);
                 return true;
             }

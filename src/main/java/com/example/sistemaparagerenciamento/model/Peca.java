@@ -3,9 +3,7 @@ package com.example.sistemaparagerenciamento.model;
 public class Peca {
 
     private final String nome;
-
     private double valor;
-
     private int qnt;
 
     public Peca(String nome) {
@@ -37,6 +35,7 @@ public class Peca {
         }
         return false;
     }
+
     @Override
     public String toString() {
         return "Nome: " + this.getNome() + "\n" + "Valor: " + this.getValor() + "\n" + "Quantidade: " + this.getQnt();
@@ -45,4 +44,5 @@ public class Peca {
     public void setValor(Double valor) {
         this.valor = valor;
     }
+
 }

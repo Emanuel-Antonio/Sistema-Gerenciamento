@@ -2,21 +2,18 @@ package com.example.sistemaparagerenciamento.controller;
 
 import com.example.sistemaparagerenciamento.dao.DAO;
 import com.example.sistemaparagerenciamento.model.*;
-
 import java.util.List;
 
 public class OrdemController {
 
     private String tipoPagamento;
-
     private double valor;
-
 
     public String gerarFatura(int ordemId) {
         if (DAO.getOrdem().buscarPorId(ordemId).getFatura() == null && DAO.getOrdem().buscarPorId(ordemId).getServicos() != null) {
-            Fatura f = new Fatura(ordemId);
-            DAO.getOrdem().buscarPorId(ordemId).setFatura(f);
-            return f.toString();
+            Fatura fatura = new Fatura(ordemId);
+            DAO.getOrdem().buscarPorId(ordemId).setFatura(fatura);
+            return fatura.toString();
         }
         return DAO.getOrdem().buscarPorId(ordemId).getFatura().toString();
     }
@@ -77,7 +74,6 @@ public class OrdemController {
         Pagamento pagamento = new Pagamento(this.tipoPagamento, this.valor, fatura);
         if (fatura.getValorTotal() >= (fatura.getValorPago() + pagamento.getValor())) {
             DAO.getPagamento().criar(pagamento);
-
             DAO.getPagamento().buscarPorId(pagamento.getPagamentoId()).getFatura().setValorPago(fatura.getValorPago() + pagamento.getValor());
             List<Pagamento> pagamentos = DAO.getOrdem().buscarPorId(fatura.getOrdemId()).getFatura().getPagamentos();
             pagamentos.add(pagamento);

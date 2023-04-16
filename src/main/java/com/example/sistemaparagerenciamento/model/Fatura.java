@@ -4,12 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Fatura {
+
     private double valorTotal;
-
     private List<Pagamento> pagamentos;
-
     private final int ordemId;
-
     private double valorPago;
 
     public Fatura(int ordemId) {

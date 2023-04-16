@@ -1,7 +1,6 @@
 package com.example.sistemaparagerenciamento.dao.servico;
 
 import com.example.sistemaparagerenciamento.model.Servico;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -9,7 +8,6 @@ import java.util.List;
 public class ServicoListImpl implements ServicoDAO {
 
     public List<Servico> servicos;
-
     public int novoId;
 
     public ServicoListImpl() {
@@ -23,7 +21,6 @@ public class ServicoListImpl implements ServicoDAO {
         servico.setServicoId(this.novoId);
         this.novoId++;
         this.servicos.add(servico);
-
         return servico;
     }
 
@@ -32,7 +29,6 @@ public class ServicoListImpl implements ServicoDAO {
         for (Servico servico : this.servicos) {
             if (servico.getServicoId() == id)
                 return servico;
-
         }
         return null;
     }

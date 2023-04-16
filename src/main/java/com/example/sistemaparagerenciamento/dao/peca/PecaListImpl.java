@@ -1,7 +1,6 @@
 package com.example.sistemaparagerenciamento.dao.peca;
 
 import com.example.sistemaparagerenciamento.model.Peca;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,11 +12,9 @@ public class PecaListImpl implements PecaDAO{
         this.pecas = new ArrayList<Peca>();
     }
 
-
     @Override
     public Peca criar(Peca peca) {
         this.pecas.add(peca);
-
         return peca;
     }
 
@@ -42,7 +39,6 @@ public class PecaListImpl implements PecaDAO{
         for (Peca peca : this.pecas) {
             if (peca.getNome().equals(nome))
                 return peca;
-
         }
         return null;
     }
@@ -55,4 +51,5 @@ public class PecaListImpl implements PecaDAO{
     public void resetar() {
         this.pecas = new ArrayList<>();
     }
+
 }
