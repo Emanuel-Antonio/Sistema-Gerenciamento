@@ -26,22 +26,24 @@ public class ServicoController {
     }
 
     public boolean adicionarPecaAoServico(Servico servico, Peca peca) {
-            if (DAO.getServico().getServicos().get(servico.getServicoId()).equals(servico) && DAO.getServico().getServicos().get(servico.getServicoId()).getCategoria().equals(CategoriaServico.MONTAGEM_INSTALACAO)) {
-                List<Peca> p = DAO.getServico().getServicos().get(servico.getServicoId()).getPecas();
+        for (int i = 0; i < DAO.getServico().getServicos().size(); i++) {
+            if (DAO.getServico().getServicos().get(i).equals(servico) && DAO.getServico().getServicos().get(i).getCategoria().equals(CategoriaServico.MONTAGEM_INSTALACAO)) {
+                List<Peca> p = DAO.getServico().getServicos().get(i).getPecas();
                 p.add(peca);
                 DAO.getPeca().buscarPorNome(peca.getNome()).setQnt(DAO.getPeca().buscarPorNome(peca.getNome()).getQnt() - peca.getQnt());
-                DAO.getServico().getServicos().get(servico.getServicoId()).setPeca(p);
+                DAO.getServico().getServicos().get(i).setPeca(p);
 
                 if(peca.getNome().equals("RAM"))
-                    DAO.getServico().getServicos().get(servico.getServicoId()).setValor(20);
+                    DAO.getServico().getServicos().get(i).setValor(20);
                 else if(peca.getNome().equals("Placa mãe") || peca.getNome().equals("placa de vídeo"))
-                    DAO.getServico().getServicos().get(servico.getServicoId()).setValor(100);
+                    DAO.getServico().getServicos().get(i).setValor(100);
                 else if(peca.getNome().equals("fonte") || peca.getNome().equals("HD") || peca.getNome().equals("SSD"))
-                    DAO.getServico().getServicos().get(servico.getServicoId()).setValor(30);
+                    DAO.getServico().getServicos().get(i).setValor(30);
 
-                DAO.getServico().getServicos().get(servico.getServicoId()).setValor(DAO.getServico().getServicos().get(servico.getServicoId()).getValor() + peca.getValor());
+                DAO.getServico().getServicos().get(i).setValor(DAO.getServico().getServicos().get(i).getValor() + peca.getValor());
                 return true;
             }
+        }
         return false;
     }
 

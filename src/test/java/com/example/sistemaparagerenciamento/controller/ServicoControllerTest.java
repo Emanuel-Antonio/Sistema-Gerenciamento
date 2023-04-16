@@ -25,7 +25,7 @@ class ServicoControllerTest {
     void setUp() {
         this.servico = new Servico(0, CategoriaServico.MONTAGEM_INSTALACAO);
         this.peca1 = new Peca("RAM");
-        this.peca2 = new Peca("fonte");
+        this.peca2 = new Peca("SSD");
     }
 
     @AfterEach
