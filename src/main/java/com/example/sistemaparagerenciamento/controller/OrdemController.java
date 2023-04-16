@@ -79,6 +79,9 @@ public class OrdemController {
             DAO.getPagamento().criar(pagamento);
 
             DAO.getPagamento().buscarPorId(pagamento.getPagamentoId()).getFatura().setValorPago(fatura.getValorPago() + pagamento.getValor());
+            List<Pagamento> pagamentos = DAO.getOrdem().buscarPorId(fatura.getOrdemId()).getFatura().getPagamentos();
+            pagamentos.add(pagamento);
+            DAO.getOrdem().buscarPorId(fatura.getOrdemId()).getFatura().setPagamentos(pagamentos);
             return true;
         }
         return false;
