@@ -67,7 +67,7 @@ public class Tecnico {
     }
 
     /**
-     * sobrescrever do método equals para comparação de objetos Tecnico, a comparação é feita atraves do identificador do tecnico (tecnicoId)
+     * sobrescrever do método equals para comparação de objetos Tecnico, a comparação é feita através do identificador do tecnico (tecnicoId)
      *
      * @param obj valor referente ao objeto Tecnico
      * @return boolean

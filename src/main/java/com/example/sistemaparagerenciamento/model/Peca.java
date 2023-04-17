@@ -44,7 +44,7 @@ public class Peca {
     }
 
     /**
-     * sobrescrever do método equals para comparação de objetos Peca, a comparação é feita atraves do nome da peca (Nome)
+     * sobrescrever do método equals para comparação de objetos Peca, a comparação é feita através do nome da peca (Nome)
      *
      * @param obj valor referente ao objeto Peca
      * @return boolean

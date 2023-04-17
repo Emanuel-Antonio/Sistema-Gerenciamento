@@ -99,7 +99,7 @@ public class Servico {
     }
 
     /**
-     * sobrescrever do método equals para comparação de objetos Servico, a comparação é feita atraves do identificador do servico (ServicoId)
+     * sobrescrever do método equals para comparação de objetos Servico, a comparação é feita através do identificador do servico (ServicoId)
      *
      * @param obj valor referente ao objeto Servico
      * @return boolean

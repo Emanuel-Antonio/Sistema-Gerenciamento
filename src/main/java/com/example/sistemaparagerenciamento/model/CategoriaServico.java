@@ -14,7 +14,7 @@ public enum CategoriaServico {
     FORMATACAO_INSTALACAO,
 
     /**
-     * define a categoria do serviço para MOntagem ou Instalação
+     * define a categoria do serviço para Montagem ou Instalação
      */
     MONTAGEM_INSTALACAO,
 

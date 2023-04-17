@@ -3,6 +3,12 @@ package com.example.sistemaparagerenciamento.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Emanuel Antonio Lima Pereira e Émerson Rodrigo Lima Pereira
+ * @version 1.0
+ *
+ * Classe responsável por representar uma abstração de ordem
+ */
 public class Ordem {
 
     private List<Servico> servicos;
@@ -13,6 +19,11 @@ public class Ordem {
     private int ordemId;
     private String avaliacaoFinal;
 
+    /**
+     * construtor de ordem, será necessário passar alguns parametros para cria um objeto Ordem, tais quais os listados abaixo.
+     *
+     * @param clienteId valor referente ao identificador do cliente
+     */
     public Ordem(int clienteId) {
         this.clienteId = clienteId;
         this.servicos = new ArrayList<>();
@@ -72,6 +83,12 @@ public class Ordem {
         this.avaliacaoFinal = avaliacaoFinal;
     }
 
+    /**
+     * sobrescrever do método equals para comparação de objetos Ordem, a comparação é feita através do identificador de Ordem (ordemId)
+     *
+     * @param obj valor referente ao objeto Ordem
+     * @return boolean
+     */
     @Override
     public boolean equals(Object obj) {
         if(obj instanceof Ordem o){
@@ -80,6 +97,11 @@ public class Ordem {
         return false;
     }
 
+    /**
+     * sobrescrever do método toString para definir qual mensagem deverá ser retornada
+     *
+     * @return String
+     */
     @Override
     public String toString() {
         return "Id Ordem: " + this.getOrdemId() + "\n" + "Tecnico: " + this.getTecnicoId() + "\n" + "Cliente: " + this.getClienteId() + "\n" + "Status: " +this.getStatus();

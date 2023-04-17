@@ -47,7 +47,7 @@ public class OrdemCompra {
     }
 
     /**
-     * sobrescrever do método equals para comparação de objetos OrdemCompra, a comparação é feita atraves do identificador da ordem de compra (OrdemCompraId)
+     * sobrescrever do método equals para comparação de objetos OrdemCompra, a comparação é feita através do identificador da ordem de compra (OrdemCompraId)
      *
      * @param obj valor referente ao objeto OrdemCompra
      * @return boolean
