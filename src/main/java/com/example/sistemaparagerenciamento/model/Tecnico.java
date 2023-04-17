@@ -1,5 +1,10 @@
 package com.example.sistemaparagerenciamento.model;
 
+/**
+ * @author Emanuel Antonio Lima Pereira e Émerson Rodrigo Lima Pereira
+ * @version 1.0
+ * Classe responsável por representar uma abstração de tecnico
+ */
 public class Tecnico {
 
     private boolean adm;
@@ -9,6 +14,14 @@ public class Tecnico {
     private Ordem ordem;
     private final String email;
 
+    /**
+     * construtor de tecnico, será necessário passar alguns parametros para cria um objeto tecnico, tais quais os listados abaixo.
+     *
+     * @param email
+     * @param nome
+     * @param senha
+     *
+     */
     public Tecnico(String email,String nome, String senha) {
         this.senha = senha;
         this.email = email;
