@@ -3,6 +3,12 @@ package com.example.sistemaparagerenciamento.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Emanuel Antonio Lima Pereira e Émerson Rodrigo Lima Pereira
+ * @version 1.0
+ *
+ * Classe responsável por representar uma abstração de fatura
+ */
 public class Fatura {
 
     private double valorTotal;
@@ -10,6 +16,11 @@ public class Fatura {
     private final int ordemId;
     private double valorPago;
 
+    /**
+     * construtor de fatura, será necessário passar alguns parametros para cria um objeto Fatura, tais quais os listados abaixo.
+     *
+     * @param ordemId valor referente ao identificador da ordem
+     */
     public Fatura(int ordemId) {
         this.valorTotal = 0.0;
         this.ordemId = ordemId;
@@ -45,6 +56,11 @@ public class Fatura {
         this.valorTotal = valorTotal;
     }
 
+    /**
+     * sobrescrever do método toString para definir qual mensagem deverá ser retornada
+     *
+     * @return String
+     */
     @Override
     public String toString() {
         return "Id da ordem: " + this.getOrdemId() + "\n" + "Valor total: " + this.getValorTotal() + "\n" +
