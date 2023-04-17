@@ -25,20 +25,22 @@ public class ServicoController {
     }
 
     public boolean adicionarPecaAoServico(Servico servico, Peca peca) {
-        for (int i = 0; i < DAO.getServico().getServicos().size(); i++) {
-            if (DAO.getServico().getServicos().get(i).equals(servico) && DAO.getServico().getServicos().get(i).getCategoria().equals(CategoriaServico.MONTAGEM_INSTALACAO)) {
-                List<Peca> pecas = DAO.getServico().getServicos().get(i).getPecas();
-                pecas.add(peca);
-                DAO.getPeca().buscarPorNome(peca.getNome()).setQnt(DAO.getPeca().buscarPorNome(peca.getNome()).getQnt() - 1);
-                DAO.getServico().getServicos().get(i).setPeca(pecas);
-                if(peca.getNome().equals("RAM"))
-                    DAO.getServico().getServicos().get(i).setValor(20);
-                else if(peca.getNome().equals("Placa mãe") || peca.getNome().equals("placa de vídeo"))
-                    DAO.getServico().getServicos().get(i).setValor(100);
-                else if(peca.getNome().equals("fonte") || peca.getNome().equals("HD") || peca.getNome().equals("SSD"))
-                    DAO.getServico().getServicos().get(i).setValor(30);
-                DAO.getServico().getServicos().get(i).setValor(DAO.getServico().getServicos().get(i).getValor() + peca.getValor());
-                return true;
+        if(DAO.getPeca().buscarPorNome(peca.getNome()).getQnt() > 0) {
+            for (int i = 0; i < DAO.getServico().getServicos().size(); i++) {
+                if (DAO.getServico().getServicos().get(i).equals(servico) && DAO.getServico().getServicos().get(i).getCategoria().equals(CategoriaServico.MONTAGEM_INSTALACAO)) {
+                    List<Peca> pecas = DAO.getServico().getServicos().get(i).getPecas();
+                    pecas.add(peca);
+                    DAO.getPeca().buscarPorNome(peca.getNome()).setQnt(DAO.getPeca().buscarPorNome(peca.getNome()).getQnt() - 1);
+                    DAO.getServico().getServicos().get(i).setPeca(pecas);
+                    if (peca.getNome().equals("RAM"))
+                        DAO.getServico().getServicos().get(i).setValor(20);
+                    else if (peca.getNome().equals("Placa mãe") || peca.getNome().equals("placa de vídeo"))
+                        DAO.getServico().getServicos().get(i).setValor(100);
+                    else if (peca.getNome().equals("fonte") || peca.getNome().equals("HD") || peca.getNome().equals("SSD"))
+                        DAO.getServico().getServicos().get(i).setValor(30);
+                    DAO.getServico().getServicos().get(i).setValor(DAO.getServico().getServicos().get(i).getValor() + peca.getValor());
+                    return true;
+                }
             }
         }
         return false;

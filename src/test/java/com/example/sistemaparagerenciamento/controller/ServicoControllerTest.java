@@ -66,7 +66,7 @@ class ServicoControllerTest {
         DAO.getPeca().criar(peca2);
 
         assertEquals(true, servicoController.adicionarPecaAoServico(this.servico, this.peca1), "1 Teste de adicionar peca do Servico!");
-        assertEquals(true, servicoController.adicionarPecaAoServico(this.servico, this.peca2), "2 Teste de adicionar peca do Servico!");
+        assertEquals(false, servicoController.adicionarPecaAoServico(this.servico, this.peca2), "2 Teste de adicionar peca do Servico!");
         assertEquals(0, DAO.getPeca().buscarPorNome(this.peca1.getNome()).getQnt(), "3 Teste de remover peca do Servico!");
 
     }
