@@ -15,6 +15,12 @@ import com.example.sistemaparagerenciamento.dao.servico.ServicoListImpl;
 import com.example.sistemaparagerenciamento.dao.tecnico.TecnicoDAO;
 import com.example.sistemaparagerenciamento.dao.tecnico.TecnicoListImpl;
 
+/**
+ * Classe DAO responsável por abstrair o banco de dados, em outras palavras, agrega todas as funções de persistência de dados
+ *
+ * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
+ * @version 1.0
+ */
 public class DAO {
 
         private static ClienteDAO clienteDAO;
@@ -25,13 +31,23 @@ public class DAO {
         private static PecaDAO pecaDAO;
         private static OrdemCompraDAO ordemCompraDAO;
 
+        /**
+         * Padrão singleton com o intuito de criar somente uma instância da implementação de ClienteDAO
+         *
+         * @return ClienteDAO
+         */
         public static ClienteDAO getCliente() {
-            if (clienteDAO == null) {
-                clienteDAO = new ClienteListImpl();
-            }
-            return clienteDAO;
+                if (clienteDAO == null) {
+                    clienteDAO = new ClienteListImpl();
+                }
+                return clienteDAO;
         }
 
+        /**
+         * Padrão singleton com o intuito de criar somente uma instância da implementação de OrdemDAO
+         *
+         * @return OrdemDAO
+         */
         public static OrdemDAO getOrdem() {
             if (ordemDAO == null) {
                 ordemDAO = new OrdemListImpl();
@@ -39,6 +55,11 @@ public class DAO {
             return ordemDAO;
         }
 
+        /**
+         * Padrão singleton com o intuito de criar somente uma instância da implementação de TecnicoDAO
+         *
+         * @return TecnicoDAO
+         */
         public static TecnicoDAO getTecnico() {
             if (tecnicoDAO == null) {
                 tecnicoDAO = new TecnicoListImpl();
@@ -46,6 +67,11 @@ public class DAO {
             return tecnicoDAO;
         }
 
+        /**
+         * Padrão singleton com o intuito de criar somente uma instância da implementação de ServicoDAO
+         *
+         * @return ServicoDAO
+         */
         public static ServicoDAO getServico() {
             if (servicoDAO == null) {
                 servicoDAO = new ServicoListImpl();
@@ -53,6 +79,11 @@ public class DAO {
             return servicoDAO;
         }
 
+        /**
+         * Padrão singleton com o intuito de criar somente uma instância da implementação de PagamentoDAO
+         *
+         * @return PagamentoDAO
+         */
         public static PagamentoDAO getPagamento() {
             if (pagamentoDAO == null) {
                 pagamentoDAO = new PagamentoListImpl();
@@ -60,6 +91,11 @@ public class DAO {
             return pagamentoDAO;
         }
 
+        /**
+         * Padrão singleton com o intuito de criar somente uma instância da implementação de PecaDAO
+         *
+         * @return PecaDAO
+         */
         public static PecaDAO getPeca() {
             if (pecaDAO == null) {
                 pecaDAO = new PecaListImpl();
@@ -67,6 +103,11 @@ public class DAO {
             return pecaDAO;
         }
 
+        /**
+         * Padrão singleton com o intuito de criar somente uma instância da implementação de OrdemCompraDAO
+         *
+         * @return OrdemCompraDAO
+         */
         public static OrdemCompraDAO getOrdemCompra() {
             if (ordemCompraDAO == null) {
                 ordemCompraDAO = new OrdemCompraListImpl();
