@@ -1,10 +1,10 @@
 package com.example.sistemaparagerenciamento.model;
 
 /**
+ * Classe respons&aacute;vel por representar uma abstra&ccedil;&atilde;o de ordem de compra
+ *
  * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
  * @version 1.0
- *
- * Classe respons&aacute;vel por representar uma abstra&ccedil;&atilde;o de ordem de compra
  */
 public class OrdemCompra {
 
@@ -14,7 +14,7 @@ public class OrdemCompra {
     private int ordemCompraId;
 
     /**
-     * construtor de peca, ser&aacute; necess&aacute;rio passar alguns parametros para cria um objeto OrdemCompra, tais quais os listados abaixo.
+     * Construtor de peca, ser&aacute; necess&aacute;rio passar alguns parametros para cria um objeto OrdemCompra, tais quais os listados abaixo.
      *
      * @param qnt valor referente a quantidade da peca
      * @param valorUnitario valor referente ao valor unit&aacute;rio da peca
@@ -47,7 +47,7 @@ public class OrdemCompra {
     }
 
     /**
-     * sobrescrever do m&eacute;todo equals para compara&ccedil;&atilde;o de objetos OrdemCompra, a compara&ccedil;&atilde;o &eacute; feita atrav&eacute;s do identificador da ordem de compra (OrdemCompraId)
+     * Sobrescrever do m&eacute;todo equals para compara&ccedil;&atilde;o de objetos OrdemCompra, a compara&ccedil;&atilde;o &eacute; feita atrav&eacute;s do identificador da ordem de compra (OrdemCompraId)
      *
      * @param obj valor referente ao objeto OrdemCompra
      * @return boolean
@@ -61,7 +61,7 @@ public class OrdemCompra {
     }
 
     /**
-     * sobrescrever do m&eacute;todo toString para definir qual mensagem dever&aacute; ser retornada
+     * Sobrescrever do m&eacute;todo toString para definir qual mensagem dever&aacute; ser retornada
      *
      * @return String
      */

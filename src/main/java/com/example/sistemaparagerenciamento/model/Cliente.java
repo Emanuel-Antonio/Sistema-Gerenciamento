@@ -3,10 +3,10 @@ package com.example.sistemaparagerenciamento.model;
 import java.util.List;
 
 /**
+ * Classe respons&aacute;vel por representar uma abstra&ccedil;&atilde;o de cliente
+ *
  * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
  * @version 1.0
- *
- * Classe respons&aacute;vel por representar uma abstra&ccedil;&atilde;o de cliente
  */
 public class Cliente {
 
@@ -17,7 +17,7 @@ public class Cliente {
     private int clienteId;
 
     /**
-     * construtor de cliente, ser&aacute; necess&aacute;rio passar alguns parametros para cria um objeto Cliente, tais quais os listados abaixo.
+     * Construtor de cliente, ser&aacute; necess&aacute;rio passar alguns parametros para cria um objeto Cliente, tais quais os listados abaixo.
      *
      * @param nome valor referente ao nome do cliente
      * @param endereco valor referente ao endere&ccedil;o do cliente
@@ -66,7 +66,7 @@ public class Cliente {
     }
 
     /**
-     * sobrescrever do m&eacute;todo equals para compara&ccedil;&atilde;o de objetos Cliente, a compara&ccedil;&atilde;o &eacute; feita atrav&eacute;s do identificador do cliente (clienteId)
+     * Sobrescrever do m&eacute;todo equals para compara&ccedil;&atilde;o de objetos Cliente, a compara&ccedil;&atilde;o &eacute; feita atrav&eacute;s do identificador do cliente (clienteId)
      *
      * @param obj valor referente ao objeto Cliente
      * @return boolean
@@ -80,7 +80,7 @@ public class Cliente {
     }
 
     /**
-     * sobrescrever do m&eacute;todo toString para definir qual mensagem dever ser retornada
+     * Sobrescrever do m&eacute;todo toString para definir qual mensagem dever ser retornada
      *
      * @return String
      */

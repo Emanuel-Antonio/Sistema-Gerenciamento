@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Classe respons&aacute;vel por representar uma abstra&ccedil;&atilde;o de fatura
+ *
  * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
  * @version 1.0
- *
- * Classe respons&aacute;vel por representar uma abstra&ccedil;&atilde;o de fatura
  */
 public class Fatura {
 
@@ -17,7 +17,7 @@ public class Fatura {
     private double valorPago;
 
     /**
-     * construtor de fatura, ser&aacute; necess&aacute;rio passar alguns parametros para cria um objeto Fatura, tais quais os listados abaixo.
+     * Construtor de fatura, ser&aacute; necess&aacute;rio passar alguns parametros para cria um objeto Fatura, tais quais os listados abaixo.
      *
      * @param ordemId valor referente ao identificador da ordem
      */
@@ -57,7 +57,7 @@ public class Fatura {
     }
 
     /**
-     * sobrescrever do m&eacute;todo toString para definir qual mensagem dever&aacute; ser retornada
+     * Sobrescrever do m&eacute;todo toString para definir qual mensagem dever&aacute; ser retornada
      *
      * @return String
      */

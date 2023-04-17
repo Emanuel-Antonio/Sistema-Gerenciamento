@@ -1,10 +1,10 @@
 package com.example.sistemaparagerenciamento.model;
 
 /**
+ * Classe respons&aacute;vel por representar uma abstra&ccedil;&atilde;o de pe&ccedil;a
+ *
  * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
  * @version 1.0
- *
- * Classe respons&aacute;vel por representar uma abstra&ccedil;&atilde;o de pe&ccedil;a
  */
 public class Peca {
 
@@ -13,7 +13,7 @@ public class Peca {
     private int qnt;
 
     /**
-     * construtor de peca, ser&aacute; necess&aacute;rio passar alguns parametros para cria um objeto Peca, tais quais os listados abaixo.
+     * Construtor de peca, ser&aacute; necess&aacute;rio passar alguns parametros para cria um objeto Peca, tais quais os listados abaixo.
      *
      * @param nome valor referente ao nome da peca
      */
@@ -44,7 +44,7 @@ public class Peca {
     }
 
     /**
-     * sobrescrever do m&eacute;todo equals para compara&ccedil;&atilde;o de objetos Peca, a compara&ccedil;&atilde;o &eacute; feita atrav&eacute;s do nome da peca (Nome)
+     * Sobrescrever do m&eacute;todo equals para compara&ccedil;&atilde;o de objetos Peca, a compara&ccedil;&atilde;o &eacute; feita atrav&eacute;s do nome da peca (Nome)
      *
      * @param obj valor referente ao objeto Peca
      * @return boolean
@@ -58,7 +58,7 @@ public class Peca {
     }
 
     /**
-     * sobrescrever do m&eacute;todo toString para definir qual mensagem dever&aacute; ser retornada
+     * Sobrescrever do m&eacute;todo toString para definir qual mensagem dever&aacute; ser retornada
      *
      * @return String
      */

@@ -1,10 +1,10 @@
 package com.example.sistemaparagerenciamento.model;
 
 /**
+ * Classe respons&aacute;vel por representar uma abstra&ccedil;&atilde;o de pagamento
+ *
  * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
  * @version 1.0
- *
- * Classe respons&aacute;vel por representar uma abstra&ccedil;&atilde;o de pagamento
  */
 public class Pagamento {
 
@@ -14,7 +14,7 @@ public class Pagamento {
     private int pagamentoId;
 
     /**
-     * construtor de Pagamento, ser&aacute; necess&aacute;rio passar alguns parametros para cria um objeto Pagamento, tais quais os listados abaixo.
+     * Construtor de Pagamento, ser&aacute; necess&aacute;rio passar alguns parametros para cria um objeto Pagamento, tais quais os listados abaixo.
      *
      * @param tipoPagamento valor referente ao meio de pagamento
      * @param valor valor referente ao valor do pagamento
@@ -47,7 +47,7 @@ public class Pagamento {
     }
 
     /**
-     * sobrescrever do m&eacute;todo equals para compara&ccedil;&atilde;o de objetos Pagamento, a compara&ccedil;&atilde;o &eacute; feita atrav&eacute;s do identificador do pagamento (pagamentoId)
+     * Sobrescrever do m&eacute;todo equals para compara&ccedil;&atilde;o de objetos Pagamento, a compara&ccedil;&atilde;o &eacute; feita atrav&eacute;s do identificador do pagamento (pagamentoId)
      *
      * @param obj valor referente ao objeto pagamento
      * @return boolean
@@ -61,7 +61,7 @@ public class Pagamento {
     }
 
     /**
-     * sobrescrever do m&eacute;todo toString para definir qual mensagem dever&aacute; ser retornada
+     * Sobrescrever do m&eacute;todo toString para definir qual mensagem dever&aacute; ser retornada
      *
      * @return String
      */

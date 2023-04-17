@@ -1,10 +1,10 @@
 package com.example.sistemaparagerenciamento.model;
 
 /**
+ * Classe respons&aacute;vel por representar uma abstra&ccedil;&atilde;o de t&eacute;cnico
+ *
  * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
  * @version 1.0
- *
- * Classe respons&aacute;vel por representar uma abstra&ccedil;&atilde;o de t&eacute;cnico
  */
 public class Tecnico {
 
@@ -16,7 +16,7 @@ public class Tecnico {
     private final String email;
 
     /**
-     * construtor de tecnico, ser&aacute; necess&aacute;rio passar alguns parametros para cria um objeto Tecnico, tais quais os listados abaixo.
+     * Construtor de tecnico, ser&aacute; necess&aacute;rio passar alguns parametros para cria um objeto Tecnico, tais quais os listados abaixo.
      *
      * @param email valor referente ao email do tecnico
      * @param nome valor referente ao nome do tecnico
@@ -67,7 +67,7 @@ public class Tecnico {
     }
 
     /**
-     * sobrescrever do m&eacute;todo equals para compara&ccedil;&atilde;o de objetos Tecnico, a compara&ccedil;&atilde;o &eacute; feita atrav&eacute;s do identificador do tecnico (tecnicoId)
+     * Sobrescrever do m&eacute;todo equals para compara&ccedil;&atilde;o de objetos Tecnico, a compara&ccedil;&atilde;o &eacute; feita atrav&eacute;s do identificador do tecnico (tecnicoId)
      *
      * @param obj valor referente ao objeto Tecnico
      * @return boolean
@@ -81,7 +81,7 @@ public class Tecnico {
     }
 
     /**
-     * sobrescrever do método toString é para definir qual mensagem deverá ser retornada
+     * Sobrescrever do método toString é para definir qual mensagem deverá ser retornada
      *
      * @return String
      */

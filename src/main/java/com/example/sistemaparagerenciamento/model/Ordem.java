@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Classe respons&aacute;vel por representar uma abstra&ccedil;&atilde;o de ordem
+ *
  * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
  * @version 1.0
- *
- * Classe respons&aacute;vel por representar uma abstra&ccedil;&atilde;o de ordem
  */
 public class Ordem {
 
@@ -20,7 +20,7 @@ public class Ordem {
     private String avaliacaoFinal;
 
     /**
-     * construtor de ordem, ser&aacute; necess&aacute;rio passar alguns parametros para cria um objeto Ordem, tais quais os listados abaixo.
+     * Construtor de ordem, ser&aacute; necess&aacute;rio passar alguns parametros para cria um objeto Ordem, tais quais os listados abaixo.
      *
      * @param clienteId valor referente ao identificador do cliente
      */
@@ -84,7 +84,7 @@ public class Ordem {
     }
 
     /**
-     * sobrescrever do m&eacute;todo equals para compara&ccedil;&atilde;o de objetos Ordem, a compara&ccedil;&atilde;o &eacute; feita atrav&eacute;s do identificador de Ordem (ordemId)
+     * Sobrescrever do m&eacute;todo equals para compara&ccedil;&atilde;o de objetos Ordem, a compara&ccedil;&atilde;o &eacute; feita atrav&eacute;s do identificador de Ordem (ordemId)
      *
      * @param obj valor referente ao objeto Ordem
      * @return boolean
@@ -98,7 +98,7 @@ public class Ordem {
     }
 
     /**
-     * sobrescrever do m&eacute;todo toString para definir qual mensagem dever&aacute; ser retornada
+     * Sobrescrever do m&eacute;todo toString para definir qual mensagem dever&aacute; ser retornada
      *
      * @return String
      */

@@ -5,9 +5,10 @@ import java.util.Calendar;
 import java.util.List;
 
 /**
- * classe respon&aacute;vel por representar uma abstra&ccedil;&atilde;o de servi&ccedil;o
+ * Classe respon&aacute;vel por representar uma abstra&ccedil;&atilde;o de servi&ccedil;o
  *
  * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
+ * @version 1.0
  */
 public class Servico {
 
@@ -22,7 +23,7 @@ public class Servico {
     private int servicoId;
 
     /**
-     * construtor de servico, ser&aacute; necess&aacute;rio passar alguns parametros para cria um objeto Servico, tais quais os listados abaixo.
+     * Construtor de servico, ser&aacute; necess&aacute;rio passar alguns parametros para cria um objeto Servico, tais quais os listados abaixo.
      *
      * @param ordemId valor referente ao identificador da ordem
      * @param categoria valor referente a categoria do servico
@@ -99,7 +100,7 @@ public class Servico {
     }
 
     /**
-     * sobrescrever do m&eacute;todo equals para compara&ccedil;&atilde;o de objetos Servico, a compara&ccedil;&atilde;o &eacute; feita atrav&eacute;s do identificador do servico (ServicoId)
+     * Sobrescrever do m&eacute;todo equals para compara&ccedil;&atilde;o de objetos Servico, a compara&ccedil;&atilde;o &eacute; feita atrav&eacute;s do identificador do servico (ServicoId)
      *
      * @param obj valor referente ao objeto Servico
      * @return boolean
@@ -113,7 +114,7 @@ public class Servico {
     }
 
     /**
-     * sobrescrever do m&eacute;todo toString para definir qual mensagem dever&aacute; ser retornada
+     * Sobrescrever do m&eacute;todo toString para definir qual mensagem dever&aacute; ser retornada
      *
      * @return String
      */
