@@ -15,7 +15,7 @@ class OrdemControllerTest {
     @BeforeEach
     void setUp() {
 
-        this.ordem = new Ordem(null, 0);
+        this.ordem = new Ordem( 0);
         DAO.getOrdem().criar(this.ordem);
         this.ordem1 = new Ordem( 0);
         DAO.getOrdem().criar(this.ordem1);
@@ -102,19 +102,16 @@ class OrdemControllerTest {
 
         OrdemController ordemController = new OrdemController();
 
-        Ordem ordem2 = new Ordem(0);
-        DAO.getOrdem().criar(ordem2);
+        Fatura fatura = new Fatura(this.ordem.getOrdemId());
 
-        Fatura fatura = new Fatura(ordem2.getOrdemId());
-
-        DAO.getOrdem().buscarPorId(ordem2.getOrdemId()).setFatura(fatura);
+        DAO.getOrdem().buscarPorId(this.ordem.getOrdemId()).setFatura(fatura);
 
         Fatura fatura1 = new Fatura(this.ordem1.getOrdemId());
 
         DAO.getOrdem().buscarPorId(this.ordem1.getOrdemId()).setFatura(fatura1);
 
-        assertEquals(true, ordemController.cadastrarServico(1, CategoriaServico.MONTAGEM_INSTALACAO), "1° Teste de remover Servico!");
-        assertEquals(true, ordemController.cadastrarServico(2, CategoriaServico.LIMPEZA), "2° Teste de remover Servico!");
+        assertEquals(true, ordemController.cadastrarServico(0, CategoriaServico.MONTAGEM_INSTALACAO), "1° Teste de remover Servico!");
+        assertEquals(true, ordemController.cadastrarServico(1, CategoriaServico.LIMPEZA), "2° Teste de remover Servico!");
         assertEquals(true, ordemController.removerServico(DAO.getOrdem().buscarPorId(this.ordem1.getOrdemId()).getServicos().get(0)), "3° Teste de remover Servico!");
 
     }

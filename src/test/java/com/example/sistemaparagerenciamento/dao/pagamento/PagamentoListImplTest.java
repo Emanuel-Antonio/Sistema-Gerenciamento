@@ -17,7 +17,7 @@ class PagamentoListImplTest {
     @BeforeEach
     void setUp() {
 
-        this.ordem = new Ordem(null, 1);
+        this.ordem = new Ordem( 1);
         DAO.getOrdem().criar(ordem);
         this.fatura = new Fatura(0);
         DAO.getOrdem().buscarPorId(0).setFatura(this.fatura);

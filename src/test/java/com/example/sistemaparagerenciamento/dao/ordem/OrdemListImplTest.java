@@ -20,7 +20,7 @@ class OrdemListImplTest {
         DAO.getCliente().criar(this.cliente);
         this.tecnico = new Tecnico("Digo@gmail.com", "Rodrigo", "1234");
         DAO.getTecnico().criar(this.tecnico);
-        this.ordem = new Ordem(null, this.cliente.getClienteId());
+        this.ordem = new Ordem(this.cliente.getClienteId());
         DAO.getOrdem().criar(this.ordem);
 
     }
@@ -56,7 +56,7 @@ class OrdemListImplTest {
     @Test
     void atualizar() {
 
-        Ordem ordem1 = new Ordem(null, this.cliente.getClienteId());
+        Ordem ordem1 = new Ordem( this.cliente.getClienteId());
         ordem1.setStatus(StatusOrdem.PAGAMENTO);
         DAO.getOrdem().atualizar(ordem1);
 
@@ -67,7 +67,7 @@ class OrdemListImplTest {
     @Test
     void deletar() {
 
-        Ordem ordem1 = new Ordem(null, this.cliente.getClienteId());
+        Ordem ordem1 = new Ordem(this.cliente.getClienteId());
         ordem1.setStatus(StatusOrdem.PAGAMENTO);
         DAO.getOrdem().criar(ordem1);
         DAO.getOrdem().deletar(this.ordem.getOrdemId());
@@ -80,7 +80,7 @@ class OrdemListImplTest {
     @Test
     void resetar() {
 
-        Ordem ordem1 = new Ordem(null, this.cliente.getClienteId());
+        Ordem ordem1 = new Ordem( this.cliente.getClienteId());
         ordem1.setStatus(StatusOrdem.PAGAMENTO);
         DAO.getOrdem().criar(ordem1);
         DAO.getOrdem().resetar();

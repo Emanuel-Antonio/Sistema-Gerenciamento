@@ -55,7 +55,7 @@ class RecepcaoTest {
         DAO.getTecnico().criar(tecnico);
         Tecnico tecnico1 = new Tecnico("nel@gmail.com", "emanuel", "1234");
         DAO.getTecnico().criar(tecnico1);
-        Ordem ordem = new Ordem(null, cliente.getClienteId());
+        Ordem ordem = new Ordem( cliente.getClienteId());
         DAO.getOrdem().criar(ordem);
 
         assertEquals(ordem, recepcao.pegarOrdem(tecnico), "1° teste pegarOrdem");
@@ -113,7 +113,7 @@ class RecepcaoTest {
         Cliente cliente = new Cliente("Paulo", "Dom Basílio", "991482050");
         DAO.getCliente().criar(cliente);
 
-        Ordem ordem = new Ordem(null, 0);
+        Ordem ordem = new Ordem( 0);
 
         Peca peca = new Peca("RAM");
         peca.setQnt(20);

@@ -86,7 +86,7 @@ public class OrdemController {
     public boolean cadastrarOrdem(int clienteId){
         for(int i = 0; i < DAO.getCliente().getClientes().size(); i++){
             if(DAO.getCliente().getClientes().get(i).getClienteId() == clienteId){
-                Ordem ordem = new Ordem(null, clienteId);
+                Ordem ordem = new Ordem(clienteId);
                 DAO.getOrdem().criar(ordem);
                 List<Ordem> ordens = DAO.getCliente().getClientes().get(i).getOrdens();
                 DAO.getCliente().getClientes().get(i).setOrdens(ordens);

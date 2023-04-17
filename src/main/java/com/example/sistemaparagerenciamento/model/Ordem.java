@@ -13,16 +13,11 @@ public class Ordem {
     private int ordemId;
     private String avaliacaoFinal;
 
-    public Ordem(List<Servico> servicos, int clienteId) {
-        this.servicos = servicos;
-        this.clienteId = clienteId;
-        this.status = StatusOrdem.ANDAMENTO;
-        this.tecnicoId = -1;
-    }
-
     public Ordem(int clienteId) {
         this.clienteId = clienteId;
         this.servicos = new ArrayList<>();
+        this.status = StatusOrdem.ANDAMENTO;
+        this.tecnicoId = -1;
     }
 
     public List<Servico> getServicos() {
