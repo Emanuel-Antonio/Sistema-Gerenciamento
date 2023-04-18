@@ -4,13 +4,22 @@ import com.example.sistemaparagerenciamento.model.OrdemCompra;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implementa&ccedil;&atilde;o de OrdemCompraDAO com lista
+ *
+ * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
+ * @version 1.0
+ */
 public class OrdemCompraListImpl implements OrdemCompraDAO{
 
     public List<OrdemCompra> ordensCompra;
     public int novoId;
 
+    /**
+     * Construtor de OrdemCompraListImpl, necess&aacute;rio para inicializar os atributos novoId e ordensCompra.
+     */
     public OrdemCompraListImpl() {
-        this.ordensCompra = new ArrayList<OrdemCompra>();
+        this.ordensCompra = new ArrayList<>();
         this.novoId = 0;
     }
 

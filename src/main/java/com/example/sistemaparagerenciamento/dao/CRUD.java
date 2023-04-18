@@ -1,7 +1,7 @@
 package com.example.sistemaparagerenciamento.dao;
 
 /**
- * Interface CRUD para definir as quatro operações Create (criar), Read (buscar), Update (atualizar) e Delete (deletar)
+ * Interface CRUD para definir as quatro opera&ccedil;&otilde;es Create (criar), Read (buscar), Update (atualizar) e Delete (deletar)
  *
  * @param <T>
  * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
@@ -10,33 +10,33 @@ package com.example.sistemaparagerenciamento.dao;
 public interface CRUD <T> {
 
     /**
-     * Método que cria um objeto
+     * M&eacute;todo que cria um objeto
      *
-     * @param obj
-     * @return
+     * @param obj valor referente a um objeto
+     * @return T
      */
-    public T criar(T obj);
+     T criar(T obj);
 
     /**
-     * Método que busca um objeto por identificador
+     * M&eacute;todo que busca um objeto por identificador
      *
      * @param id valor referente ao identificador do objeto
-     * @return
+     * @return T
      */
-    public T buscarPorId(int id);
+     T buscarPorId(int id);
 
     /**
-     * Método que atualiza um objeto
+     * M&eacute;todo que atualiza um objeto
      *
-     * @param obj
+     * @param obj valor referente a um objeto
      */
-    public void atualizar(T obj);
+     void atualizar(T obj);
 
     /**
-     * Método que deleta um objeto
+     * M&eacute;todo que deleta um objeto
      *
      * @param id valor referente ao identificador do objeto
      */
-    public void deletar(int id);
+    void deletar(int id);
 
 }

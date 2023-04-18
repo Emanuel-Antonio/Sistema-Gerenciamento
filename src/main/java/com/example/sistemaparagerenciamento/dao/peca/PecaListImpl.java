@@ -4,12 +4,21 @@ import com.example.sistemaparagerenciamento.model.Peca;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implementa&ccedil;&atilde;o de PecaDAO com lista
+ *
+ * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
+ * @version 1.0
+ */
 public class PecaListImpl implements PecaDAO{
 
     public List<Peca> pecas;
 
+    /**
+     * Construtor de PecaListImpl, necess&aacute;rio para inicializar o atributo pecas.
+     */
     public PecaListImpl() {
-        this.pecas = new ArrayList<Peca>();
+        this.pecas = new ArrayList<>();
     }
 
     @Override

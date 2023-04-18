@@ -5,13 +5,22 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+/**
+ * Implementa&ccedil;&atilde;o de ServicoDAO com lista
+ *
+ * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
+ * @version 1.0
+ */
 public class ServicoListImpl implements ServicoDAO {
 
     public List<Servico> servicos;
     public int novoId;
 
+    /**
+     * Construtor de ServicoListImpl, necess&aacute;rio para inicializar os atributos novoId e servicos.
+     */
     public ServicoListImpl() {
-        this.servicos = new ArrayList<Servico>();
+        this.servicos = new ArrayList<>();
         this.novoId = 0;
     }
 

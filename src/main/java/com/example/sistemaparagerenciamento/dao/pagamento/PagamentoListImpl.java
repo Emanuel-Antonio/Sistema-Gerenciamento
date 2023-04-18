@@ -4,13 +4,22 @@ import com.example.sistemaparagerenciamento.model.Pagamento;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implementa&ccedil;&atilde;o de PagamentoDAO com lista
+ *
+ * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
+ * @version 1.0
+ */
 public class PagamentoListImpl implements PagamentoDAO {
 
     public List<Pagamento> pagamentos;
     public int novoId;
 
+    /**
+     * Construtor de PagamentoListImpl, necess&aacute;rio para inicializar os atributos novoId e pagamentos.
+     */
     public PagamentoListImpl(){
-        this.pagamentos = new ArrayList<Pagamento>();
+        this.pagamentos = new ArrayList<>();
         this.novoId = 0;
     }
 

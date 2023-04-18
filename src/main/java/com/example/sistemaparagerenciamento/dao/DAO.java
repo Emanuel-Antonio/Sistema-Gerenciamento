@@ -16,7 +16,7 @@ import com.example.sistemaparagerenciamento.dao.tecnico.TecnicoDAO;
 import com.example.sistemaparagerenciamento.dao.tecnico.TecnicoListImpl;
 
 /**
- * Classe DAO responsável por abstrair o banco de dados, em outras palavras, agrega todas as funções de persistência de dados
+ * Classe DAO respons&aacute;vel por abstrair o banco de dados, em outras palavras, agrega todas as fun&ccedil;&otilde;es de persist&ecirc;ncia de dados
  *
  * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
  * @version 1.0
@@ -32,7 +32,7 @@ public class DAO {
         private static OrdemCompraDAO ordemCompraDAO;
 
         /**
-         * Padrão singleton com o intuito de criar somente uma instância da implementação de ClienteDAO
+         * Padr&atilde;o singleton com o intuito de criar somente uma inst&acirc;ncia da implementa&ccedil;&atilde;o de ClienteDAO
          *
          * @return ClienteDAO
          */
@@ -44,7 +44,7 @@ public class DAO {
         }
 
         /**
-         * Padrão singleton com o intuito de criar somente uma instância da implementação de OrdemDAO
+         * Padr&atilde;o singleton com o intuito de criar somente uma inst&acirc;ncia da implementa&ccedil;&atilde;o de OrdemDAO
          *
          * @return OrdemDAO
          */
@@ -56,7 +56,7 @@ public class DAO {
         }
 
         /**
-         * Padrão singleton com o intuito de criar somente uma instância da implementação de TecnicoDAO
+         * Padr&atilde;o singleton com o intuito de criar somente uma inst&acirc;ncia da implementa&ccedil;&atilde;o de TecnicoDAO
          *
          * @return TecnicoDAO
          */
@@ -68,7 +68,7 @@ public class DAO {
         }
 
         /**
-         * Padrão singleton com o intuito de criar somente uma instância da implementação de ServicoDAO
+         * Padr&atilde;o singleton com o intuito de criar somente uma inst&acirc;ncia da implementa&ccedil;&atilde;o de ServicoDAO
          *
          * @return ServicoDAO
          */
@@ -80,7 +80,7 @@ public class DAO {
         }
 
         /**
-         * Padrão singleton com o intuito de criar somente uma instância da implementação de PagamentoDAO
+         * Padr&atilde;o singleton com o intuito de criar somente uma inst&acirc;ncia da implementa&ccedil;&atilde;o de PagamentoDAO
          *
          * @return PagamentoDAO
          */
@@ -92,7 +92,7 @@ public class DAO {
         }
 
         /**
-         * Padrão singleton com o intuito de criar somente uma instância da implementação de PecaDAO
+         * Padr&atilde;o singleton com o intuito de criar somente uma inst&acirc;ncia da implementa&ccedil;&atilde;o de PecaDAO
          *
          * @return PecaDAO
          */
@@ -104,7 +104,7 @@ public class DAO {
         }
 
         /**
-         * Padrão singleton com o intuito de criar somente uma instância da implementação de OrdemCompraDAO
+         * Padr&atilde;o singleton com o intuito de criar somente uma inst&acirc;ncia da implementa&ccedil;&atilde;o de OrdemCompraDAO
          *
          * @return OrdemCompraDAO
          */

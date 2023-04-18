@@ -4,16 +4,31 @@ import com.example.sistemaparagerenciamento.model.Ordem;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implementa&ccedil;&atilde;o de OrdemDAO com lista
+ *
+ * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
+ * @version 1.0
+ */
 public class OrdemListImpl implements OrdemDAO {
 
     private int novoId;
     private List<Ordem> ordens;
 
+    /**
+     * Construtor de OrdemListImpl, necess&aacute;rio para inicializar os atributos novoId e ordens.
+     */
     public OrdemListImpl() {
         this.novoId = 0;
-        this.ordens = new ArrayList<Ordem>();
+        this.ordens = new ArrayList<>();
     }
 
+    /**
+     * M&eacute;todo que cria um ordem e adiciona na lista de ordens
+     *
+     * @param ordem valor referente a um objeto Ordem
+     * @return Ordem
+     */
     @Override
     public Ordem criar(Ordem ordem) {
         ordem.setOrdemId(this.novoId);
@@ -22,6 +37,12 @@ public class OrdemListImpl implements OrdemDAO {
         return ordem;
     }
 
+    /**
+     * M&eacute;todo que busca uma ordem pelo seu identificador
+     *
+     * @param id valor referente ao identificador da ordem
+     * @return Ordem
+     */
     @Override
     public Ordem buscarPorId(int id) {
         for(Ordem ordem : this.ordens){
@@ -31,6 +52,11 @@ public class OrdemListImpl implements OrdemDAO {
         return null;
     }
 
+    /**
+     * M&eacute;todo que atualiza um ordem
+     *
+     * @param ordem valor referente a um objeto Ordem
+     */
     @Override
     public void atualizar(Ordem ordem) {
         for (int i = 0; i < this.ordens.size(); i++) {
@@ -40,6 +66,11 @@ public class OrdemListImpl implements OrdemDAO {
         }
     }
 
+    /**
+     * M&eacute;todo que deleta uma ordem e remove da lista de ordens
+     *
+     * @param id valor referente ao identificador do objeto Ordem
+     */
     @Override
     public void deletar(int id) {
         for (int i = 0; i < this.ordens.size(); i++) {
