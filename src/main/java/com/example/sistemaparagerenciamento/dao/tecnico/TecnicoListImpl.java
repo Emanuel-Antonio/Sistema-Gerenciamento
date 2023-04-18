@@ -81,10 +81,18 @@ public class TecnicoListImpl implements TecnicoDAO{
         }
     }
 
+    /**
+     * M&eacute;todo que retorna a lista de t&eacute;cnicos
+     *
+     * @return List
+     */
     public List<Tecnico> getTecnicos(){
         return tecnicos;
     }
 
+    /**
+     * M&eacute;todo que reseta a lista de t&eacute;cnicos
+     */
     @Override
     public void resetar() {
         this.tecnicos = new ArrayList<>();

@@ -44,7 +44,7 @@ public interface PecaDAO {
     /**
      * M&eacute;todo que retorna uma lista de pe&ccedil;as
      *
-     * @return List<Peca>
+     * @return List
      */
     List<Peca> getPecas();
 

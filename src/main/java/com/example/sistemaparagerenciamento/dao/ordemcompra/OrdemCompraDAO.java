@@ -44,7 +44,7 @@ public interface OrdemCompraDAO {
     /**
      * M&eacute;todo que retorna a lista de ordens de compra
      *
-     * @return List<OrdemCompra>
+     * @return List
      */
     List<OrdemCompra> getOrdensCompra();
 

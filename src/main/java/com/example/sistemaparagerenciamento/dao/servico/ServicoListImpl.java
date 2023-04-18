@@ -24,6 +24,12 @@ public class ServicoListImpl implements ServicoDAO {
         this.novoId = 0;
     }
 
+    /**
+     * M&eacute;todo que cria um servi&ccedil;o e adiciona na lista de servi&ccedil;os
+     *
+     * @param servico valor referente a um objeto Servico
+     * @return Servico
+     */
     @Override
     public Servico criar(Servico servico) {
         servico.setHorarioAbertura(Calendar.getInstance());
@@ -33,6 +39,12 @@ public class ServicoListImpl implements ServicoDAO {
         return servico;
     }
 
+    /**
+     * M&eacute;todo que busca um servi&ccedil;o pelo seu identificador
+     *
+     * @param id valor referente ao identificador do servi&ccedil;o
+     * @return Servico
+     */
     @Override
     public Servico buscarPorId(int id) {
         for (Servico servico : this.servicos) {
@@ -42,6 +54,11 @@ public class ServicoListImpl implements ServicoDAO {
         return null;
     }
 
+    /**
+     * M&eacute;todo que atualiza um servi&ccedil;o
+     *
+     * @param servico valor referente a um objeto Servico
+     */
     @Override
     public void atualizar(Servico servico) {
         for(int i = 0; i < this.servicos.size(); i++){
@@ -58,10 +75,18 @@ public class ServicoListImpl implements ServicoDAO {
         }
     }
 
+    /**
+     * M&eacute;todo que retorna a lista de servi&ccedil;os
+     *
+     * @return List
+     */
     public List<Servico> getServicos() {
         return servicos;
     }
 
+    /**
+     * M&eacute;todo que reseta a lista de servi&ccedil;os
+     */
     @Override
     public void resetar() {
         this.servicos = new ArrayList<>();

@@ -23,7 +23,7 @@ public interface ClienteDAO extends CRUD<Cliente> {
     /**
      * M&eacute;todo que retorna a lista de clientes
      *
-     * @return List<Cliente>
+     * @return List
      */
     List<Cliente> getClientes();
 

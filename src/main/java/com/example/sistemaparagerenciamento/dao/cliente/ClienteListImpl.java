@@ -37,6 +37,13 @@ public class ClienteListImpl implements ClienteDAO{
         return cliente;
     }
 
+
+    /**
+     * M&eacute;todo que busca um cliente pelo seu identificador
+     *
+     * @param id valor referente ao identificador do cliente
+     * @return Cliente
+     */
     @Override
     public Cliente buscarPorId(int id) {
         for(Cliente cliente : this.clientes){
@@ -75,11 +82,19 @@ public class ClienteListImpl implements ClienteDAO{
         }
     }
 
+    /**
+     * M&eacute;todo que retorna a lista de clientes
+     *
+     * @return List
+     */
     @Override
     public List<Cliente> getClientes() {
         return clientes;
     }
 
+    /**
+     * M&eacute;todo que reseta a lista de clientes
+     */
     @Override
     public void resetar(){
         this.clientes = new ArrayList<>();

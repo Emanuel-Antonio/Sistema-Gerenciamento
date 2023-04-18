@@ -80,11 +80,19 @@ public class OrdemListImpl implements OrdemDAO {
         }
     }
 
+    /**
+     * M&eacute;todo que retorna a lista de ordens
+     *
+     * @return List
+     */
     @Override
     public List<Ordem> getOrdens() {
         return ordens;
     }
 
+    /**
+     * M&eacute;todo que reseta a lista de ordens
+     */
     @Override
     public void resetar(){
         this.ordens = new ArrayList<>();

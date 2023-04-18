@@ -21,12 +21,23 @@ public class PecaListImpl implements PecaDAO{
         this.pecas = new ArrayList<>();
     }
 
+    /**
+     * M&eacute;todo que cria uma pe&ccedil;a e adiciona na lista de pe&ccedil;as
+     *
+     * @param peca valor referente a um objeto Peca
+     * @return Peca
+     */
     @Override
     public Peca criar(Peca peca) {
         this.pecas.add(peca);
         return peca;
     }
 
+    /**
+     * M&eacute;todo que atualiza uma pe&ccedil;a
+     *
+     * @param peca valor referente a um objeto Peca
+     */
     @Override
     public void atualizar(Peca peca) {
         for(int i = 0; i < this.pecas.size(); i++){
@@ -35,6 +46,11 @@ public class PecaListImpl implements PecaDAO{
         }
     }
 
+    /**
+     * M&eacute;todo que deleta uma pe&ccedil;a e remove da lista de pe&ccedil;as
+     *
+     * @param peca valor referente a um objeto Peca
+     */
     @Override
     public void deletar(Peca peca) {
         for(int i = 0; i < this.pecas.size(); i++){
@@ -43,6 +59,12 @@ public class PecaListImpl implements PecaDAO{
         }
     }
 
+    /**
+     * M&eacute;todo que busca uma pe&ccedil;a pelo seu nome
+     *
+     * @param nome valor referente ao nome da pe&ccedil;a
+     * @return Peca
+     */
     @Override
     public Peca buscarPorNome(String nome) {
         for (Peca peca : this.pecas) {
@@ -52,10 +74,18 @@ public class PecaListImpl implements PecaDAO{
         return null;
     }
 
+    /**
+     * M&eacute;todo que retorna a lista de pe&ccedil;as
+     *
+     * @return List
+     */
     public List<Peca> getPecas() {
         return pecas;
     }
 
+    /**
+     * M&eacute;todo que reseta a lista de pe&ccedil;as
+     */
     @Override
     public void resetar() {
         this.pecas = new ArrayList<>();

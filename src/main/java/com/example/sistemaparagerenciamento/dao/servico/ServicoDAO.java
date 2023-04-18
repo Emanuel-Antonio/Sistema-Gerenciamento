@@ -44,7 +44,7 @@ public interface ServicoDAO {
     /**
      * M&eacute;todo que retorna uma lista de servi&ccedil;os
      *
-     * @return List<Servico>
+     * @return List
      */
      List<Servico> getServicos();
 

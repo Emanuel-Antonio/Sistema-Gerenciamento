@@ -23,6 +23,12 @@ public class PagamentoListImpl implements PagamentoDAO {
         this.novoId = 0;
     }
 
+    /**
+     * M&eacute;todo que cria um pagamento e adiciona na lista de pagamentos
+     *
+     * @param pagamento valor referente a um objeto Pagamento
+     * @return Pagamento
+     */
     @Override
     public Pagamento criar(Pagamento pagamento) {
         pagamento.setPagamentoId(this.novoId);
@@ -31,6 +37,11 @@ public class PagamentoListImpl implements PagamentoDAO {
         return pagamento;
     }
 
+    /**
+     * M&eacute;todo que atualiza um pagamento
+     *
+     * @param pagamento valor referente a um objeto Pagamento
+     */
     @Override
     public Pagamento atualizar(Pagamento pagamento) {
         for (int i = 0; i < this.pagamentos.size(); i++) {
@@ -42,6 +53,11 @@ public class PagamentoListImpl implements PagamentoDAO {
         return null;
     }
 
+    /**
+     * M&eacute;todo que deleta um pagamento e remove da lista de pagamentos
+     *
+     * @param pagamento valor referente a um objeto Pagamento
+     */
     @Override
     public void deletar(Pagamento pagamento) {
         for (int i = 0; i < this.pagamentos.size(); i++) {
@@ -50,6 +66,12 @@ public class PagamentoListImpl implements PagamentoDAO {
         }
     }
 
+    /**
+     * M&eacute;todo que busca um pagamento pelo seu identificador
+     *
+     * @param id valor referente ao identificador do pagamento
+     * @return Pagamento
+     */
     @Override
     public Pagamento buscarPorId(int id) {
         for(Pagamento pagamento : this.pagamentos){
@@ -60,6 +82,9 @@ public class PagamentoListImpl implements PagamentoDAO {
         return null;
     }
 
+    /**
+     * M&eacute;todo que reseta a lista de pagamentos
+     */
     @Override
     public void resetar() {
         this.pagamentos = new ArrayList<>();

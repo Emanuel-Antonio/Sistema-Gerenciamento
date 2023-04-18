@@ -15,7 +15,7 @@ public interface OrdemDAO extends CRUD<Ordem> {
     /**
      * M&eacute;todo que retorna a lista de ordens
      *
-     * @return List<Ordem>
+     * @return List
      */
      List<Ordem> getOrdens();
 

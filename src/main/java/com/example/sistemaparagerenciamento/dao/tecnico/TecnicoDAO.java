@@ -15,7 +15,7 @@ public interface TecnicoDAO extends CRUD<Tecnico> {
     /**
      * M&eacute;todo que retorna uma lista de t&eacute;cnicos
      *
-     * @return List<Tecnico>
+     * @return List
      */
      List<Tecnico> getTecnicos();
 

@@ -1,1 +1,8 @@
+com.example.sistemaparagerenciamento.dao
 com.example.sistemaparagerenciamento.dao.cliente
+com.example.sistemaparagerenciamento.dao.ordem
+com.example.sistemaparagerenciamento.dao.ordemcompra
+com.example.sistemaparagerenciamento.dao.pagamento
+com.example.sistemaparagerenciamento.dao.peca
+com.example.sistemaparagerenciamento.dao.servico
+com.example.sistemaparagerenciamento.dao.tecnico
