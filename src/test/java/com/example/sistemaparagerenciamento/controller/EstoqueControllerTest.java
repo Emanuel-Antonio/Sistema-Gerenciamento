@@ -98,8 +98,8 @@ class EstoqueControllerTest {
 
         DAO.getPeca().criar(peca);
 
-        assertEquals(true, estoqueController.adicionarPeca(peca, 10, 83.0),"1° teste adicionarPeca");
-        assertEquals(false, estoqueController.adicionarPeca(peca1, 5, 7.0), "2° teste adicionarPeca");
+        assertEquals(true, estoqueController.adicionarPeca("RAM", 10, 83.0),"1° teste adicionarPeca");
+        assertEquals(false, estoqueController.adicionarPeca("SSD", 5, 7.0), "2° teste adicionarPeca");
         assertEquals(15, DAO.getPeca().buscarPorNome("RAM").getQnt(),"3° teste adicionarPeca");
         assertEquals(82, DAO.getPeca().buscarPorNome("RAM").getValor(), "4° teste adicionarPeca");
 

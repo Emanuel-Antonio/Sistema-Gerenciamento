@@ -1,3 +1,6 @@
+module:com.example.sistemaparagerenciamento
+com.example.sistemaparagerenciamento
+com.example.sistemaparagerenciamento.controller
 com.example.sistemaparagerenciamento.dao
 com.example.sistemaparagerenciamento.dao.cliente
 com.example.sistemaparagerenciamento.dao.ordem
@@ -6,3 +9,14 @@ com.example.sistemaparagerenciamento.dao.pagamento
 com.example.sistemaparagerenciamento.dao.peca
 com.example.sistemaparagerenciamento.dao.servico
 com.example.sistemaparagerenciamento.dao.tecnico
+com.example.sistemaparagerenciamento.exceptions.categoriaservico
+com.example.sistemaparagerenciamento.exceptions.cliente
+com.example.sistemaparagerenciamento.exceptions.fatura
+com.example.sistemaparagerenciamento.exceptions.ordem
+com.example.sistemaparagerenciamento.exceptions.ordemcompra
+com.example.sistemaparagerenciamento.exceptions.pagamento
+com.example.sistemaparagerenciamento.exceptions.peca
+com.example.sistemaparagerenciamento.exceptions.servico
+com.example.sistemaparagerenciamento.exceptions.statusordem
+com.example.sistemaparagerenciamento.exceptions.tecnico
+com.example.sistemaparagerenciamento.model
