@@ -1,4 +1,6 @@
 package com.example.sistemaparagerenciamento.model;
+import java.io.Serializable;
+
 
 /**
  * Classe respons&aacute;vel por representar uma abstra&ccedil;&atilde;o de t&eacute;cnico
@@ -6,8 +8,8 @@ package com.example.sistemaparagerenciamento.model;
  * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
  * @version 1.0
  */
-public class Tecnico {
-
+public class Tecnico implements Serializable{
+    private static final long serialVersionUID = 1L;
     private boolean adm;
     private final String nome;
     private final String senha;
