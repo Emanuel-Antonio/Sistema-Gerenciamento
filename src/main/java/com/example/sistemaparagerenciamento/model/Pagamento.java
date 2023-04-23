@@ -1,13 +1,15 @@
 package com.example.sistemaparagerenciamento.model;
 
+import java.io.Serializable;
+
 /**
  * Classe respons&aacute;vel por representar uma abstra&ccedil;&atilde;o de pagamento
  *
  * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
  * @version 1.0
  */
-public class Pagamento {
-
+public class Pagamento implements Serializable {
+    private static final long serialVersionUID = 1L;
     private final String tipoPagamento;
     private final double valor;
     private final Fatura fatura;

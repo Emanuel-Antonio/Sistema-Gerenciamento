@@ -1,5 +1,6 @@
 package com.example.sistemaparagerenciamento.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -10,8 +11,8 @@ import java.util.List;
  * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
  * @version 1.0
  */
-public class Servico {
-
+public class Servico implements Serializable {
+    private static final long serialVersionUID = 1L;
     private final CategoriaServico categoria;
     private double valor;
     private Calendar horarioAbertura;

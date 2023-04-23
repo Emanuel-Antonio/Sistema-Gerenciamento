@@ -1,13 +1,15 @@
 package com.example.sistemaparagerenciamento.model;
 
+import java.io.Serializable;
+
 /**
  * Classe respons&aacute;vel por representar uma abstra&ccedil;&atilde;o de ordem de compra
  *
  * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
  * @version 1.0
  */
-public class OrdemCompra {
-
+public class OrdemCompra implements Serializable {
+    private static final long serialVersionUID = 1L;
     private final int qnt;
     private final double valorUnitario;
     private final String nome;

@@ -1,5 +1,6 @@
 package com.example.sistemaparagerenciamento.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -8,8 +9,8 @@ import java.util.List;
  * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
  * @version 1.0
  */
-public class Cliente {
-
+public class Cliente implements Serializable {
+    private static final long serialVersionUID = 1L;
     private final String nome;
     private String endereco;
     private String telefone;

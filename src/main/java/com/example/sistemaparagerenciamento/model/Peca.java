@@ -1,13 +1,15 @@
 package com.example.sistemaparagerenciamento.model;
 
+import java.io.Serializable;
+
 /**
  * Classe respons&aacute;vel por representar uma abstra&ccedil;&atilde;o de pe&ccedil;a
  *
  * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
  * @version 1.0
  */
-public class Peca {
-
+public class Peca implements Serializable {
+    private static final long serialVersionUID = 1L;
     private final String nome;
     private double valor;
     private int qnt;

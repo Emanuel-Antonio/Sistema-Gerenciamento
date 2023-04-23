@@ -1,5 +1,6 @@
 package com.example.sistemaparagerenciamento.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,8 +10,8 @@ import java.util.List;
  * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
  * @version 1.0
  */
-public class Ordem {
-
+public class Ordem implements Serializable {
+    private static final long serialVersionUID = 1L;
     private List<Servico> servicos;
     private StatusOrdem status;
     private Fatura fatura;
