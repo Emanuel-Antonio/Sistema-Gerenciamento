@@ -32,7 +32,6 @@ public class ServicoListImpl implements ServicoDAO {
      */
     @Override
     public Servico criar(Servico servico) {
-        servico.setHorarioAbertura(Calendar.getInstance());
         servico.setServicoId(this.novoId);
         this.novoId++;
         this.servicos.add(servico);

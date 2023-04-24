@@ -1,19 +1,27 @@
 package com.example.sistemaparagerenciamento.dao;
 
 import com.example.sistemaparagerenciamento.dao.cliente.ClienteDAO;
+import com.example.sistemaparagerenciamento.dao.cliente.ClienteFileImpl;
 import com.example.sistemaparagerenciamento.dao.cliente.ClienteListImpl;
 import com.example.sistemaparagerenciamento.dao.ordem.OrdemDAO;
+import com.example.sistemaparagerenciamento.dao.ordem.OrdemFileImpl;
 import com.example.sistemaparagerenciamento.dao.ordem.OrdemListImpl;
 import com.example.sistemaparagerenciamento.dao.ordemcompra.OrdemCompraDAO;
+import com.example.sistemaparagerenciamento.dao.ordemcompra.OrdemCompraFileImpl;
 import com.example.sistemaparagerenciamento.dao.ordemcompra.OrdemCompraListImpl;
 import com.example.sistemaparagerenciamento.dao.pagamento.PagamentoDAO;
+import com.example.sistemaparagerenciamento.dao.pagamento.PagamentoFileImpl;
 import com.example.sistemaparagerenciamento.dao.pagamento.PagamentoListImpl;
 import com.example.sistemaparagerenciamento.dao.peca.PecaDAO;
+import com.example.sistemaparagerenciamento.dao.peca.PecaFileImpl;
 import com.example.sistemaparagerenciamento.dao.peca.PecaListImpl;
 import com.example.sistemaparagerenciamento.dao.servico.ServicoDAO;
+import com.example.sistemaparagerenciamento.dao.servico.ServicoFileImpl;
 import com.example.sistemaparagerenciamento.dao.servico.ServicoListImpl;
 import com.example.sistemaparagerenciamento.dao.tecnico.TecnicoDAO;
+import com.example.sistemaparagerenciamento.dao.tecnico.TecnicoFileImpl;
 import com.example.sistemaparagerenciamento.dao.tecnico.TecnicoListImpl;
+
 
 /**
  * Classe DAO respons&aacute;vel por abstrair o banco de dados, em outras palavras, agrega todas as fun&ccedil;&otilde;es de persist&ecirc;ncia de dados
@@ -38,7 +46,7 @@ public class DAO {
          */
         public static ClienteDAO getCliente() {
                 if (clienteDAO == null) {
-                    clienteDAO = new ClienteListImpl();
+                    clienteDAO = new ClienteFileImpl("cliente.bin");
                 }
                 return clienteDAO;
         }
@@ -50,7 +58,7 @@ public class DAO {
          */
         public static OrdemDAO getOrdem() {
             if (ordemDAO == null) {
-                ordemDAO = new OrdemListImpl();
+                ordemDAO = new OrdemFileImpl("ordem.bin");
             }
             return ordemDAO;
         }
@@ -62,7 +70,7 @@ public class DAO {
          */
         public static TecnicoDAO getTecnico() {
             if (tecnicoDAO == null) {
-                tecnicoDAO = new TecnicoListImpl();
+                tecnicoDAO = new TecnicoFileImpl("tecnico.bin");
             }
             return tecnicoDAO;
         }
@@ -74,7 +82,7 @@ public class DAO {
          */
         public static ServicoDAO getServico() {
             if (servicoDAO == null) {
-                servicoDAO = new ServicoListImpl();
+                servicoDAO = new ServicoFileImpl("servico.bin");
             }
             return servicoDAO;
         }
@@ -86,7 +94,7 @@ public class DAO {
          */
         public static PagamentoDAO getPagamento() {
             if (pagamentoDAO == null) {
-                pagamentoDAO = new PagamentoListImpl();
+                pagamentoDAO = new PagamentoFileImpl("pagamento.bin");
             }
             return pagamentoDAO;
         }
@@ -98,7 +106,7 @@ public class DAO {
          */
         public static PecaDAO getPeca() {
             if (pecaDAO == null) {
-                pecaDAO = new PecaListImpl();
+                pecaDAO = new PecaFileImpl("peca.bin");
             }
             return pecaDAO;
         }
@@ -110,7 +118,7 @@ public class DAO {
          */
         public static OrdemCompraDAO getOrdemCompra() {
             if (ordemCompraDAO == null) {
-                ordemCompraDAO = new OrdemCompraListImpl();
+                ordemCompraDAO = new OrdemCompraFileImpl("ordemCompra.bin");
             }
             return ordemCompraDAO;
         }

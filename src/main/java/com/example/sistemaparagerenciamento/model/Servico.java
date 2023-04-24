@@ -15,7 +15,7 @@ public class Servico implements Serializable {
     private static final long serialVersionUID = 1L;
     private final CategoriaServico categoria;
     private double valor;
-    private Calendar horarioAbertura;
+    private final Calendar horarioAbertura;
     private Calendar horarioFechamento;
     private double avaliacaoCliente;
     private final int ordemId;
@@ -34,6 +34,7 @@ public class Servico implements Serializable {
         this.horarioFechamento = null;
         this.categoria = categoria;
         this.pecas = new ArrayList<>();
+        this.horarioAbertura = Calendar.getInstance();
     }
 
     public CategoriaServico getCategoria() {
@@ -50,10 +51,6 @@ public class Servico implements Serializable {
 
     public Calendar getHorarioAbertura() {
         return horarioAbertura;
-    }
-
-    public void setHorarioAbertura(Calendar horarioAbertura) {
-        this.horarioAbertura = horarioAbertura;
     }
 
     public Calendar getHorarioFechamento() {

@@ -9,14 +9,18 @@ import java.io.ObjectOutputStream;
 import java.util.List;
 import java.util.ArrayList;
 
-public class TecnicoFileImpl {
+public class TecnicoFileImpl implements TecnicoDAO{
     private String filename = "tecnico.bin";
-
+    private List<Tecnico> tecnicos;
+    private int novoId;
     public TecnicoFileImpl(String filename) {
         this.filename = filename;
+        this.novoId = 0;
+        this.tecnicos = new ArrayList<>();
+        this.tecnicos = ler();
     }
 
-    public void save(List<Tecnico> tecnicos) {
+    public void salvar(List<Tecnico> tecnicos) {
         try {
             ObjectOutputStream file = new ObjectOutputStream(new FileOutputStream(this.filename));
             for (Tecnico tecnico : tecnicos) {
@@ -26,7 +30,7 @@ public class TecnicoFileImpl {
         } catch (IOException e) {
         }
     }
-    public List<Tecnico> load() {
+    public List<Tecnico> ler() {
         List<Tecnico> tecnicos = new ArrayList<>();
         try {
             Tecnico tecnico = null;
@@ -42,4 +46,85 @@ public class TecnicoFileImpl {
         }
         return tecnicos;
     }
+
+    /**
+     * M&eacute;todo que cria um t&eacute;cnico e adiciona na lista de t&eacute;cnicos
+     *
+     * @param tecnico valor referente a um objeto Tecnico
+     * @return Tecnico
+     */
+    @Override
+    public Tecnico criar(Tecnico tecnico) {
+        tecnico.setTecnicoId(this.novoId);
+        this.novoId++;
+        this.tecnicos.add(tecnico);
+        salvar(this.tecnicos);
+        return tecnico;
+    }
+
+    /**
+     * M&eacute;todo que busca um t&eacute;cnico pelo seu identificador
+     *
+     * @param id valor referente ao identificador do t&eacute;cnico
+     * @return Tecnico
+     */
+    @Override
+    public Tecnico buscarPorId(int id) {
+        for (Tecnico tecnico : this.tecnicos) {
+            if (tecnico.getTecnicoId() == id) {
+                return tecnico;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * M&eacute;todo que atualiza um t&eacute;cnico
+     *
+     * @param tecnico valor referente a um objeto Tecnico
+     */
+    @Override
+    public void atualizar(Tecnico tecnico) {
+        for (int i = 0; i < this.tecnicos.size(); i++) {
+            if (this.tecnicos.get(i).getTecnicoId() == tecnico.getTecnicoId()) {
+                this.tecnicos.set(i, tecnico);
+            }
+        }
+        salvar(this.tecnicos);
+    }
+
+    /**
+     * M&eacute;todo que deleta um t&eacute;cnico e remove da lista de t&eacute;cnicos
+     *
+     * @param id valor referente ao identificador do objeto Tecnico
+     */
+    @Override
+    public void deletar(int id) {
+        for (int i = 0; i < this.tecnicos.size(); i++) {
+            if (this.tecnicos.get(i).getTecnicoId() == id) {
+                this.tecnicos.remove(i);
+            }
+        }
+        salvar(this.tecnicos);
+    }
+
+    /**
+     * M&eacute;todo que retorna a lista de t&eacute;cnicos
+     *
+     * @return List
+     */
+    public List<Tecnico> getTecnicos(){
+        return this.tecnicos;
+    }
+
+    /**
+     * M&eacute;todo que reseta a lista de t&eacute;cnicos
+     */
+    @Override
+    public void resetar() {
+        this.tecnicos = new ArrayList<>();
+        this.novoId = 0;
+        salvar(this.tecnicos);
+    }
+
 }
