@@ -10,14 +10,22 @@ import java.io.ObjectOutputStream;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * Implementa&ccedil;&atilde;o de PagamentoDAO com arquivo
+ *
+ * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
+ * @version 1.0
+ */
 public class PagamentoFileImpl implements PagamentoDAO{
-    private String filename = "pagamento.bin";
+    private String filename;
 
     public List<Pagamento> pagamentos;
 
     public int novoId;
 
-
+    /**
+     * Construtor de PagamentoFileImpl, necess&aacute;rio para inicializar os atributos novoId e pagamentos e atribuir o nome do arquivo.
+     */
     public PagamentoFileImpl(String filename) {
         this.filename = filename;
         this.pagamentos = new ArrayList<>();
@@ -25,6 +33,11 @@ public class PagamentoFileImpl implements PagamentoDAO{
         this.pagamentos = ler();
     }
 
+    /**
+     * M&eacute;todo que salva a lista com os dados dos objetos em arquivo
+     *
+     * @param pagamentos valor referente a lista de pagamentos
+     */
     public void salvar(List<Pagamento> pagamentos) {
         try {
             ObjectOutputStream file = new ObjectOutputStream(new FileOutputStream(this.filename));
@@ -35,6 +48,12 @@ public class PagamentoFileImpl implements PagamentoDAO{
         } catch (IOException e) {
         }
     }
+
+    /**
+     * M&eacute;todo que faz a leitura do arquivo e retorna uma lista com os dados dos objetos
+     *
+     * @return List
+     */
     public List<Pagamento> ler() {
         List<Pagamento> pagamentos = new ArrayList<>();
         try {
@@ -53,7 +72,7 @@ public class PagamentoFileImpl implements PagamentoDAO{
     }
 
     /**
-     * M&eacute;todo que cria um pagamento e adiciona na lista de pagamentos
+     * M&eacute;todo que cria um pagamento, adiciona na lista de pagamentos e salva em arquivo
      *
      * @param pagamento valor referente a um objeto Pagamento
      * @return Pagamento
@@ -68,7 +87,7 @@ public class PagamentoFileImpl implements PagamentoDAO{
     }
 
     /**
-     * M&eacute;todo que atualiza um pagamento
+     * M&eacute;todo que atualiza um pagamento e salva em arquivo
      *
      * @param pagamento valor referente a um objeto Pagamento
      */
@@ -85,7 +104,7 @@ public class PagamentoFileImpl implements PagamentoDAO{
     }
 
     /**
-     * M&eacute;todo que deleta um pagamento e remove da lista de pagamentos
+     * M&eacute;todo que deleta um pagamento, remove da lista de pagamentos e salva em arquivo
      *
      * @param pagamento valor referente a um objeto Pagamento
      */
@@ -115,7 +134,7 @@ public class PagamentoFileImpl implements PagamentoDAO{
     }
 
     /**
-     * M&eacute;todo que reseta a lista de pagamentos
+     * M&eacute;todo que reseta a lista de pagamentos e salva em arquivo
      */
     @Override
     public void resetar() {

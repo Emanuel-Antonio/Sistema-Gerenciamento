@@ -9,12 +9,20 @@ import java.io.ObjectOutputStream;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * Implementa&ccedil;&atilde;o de OrdemDAO com arquivo
+ *
+ * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
+ * @version 1.0
+ */
 public class OrdemFileImpl implements OrdemDAO{
-    private String filename = "ordem.bin";
+    private String filename;
     private int novoId;
     private List<Ordem> ordens;
 
-
+    /**
+     * Construtor de OrdemFileImpl, necess&aacute;rio para inicializar os atributos novoId e ordens e atribuir o nome do arquivo.
+     */
     public OrdemFileImpl(String filename) {
         this.filename = filename;
         this.novoId = 0;
@@ -22,6 +30,11 @@ public class OrdemFileImpl implements OrdemDAO{
         this.ordens = ler();
     }
 
+    /**
+     * M&eacute;todo que salva a lista com os dados dos objetos em arquivo
+     *
+     * @param ordens valor referente a lista de ordens
+     */
     public void salvar(List<Ordem> ordens) {
         try {
             ObjectOutputStream file = new ObjectOutputStream(new FileOutputStream(this.filename));
@@ -32,6 +45,12 @@ public class OrdemFileImpl implements OrdemDAO{
         } catch (IOException e) {
         }
     }
+
+    /**
+     * M&eacute;todo que faz a leitura do arquivo e retorna uma lista com os dados dos objetos
+     *
+     * @return List
+     */
     public List<Ordem> ler() {
         List<Ordem> ordens = new ArrayList<>();
         try {
@@ -50,7 +69,7 @@ public class OrdemFileImpl implements OrdemDAO{
     }
 
     /**
-     * M&eacute;todo que cria um ordem e adiciona na lista de ordens
+     * M&eacute;todo que cria um ordem, adiciona na lista de ordens e salva em arquivo
      *
      * @param ordem valor referente a um objeto Ordem
      * @return Ordem
@@ -80,7 +99,7 @@ public class OrdemFileImpl implements OrdemDAO{
     }
 
     /**
-     * M&eacute;todo que atualiza um ordem
+     * M&eacute;todo que atualiza um ordem e salva em arquivo
      *
      * @param ordem valor referente a um objeto Ordem
      */
@@ -95,7 +114,7 @@ public class OrdemFileImpl implements OrdemDAO{
     }
 
     /**
-     * M&eacute;todo que deleta uma ordem e remove da lista de ordens
+     * M&eacute;todo que deleta uma ordem, remove da lista de ordens e salva em arquivo
      *
      * @param id valor referente ao identificador do objeto Ordem
      */
@@ -120,7 +139,7 @@ public class OrdemFileImpl implements OrdemDAO{
     }
 
     /**
-     * M&eacute;todo que reseta a lista de ordens
+     * M&eacute;todo que reseta a lista de ordens e salva em arquivo
      */
     @Override
     public void resetar(){

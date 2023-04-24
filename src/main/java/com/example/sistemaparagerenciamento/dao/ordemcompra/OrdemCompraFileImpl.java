@@ -9,14 +9,22 @@ import java.io.ObjectOutputStream;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * Implementa&ccedil;&atilde;o de OrdemCompraDAO com arquivo
+ *
+ * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
+ * @version 1.0
+ */
 public class OrdemCompraFileImpl implements OrdemCompraDAO{
-    private String filename = "ordemCompra.bin";
+    private String filename;
 
     public List<OrdemCompra> ordensCompra;
 
     public int novoId;
 
-
+    /**
+     * Construtor de OrdemCompraFileImpl, necess&aacute;rio para inicializar os atributos novoId e ordensCompra e atribuir o nome do arquivo.
+     */
     public OrdemCompraFileImpl(String filename) {
         this.filename = filename;
         this.ordensCompra = new ArrayList<>();
@@ -24,6 +32,11 @@ public class OrdemCompraFileImpl implements OrdemCompraDAO{
         this.ordensCompra = ler();
     }
 
+    /**
+     * M&eacute;todo que salva a lista com os dados dos objetos em arquivo
+     *
+     * @param ordensCompra valor referente a lista de ordens de compra
+     */
     public void salvar(List<OrdemCompra> ordensCompra) {
         try {
             ObjectOutputStream file = new ObjectOutputStream(new FileOutputStream(this.filename));
@@ -34,6 +47,12 @@ public class OrdemCompraFileImpl implements OrdemCompraDAO{
         } catch (IOException e) {
         }
     }
+
+    /**
+     * M&eacute;todo que faz a leitura do arquivo e retorna uma lista com os dados dos objetos
+     *
+     * @return List
+     */
     public List<OrdemCompra> ler() {
         List<OrdemCompra> ordensCompra = new ArrayList<>();
         try {
@@ -52,7 +71,7 @@ public class OrdemCompraFileImpl implements OrdemCompraDAO{
     }
 
     /**
-     * M&eacute;todo que cria uma ordem de compra e adiciona na lista de ordens de compra
+     * M&eacute;todo que cria uma ordem de compra, adiciona na lista de ordens de compra e salva em arquivo
      *
      * @param ordemCompra valor referente a um objeto OrdemCompra
      * @return OrdemCompra
@@ -83,7 +102,7 @@ public class OrdemCompraFileImpl implements OrdemCompraDAO{
     }
 
     /**
-     * M&eacute;todo que atualiza uma ordem de compra
+     * M&eacute;todo que atualiza uma ordem de compra e salva em arquivo
      *
      * @param ordemCompra valor referente a um objeto OrdemCompra
      */
@@ -98,7 +117,7 @@ public class OrdemCompraFileImpl implements OrdemCompraDAO{
     }
 
     /**
-     * M&eacute;todo que deleta uma ordem de compra e remove da lista de ordens de compra
+     * M&eacute;todo que deleta uma ordem de compra, remove da lista de ordens de compra e salva em arquivo
      *
      * @param ordemCompra valor referente a um objeto OrdemCompra
      */
@@ -122,7 +141,7 @@ public class OrdemCompraFileImpl implements OrdemCompraDAO{
     }
 
     /**
-     * M&eacute;todo que reseta a lista de ordens de compra
+     * M&eacute;todo que reseta a lista de ordens de compra e salva em arquivo
      */
     @Override
     public void resetar(){

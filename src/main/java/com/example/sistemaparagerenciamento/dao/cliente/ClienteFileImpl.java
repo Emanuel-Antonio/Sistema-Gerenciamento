@@ -9,12 +9,20 @@ import java.io.ObjectOutputStream;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * Implementa&ccedil;&atilde;o de ClienteDAO com arquivo
+ *
+ * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
+ * @version 1.0
+ */
 public class ClienteFileImpl implements ClienteDAO{
-    private String filename = "cliente.bin";
+    private String filename;
     private int novoId;
     private List<Cliente> clientes;
 
-
+    /**
+     * Construtor de ClienteFileImpl, necess&aacute;rio para inicializar os atributos novoId e clientes e atribuir o nome do arquivo.
+     */
     public ClienteFileImpl(String filename) {
         this.filename = filename;
         this.novoId = 0;
@@ -22,6 +30,11 @@ public class ClienteFileImpl implements ClienteDAO{
         this.clientes = ler();
     }
 
+    /**
+     * M&eacute;todo que salva a lista com os dados dos objetos em arquivo
+     *
+     * @param clientes valor referente a lista de clientes
+     */
     public void salvar(List<Cliente> clientes) {
         try {
             ObjectOutputStream file = new ObjectOutputStream(new FileOutputStream(this.filename));
@@ -32,6 +45,12 @@ public class ClienteFileImpl implements ClienteDAO{
         } catch (IOException e) {
         }
     }
+
+    /**
+     * M&eacute;todo que faz a leitura do arquivo e retorna uma lista com os dados dos objetos
+     *
+     * @return List
+     */
     public List<Cliente> ler() {
         List<Cliente> clientes = new ArrayList<>();
         try {
@@ -50,7 +69,7 @@ public class ClienteFileImpl implements ClienteDAO{
     }
 
     /**
-     * M&eacute;todo que cria um cliente e adiciona na lista de clientes
+     * M&eacute;todo que cria um cliente, adiciona na lista de clientes e salva em arquivo
      *
      * @param cliente valor referente a um objeto Cliente
      * @return Cliente
@@ -82,7 +101,7 @@ public class ClienteFileImpl implements ClienteDAO{
     }
 
     /**
-     * M&eacute;todo que atualiza um cliente
+     * M&eacute;todo que atualiza um cliente e salva em arquivo
      *
      * @param cliente valor referente a um objeto Cliente
      */
@@ -97,7 +116,7 @@ public class ClienteFileImpl implements ClienteDAO{
     }
 
     /**
-     * M&eacute;todo que deleta um cliente e remove da lista de clientes
+     * M&eacute;todo que deleta um cliente, remove da lista de clientes e salva em arquivo
      *
      * @param id valor referente ao identificador do objeto Cliente
      */
@@ -122,7 +141,7 @@ public class ClienteFileImpl implements ClienteDAO{
     }
 
     /**
-     * M&eacute;todo que reseta a lista de clientes
+     * M&eacute;todo que reseta a lista de clientes e salva em arquivo
      */
     @Override
     public void resetar(){

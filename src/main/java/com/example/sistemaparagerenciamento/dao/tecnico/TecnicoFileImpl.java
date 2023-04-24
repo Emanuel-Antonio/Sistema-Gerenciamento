@@ -9,10 +9,20 @@ import java.io.ObjectOutputStream;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * Implementa&ccedil;&atilde;o de TecnicoDAO com arquivo
+ *
+ * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
+ * @version 1.0
+ */
 public class TecnicoFileImpl implements TecnicoDAO{
-    private String filename = "tecnico.bin";
+    private String filename;
     private List<Tecnico> tecnicos;
     private int novoId;
+
+    /**
+     * Construtor de TecnicoFileImpl, necess&aacute;rio para inicializar os atributos novoId e tecnicos e atribuir o nome do arquivo.
+     */
     public TecnicoFileImpl(String filename) {
         this.filename = filename;
         this.novoId = 0;
@@ -20,6 +30,11 @@ public class TecnicoFileImpl implements TecnicoDAO{
         this.tecnicos = ler();
     }
 
+    /**
+     * M&eacute;todo que salva a lista com os dados dos objetos em arquivo
+     *
+     * @param tecnicos valor referente a lista de t&eacute;cnicos
+     */
     public void salvar(List<Tecnico> tecnicos) {
         try {
             ObjectOutputStream file = new ObjectOutputStream(new FileOutputStream(this.filename));
@@ -30,6 +45,12 @@ public class TecnicoFileImpl implements TecnicoDAO{
         } catch (IOException e) {
         }
     }
+
+    /**
+     * M&eacute;todo que faz a leitura do arquivo e retorna uma lista com os dados dos objetos
+     *
+     * @return List
+     */
     public List<Tecnico> ler() {
         List<Tecnico> tecnicos = new ArrayList<>();
         try {
@@ -48,7 +69,7 @@ public class TecnicoFileImpl implements TecnicoDAO{
     }
 
     /**
-     * M&eacute;todo que cria um t&eacute;cnico e adiciona na lista de t&eacute;cnicos
+     * M&eacute;todo que cria um t&eacute;cnico, adiciona na lista de t&eacute;cnicos e salva em arquivo
      *
      * @param tecnico valor referente a um objeto Tecnico
      * @return Tecnico
@@ -79,7 +100,7 @@ public class TecnicoFileImpl implements TecnicoDAO{
     }
 
     /**
-     * M&eacute;todo que atualiza um t&eacute;cnico
+     * M&eacute;todo que atualiza um t&eacute;cnico e salva em arquivo
      *
      * @param tecnico valor referente a um objeto Tecnico
      */
@@ -94,7 +115,7 @@ public class TecnicoFileImpl implements TecnicoDAO{
     }
 
     /**
-     * M&eacute;todo que deleta um t&eacute;cnico e remove da lista de t&eacute;cnicos
+     * M&eacute;todo que deleta um t&eacute;cnico, remove da lista de t&eacute;cnicos e salva em arquivo
      *
      * @param id valor referente ao identificador do objeto Tecnico
      */
@@ -118,7 +139,7 @@ public class TecnicoFileImpl implements TecnicoDAO{
     }
 
     /**
-     * M&eacute;todo que reseta a lista de t&eacute;cnicos
+     * M&eacute;todo que reseta a lista de t&eacute;cnicos e salva em arquivo
      */
     @Override
     public void resetar() {

@@ -66,6 +66,11 @@ public class ServicoListImpl implements ServicoDAO {
         }
     }
 
+    /**
+     * M&eacute;todo que deleta um servi&ccedil;o e remove da lista de servi&ccedil;os
+     *
+     * @param servico valor referente ao objeto Servico
+     */
     @Override
     public void deletar(Servico servico) {
         for(int i = 0; i < this.servicos.size(); i++){

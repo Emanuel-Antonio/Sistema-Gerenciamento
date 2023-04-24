@@ -10,18 +10,31 @@ import java.io.ObjectOutputStream;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * Implementa&ccedil;&atilde;o de PecaDAO com arquivo
+ *
+ * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
+ * @version 1.0
+ */
 public class PecaFileImpl implements PecaDAO{
-    private String filename = "peca.bin";
+    private String filename;
 
     public List<Peca> pecas;
 
-
+    /**
+     * Construtor de PecaFileImpl, necess&aacute;rio para inicializar os atributos novoId e pecas e atribuir o nome do arquivo.
+     */
     public PecaFileImpl(String filename) {
         this.filename = filename;
         this.pecas = new ArrayList<>();
         this.pecas = ler();
     }
 
+    /**
+     * M&eacute;todo que salva a lista com os dados dos objetos em arquivo
+     *
+     * @param pecas valor referente a lista de pe&ccedil;as
+     */
     public void salvar(List<Peca> pecas) {
         try {
             ObjectOutputStream file = new ObjectOutputStream(new FileOutputStream(this.filename));
@@ -32,6 +45,12 @@ public class PecaFileImpl implements PecaDAO{
         } catch (IOException e) {
         }
     }
+
+    /**
+     * M&eacute;todo que faz a leitura do arquivo e retorna uma lista com os dados dos objetos
+     *
+     * @return List
+     */
     public List<Peca> ler() {
         List<Peca> pecas = new ArrayList<>();
         try {
@@ -50,7 +69,7 @@ public class PecaFileImpl implements PecaDAO{
     }
 
     /**
-     * M&eacute;todo que cria uma pe&ccedil;a e adiciona na lista de pe&ccedil;as
+     * M&eacute;todo que cria uma pe&ccedil;a, adiciona na lista de pe&ccedil;as e salva em arquivo
      *
      * @param peca valor referente a um objeto Peca
      * @return Peca
@@ -63,7 +82,7 @@ public class PecaFileImpl implements PecaDAO{
     }
 
     /**
-     * M&eacute;todo que atualiza uma pe&ccedil;a
+     * M&eacute;todo que atualiza uma pe&ccedil;a e salva em arquivo
      *
      * @param peca valor referente a um objeto Peca
      */
@@ -77,7 +96,7 @@ public class PecaFileImpl implements PecaDAO{
     }
 
     /**
-     * M&eacute;todo que deleta uma pe&ccedil;a e remove da lista de pe&ccedil;as
+     * M&eacute;todo que deleta uma pe&ccedil;a, remove da lista de pe&ccedil;as e salva em arquivo
      *
      * @param peca valor referente a um objeto Peca
      */
@@ -115,7 +134,7 @@ public class PecaFileImpl implements PecaDAO{
     }
 
     /**
-     * M&eacute;todo que reseta a lista de pe&ccedil;as
+     * M&eacute;todo que reseta a lista de pe&ccedil;as e salva em arquivo
      */
     @Override
     public void resetar() {

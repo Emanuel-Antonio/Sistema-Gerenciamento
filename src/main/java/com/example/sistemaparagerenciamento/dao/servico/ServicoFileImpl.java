@@ -11,13 +11,22 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * Implementa&ccedil;&atilde;o de ServicoDAO com arquivo
+ *
+ * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
+ * @version 1.0
+ */
 public class ServicoFileImpl implements ServicoDAO{
-    private String filename = "servico.bin";
+    private String filename;
 
     public int novoId;
 
     public List<Servico> servicos;
 
+    /**
+     * Construtor de ServicoFileImpl, necess&aacute;rio para inicializar os atributos novoId e servicos e atribuir o nome do arquivo.
+     */
     public ServicoFileImpl(String filename) {
         this.filename = filename;
         this.servicos = new ArrayList<>();
@@ -25,6 +34,11 @@ public class ServicoFileImpl implements ServicoDAO{
         this.servicos = ler();
     }
 
+    /**
+     * M&eacute;todo que salva a lista com os dados dos objetos em arquivo
+     *
+     * @param servicos valor referente a lista de servi&ccedil;os
+     */
     public void salvar(List<Servico> servicos) {
         try {
             ObjectOutputStream file = new ObjectOutputStream(new FileOutputStream(this.filename));
@@ -33,6 +47,12 @@ public class ServicoFileImpl implements ServicoDAO{
         } catch (Exception e) {
         }
     }
+
+    /**
+     * M&eacute;todo que faz a leitura do arquivo e retorna uma lista com os dados dos objetos
+     *
+     * @return List
+     */
     public List<Servico> ler() {
         List<Servico> servicos = new ArrayList<>();
         try {
@@ -45,7 +65,7 @@ public class ServicoFileImpl implements ServicoDAO{
     }
 
     /**
-     * M&eacute;todo que cria um servi&ccedil;o e adiciona na lista de servi&ccedil;os
+     * M&eacute;todo que cria um servi&ccedil;o, adiciona na lista de servi&ccedil;os e salva em arquivo
      *
      * @param servico valor referente a um objeto Servico
      * @return Servico
@@ -75,7 +95,7 @@ public class ServicoFileImpl implements ServicoDAO{
     }
 
     /**
-     * M&eacute;todo que atualiza um servi&ccedil;o
+     * M&eacute;todo que atualiza um servi&ccedil;o e salva em arquivo
      *
      * @param servico valor referente a um objeto Servico
      */
@@ -88,6 +108,11 @@ public class ServicoFileImpl implements ServicoDAO{
         salvar(this.servicos);
     }
 
+    /**
+     * M&eacute;todo que deleta um servi&ccedil;o, remove da lista de servi&ccedil;os e salva em arquivo
+     *
+     * @param servico valor referente ao objeto Servico
+     */
     @Override
     public void deletar(Servico servico) {
         for(int i = 0; i < this.servicos.size(); i++){
@@ -107,7 +132,7 @@ public class ServicoFileImpl implements ServicoDAO{
     }
 
     /**
-     * M&eacute;todo que reseta a lista de servi&ccedil;os
+     * M&eacute;todo que reseta a lista de servi&ccedil;os e salva em arquivo
      */
     @Override
     public void resetar() {
