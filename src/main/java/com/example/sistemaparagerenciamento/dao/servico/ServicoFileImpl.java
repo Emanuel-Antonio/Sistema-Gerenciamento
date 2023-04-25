@@ -30,8 +30,13 @@ public class ServicoFileImpl implements ServicoDAO{
     public ServicoFileImpl(String filename) {
         this.filename = filename;
         this.servicos = new ArrayList<>();
-        this.novoId = 0;
         this.servicos = ler();
+        if(this.servicos.isEmpty()){
+            this.novoId = 0;
+        }
+        else{
+            this.novoId = this.servicos.get(this.servicos.size() - 1).getServicoId() + 1;
+        }
     }
 
     /**

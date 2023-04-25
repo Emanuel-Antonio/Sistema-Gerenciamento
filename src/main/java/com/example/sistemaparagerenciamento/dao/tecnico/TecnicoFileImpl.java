@@ -25,9 +25,14 @@ public class TecnicoFileImpl implements TecnicoDAO{
      */
     public TecnicoFileImpl(String filename) {
         this.filename = filename;
-        this.novoId = 0;
         this.tecnicos = new ArrayList<>();
         this.tecnicos = ler();
+        if(this.tecnicos.isEmpty()){
+            this.novoId = 0;
+        }
+        else{
+            this.novoId = this.tecnicos.get(this.tecnicos.size() - 1).getTecnicoId() + 1;
+        }
     }
 
     /**

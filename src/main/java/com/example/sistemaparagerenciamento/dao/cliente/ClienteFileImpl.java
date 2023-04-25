@@ -25,9 +25,14 @@ public class ClienteFileImpl implements ClienteDAO{
      */
     public ClienteFileImpl(String filename) {
         this.filename = filename;
-        this.novoId = 0;
         this.clientes = new ArrayList<>();
         this.clientes = ler();
+        if(this.clientes.isEmpty()){
+            this.novoId = 0;
+        }
+        else{
+            this.novoId = this.clientes.get(this.clientes.size() - 1).getClienteId() + 1;
+        }
     }
 
     /**

@@ -29,8 +29,13 @@ public class PagamentoFileImpl implements PagamentoDAO{
     public PagamentoFileImpl(String filename) {
         this.filename = filename;
         this.pagamentos = new ArrayList<>();
-        this.novoId = 0;
         this.pagamentos = ler();
+        if(this.pagamentos.isEmpty()){
+            this.novoId = 0;
+        }
+        else{
+            this.novoId = this.pagamentos.get(this.pagamentos.size() - 1).getPagamentoId() + 1;
+        }
     }
 
     /**

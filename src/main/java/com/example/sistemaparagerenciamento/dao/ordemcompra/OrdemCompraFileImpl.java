@@ -28,8 +28,13 @@ public class OrdemCompraFileImpl implements OrdemCompraDAO{
     public OrdemCompraFileImpl(String filename) {
         this.filename = filename;
         this.ordensCompra = new ArrayList<>();
-        this.novoId = 0;
         this.ordensCompra = ler();
+        if(this.ordensCompra.isEmpty()){
+            this.novoId = 0;
+        }
+        else{
+            this.novoId = this.ordensCompra.get(this.ordensCompra.size() - 1).getOrdemCompraId() + 1;
+        }
     }
 
     /**

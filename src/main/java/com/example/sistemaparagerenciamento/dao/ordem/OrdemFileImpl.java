@@ -25,9 +25,14 @@ public class OrdemFileImpl implements OrdemDAO{
      */
     public OrdemFileImpl(String filename) {
         this.filename = filename;
-        this.novoId = 0;
         this.ordens = new ArrayList<>();
         this.ordens = ler();
+        if(this.ordens.isEmpty()){
+            this.novoId = 0;
+        }
+        else{
+            this.novoId = this.ordens.get(this.ordens.size() - 1).getOrdemId() + 1;
+        }
     }
 
     /**
