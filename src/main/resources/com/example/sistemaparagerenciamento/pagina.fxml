@@ -9,25 +9,30 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.HelloController">
    <children>
-      <VBox layoutX="118.0" layoutY="12.0" prefHeight="374.0" prefWidth="365.0" style="-fx-background-color: #D3D9E3; -fx-background-radius: 15;" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="118.0" AnchorPane.rightAnchor="117.0" AnchorPane.topAnchor="12.0">
+      <VBox layoutX="118.0" layoutY="12.0" prefHeight="374.0" prefWidth="295.0" style="-fx-background-color: #D3D9E3; -fx-background-radius: 15;" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="118.0" AnchorPane.rightAnchor="117.0" AnchorPane.topAnchor="12.0">
          <children>
             <TextField fx:id="email" promptText="Email" style="-fx-background-radius: 15;">
                <VBox.margin>
                   <Insets left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
             </TextField>
-            <PasswordField promptText="Senha" style="-fx-background-radius: 15;">
+            <PasswordField fx:id="senha" promptText="Senha" style="-fx-background-radius: 15;">
                <VBox.margin>
                   <Insets left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
             </PasswordField>
-            <Button mnemonicParsing="false" onAction="#onHelloButtonClick" prefHeight="25.0" prefWidth="377.0" style="-fx-background-color: #292C39; -fx-background-radius: 15;" text="Entrar" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#entrar" prefHeight="25.0" prefWidth="377.0" style="-fx-background-color: #292C39; -fx-background-radius: 15;" text="Entrar" textFill="WHITE">
                <VBox.margin>
                   <Insets left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#registrar" prefHeight="25.0" prefWidth="377.0" style="-fx-background-color: #292C39; -fx-background-radius: 15;" text="Registrar-se" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
             </Button>
          </children>
          <padding>
