@@ -3,6 +3,7 @@ module com.example.sistemaparagerenciamento {
     requires javafx.fxml;
 
     requires org.kordamp.bootstrapfx.core;
+    requires java.desktop;
 
     opens com.example.sistemaparagerenciamento to javafx.fxml;
     exports com.example.sistemaparagerenciamento;

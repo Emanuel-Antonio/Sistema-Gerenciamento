@@ -15,11 +15,14 @@ public class TecnicoListImpl implements TecnicoDAO{
     private List<Tecnico> tecnicos;
     private int novoId;
 
+    private Tecnico tecnicoLogado;
+
     /**
      * Construtor de TecnicoListImpl, necess&aacute;rio para inicializar os atributos novoId e tecnicos.
      */
     public TecnicoListImpl() {
         this.novoId = 0;
+        this.tecnicoLogado = null;
         this.tecnicos = new ArrayList<>();
     }
 
@@ -35,6 +38,14 @@ public class TecnicoListImpl implements TecnicoDAO{
         this.novoId++;
         this.tecnicos.add(tecnico);
         return tecnico;
+    }
+
+    public void setTecnicoLogado(Tecnico tecnicoLogado) {
+        this.tecnicoLogado = tecnicoLogado;
+    }
+
+    public Tecnico getTecnicoLogado(){
+        return this.tecnicoLogado;
     }
 
     /**

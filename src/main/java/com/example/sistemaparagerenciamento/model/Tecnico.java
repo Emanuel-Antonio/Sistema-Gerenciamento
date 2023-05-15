@@ -1,4 +1,5 @@
 package com.example.sistemaparagerenciamento.model;
+
 import java.io.Serializable;
 
 
@@ -25,7 +26,7 @@ public class Tecnico implements Serializable{
      * @param senha valor referente a senha do tecnico
      *
      */
-    public Tecnico(String email,String nome, String senha) {
+    public Tecnico(String email, String nome, String senha) {
         this.senha = senha;
         this.email = email;
         this.adm = false;

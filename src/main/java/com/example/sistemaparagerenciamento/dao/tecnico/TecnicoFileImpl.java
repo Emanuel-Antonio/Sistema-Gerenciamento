@@ -20,6 +20,16 @@ public class TecnicoFileImpl implements TecnicoDAO{
     private List<Tecnico> tecnicos;
     private int novoId;
 
+    private Tecnico tecnicoLogado;
+
+    public void setTecnicoLogado(Tecnico tecnicoLogado) {
+        this.tecnicoLogado = tecnicoLogado;
+    }
+
+    public Tecnico getTecnicoLogado(){
+        return this.tecnicoLogado;
+    }
+
     /**
      * Construtor de TecnicoFileImpl, necess&aacute;rio para inicializar os atributos novoId e tecnicos e atribuir o nome do arquivo.
      */
@@ -27,6 +37,7 @@ public class TecnicoFileImpl implements TecnicoDAO{
         this.filename = filename;
         this.tecnicos = new ArrayList<>();
         this.tecnicos = ler();
+        this.tecnicoLogado = null;
         if(this.tecnicos.isEmpty()){
             this.novoId = 0;
         }
