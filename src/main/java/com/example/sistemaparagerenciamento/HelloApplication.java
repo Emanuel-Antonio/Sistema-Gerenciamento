@@ -10,14 +10,36 @@ import java.io.IOException;
 import java.net.URL;
 
 public class HelloApplication extends Application {
+
+    private static Stage stage;
+
+    private static Scene paginaScene;
+
+    private static Scene registroScene;
     @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("registro.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 500, 500);
-        stage.setTitle("Home!");
-        stage.setScene(scene);
-        stage.show();
+    public void start(Stage primaryStage) throws IOException {
+        stage = primaryStage;
+        primaryStage.setTitle("home");
+
+        Parent fxmlPagina = FXMLLoader.load(getClass().getResource("pagina.fxml"));
+        paginaScene = new Scene(fxmlPagina, 500, 500);
+
+        Parent fxmlRegistro = FXMLLoader.load(getClass().getResource("registro.fxml"));
+        registroScene = new Scene(fxmlRegistro, 500, 500);
+
+        primaryStage.setScene(paginaScene);
+        primaryStage.show();
     }
 
+    public static void telaScreen(String nome){
+        switch (nome){
+            case "pagina":
+                stage.setScene(paginaScene);
+                break;
+            case "registro":
+                stage.setScene(registroScene);
+                break;
+        }
+    }
     public static void main(String[] args) { launch(args); }
 }
