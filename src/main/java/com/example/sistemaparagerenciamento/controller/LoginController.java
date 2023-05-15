@@ -1,26 +1,14 @@
-package com.example.sistemaparagerenciamento;
+package com.example.sistemaparagerenciamento.controller;
 
+import com.example.sistemaparagerenciamento.Main;
 import com.example.sistemaparagerenciamento.dao.DAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.InputMethodEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
-import java.io.IOException;
-
-import static javafx.scene.paint.Color.RED;
-
-public class HelloController{
+public class LoginController {
     @FXML
     private TextField email;
 
@@ -51,8 +39,7 @@ public class HelloController{
 
 
     @FXML
-    protected void registrar(ActionEvent event) {
-        System.out.println("passou");
-        HelloApplication.telaScreen("registro");
+    void registrar(ActionEvent event) {
+        Main.telaScreen("registro");
     }
 }

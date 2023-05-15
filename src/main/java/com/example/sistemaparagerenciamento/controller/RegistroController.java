@@ -1,4 +1,4 @@
-package com.example.sistemaparagerenciamento;
+package com.example.sistemaparagerenciamento.controller;
 
 import com.example.sistemaparagerenciamento.dao.DAO;
 import com.example.sistemaparagerenciamento.model.Tecnico;
@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-public class ControllerRegistro {
+public class RegistroController {
 
     @FXML
     private TextField email;

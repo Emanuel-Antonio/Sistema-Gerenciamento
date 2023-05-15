@@ -65,7 +65,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.example.sistemaparagerenciamento/com.example.sistemaparagerenciamento.HelloApplication
+                                com.example.sistemaparagerenciamento/com.example.sistemaparagerenciamento.Main
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

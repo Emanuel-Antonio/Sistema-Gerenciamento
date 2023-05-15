@@ -7,9 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
 
-public class HelloApplication extends Application {
+public class Main extends Application {
 
     private static Stage stage;
 
@@ -21,7 +20,7 @@ public class HelloApplication extends Application {
         stage = primaryStage;
         primaryStage.setTitle("home");
 
-        Parent fxmlPagina = FXMLLoader.load(getClass().getResource("pagina.fxml"));
+        Parent fxmlPagina = FXMLLoader.load(getClass().getResource("login.fxml"));
         paginaScene = new Scene(fxmlPagina, 500, 500);
 
         Parent fxmlRegistro = FXMLLoader.load(getClass().getResource("registro.fxml"));
