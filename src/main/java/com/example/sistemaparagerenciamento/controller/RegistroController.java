@@ -39,7 +39,8 @@ public class RegistroController {
                 tecnico.setAdm(true);
             }
             //Aqui eu cadastro o técnico através do DAO de Tecnico
-            DAO.getTecnico().criar(tecnico);
+            if(!("".equals(email.getText())) && !("".equals(nome.getText())) && !("".equals(senha.getText())))
+                DAO.getTecnico().criar(tecnico);
         }
         catch (Exception TecnicoInvalido){
 
