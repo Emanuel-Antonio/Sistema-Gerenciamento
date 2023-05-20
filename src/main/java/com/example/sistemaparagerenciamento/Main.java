@@ -20,15 +20,18 @@ public class Main extends Application {
         stage = primaryStage;
         primaryStage.setTitle("home");
 
-        Parent fxmlPagina = FXMLLoader.load(getClass().getResource("login.fxml"));
-        paginaScene = new Scene(fxmlPagina, 500, 500);
-
-        Parent fxmlRegistro = FXMLLoader.load(getClass().getResource("registro.fxml"));
-        registroScene = new Scene(fxmlRegistro, 500, 500);
+        Parent fxmlPagina = FXMLLoader.load(getClass().getResource("paginaprincipal.fxml"));
+        paginaScene = new Scene(fxmlPagina);
 
         primaryStage.setScene(paginaScene);
+        primaryStage.setMaximized(true);
         primaryStage.show();
+
+        Parent fxmlRegistro = FXMLLoader.load(getClass().getResource("registro.fxml"));
+        registroScene = new Scene(fxmlRegistro,stage.getWidth(), stage.getHeight());
     }
+
+
 
     public static void telaScreen(String nome){
         switch (nome){
