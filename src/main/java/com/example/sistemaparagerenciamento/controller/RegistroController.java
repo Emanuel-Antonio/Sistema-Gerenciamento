@@ -1,5 +1,6 @@
 package com.example.sistemaparagerenciamento.controller;
 
+import com.example.sistemaparagerenciamento.Main;
 import com.example.sistemaparagerenciamento.dao.DAO;
 import com.example.sistemaparagerenciamento.model.Tecnico;
 import javafx.event.ActionEvent;
@@ -41,6 +42,7 @@ public class RegistroController {
             //Aqui eu cadastro o técnico através do DAO de Tecnico
             if(!("".equals(email.getText())) && !("".equals(nome.getText())) && !("".equals(senha.getText())))
                 DAO.getTecnico().criar(tecnico);
+                Main.telaScreen("login");
         }
         catch (Exception TecnicoInvalido){
 
