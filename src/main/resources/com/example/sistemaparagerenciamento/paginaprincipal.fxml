@@ -75,7 +75,7 @@
             </Button>
          </children>
       </HBox>
-      <ListView layoutX="1046.0" layoutY="232.0" prefHeight="525.0" prefWidth="387.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="85.0">
+      <ListView fx:id="listOrdens" layoutX="1046.0" layoutY="232.0" prefHeight="525.0" prefWidth="387.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="85.0">
          <effect>
             <DropShadow />
          </effect>

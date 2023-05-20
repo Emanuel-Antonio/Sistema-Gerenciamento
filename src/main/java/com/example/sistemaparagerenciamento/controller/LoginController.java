@@ -23,12 +23,13 @@ public class LoginController {
         try {
             for (int i = 0; i < DAO.getTecnico().getTecnicos().size(); i++) {
                 //Aqui verifica se o técnico foi encontrado
-                if (DAO.getTecnico().getTecnicos().get(i).getEmail().equals(email) && DAO.getTecnico().getTecnicos().get(i).getSenha().equals(senha)) {
+                if (DAO.getTecnico().getTecnicos().get(i).getEmail().equals(email.getText()) && DAO.getTecnico().getTecnicos().get(i).getSenha().equals(senha.getText())) {
                     DAO.getTecnico().setTecnicoLogado(DAO.getTecnico().getTecnicos().get(i));
+                    Main.telaScreen("paginaprincipal");
                 }
             }
-            if(DAO.getTecnico().getTecnicoLogado() == null)
-                mensagem.setText("Usuário não cadastrado!");
+            if(DAO.getTecnico().getTecnicoLogado() == null && !("".equals(email.getText())) && !("".equals(senha.getText())))
+                mensagem.setText("Dados Inválidos!!");
         }
         catch (Exception e) {
             mensagem.setText("Erro ao logar Usuário!");

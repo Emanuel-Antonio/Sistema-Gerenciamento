@@ -12,34 +12,45 @@ public class Main extends Application {
 
     private static Stage stage;
 
-    private static Scene paginaScene;
+    private static Scene loginScene;
 
     private static Scene registroScene;
+
+    private static Scene paginaPrincipalScene;
     @Override
     public void start(Stage primaryStage) throws IOException {
         stage = primaryStage;
         primaryStage.setTitle("home");
 
-        Parent fxmlPagina = FXMLLoader.load(getClass().getResource("paginaprincipal.fxml"));
-        paginaScene = new Scene(fxmlPagina);
+        Parent fxmlLogin = FXMLLoader.load(getClass().getResource("login.fxml"));
+        loginScene = new Scene(fxmlLogin, primaryStage.getWidth(), primaryStage.getHeight());
 
-        primaryStage.setScene(paginaScene);
+        primaryStage.setScene(loginScene);
         primaryStage.setMaximized(true);
         primaryStage.show();
 
         Parent fxmlRegistro = FXMLLoader.load(getClass().getResource("registro.fxml"));
-        registroScene = new Scene(fxmlRegistro,stage.getWidth(), stage.getHeight());
+        registroScene = new Scene(fxmlRegistro, primaryStage.getWidth(), primaryStage.getHeight());
+
+        Parent fxmlPaginaPrincipal = FXMLLoader.load(getClass().getResource("paginaprincipal.fxml"));
+        paginaPrincipalScene = new Scene(fxmlPaginaPrincipal,primaryStage.getWidth(), primaryStage.getHeight());
     }
 
 
 
     public static void telaScreen(String nome){
         switch (nome){
-            case "pagina":
-                stage.setScene(paginaScene);
+            case "login":
+                stage.setScene(loginScene);
+                stage.setMaximized(true);
                 break;
             case "registro":
                 stage.setScene(registroScene);
+                stage.setMaximized(true);
+                break;
+            case "paginaprincipal":
+                stage.setScene(paginaPrincipalScene);
+                stage.setMaximized(true);
                 break;
         }
     }
