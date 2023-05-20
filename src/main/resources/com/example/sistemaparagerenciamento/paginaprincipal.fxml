@@ -2,8 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -75,10 +75,11 @@
             </Button>
          </children>
       </HBox>
-      <ListView fx:id="listOrdens" layoutX="1046.0" layoutY="232.0" prefHeight="525.0" prefWidth="387.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="85.0">
-         <effect>
-            <DropShadow />
-         </effect>
-      </ListView>
+      <TableView fx:id="tabelaOrdens" layoutX="702.0" layoutY="84.0" prefHeight="560.0" prefWidth="200.0" AnchorPane.leftAnchor="929.0" AnchorPane.rightAnchor="50.0">
+        <columns>
+          <TableColumn fx:id="ordemIdTabela" prefWidth="75.0" text="OrdemId" />
+          <TableColumn fx:id="clienteIdTabela" prefWidth="75.0" text="ClienteId" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
