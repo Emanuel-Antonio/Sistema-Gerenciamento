@@ -5,15 +5,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="736.0" prefWidth="1382.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.LoginController">
+<AnchorPane prefHeight="736.0" prefWidth="1382.0" style="-fx-background-color: #8EA399;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.LoginController">
    <children>
-      <VBox layoutX="118.0" layoutY="89.0" prefHeight="223.0" prefWidth="365.0" style="-fx-background-color: #D3D9E3; -fx-background-radius: 15;" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="118.0" AnchorPane.rightAnchor="117.0" AnchorPane.topAnchor="89.0">
+      <VBox layoutX="118.0" layoutY="96.0" prefHeight="532.0" prefWidth="1151.0" style="-fx-background-color: #294a58; -fx-background-radius: 15;" AnchorPane.bottomAnchor="113.0" AnchorPane.leftAnchor="118.0" AnchorPane.rightAnchor="117.0" AnchorPane.topAnchor="96.0">
          <children>
-            <Label fx:id="mensagem" alignment="CENTER" prefHeight="25.0" prefWidth="377.0" text="Bem-vindo!">
+            <Label fx:id="mensagem" alignment="CENTER" prefHeight="25.0" prefWidth="377.0" text="Bem-vindo!" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -31,7 +32,7 @@
                   <Insets left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
             </PasswordField>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#entrar" prefHeight="25.0" prefWidth="377.0" style="-fx-background-color: #0e909c; -fx-background-radius: 15;" text="Entrar" textFill="WHITE">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#entrar" prefHeight="25.0" prefWidth="377.0" style="-fx-background-color: #141347; -fx-background-radius: 15;" text="Entrar" textFill="WHITE">
                <VBox.margin>
                   <Insets left="387.0" right="387.0" top="15.0" />
                </VBox.margin>
@@ -42,7 +43,7 @@
                   <Insets left="50.0" right="50.0" />
                </padding>
             </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#registrar" prefHeight="25.0" prefWidth="377.0" style="-fx-background-color: #18c454; -fx-background-radius: 15;" text="Registrar-se" textFill="WHITE">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#registrar" prefHeight="25.0" prefWidth="377.0" style="-fx-background-color: #024f00; -fx-background-radius: 15;" text="Registrar-se" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="5.0" left="387.0" right="387.0" top="10.0" />
                </VBox.margin>
@@ -54,6 +55,9 @@
          <padding>
             <Insets left="50.0" right="50.0" />
          </padding>
+         <effect>
+            <DropShadow />
+         </effect>
       </VBox>
    </children>
 </AnchorPane>
