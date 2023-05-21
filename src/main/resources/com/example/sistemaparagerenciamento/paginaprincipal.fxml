@@ -13,7 +13,7 @@
    <children>
       <HBox layoutX="7.0" layoutY="7.0" prefHeight="35.0" prefWidth="1208.0" style="-fx-background-color: #141347;" AnchorPane.bottomAnchor="660.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="home" mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" textFill="WHITE">
+            <Button fx:id="home" mnemonicParsing="false" onAction="#onAction" prefHeight="25.0" prefWidth="30.0" textFill="WHITE">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" top="5.0" />
                </HBox.margin>
@@ -77,9 +77,10 @@
       </HBox>
       <TableView fx:id="tabelaOrdens" layoutX="702.0" layoutY="84.0" prefHeight="560.0" prefWidth="200.0" AnchorPane.leftAnchor="929.0" AnchorPane.rightAnchor="50.0">
         <columns>
-          <TableColumn fx:id="ordemIdTabela" prefWidth="75.0" text="OrdemId" />
-          <TableColumn fx:id="clienteIdTabela" prefWidth="75.0" text="ClienteId" />
+          <TableColumn fx:id="ordemIdTabela" prefWidth="193.0" text="OrdemId" />
+          <TableColumn fx:id="clienteIdTabela" prefWidth="193.0" text="ClienteId" />
         </columns>
       </TableView>
+      <Button layoutX="1079.0" layoutY="644.0" mnemonicParsing="false" text="Pegar Ordem" AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="659.0" />
    </children>
 </AnchorPane>

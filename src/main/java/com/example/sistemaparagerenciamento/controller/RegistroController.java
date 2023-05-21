@@ -42,7 +42,7 @@ public class RegistroController {
             int ii = email.getText().indexOf("@");
             //Aqui eu cadastro o técnico através do DAO de Tecnico
             if(!(("".equals(email.getText())) && !("".equals(nome.getText())) && !("".equals(senha.getText())))) {
-                if(-1 == ii){
+                if(-1 == ii && !("".equals(email.getText()))){
                     this.erroRegistar.setText("Email Inválido!");
                     this.erroRegistar.setVisible(true);
                 }
