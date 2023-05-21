@@ -40,18 +40,19 @@ public class RegistroController {
                 tecnico.setAdm(true);
             }
             int ii = email.getText().indexOf("@");
+            String s = "";
             //Aqui eu cadastro o técnico através do DAO de Tecnico
-            if(!(("".equals(email.getText())) && !("".equals(nome.getText())) && !("".equals(senha.getText())))) {
-                if(-1 == ii && !("".equals(email.getText()))){
+            if(!(s.equals(email.getText())) && !(s.equals(nome.getText())) && !(s.equals(senha.getText()))) {
+                if(-1 == ii){
                     this.erroRegistar.setText("Email Inválido!");
                     this.erroRegistar.setVisible(true);
                 }
-                else {
+                else{
                     DAO.getTecnico().criar(tecnico);
                     Main.telaScreen("login");
-                    email.setText(null);
-                    senha.setText(null);
-                    nome.setText(null);
+                    email.setText("");
+                    senha.setText("");
+                    nome.setText("");
                     this.erroRegistar.setVisible(false);
                 }
             }
