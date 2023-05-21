@@ -1,17 +1,17 @@
 package com.example.sistemaparagerenciamento.controller;
 
-import com.example.sistemaparagerenciamento.dao.DAO;
-import com.example.sistemaparagerenciamento.model.Ordem;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 public class Maincontroller {
 
     @FXML
     private Button cliente;
+
+    @FXML
+    private TableColumn<?, ?> clienteIdTabela;
 
     @FXML
     private Button estoque;
@@ -20,12 +20,15 @@ public class Maincontroller {
     private Button home;
 
     @FXML
-    private ListView<?> listOrdens;
-
-    @FXML
     private Button ordem;
 
     @FXML
+    private TableColumn<?, ?> ordemIdTabela;
+
+    @FXML
     private Button sair;
+
+    @FXML
+    private TableView<?> tabelaOrdens;
 
 }

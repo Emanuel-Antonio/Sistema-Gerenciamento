@@ -28,9 +28,9 @@ public class RegistroController {
         try {
             for (int i = 0; i < DAO.getTecnico().getTecnicos().size(); i++) {
                 //Aqui eu verifico se o técnico já existe
+
                 if (DAO.getTecnico().getTecnicos().get(i).getEmail().equals(email.getText())) {
                     this.erroRegistar.setVisible(true);
-                    System.out.println(email.toString());
                     return;
                 }
             }
@@ -39,10 +39,23 @@ public class RegistroController {
                 //Aqui eu atribuo o cargo de administrador a técnico
                 tecnico.setAdm(true);
             }
+            int ii = email.getText().indexOf("@");
             //Aqui eu cadastro o técnico através do DAO de Tecnico
-            if(!("".equals(email.getText())) && !("".equals(nome.getText())) && !("".equals(senha.getText())))
-                DAO.getTecnico().criar(tecnico);
-                Main.telaScreen("login");
+            if(!(("".equals(email.getText())) && !("".equals(nome.getText())) && !("".equals(senha.getText())))) {
+                if(-1 == ii){
+                    this.erroRegistar.setText("Email Inválido!");
+                    this.erroRegistar.setVisible(true);
+                }
+                else {
+                    DAO.getTecnico().criar(tecnico);
+                    Main.telaScreen("login");
+                    email.setText(null);
+                    senha.setText(null);
+                    nome.setText(null);
+                    this.erroRegistar.setVisible(false);
+                }
+            }
+
         }
         catch (Exception TecnicoInvalido){
 

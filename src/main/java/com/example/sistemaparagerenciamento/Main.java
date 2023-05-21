@@ -23,17 +23,17 @@ public class Main extends Application {
         primaryStage.setTitle("home");
 
         Parent fxmlLogin = FXMLLoader.load(getClass().getResource("login.fxml"));
-        loginScene = new Scene(fxmlLogin, primaryStage.getWidth(), primaryStage.getHeight());
+        loginScene = new Scene(fxmlLogin);
 
         primaryStage.setScene(loginScene);
         primaryStage.setMaximized(true);
         primaryStage.show();
 
         Parent fxmlRegistro = FXMLLoader.load(getClass().getResource("registro.fxml"));
-        registroScene = new Scene(fxmlRegistro, primaryStage.getWidth(), primaryStage.getHeight());
+        registroScene = new Scene(fxmlRegistro);
 
         Parent fxmlPaginaPrincipal = FXMLLoader.load(getClass().getResource("paginaprincipal.fxml"));
-        paginaPrincipalScene = new Scene(fxmlPaginaPrincipal,primaryStage.getWidth(), primaryStage.getHeight());
+        paginaPrincipalScene = new Scene(fxmlPaginaPrincipal);
     }
 
 
@@ -43,14 +43,20 @@ public class Main extends Application {
             case "login":
                 stage.setScene(loginScene);
                 stage.setMaximized(true);
+                System.out.println(stage.getWidth());
+                System.out.println(stage.getHeight());
                 break;
             case "registro":
                 stage.setScene(registroScene);
                 stage.setMaximized(true);
+                System.out.println(stage.getWidth());
+                System.out.println(stage.getHeight());
                 break;
             case "paginaprincipal":
                 stage.setScene(paginaPrincipalScene);
                 stage.setMaximized(true);
+                System.out.println(stage.getWidth());
+                System.out.println(stage.getHeight());
                 break;
         }
     }
