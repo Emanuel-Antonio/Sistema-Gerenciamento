@@ -1,14 +1,13 @@
 package com.example.sistemaparagerenciamento.controller;
 
+import com.example.sistemaparagerenciamento.Main;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 public class Maincontroller {
-
-    @FXML
-    private Button cliente;
 
     @FXML
     private TableColumn<?, ?> clienteIdTabela;
@@ -30,5 +29,10 @@ public class Maincontroller {
 
     @FXML
     private TableView<?> tabelaOrdens;
+
+    @FXML
+    void registrarClientes(ActionEvent event) {
+        Main.telaScreen("registrocliente");
+    }
 
 }

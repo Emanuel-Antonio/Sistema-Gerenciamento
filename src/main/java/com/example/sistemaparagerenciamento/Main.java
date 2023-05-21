@@ -17,6 +17,8 @@ public class Main extends Application {
     private static Scene registroScene;
 
     private static Scene paginaPrincipalScene;
+
+    private static Scene registroClienteScene;
     @Override
     public void start(Stage primaryStage) throws IOException {
         stage = primaryStage;
@@ -34,6 +36,9 @@ public class Main extends Application {
 
         Parent fxmlPaginaPrincipal = FXMLLoader.load(getClass().getResource("paginaprincipal.fxml"));
         paginaPrincipalScene = new Scene(fxmlPaginaPrincipal);
+
+        Parent fxmlRegistroCliente = FXMLLoader.load(getClass().getResource("registrocliente.fxml"));
+        registroClienteScene = new Scene(fxmlRegistroCliente);
     }
 
 
@@ -43,20 +48,18 @@ public class Main extends Application {
             case "login":
                 stage.setScene(loginScene);
                 stage.setMaximized(true);
-                System.out.println(stage.getWidth());
-                System.out.println(stage.getHeight());
                 break;
             case "registro":
                 stage.setScene(registroScene);
-                stage.setMaximized(true);
-                System.out.println(stage.getWidth());
-                System.out.println(stage.getHeight());
+                stage.setMaximized(true);;
                 break;
             case "paginaprincipal":
                 stage.setScene(paginaPrincipalScene);
                 stage.setMaximized(true);
-                System.out.println(stage.getWidth());
-                System.out.println(stage.getHeight());
+                break;
+            case "registrocliente":
+                stage.setScene(registroClienteScene);
+                stage.setMaximized(true);
                 break;
         }
     }

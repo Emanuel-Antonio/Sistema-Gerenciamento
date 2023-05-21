@@ -37,7 +37,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="cliente" mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0">
+            <Button mnemonicParsing="false" onAction="#registrarClientes" prefHeight="25.0" prefWidth="30.0">
                <HBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </HBox.margin>
