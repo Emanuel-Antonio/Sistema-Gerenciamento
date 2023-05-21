@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="736.0" prefWidth="1382.0" style="-fx-background-color: #8EA399;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.CadastrarCliente">
    <children>
-      <VBox layoutX="219.0" layoutY="82.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #021925; -fx-background-radius: 15;" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="118.0" AnchorPane.rightAnchor="117.0" AnchorPane.topAnchor="89.0">
+      <VBox layoutX="219.0" layoutY="82.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #294a58; -fx-background-radius: 15;" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="118.0" AnchorPane.rightAnchor="117.0" AnchorPane.topAnchor="89.0">
          <children>
             <TextField promptText="Nome" style="-fx-background-radius: 15;">
                <VBox.margin>
