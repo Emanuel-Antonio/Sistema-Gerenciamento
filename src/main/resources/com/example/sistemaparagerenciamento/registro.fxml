@@ -7,51 +7,62 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane prefHeight="736.0" prefWidth="1382.0" style="-fx-background-color: #8EA399;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.RegistroController">
-    <children>
-        <VBox layoutX="118.0" layoutY="89.0" prefHeight="532.0" prefWidth="1151.0" style="-fx-background-color: #294a58; -fx-background-radius: 15;" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="118.0" AnchorPane.rightAnchor="117.0" AnchorPane.topAnchor="89.0">
-            <children>
+   <children>
+      <VBox layoutX="118.0" layoutY="78.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #294a58; -fx-background-radius: 15;" AnchorPane.bottomAnchor="131.0" AnchorPane.leftAnchor="118.0" AnchorPane.rightAnchor="117.0" AnchorPane.topAnchor="78.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#voltar" prefHeight="25.0" prefWidth="21.0" style="-fx-background-color: #294a58;">
+               <graphic>
+                  <ImageView fitHeight="39.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/voltar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets left="5.0" top="5.0" />
+               </VBox.margin>
+            </Button>
             <TextField fx:id="nome" promptText="Nome" style="-fx-background-radius: 15;">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="45.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="email" promptText="Email" style="-fx-background-radius: 15;">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <PasswordField fx:id="senha" promptText="Senha" style="-fx-background-radius: 15;">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
                <VBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
-            </TextField>
-                <TextField fx:id="email" promptText="Email" style="-fx-background-radius: 15;">
-                    <VBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                    </VBox.margin>
-                </TextField>
-                <PasswordField fx:id="senha" promptText="Senha" style="-fx-background-radius: 15;">
-                    <VBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                    </VBox.margin>
-                </PasswordField>
-                <Button alignment="CENTER" mnemonicParsing="false" onAction="#registrar" prefHeight="25.0" prefWidth="377.0" style="-fx-background-color: #024f00; -fx-background-radius: 15;" text="Registrar" textFill="WHITE">
-                    <VBox.margin>
-                        <Insets bottom="5.0" left="387.0" right="387.0" top="10.0" />
-                    </VBox.margin>
-                </Button>
-            <Label fx:id="erroRegistar" alignment="CENTER" prefHeight="17.0" prefWidth="392.0" textFill="RED" visible="false">
+            </PasswordField>
+            <Button mnemonicParsing="false" onAction="#registrar" prefHeight="25.0" prefWidth="377.0" style="-fx-background-color: #024f00; -fx-background-radius: 15;" text="Registrar" textFill="WHITE">
                <VBox.margin>
-                  <Insets left="387.0" right="387.0" top="5.0" />
+                  <Insets bottom="5.0" left="387.0" right="387.0" top="10.0" />
                </VBox.margin>
+            </Button>
+            <Label fx:id="erroRegistrar" alignment="CENTER" prefHeight="17.0" prefWidth="392.0" textFill="RED" visible="false">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
+               <VBox.margin>
+                  <Insets left="387.0" right="387.0" top="5.0" />
+               </VBox.margin>
             </Label>
-            </children>
-            <padding>
-                <Insets bottom="50.0" top="50.0" />
-            </padding>
+         </children>
          <effect>
             <DropShadow />
          </effect>
-        </VBox>
-    </children>
+      </VBox>
+   </children>
 </AnchorPane>

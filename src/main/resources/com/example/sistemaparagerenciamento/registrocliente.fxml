@@ -19,7 +19,7 @@
                <graphic>
                   <ImageView fitHeight="39.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@voltar.png" />
+                        <Image url="@img/voltar.png" />
                      </image>
                   </ImageView>
                </graphic>
