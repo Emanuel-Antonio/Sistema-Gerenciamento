@@ -37,7 +37,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="telefoneCliente" promptText="Telefone" style="-fx-background-radius: 15;">
+            <TextField fx:id="telefoneCliente" promptText="Telefone: ex.: (DDD) XXXXX-XXXX " style="-fx-background-radius: 15;">
                <VBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
