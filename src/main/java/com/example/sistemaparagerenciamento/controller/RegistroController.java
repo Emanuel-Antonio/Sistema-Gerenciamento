@@ -15,7 +15,7 @@ public class RegistroController {
     private TextField email;
 
     @FXML
-    private Label erroRegistar;
+    private Label erroRegistrar;
 
     @FXML
     private TextField nome;
@@ -30,8 +30,8 @@ public class RegistroController {
                 //Aqui eu verifico se o técnico já existe
 
                 if (DAO.getTecnico().getTecnicos().get(i).getEmail().equals(email.getText())) {
-                    this.erroRegistar.setText("Erro ao registrar usuário!");
-                    this.erroRegistar.setVisible(true);
+                    this.erroRegistrar.setText("Erro ao registrar usuário!");
+                    this.erroRegistrar.setVisible(true);
                     return;
                 }
             }
@@ -45,8 +45,8 @@ public class RegistroController {
             //Aqui eu cadastro o técnico através do DAO de Tecnico
             if(!(s.equals(email.getText())) && !(s.equals(nome.getText())) && !(s.equals(senha.getText()))) {
                 if(-1 == ii){
-                    this.erroRegistar.setText("Email Inválido!");
-                    this.erroRegistar.setVisible(true);
+                    this.erroRegistrar.setText("Email Inválido!");
+                    this.erroRegistrar.setVisible(true);
                 }
                 else{
                     DAO.getTecnico().criar(tecnico);
@@ -54,14 +54,19 @@ public class RegistroController {
                     email.setText("");
                     senha.setText("");
                     nome.setText("");
-                    this.erroRegistar.setVisible(false);
+                    this.erroRegistrar.setVisible(false);
                 }
             }
 
         }
         catch (Exception TecnicoInvalido){
-
+            this.erroRegistrar.setText("Erro ao registrar usuário!");
+            this.erroRegistrar.setVisible(true);
         }
+    }
+    @FXML
+    void voltar(ActionEvent event) {
+        Main.telaScreen("login");
     }
 
 }

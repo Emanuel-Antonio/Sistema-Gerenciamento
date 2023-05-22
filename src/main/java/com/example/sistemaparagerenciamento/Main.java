@@ -43,15 +43,16 @@ public class Main extends Application {
 
 
 
-    public static void telaScreen(String nome){
-        switch (nome){
+    public static void telaScreen(String nome) {
+        switch (nome) {
             case "login":
                 stage.setScene(loginScene);
                 stage.setMaximized(true);
                 break;
             case "registro":
                 stage.setScene(registroScene);
-                stage.setMaximized(true);;
+                stage.setMaximized(true);
+                ;
                 break;
             case "paginaprincipal":
                 stage.setScene(paginaPrincipalScene);

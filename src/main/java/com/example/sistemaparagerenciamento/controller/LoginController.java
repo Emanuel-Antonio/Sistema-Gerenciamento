@@ -33,6 +33,7 @@ public class LoginController {
         }
         catch (Exception e) {
             mensagem.setText("Erro ao logar Usuário!");
+            mensagem.setVisible(true);
         }
     }
 
