@@ -46,7 +46,7 @@ public class DAO {
          */
         public static ClienteDAO getCliente() {
                 if (clienteDAO == null) {
-                    clienteDAO = new ClienteFileImpl("cliente.bin");
+                    clienteDAO = new ClienteFileImpl("src/main/dados/cliente.bin");
                 }
                 return clienteDAO;
         }
@@ -58,7 +58,7 @@ public class DAO {
          */
         public static OrdemDAO getOrdem() {
             if (ordemDAO == null) {
-                ordemDAO = new OrdemFileImpl("ordem.bin");
+                ordemDAO = new OrdemFileImpl("src/main/dados/ordem.bin");
             }
             return ordemDAO;
         }
@@ -70,7 +70,7 @@ public class DAO {
          */
         public static TecnicoDAO getTecnico() {
             if (tecnicoDAO == null) {
-                tecnicoDAO = new TecnicoFileImpl("tecnico.bin");
+                tecnicoDAO = new TecnicoFileImpl("src/main/dados/tecnico.bin");
             }
             return tecnicoDAO;
         }
@@ -82,7 +82,7 @@ public class DAO {
          */
         public static ServicoDAO getServico() {
             if (servicoDAO == null) {
-                servicoDAO = new ServicoFileImpl("servico.bin");
+                servicoDAO = new ServicoFileImpl("src/main/dados/servico.bin");
             }
             return servicoDAO;
         }
@@ -94,7 +94,7 @@ public class DAO {
          */
         public static PagamentoDAO getPagamento() {
             if (pagamentoDAO == null) {
-                pagamentoDAO = new PagamentoFileImpl("pagamento.bin");
+                pagamentoDAO = new PagamentoFileImpl("src/main/dados/pagamento.bin");
             }
             return pagamentoDAO;
         }
@@ -106,7 +106,7 @@ public class DAO {
          */
         public static PecaDAO getPeca() {
             if (pecaDAO == null) {
-                pecaDAO = new PecaFileImpl("peca.bin");
+                pecaDAO = new PecaFileImpl("src/main/dados/peca.bin");
             }
             return pecaDAO;
         }
@@ -118,7 +118,7 @@ public class DAO {
          */
         public static OrdemCompraDAO getOrdemCompra() {
             if (ordemCompraDAO == null) {
-                ordemCompraDAO = new OrdemCompraFileImpl("ordemCompra.bin");
+                ordemCompraDAO = new OrdemCompraFileImpl("src/main/dados/ordemCompra.bin");
             }
             return ordemCompraDAO;
         }

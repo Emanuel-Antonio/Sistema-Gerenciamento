@@ -35,7 +35,7 @@ public class CadastrarCliente {
             this.erroRegistrar.setText("Erro ao registrar cliente!");
             this.erroRegistrar.setVisible(true);
             System.out.println("1");
-        }else if(!enderecoCliente.getText().matches("(\\(?\\d{2}\\)?\\s)?(\\d{4,5}-\\d{4})")){
+        }else if(!telefoneCliente.getText().matches("(\\(?\\d{2}\\)?\\s)?(\\d{4,5}-\\d{4})")){
             this.erroRegistrar.setText("Telefone Inválido!");
             this.erroRegistrar.setVisible(true);
             System.out.println("2");
