@@ -30,6 +30,7 @@ public class RegistroController {
                 //Aqui eu verifico se o técnico já existe
 
                 if (DAO.getTecnico().getTecnicos().get(i).getEmail().equals(email.getText())) {
+                    this.erroRegistar.setText("Erro ao registrar usuário!");
                     this.erroRegistar.setVisible(true);
                     return;
                 }

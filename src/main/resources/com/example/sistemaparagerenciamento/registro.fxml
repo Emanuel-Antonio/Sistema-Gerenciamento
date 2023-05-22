@@ -37,7 +37,7 @@
                         <Insets bottom="5.0" left="387.0" right="387.0" top="10.0" />
                     </VBox.margin>
                 </Button>
-            <Label fx:id="erroRegistar" alignment="CENTER" prefHeight="17.0" prefWidth="392.0" text="Erro ao registrar usuário!" textFill="RED" visible="false">
+            <Label fx:id="erroRegistar" alignment="CENTER" prefHeight="17.0" prefWidth="392.0" textFill="RED" visible="false">
                <VBox.margin>
                   <Insets left="387.0" right="387.0" top="5.0" />
                </VBox.margin>
