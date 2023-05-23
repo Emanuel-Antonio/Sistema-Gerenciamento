@@ -1,5 +1,7 @@
 package com.example.sistemaparagerenciamento.model;
 
+import com.example.sistemaparagerenciamento.dao.DAO;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +22,8 @@ public class Ordem implements Serializable {
     private int ordemId;
     private String avaliacaoFinal;
 
+    private String nomeCliente;
+
     /**
      * Construtor de ordem, ser&aacute; necess&aacute;rio passar alguns parametros para cria um objeto Ordem, tais quais os listados abaixo.
      *
@@ -30,6 +34,11 @@ public class Ordem implements Serializable {
         this.servicos = new ArrayList<>();
         this.status = StatusOrdem.ANDAMENTO;
         this.tecnicoId = -1;
+        this.nomeCliente = DAO.getCliente().getClientes().get(clienteId).getNome();
+    }
+
+    public String getNomeCliente(){
+        return this.nomeCliente;
     }
 
     public List<Servico> getServicos() {

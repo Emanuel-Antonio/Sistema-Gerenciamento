@@ -7,6 +7,7 @@ module com.example.sistemaparagerenciamento {
 
     opens com.example.sistemaparagerenciamento to javafx.fxml;
     exports com.example.sistemaparagerenciamento;
+    exports com.example.sistemaparagerenciamento.model;
     exports com.example.sistemaparagerenciamento.dao;
     opens com.example.sistemaparagerenciamento.dao to javafx.fxml;
     exports com.example.sistemaparagerenciamento.dao.tecnico;
