@@ -28,20 +28,24 @@ public class LoginController {
                     Main.telaScreen("paginaprincipal");
                 }
             }
-            if(DAO.getTecnico().getTecnicoLogado() == null && !("".equals(email.getText())) && !("".equals(senha.getText())))
-                mensagem.setText("Dados Inválidos!!");
-        }
-        catch (Exception e) {
-            mensagem.setText("Erro ao logar Usuário!");
-            mensagem.setVisible(true);
+            if (DAO.getTecnico().getTecnicoLogado() == null && !("".equals(email.getText())) && !("".equals(senha.getText())))
+                this.mensagem.setText("Dados Inválidos!!");
+        } catch (Exception e) {
+            this.mensagem.setText("Erro ao logar Usuário!");
+            this.mensagem.setVisible(true);
         }
     }
-
-
-
-
     @FXML
     void registrar(ActionEvent event) {
         Main.telaScreen("registro");
+        this.mensagem.setVisible(false);
+        this.email.setText(null);
+        this.senha.setText(null);
     }
+
 }
+
+
+
+
+

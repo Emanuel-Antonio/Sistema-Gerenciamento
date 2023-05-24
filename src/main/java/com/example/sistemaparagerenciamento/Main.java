@@ -52,7 +52,6 @@ public class Main extends Application {
             case "registro":
                 stage.setScene(registroScene);
                 stage.setMaximized(true);
-                ;
                 break;
             case "paginaprincipal":
                 stage.setScene(paginaPrincipalScene);
