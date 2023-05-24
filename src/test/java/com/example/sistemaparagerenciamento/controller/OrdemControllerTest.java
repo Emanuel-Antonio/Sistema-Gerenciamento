@@ -14,7 +14,8 @@ class OrdemControllerTest {
 
     @BeforeEach
     void setUp() {
-
+        Cliente cliente = new Cliente("john", "jatobá", "991448349");
+        DAO.getCliente().criar(cliente);
         this.ordem = new Ordem( 0);
         DAO.getOrdem().criar(this.ordem);
         this.ordem1 = new Ordem( 0);
@@ -25,6 +26,7 @@ class OrdemControllerTest {
     @AfterEach
     void tearDown() {
 
+        DAO.getCliente().resetar();
         DAO.getOrdem().resetar();
         DAO.getServico().resetar();
         DAO.getPagamento().resetar();
@@ -138,7 +140,7 @@ class OrdemControllerTest {
         DAO.getCliente().criar(cliente);
 
         assertEquals(true, ordemController.cadastrarOrdem(cliente.getClienteId()), "1° Teste de cadastrar Cliente!");
-        assertEquals(false, ordemController.cadastrarOrdem(1), "2° Teste de cadastrar Cliente!");
+        assertEquals(true, ordemController.cadastrarOrdem(1), "2° Teste de cadastrar Cliente!");
 
     }
 
