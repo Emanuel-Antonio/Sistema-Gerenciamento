@@ -1,8 +1,13 @@
 package com.example.sistemaparagerenciamento.model;
 
+import com.example.sistemaparagerenciamento.dao.DAO;
+
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Classe respons&aacute;vel por representar uma abstra&ccedil;&atilde;o de ordem
@@ -20,6 +25,10 @@ public class Ordem implements Serializable {
     private int ordemId;
     private String avaliacaoFinal;
 
+    private String nomeCliente;
+
+    private String data;
+
     /**
      * Construtor de ordem, ser&aacute; necess&aacute;rio passar alguns parametros para cria um objeto Ordem, tais quais os listados abaixo.
      *
@@ -30,6 +39,17 @@ public class Ordem implements Serializable {
         this.servicos = new ArrayList<>();
         this.status = StatusOrdem.ANDAMENTO;
         this.tecnicoId = -1;
+        this.nomeCliente = DAO.getCliente().getClientes().get(clienteId).getNome();
+        Locale local = new Locale("PT");
+        SimpleDateFormat sdf = new SimpleDateFormat("EEEE, d MMMM yyyy, HH:mm:ss", local);
+        this.data = sdf.format(Calendar.getInstance().getTime());
+    }
+
+    public String getData(){
+        return this.data;
+    }
+    public String getNomeCliente(){
+        return this.nomeCliente;
     }
 
     public List<Servico> getServicos() {

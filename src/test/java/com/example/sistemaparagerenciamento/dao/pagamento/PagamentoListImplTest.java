@@ -1,6 +1,7 @@
 package com.example.sistemaparagerenciamento.dao.pagamento;
 
 import com.example.sistemaparagerenciamento.dao.DAO;
+import com.example.sistemaparagerenciamento.model.Cliente;
 import com.example.sistemaparagerenciamento.model.Fatura;
 import com.example.sistemaparagerenciamento.model.Ordem;
 import com.example.sistemaparagerenciamento.model.Pagamento;
@@ -17,7 +18,9 @@ class PagamentoListImplTest {
     @BeforeEach
     void setUp() {
 
-        this.ordem = new Ordem( 1);
+        Cliente cliente = new Cliente("emanuel", "jatobá", "991448354");
+        DAO.getCliente().criar(cliente);
+        this.ordem = new Ordem( 0);
         DAO.getOrdem().criar(ordem);
         this.fatura = new Fatura(0);
         DAO.getOrdem().buscarPorId(0).setFatura(this.fatura);
@@ -27,6 +30,7 @@ class PagamentoListImplTest {
     @AfterEach
     void tearDown() {
 
+        DAO.getCliente().resetar();
         DAO.getPagamento().resetar();
         DAO.getOrdem().buscarPorId(0).setFatura(null);
         DAO.getOrdem().resetar();

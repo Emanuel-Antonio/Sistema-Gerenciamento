@@ -75,10 +75,11 @@
             </Button>
          </children>
       </HBox>
-      <TableView fx:id="tabelaOrdens" layoutX="702.0" layoutY="90.0" prefHeight="584.0" prefWidth="346.0" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="929.0" AnchorPane.rightAnchor="91.0" AnchorPane.topAnchor="84.0">
+      <TableView fx:id="tabelaOrdens" layoutX="744.0" layoutY="90.0" prefHeight="560.0" prefWidth="613.0" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="744.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="84.0">
         <columns>
-          <TableColumn fx:id="ordemIdTabela" prefWidth="75.0" text="OrdemId" />
-          <TableColumn fx:id="clienteIdTabela" prefWidth="75.0" text="ClienteId" />
+          <TableColumn fx:id="ordemIdTabela" prefWidth="115.0" text="OrdemId" />
+          <TableColumn fx:id="clienteIdTabela" prefWidth="245.0" text="ClienteId" />
+            <TableColumn fx:id="dataTabela" prefWidth="115.0" text="Data" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
