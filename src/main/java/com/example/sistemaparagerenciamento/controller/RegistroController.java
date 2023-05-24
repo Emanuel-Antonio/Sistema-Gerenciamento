@@ -29,21 +29,21 @@ public class RegistroController {
             for (int i = 0; i < DAO.getTecnico().getTecnicos().size(); i++) {
                 //Aqui eu verifico se o técnico já existe
 
-                if (DAO.getTecnico().getTecnicos().get(i).getEmail().equals(email.getText())) {
+                if (DAO.getTecnico().getTecnicos().get(i).getEmail().equals(this.email.getText())) {
                     this.erroRegistrar.setText("Erro ao registrar usuário!");
                     this.erroRegistrar.setVisible(true);
                     return;
                 }
             }
-            Tecnico tecnico = new Tecnico(email.getText(), nome.getText(), senha.getText());
+            Tecnico tecnico = new Tecnico(this.email.getText(), this.nome.getText(), this.senha.getText());
             if (DAO.getTecnico().getTecnicos().size() == 0) {
                 //Aqui eu atribuo o cargo de administrador a técnico
                 tecnico.setAdm(true);
             }
-            int ii = email.getText().indexOf("@");
+            int ii = this.email.getText().indexOf("@");
             String s = "";
             //Aqui eu cadastro o técnico através do DAO de Tecnico
-            if(!(s.equals(email.getText())) && !(s.equals(nome.getText())) && !(s.equals(senha.getText()))) {
+            if(!(s.equals(this.email.getText())) && !(s.equals(this.nome.getText())) && !(s.equals(this.senha.getText()))) {
                 if(-1 == ii){
                     this.erroRegistrar.setText("Email Inválido!");
                     this.erroRegistrar.setVisible(true);
@@ -51,9 +51,9 @@ public class RegistroController {
                 else{
                     DAO.getTecnico().criar(tecnico);
                     Main.telaScreen("login");
-                    email.setText("");
-                    senha.setText("");
-                    nome.setText("");
+                    this.email.setText("");
+                    this.senha.setText("");
+                    this.nome.setText("");
                     this.erroRegistrar.setVisible(false);
                 }
             }

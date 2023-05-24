@@ -27,12 +27,12 @@ public class CadastrarCliente {
         try {
             for (int i = 0; i < DAO.getCliente().getClientes().size(); i++) {
                 //Aqui eu verifico se o cliente já existe
-                if (DAO.getCliente().getClientes().get(i).getNome().equals(nomeCliente.getText()) && DAO.getCliente().getClientes().get(i).getEndereco().equals(enderecoCliente.getText()) && DAO.getCliente().getClientes().get(i).getTelefone().equals(telefoneCliente.getText())) {
+                if (DAO.getCliente().getClientes().get(i).getNome().equals(this.nomeCliente.getText()) && DAO.getCliente().getClientes().get(i).getEndereco().equals(this.enderecoCliente.getText()) && DAO.getCliente().getClientes().get(i).getTelefone().equals(this.telefoneCliente.getText())) {
                     this.erroRegistrar.setText("Esse Cliente já existe!");
                     this.erroRegistrar.setVisible(true);
                 }
             }
-            if (("".equals(enderecoCliente.getText())) || ("".equals(nomeCliente.getText())) || ("".equals(telefoneCliente.getText()))) {
+            if (("".equals(this.enderecoCliente.getText())) || ("".equals(this.nomeCliente.getText())) || ("".equals(this.telefoneCliente.getText()))) {
                 this.erroRegistrar.setText("Erro ao registrar cliente!");
                 this.erroRegistrar.setVisible(true);
                 System.out.println("1");
@@ -41,7 +41,7 @@ public class CadastrarCliente {
                 this.erroRegistrar.setVisible(true);
                 System.out.println("2");
             } else {
-                Cliente cliente = new Cliente(nomeCliente.getText(), enderecoCliente.getText(), telefoneCliente.getText());
+                Cliente cliente = new Cliente(this.nomeCliente.getText(), this.enderecoCliente.getText(), this.telefoneCliente.getText());
                 //Aqui eu cadastro o cliente através do DAO de cliente
                 DAO.getCliente().criar(cliente);
                 Main.telaScreen("paginaprincipal");
