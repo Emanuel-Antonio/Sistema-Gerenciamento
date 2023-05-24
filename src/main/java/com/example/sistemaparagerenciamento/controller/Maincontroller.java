@@ -76,10 +76,6 @@ public class Maincontroller implements Initializable {
         ordemIdTabela.setCellValueFactory(new PropertyValueFactory<Ordem, Integer>("ordemId"));
         dataTabela.setCellValueFactory(new PropertyValueFactory<Ordem, String>("data"));
 
-        System.out.println(DAO.getServico().getServicos().get(1).getHorarioAbertura().getTime().toString());
-        System.out.println(DAO.getServico().getServicos().get(2).getHorarioAbertura().getTime().toString());
-        System.out.println(DAO.getServico().getServicos().get(3).getHorarioAbertura().getTime().toString());
-
         this.tabelaOrdens.setItems(ordens0);
 
 
