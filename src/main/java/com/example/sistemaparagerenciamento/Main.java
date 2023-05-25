@@ -28,7 +28,9 @@ public class Main extends Application {
         loginScene = new Scene(fxmlLogin);
 
         primaryStage.setScene(loginScene);
-        primaryStage.setMaximized(true);
+        primaryStage.setWidth(1200);
+        primaryStage.setHeight(600);
+        primaryStage.setResizable(false);
         primaryStage.show();
 
         Parent fxmlRegistro = FXMLLoader.load(getClass().getResource("registro.fxml"));
@@ -47,19 +49,27 @@ public class Main extends Application {
         switch (nome) {
             case "login":
                 stage.setScene(loginScene);
-                stage.setMaximized(true);
+                stage.setWidth(1200);
+                stage.setHeight(600);
+                stage.setResizable(false);
                 break;
             case "registro":
                 stage.setScene(registroScene);
-                stage.setMaximized(true);
+                stage.setWidth(1200);
+                stage.setHeight(600);
+                stage.setResizable(false);
                 break;
             case "paginaprincipal":
                 stage.setScene(paginaPrincipalScene);
-                stage.setMaximized(true);
+                stage.setWidth(1200);
+                stage.setHeight(600);
+                stage.setResizable(false);
                 break;
             case "registrocliente":
                 stage.setScene(registroClienteScene);
-                stage.setMaximized(true);
+                stage.setWidth(1200);
+                stage.setHeight(600);
+                stage.setResizable(false);
                 break;
         }
     }

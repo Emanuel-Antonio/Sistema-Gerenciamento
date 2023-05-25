@@ -11,15 +11,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="736.0" prefWidth="1382.0" style="-fx-background-color: #8EA399;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.CadastrarCliente">
+<AnchorPane prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: #8EA399;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.CadastrarClienteController">
    <children>
-      <VBox layoutX="118.0" layoutY="78.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #294a58; -fx-background-radius: 15;" AnchorPane.bottomAnchor="131.0" AnchorPane.leftAnchor="118.0" AnchorPane.rightAnchor="117.0" AnchorPane.topAnchor="78.0">
+      <VBox layoutX="118.0" layoutY="78.0" prefHeight="400.0" prefWidth="1000.0" style="-fx-background-color: #294a58; -fx-background-radius: 15;" AnchorPane.bottomAnchor="131.0" AnchorPane.leftAnchor="118.0" AnchorPane.rightAnchor="117.0" AnchorPane.topAnchor="78.0">
          <children>
             <Button mnemonicParsing="false" onAction="#voltar" prefHeight="25.0" prefWidth="21.0" style="-fx-background-color: #294a58;">
                <graphic>
                   <ImageView fitHeight="39.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/voltar.png" />
+                        <Image url="@img/icons8-voltar-67%20(1).png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -29,30 +29,30 @@
             </Button>
             <TextField fx:id="nomeCliente" promptText="Nome" style="-fx-background-radius: 15;">
                <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="45.0" />
+                  <Insets bottom="5.0" left="50.0" right="50.0" top="45.0" />
                </VBox.margin>
             </TextField>
             <TextField fx:id="enderecoCliente" promptText="Endereço" style="-fx-background-radius: 15;">
                <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets bottom="5.0" left="50.0" right="50.0" top="5.0" />
                </VBox.margin>
             </TextField>
             <TextField fx:id="telefoneCliente" promptText="Telefone: ex.: (DDD) XXXXX-XXXX " style="-fx-background-radius: 15;">
                <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets bottom="5.0" left="50.0" right="50.0" top="5.0" />
                </VBox.margin>
             </TextField>
-            <Button mnemonicParsing="false" onAction="#registrarCliente" prefHeight="25.0" prefWidth="377.0" style="-fx-background-color: #024f00; -fx-background-radius: 15;" text="Registrar" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#registrarCliente" prefHeight="10.0" prefWidth="250.0" style="-fx-background-color: #024f00; -fx-background-radius: 15;" text="Registrar" textFill="WHITE">
                <VBox.margin>
-                  <Insets bottom="5.0" left="387.0" right="387.0" top="10.0" />
+                  <Insets bottom="5.0" left="375.0" right="375.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Label fx:id="erroRegistrar" alignment="CENTER" prefHeight="17.0" prefWidth="392.0" textFill="RED" visible="false">
+            <Label fx:id="erroRegistrar" alignment="CENTER" prefHeight="10.0" prefWidth="250.0" textFill="RED" visible="false">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
                <VBox.margin>
-                  <Insets left="387.0" right="387.0" top="5.0" />
+                  <Insets left="375.0" right="375.0" top="5.0" />
                </VBox.margin>
             </Label>
          </children>

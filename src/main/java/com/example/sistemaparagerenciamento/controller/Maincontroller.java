@@ -60,15 +60,6 @@ public class Maincontroller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Cliente cliente = new Cliente("rodrigo", "jatobá", "991699351");
-        DAO.getCliente().criar(cliente);
-        Ordem ordem = new Ordem(cliente.getClienteId());
-        DAO.getOrdem().criar(ordem);
-        Servico servico = new Servico(ordem.getOrdemId(), MONTAGEM_INSTALACAO);
-        DAO.getServico().criar(servico);
-        List<Servico> s = ordem.getServicos();
-        s.add(servico);
-        ordem.setServicos(s);
 
         this.ordens0.addAll(DAO.getOrdem().getOrdens());
 
