@@ -7,34 +7,20 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: #8EA399;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.RegistroController">
+<AnchorPane prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: #8EA399;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.LoginController">
    <children>
       <VBox layoutX="118.0" layoutY="78.0" prefHeight="400.0" prefWidth="1000.0" style="-fx-background-color: #294a58; -fx-background-radius: 15;" AnchorPane.bottomAnchor="131.0" AnchorPane.leftAnchor="118.0" AnchorPane.rightAnchor="117.0" AnchorPane.topAnchor="78.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#voltar" prefHeight="25.0" prefWidth="21.0" style="-fx-background-color: #294a58;">
-               <graphic>
-                  <ImageView fitHeight="39.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/voltar.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <VBox.margin>
-                  <Insets left="5.0" top="5.0" />
-               </VBox.margin>
-            </Button>
             <Label fx:id="mensagem" alignment="CENTER" prefHeight="10.0" prefWidth="250.0" text="Bem vindo!" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="70.0" left="375.0" right="375.0" />
+                  <Insets bottom="70.0" left="375.0" right="375.0" top="30.0" />
                </VBox.margin>
             </Label>
             <TextField fx:id="email" promptText="Email" style="-fx-background-radius: 15;">

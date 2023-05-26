@@ -32,17 +32,15 @@ public class LoginController {
                 this.mensagem.setText("Dados Inválidos!!");
         } catch (Exception e) {
             this.mensagem.setText("Erro ao logar Usuário!");
-            this.mensagem.setVisible(true);
         }
     }
     @FXML
     void registrar(ActionEvent event) {
         Main.telaScreen("registro");
-        this.mensagem.setVisible(false);
+        this.mensagem.setText("Bem vindo!");
         this.email.setText(null);
         this.senha.setText(null);
     }
-
 }
 
 
