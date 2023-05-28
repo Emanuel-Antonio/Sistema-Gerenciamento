@@ -1,0 +1,17 @@
+.Button {
+    -fx-background-color:  #242638;
+    -fx-background-radius: 15;
+}
+
+.Button:hover {
+    -fx-background-color: #242650;
+}
+
+.Button1 {
+    -fx-background-color:  #024f00;
+    -fx-background-radius: 15;
+}
+
+.Button1:hover {
+    -fx-background-color:  #024f24;
+}
