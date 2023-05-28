@@ -1,4 +1,4 @@
-package com.example.sistemaparagerenciamento.controller;
+package com.example.sistemaparagerenciamento.controller.test;
 
 import com.example.sistemaparagerenciamento.dao.DAO;
 import com.example.sistemaparagerenciamento.model.CategoriaServico;

@@ -1,9 +1,8 @@
 package com.example.sistemaparagerenciamento.controller;
 
+import com.example.sistemaparagerenciamento.Main;
 import com.example.sistemaparagerenciamento.dao.DAO;
-import com.example.sistemaparagerenciamento.model.Cliente;
 import com.example.sistemaparagerenciamento.model.Ordem;
-import com.example.sistemaparagerenciamento.model.Servico;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,12 +14,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 import java.util.ResourceBundle;
-
-import static com.example.sistemaparagerenciamento.model.CategoriaServico.MONTAGEM_INSTALACAO;
 
 public class Maincontroller implements Initializable {
 
@@ -53,11 +47,6 @@ public class Maincontroller implements Initializable {
     @FXML
     private TableColumn<Ordem, String> dataTabela;
 
-    @FXML
-    void registrarClientes(ActionEvent event) {
-
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -69,6 +58,21 @@ public class Maincontroller implements Initializable {
 
         this.tabelaOrdens.setItems(ordens0);
 
+    }
 
+    @FXML
+    void sairOnAction(ActionEvent event) {
+        DAO.getTecnico().setTecnicoLogado(null);
+        Main.telaScreen("login");
+    }
+
+    @FXML
+    void homeOnAction(ActionEvent event) {
+        Main.telaScreen("paginaprincipal");
+    }
+
+    @FXML
+    void estoqueOnAction(ActionEvent event) {
+        Main.telaScreen("estoque");
     }
 }

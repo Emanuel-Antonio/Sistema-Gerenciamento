@@ -14,4 +14,6 @@ module com.example.sistemaparagerenciamento {
     opens com.example.sistemaparagerenciamento.dao.tecnico to javafx.fxml;
     opens com.example.sistemaparagerenciamento.controller to javafx.fxml;
     exports com.example.sistemaparagerenciamento.controller;
+    opens com.example.sistemaparagerenciamento.controller.test to javafx.fxml;
+    exports com.example.sistemaparagerenciamento.controller.test;
 }

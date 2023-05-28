@@ -1,5 +1,6 @@
 package com.example.sistemaparagerenciamento.controller;
 
+import com.example.sistemaparagerenciamento.controller.test.ServicoController;
 import com.example.sistemaparagerenciamento.dao.DAO;
 import com.example.sistemaparagerenciamento.model.CategoriaServico;
 import com.example.sistemaparagerenciamento.model.Peca;

@@ -15,3 +15,12 @@
 .Button1:hover {
     -fx-background-color:  #024f24;
 }
+
+.Button2 {
+    -fx-background-color: #294a58;
+    -fx-background-radius: 15;
+}
+
+.Button2:hover {
+    -fx-background-color: #294a99;
+}

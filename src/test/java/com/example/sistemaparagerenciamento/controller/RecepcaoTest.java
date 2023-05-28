@@ -1,5 +1,7 @@
 package com.example.sistemaparagerenciamento.controller;
 
+import com.example.sistemaparagerenciamento.controller.test.EstoqueController;
+import com.example.sistemaparagerenciamento.controller.test.Recepcao;
 import com.example.sistemaparagerenciamento.dao.DAO;
 import com.example.sistemaparagerenciamento.model.*;
 import org.junit.jupiter.api.AfterEach;

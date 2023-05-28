@@ -19,6 +19,8 @@ public class Main extends Application {
     private static Scene paginaPrincipalScene;
 
     private static Scene registroClienteScene;
+
+    private static Scene estoqueScene;
     @Override
     public void start(Stage primaryStage) throws IOException {
         stage = primaryStage;
@@ -36,11 +38,14 @@ public class Main extends Application {
         Parent fxmlRegistro = FXMLLoader.load(getClass().getResource("registro.fxml"));
         registroScene = new Scene(fxmlRegistro);
 
-        Parent fxmlPaginaPrincipal = FXMLLoader.load(getClass().getResource("paginaprincipal.fxml"));
+        Parent fxmlPaginaPrincipal = FXMLLoader.load(getClass().getResource("paginaprincipal0.fxml"));
         paginaPrincipalScene = new Scene(fxmlPaginaPrincipal);
 
         Parent fxmlRegistroCliente = FXMLLoader.load(getClass().getResource("registrocliente.fxml"));
         registroClienteScene = new Scene(fxmlRegistroCliente);
+
+        Parent fxmlEstoque = FXMLLoader.load(getClass().getResource("estoque.fxml"));
+        estoqueScene = new Scene(fxmlEstoque);
     }
 
 
@@ -67,6 +72,12 @@ public class Main extends Application {
                 break;
             case "registrocliente":
                 stage.setScene(registroClienteScene);
+                stage.setWidth(1200);
+                stage.setHeight(600);
+                stage.setResizable(false);
+                break;
+            case "estoque":
+                stage.setScene(estoqueScene);
                 stage.setWidth(1200);
                 stage.setHeight(600);
                 stage.setResizable(false);
