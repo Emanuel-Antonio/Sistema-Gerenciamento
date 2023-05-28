@@ -16,9 +16,23 @@
     -fx-background-color:  #024f24;
 }
 
+.label {
+    -fx-overflow: hidden;
+}
+
+.label:hover {
+    -fx-overflow: visible;
+}
+
+
+
+
+
+
 .Button2 {
     -fx-background-color: #294a58;
     -fx-background-radius: 15;
+    -fx-text-fill: #294a58;
 }
 
 .Button2:hover {
