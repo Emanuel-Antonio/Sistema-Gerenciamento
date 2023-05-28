@@ -40,6 +40,9 @@ public class Maincontroller implements Initializable {
     private Button sair;
 
     @FXML
+    private Button pegarOrdem;
+
+    @FXML
     private TableView<Ordem> tabelaOrdens;
 
     private ObservableList<Ordem> ordens0 = FXCollections.observableArrayList();
@@ -74,5 +77,10 @@ public class Maincontroller implements Initializable {
     @FXML
     void estoqueOnAction(ActionEvent event) {
         Main.telaScreen("estoque");
+    }
+
+    @FXML
+    void pegarOrdemOnAction(ActionEvent event) {
+
     }
 }

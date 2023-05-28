@@ -23,4 +23,5 @@
 
 .Button2:hover {
     -fx-background-color: #294a99;
+    -fx-text-fill: #ffff;
 }
