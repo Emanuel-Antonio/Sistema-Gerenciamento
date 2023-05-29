@@ -76,7 +76,7 @@
             </Button>
          </children>
       </HBox>
-      <TableView fx:id="tabelaClientes" layoutX="536.0" layoutY="117.0" prefHeight="435.0" prefWidth="606.0">
+      <TableView fx:id="tabelaClientes" layoutX="536.0" layoutY="117.0" prefHeight="435.0" prefWidth="606.0" styleClass="tabela">
         <columns>
           <TableColumn fx:id="idCliente" prefWidth="39.0" text="Id" />
           <TableColumn fx:id="nomeCliente" prefWidth="245.0" text="Nome" />

@@ -43,3 +43,23 @@
     -fx-background-color: #294a99;
     -fx-text-fill: #ffff;
 }
+
+.Button2 {
+    -fx-background-color: #294a58;
+    -fx-background-radius: 15;
+    -fx-text-fill: #294a58;
+}
+
+.Button2:hover {
+    -fx-background-color: #294a99;
+    -fx-text-fill: #ffff;
+}
+
+.tabela {
+    -fx-text-fill: cyan;
+    -fx-font-style: italic;
+    -fx-background-color: #85929E;
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-blend-mode: multiply;
+}
