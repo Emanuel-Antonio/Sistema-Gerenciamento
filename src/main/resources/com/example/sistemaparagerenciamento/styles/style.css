@@ -24,10 +24,14 @@
     -fx-overflow: visible;
 }
 
+.Button3 {
+    -fx-background-color:  #294a58;
+    -fx-background-radius: 15;
+}
 
-
-
-
+.Button3:hover {
+    -fx-background-color: #294a99;
+}
 
 .Button2 {
     -fx-background-color: #294a58;

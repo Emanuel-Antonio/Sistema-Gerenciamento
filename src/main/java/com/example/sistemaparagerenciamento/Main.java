@@ -18,9 +18,12 @@ public class Main extends Application {
 
     private static Scene paginaPrincipalScene;
 
-    private static Scene registroClienteScene;
+    private static Scene clientesScene;
 
     private static Scene estoqueScene;
+
+    private static Scene ordemScene;
+
     @Override
     public void start(Stage primaryStage) throws IOException {
         stage = primaryStage;
@@ -41,11 +44,14 @@ public class Main extends Application {
         Parent fxmlPaginaPrincipal = FXMLLoader.load(getClass().getResource("paginaprincipal0.fxml"));
         paginaPrincipalScene = new Scene(fxmlPaginaPrincipal);
 
-        Parent fxmlRegistroCliente = FXMLLoader.load(getClass().getResource("registrocliente.fxml"));
-        registroClienteScene = new Scene(fxmlRegistroCliente);
+        Parent fxmlClientes = FXMLLoader.load(getClass().getResource("clientes.fxml"));
+        clientesScene = new Scene(fxmlClientes);
 
         Parent fxmlEstoque = FXMLLoader.load(getClass().getResource("estoque.fxml"));
         estoqueScene = new Scene(fxmlEstoque);
+
+        Parent fxmlOrdem = FXMLLoader.load(getClass().getResource("ordens.fxml"));
+        ordemScene = new Scene(fxmlOrdem);
     }
 
 
@@ -70,14 +76,20 @@ public class Main extends Application {
                 stage.setHeight(600);
                 stage.setResizable(false);
                 break;
-            case "registrocliente":
-                stage.setScene(registroClienteScene);
+            case "clientes":
+                stage.setScene(clientesScene);
                 stage.setWidth(1200);
                 stage.setHeight(600);
                 stage.setResizable(false);
                 break;
             case "estoque":
                 stage.setScene(estoqueScene);
+                stage.setWidth(1200);
+                stage.setHeight(600);
+                stage.setResizable(false);
+                break;
+            case "ordens":
+                stage.setScene(ordemScene);
                 stage.setWidth(1200);
                 stage.setHeight(600);
                 stage.setResizable(false);

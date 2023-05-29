@@ -6,7 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-public class EstoqueController {
+public class OrdemController {
 
     @FXML
     private Button home;
@@ -15,10 +15,11 @@ public class EstoqueController {
     private Button sair;
 
     @FXML
-    private Button clientes;
-
+    private Button estoque;
     @FXML
-    private Button ordens;
+    void clientesOnAction(ActionEvent event) {
+        Main.telaScreen("clientes");
+    }
 
     @FXML
     void homeOnAction(ActionEvent event) {
@@ -36,13 +37,4 @@ public class EstoqueController {
         Main.telaScreen("estoque");
     }
 
-    @FXML
-    void clientesOnAction(ActionEvent event) {
-        Main.telaScreen("clientes");
-    }
-
-    @FXML
-    void ordemOnAction(ActionEvent event) {
-        Main.telaScreen("ordens");
-    }
 }

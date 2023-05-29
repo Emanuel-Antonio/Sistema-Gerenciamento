@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 public class Maincontroller implements Initializable {
 
     @FXML
-    private Button cliente;
+    private Button clientes;
 
     @FXML
     private TableColumn<Ordem, String> clienteIdTabela;
@@ -41,6 +41,9 @@ public class Maincontroller implements Initializable {
 
     @FXML
     private Button pegarOrdem;
+
+    @FXML
+    private Button ordens;
 
     @FXML
     private TableView<Ordem> tabelaOrdens;
@@ -82,5 +85,15 @@ public class Maincontroller implements Initializable {
     @FXML
     void pegarOrdemOnAction(ActionEvent event) {
 
+    }
+
+    @FXML
+    void clientesOnAction(ActionEvent event) {
+        Main.telaScreen("clientes");
+    }
+
+    @FXML
+    void ordemOnAction(ActionEvent event) {
+        Main.telaScreen("ordens");
     }
 }
