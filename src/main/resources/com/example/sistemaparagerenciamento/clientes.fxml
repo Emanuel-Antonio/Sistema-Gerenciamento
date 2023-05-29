@@ -90,5 +90,10 @@
       <Button layoutX="85.0" layoutY="300.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="385.0" styleClass="Button3" text="Cadastrar" textFill="WHITE" />
       <Button layoutX="85.0" layoutY="387.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="385.0" styleClass="Button3" text="Atualizar" textFill="WHITE" />
       <Button layoutX="85.0" layoutY="474.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="385.0" styleClass="Button3" text="Excluir" textFill="WHITE" />
+      <ImageView fitHeight="227.0" fitWidth="235.0" layoutX="160.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/icone-cliente.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
