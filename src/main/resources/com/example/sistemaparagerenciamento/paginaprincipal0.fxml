@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.paint.Color?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: #8EA399;" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.Maincontroller">
+<AnchorPane prefHeight="680.0" prefWidth="1300.0" style="-fx-background-color: #8EA399;" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.Maincontroller">
    <children>
-      <HBox fillHeight="false" maxHeight="50.0" maxWidth="1200.0" minHeight="50.0" minWidth="1200.0" prefHeight="50.0" prefWidth="1200.0" style="-fx-background-color: #294a58;" AnchorPane.bottomAnchor="510.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox fillHeight="false" maxHeight="135.0" maxWidth="1300.0" minHeight="50.0" minWidth="1200.0" prefHeight="92.0" prefWidth="1300.0" style="-fx-background-color: #294a58;" AnchorPane.bottomAnchor="588.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Button fx:id="home" mnemonicParsing="false" onAction="#homeOnAction" prefHeight="48.0" prefWidth="105.0" styleClass="Button2" text="Home" textFill="#294a58">
                <HBox.margin>
@@ -71,7 +71,7 @@
                   </ImageView>
                </graphic>
                <HBox.margin>
-                  <Insets bottom="5.0" left="660.0" right="5.0" top="5.0" />
+                  <Insets bottom="5.0" left="760.0" right="5.0" top="5.0" />
                </HBox.margin>
             </Button>
          </children>
@@ -93,6 +93,6 @@
             </DropShadow>
          </effect>
       </TableView>
-      <Button fx:id="pegarOrdem" layoutX="851.0" layoutY="552.0" mnemonicParsing="false" onAction="#pegarOrdemOnAction" prefHeight="34.0" prefWidth="88.0" styleClass="Button3" text="Pegar Ordem" textFill="WHITE" AnchorPane.bottomAnchor="8.0" />
+      <Button fx:id="pegarOrdem" layoutX="901.0" layoutY="638.0" mnemonicParsing="false" onAction="#pegarOrdemOnAction" prefHeight="34.0" prefWidth="88.0" styleClass="Button3" text="Pegar Ordem" textFill="WHITE" AnchorPane.bottomAnchor="8.0" />
    </children>
 </AnchorPane>

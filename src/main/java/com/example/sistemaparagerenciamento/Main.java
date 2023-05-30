@@ -33,8 +33,8 @@ public class Main extends Application {
         loginScene = new Scene(fxmlLogin);
 
         primaryStage.setScene(loginScene);
-        primaryStage.setWidth(1200);
-        primaryStage.setHeight(600);
+        primaryStage.setWidth(1300);
+        primaryStage.setHeight(680);
         primaryStage.setResizable(false);
         primaryStage.show();
 
@@ -60,38 +60,38 @@ public class Main extends Application {
         switch (nome) {
             case "login":
                 stage.setScene(loginScene);
-                stage.setWidth(1200);
-                stage.setHeight(600);
+                stage.setWidth(1300);
+                stage.setHeight(680);
                 stage.setResizable(false);
                 break;
             case "registro":
                 stage.setScene(registroScene);
-                stage.setWidth(1200);
-                stage.setHeight(600);
+                stage.setWidth(1300);
+                stage.setHeight(680);
                 stage.setResizable(false);
                 break;
             case "paginaprincipal":
                 stage.setScene(paginaPrincipalScene);
-                stage.setWidth(1200);
-                stage.setHeight(600);
+                stage.setWidth(1300);
+                stage.setHeight(680);
                 stage.setResizable(false);
                 break;
             case "clientes":
                 stage.setScene(clientesScene);
-                stage.setWidth(1200);
-                stage.setHeight(600);
+                stage.setWidth(1300);
+                stage.setHeight(680);
                 stage.setResizable(false);
                 break;
             case "estoque":
                 stage.setScene(estoqueScene);
-                stage.setWidth(1200);
-                stage.setHeight(600);
+                stage.setWidth(1300);
+                stage.setHeight(680);
                 stage.setResizable(false);
                 break;
             case "ordens":
                 stage.setScene(ordemScene);
-                stage.setWidth(1200);
-                stage.setHeight(600);
+                stage.setWidth(1300);
+                stage.setHeight(680);
                 stage.setResizable(false);
                 break;
         }

@@ -9,10 +9,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: #8EA399;" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.ClienteController">
+<AnchorPane prefHeight="680.0" prefWidth="1300.0" style="-fx-background-color: #8EA399;" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.ClienteController">
    <children>
-      <HBox fillHeight="false" maxHeight="50.0" maxWidth="1200.0" minHeight="50.0" minWidth="1200.0" prefHeight="50.0" prefWidth="1200.0" style="-fx-background-color: #294a58;" AnchorPane.bottomAnchor="510.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox fillHeight="false" maxHeight="64.0" maxWidth="1300.0" minHeight="50.0" minWidth="1200.0" prefHeight="58.0" prefWidth="1300.0" style="-fx-background-color: #294a58;" AnchorPane.bottomAnchor="588.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Button fx:id="home" mnemonicParsing="false" onAction="#homeOnAction" prefHeight="48.0" prefWidth="105.0" styleClass="Button2" text="Home" textFill="#294a58">
                <HBox.margin>
@@ -71,26 +72,42 @@
                   </ImageView>
                </graphic>
                <HBox.margin>
-                  <Insets bottom="5.0" left="660.0" right="5.0" top="5.0" />
+                  <Insets bottom="5.0" left="760.0" right="5.0" top="5.0" />
                </HBox.margin>
             </Button>
          </children>
       </HBox>
-      <TableView fx:id="tabelaClientes" layoutX="536.0" layoutY="117.0" prefHeight="435.0" prefWidth="606.0" styleClass="tabela">
-        <columns>
-          <TableColumn fx:id="idCliente" prefWidth="39.0" text="Id" />
-          <TableColumn fx:id="nomeCliente" prefWidth="245.0" text="Nome" />
-            <TableColumn fx:id="enderecoCliente" prefWidth="207.0" text="Endereço" />
-            <TableColumn fx:id="telefoneCliente" prefWidth="114.0" text="Telefone" />
-        </columns>
+      <TableView fx:id="tabelaClientes" layoutX="535.0" layoutY="116.0" prefHeight="512.0" prefWidth="715.0" styleClass="tabela" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="535.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="110.0">
+         <columns>
+            <TableColumn fx:id="idCliente" prefWidth="39.0" text="Id" />
+            <TableColumn fx:id="nomeCliente" prefWidth="308.0" text="Nome" />
+            <TableColumn fx:id="enderecoCliente" prefWidth="240.0" text="Endereço" />
+            <TableColumn fx:id="telefoneCliente" prefWidth="127.0" text="Telefone" />
+         </columns>
          <effect>
             <DropShadow />
          </effect>
       </TableView>
-      <Button layoutX="85.0" layoutY="300.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="385.0" styleClass="Button3" text="Cadastrar" textFill="WHITE" />
-      <Button layoutX="85.0" layoutY="387.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="385.0" styleClass="Button3" text="Atualizar" textFill="WHITE" />
-      <Button layoutX="85.0" layoutY="474.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="385.0" styleClass="Button3" text="Excluir" textFill="WHITE" />
-      <ImageView fitHeight="227.0" fitWidth="235.0" layoutX="160.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+      <VBox layoutX="36.0" layoutY="312.0" prefHeight="280.0" prefWidth="466.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="110.0" prefWidth="466.0" styleClass="Button3" text="Cadastrar" textFill="WHITE">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="110.0" prefWidth="466.0" styleClass="Button3" text="Atualizar" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="110.0" prefWidth="466.0" styleClass="Button3" text="Excluir" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <ImageView fitHeight="255.0" fitWidth="313.0" layoutX="142.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/icone-cliente.png" />
          </image>
