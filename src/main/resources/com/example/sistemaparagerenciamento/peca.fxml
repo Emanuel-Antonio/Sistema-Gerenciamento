@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="193.0" prefWidth="164.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.PecaController">
+   <children>
+      <ImageView fx:id="img" fitHeight="150.0" fitWidth="168.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/icone-caixa.png" />
+         </image>
+         <VBox.margin>
+            <Insets left="7.0" />
+         </VBox.margin>
+      </ImageView>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="pecas" text="Peça:  " />
+            <Label fx:id="nome" />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="quantidade" text="Quantidade: " />
+            <Label fx:id="qtd" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
