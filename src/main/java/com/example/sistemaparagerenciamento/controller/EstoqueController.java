@@ -1,6 +1,7 @@
 package com.example.sistemaparagerenciamento.controller;
 
 import com.example.sistemaparagerenciamento.Main;
+import com.example.sistemaparagerenciamento.Mylistener;
 import com.example.sistemaparagerenciamento.dao.DAO;
 import com.example.sistemaparagerenciamento.model.Peca;
 import javafx.event.ActionEvent;
@@ -10,6 +11,8 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.input.InputMethodEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
@@ -61,9 +64,65 @@ public class EstoqueController implements Initializable{
         Main.telaScreen("ordens");
     }
 
+    private Mylistener mylistener;
+
+    @FXML
+    private TextField inputPreco;
+
+    @FXML
+    private TextField inputQtd;
+
+    @FXML
+    private Label preco;
+
+    public void setChosenPeca(Peca peca){
+        nome.setText(peca.getNome());
+        qtd.setText(String.valueOf(peca.getQnt()));
+        preco.setText(String.valueOf(peca.getValor()));
+        inputPreco.setText(String.valueOf(peca.getValor()));
+        inputQtd.setText(String.valueOf(peca.getQnt()));
+    }
+
+    @FXML
+    void salvarOnAction(ActionEvent event) {
+
+        DAO.getPeca().buscarPorNome(nome.getText()).setQnt(Integer.parseInt(inputQtd.getText()));
+        DAO.getPeca().buscarPorNome(nome.getText()).setValor(Double.valueOf((inputPreco.getText())));
+        setChosenPeca(DAO.getPeca().buscarPorNome(nome.getText()));
+        Peca peca = new Peca(nome.getText());
+        peca.setQnt(Integer.parseInt(inputQtd.getText()));
+        peca.setValor(Double.valueOf((inputPreco.getText())));
+        DAO.getPeca().atualizar(peca);
+        initialize();
+    }
+
+
+    @FXML
+    private Label nome;
+
+    @FXML
+    private Label qtd;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        initialize();
+
+    }
+
+    public void initialize(){
+        gridContainer.getChildren().clear();
+        pecas.clear();
         pecas.addAll(getData());
+        if(pecas.size()>0){
+            setChosenPeca(pecas.get(0));
+            mylistener = new Mylistener() {
+                @Override
+                public void onClickListener(Peca peca) {
+                    setChosenPeca(peca);
+                }
+            };
+        }
         try {
 
             int linha = 1;
@@ -75,9 +134,9 @@ public class EstoqueController implements Initializable{
                 VBox card = fxmlLoader.load();
 
                 PecaController pecaController = fxmlLoader.getController();
-                pecaController.setData(pecas.get(i));
+                pecaController.setData(pecas.get(i), mylistener);
 
-                if (coluna == 3) {
+                if (coluna == 4) {
 
                     coluna = 0;
                     linha++;
@@ -94,8 +153,6 @@ public class EstoqueController implements Initializable{
 
         }
     }
-
-
     private List<Peca> pecas = new ArrayList<>();
 
     private List<Peca> getData(){

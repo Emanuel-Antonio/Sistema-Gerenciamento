@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="193.0" prefWidth="164.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.PecaController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMousePressed="#click" prefHeight="193.0" prefWidth="164.0" styleClass="Button" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.PecaController">
    <children>
       <ImageView fx:id="img" fitHeight="150.0" fitWidth="168.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -20,14 +19,20 @@
       </ImageView>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label fx:id="pecas" text="Peça:  " />
-            <Label fx:id="nome" />
+            <Label fx:id="pecas" text="Peça:  " textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin></Label>
+            <Label fx:id="nome" textFill="WHITE" />
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label fx:id="quantidade" text="Quantidade: " />
-            <Label fx:id="qtd" />
+            <Label fx:id="quantidade" text="Quantidade: " textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin></Label>
+            <Label fx:id="qtd" textFill="WHITE" />
          </children>
       </HBox>
    </children>
