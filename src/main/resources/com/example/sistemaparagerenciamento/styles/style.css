@@ -63,3 +63,7 @@
     -fx-border-radius: 30;
     -fx-blend-mode: multiply;
 }
+
+.transparent {
+    -fx-background-color: rgba(0,0,0,0);
+}

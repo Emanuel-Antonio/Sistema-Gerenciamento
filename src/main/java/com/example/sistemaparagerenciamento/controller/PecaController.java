@@ -30,6 +30,9 @@ public class PecaController {
     private Mylistener mylistener;
 
     @FXML
+    private Label valor;
+
+    @FXML
     private void click(MouseEvent mouseEvent){
         mylistener.onClickListener(peca);
     }
@@ -39,6 +42,7 @@ public class PecaController {
         this.mylistener = mylistener;
         qtd.setText(String.valueOf(peca.getQnt()));
         nome.setText(peca.getNome());
+        valor.setText(String.valueOf(peca.getValor()));
     }
 
 }

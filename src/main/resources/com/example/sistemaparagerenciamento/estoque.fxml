@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,8 +13,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 
-<AnchorPane prefHeight="680.0" prefWidth="1300.0" style="-fx-background-color: #8EA399;" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.EstoqueController">
+<AnchorPane prefHeight="680.0" prefWidth="1300.0" style="-fx-background-color: f5f5f5;" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.EstoqueController">
    <children>
       <HBox fillHeight="false" maxHeight="135.0" maxWidth="1300.0" minHeight="50.0" minWidth="1200.0" prefHeight="135.0" prefWidth="1300.0" style="-fx-background-color: #294a58;" AnchorPane.bottomAnchor="588.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -79,7 +81,7 @@
             </Button>
          </children>
       </HBox>
-      <HBox layoutY="90.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="476.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="100.0">
+      <HBox layoutY="90.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #8EA399;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="476.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="100.0">
          <children>
             <VBox prefHeight="490.0" prefWidth="696.0" HBox.hgrow="ALWAYS">
                <children>
@@ -95,20 +97,40 @@
                </children>
             </VBox>
          </children>
+         <effect>
+            <DropShadow blurType="TWO_PASS_BOX" height="47.379999999999995" radius="27.5875" width="64.97">
+               <color>
+                  <Color red="0.007456140127032995" blue="0.44736841320991516" />
+               </color>
+            </DropShadow>
+         </effect>
       </HBox>
-      <VBox layoutX="44.0" layoutY="173.0" prefHeight="147.0" prefWidth="202.0" styleClass="Button">
+      <VBox layoutX="44.0" layoutY="103.0" prefHeight="321.0" prefWidth="341.0" styleClass="Button">
          <children>
-            <HBox prefHeight="20.0" prefWidth="100.0">
+            <HBox prefHeight="8.0" prefWidth="341.0">
                <children>
                   <Label text="Peça: " textFill="WHITE">
                      <HBox.margin>
-                        <Insets left="10.0" />
+                        <Insets left="10.0" top="20.0" />
                      </HBox.margin>
                   </Label>
-                  <Label fx:id="nome" textFill="WHITE" />
+                  <Label fx:id="nome" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
                </children>
             </HBox>
             <HBox prefHeight="20.0" prefWidth="202.0">
+               <children>
+                  <TextField fx:id="inputPeca" prefHeight="3.0" prefWidth="331.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="20.0" prefWidth="100.0">
                <children>
                   <Label text="Preço: " textFill="WHITE">
                      <HBox.margin>
@@ -123,7 +145,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
             </TextField>
-            <HBox prefHeight="20.0" prefWidth="100.0">
+            <HBox prefHeight="9.0" prefWidth="341.0">
                <children>
                   <Label text="Quantidade: " textFill="WHITE">
                      <HBox.margin>
@@ -140,6 +162,8 @@
             </TextField>
          </children>
       </VBox>
-      <Button layoutX="121.0" layoutY="328.0" mnemonicParsing="false" onAction="#salvarOnAction" text="Salvar" />
+      <Button layoutX="181.0" layoutY="434.0" mnemonicParsing="false" onAction="#salvarOnAction" prefHeight="25.0" prefWidth="67.0" styleClass="Button" text="Atualizar" textFill="WHITE" AnchorPane.leftAnchor="181.0" />
+      <Button layoutX="84.0" layoutY="434.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" styleClass="Button" text="Cadastrar" textFill="WHITE" AnchorPane.leftAnchor="84.0" />
+      <Button layoutX="274.0" layoutY="434.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" styleClass="Button" text="Excluir" textFill="WHITE" />
    </children>
 </AnchorPane>

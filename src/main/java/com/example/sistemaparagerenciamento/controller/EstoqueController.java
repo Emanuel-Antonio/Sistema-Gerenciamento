@@ -75,12 +75,16 @@ public class EstoqueController implements Initializable{
     @FXML
     private Label preco;
 
+    @FXML
+    private TextField inputPeca;
+
     public void setChosenPeca(Peca peca){
         nome.setText(peca.getNome());
         qtd.setText(String.valueOf(peca.getQnt()));
         preco.setText(String.valueOf(peca.getValor()));
         inputPreco.setText(String.valueOf(peca.getValor()));
         inputQtd.setText(String.valueOf(peca.getQnt()));
+        inputPeca.setText(peca.getNome());
     }
 
     @FXML
@@ -94,6 +98,9 @@ public class EstoqueController implements Initializable{
         peca.setValor(Double.valueOf((inputPreco.getText())));
         DAO.getPeca().atualizar(peca);
         initialize();
+        inputQtd.setText("");
+        inputPreco.setText("");
+        inputPeca.setText("");
     }
 
 
@@ -115,7 +122,6 @@ public class EstoqueController implements Initializable{
         pecas.clear();
         pecas.addAll(getData());
         if(pecas.size()>0){
-            setChosenPeca(pecas.get(0));
             mylistener = new Mylistener() {
                 @Override
                 public void onClickListener(Peca peca) {
