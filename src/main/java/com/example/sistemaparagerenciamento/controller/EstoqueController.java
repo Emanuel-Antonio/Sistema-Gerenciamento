@@ -4,6 +4,7 @@ import com.example.sistemaparagerenciamento.Main;
 import com.example.sistemaparagerenciamento.Mylistener;
 import com.example.sistemaparagerenciamento.dao.DAO;
 import com.example.sistemaparagerenciamento.model.Peca;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +13,6 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
@@ -72,48 +72,64 @@ public class EstoqueController implements Initializable{
     @FXML
     private Button salvarExclusao;
 
+    private List<Peca> pecas = new ArrayList<>();
+
     @FXML
     void homeOnAction(ActionEvent event) {
+
         Main.telaScreen("paginaprincipal");
+
     }
 
     @FXML
     void sairOnAction(ActionEvent event) {
+
         DAO.getTecnico().setTecnicoLogado(null);
         Main.telaScreen("login");
+
     }
 
     @FXML
     void estoqueOnAction(ActionEvent event) {
+
         Main.telaScreen("estoque");
+
     }
 
     @FXML
     void clientesOnAction(ActionEvent event) {
+
         Main.telaScreen("clientes");
+
     }
 
     @FXML
     void ordemOnAction(ActionEvent event) {
+
         Main.telaScreen("ordens");
+
     }
 
     public void setChosenPeca(Peca peca){
+
         nome.setText(peca.getNome());
         qtd.setText(String.valueOf(peca.getQnt()));
         preco.setText(String.valueOf(peca.getValor()));
         inputPreco.setText(String.valueOf(peca.getValor()));
         inputQtd.setText(String.valueOf(peca.getQnt()));
         inputPeca.setText(peca.getNome());
+
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         initialize();
 
     }
 
     public void initialize(){
+
         gridContainer.getChildren().clear();
         pecas.clear();
         pecas.addAll(getData());
@@ -121,6 +137,7 @@ public class EstoqueController implements Initializable{
             mylistener = new Mylistener() {
                 @Override
                 public void onClickListener(Peca peca) {
+
                     setChosenPeca(peca);
                 }
             };
@@ -142,12 +159,11 @@ public class EstoqueController implements Initializable{
 
                     coluna = 0;
                     linha++;
+
                 }
 
                 gridContainer.add(card, coluna++, linha);
-
                 GridPane.setMargin(card, new Insets(10));
-
 
             }
         }
@@ -155,7 +171,6 @@ public class EstoqueController implements Initializable{
 
         }
     }
-    private List<Peca> pecas = new ArrayList<>();
 
     private List<Peca> getData(){
         return DAO.getPeca().getPecas();
@@ -163,6 +178,7 @@ public class EstoqueController implements Initializable{
 
     @FXML
     void atualizarOnAction(ActionEvent event) {
+
         this.nomeTela.setText("Alterar");
         this.salvarExclusao.setVisible(false);
         this.salvarCadastro.setVisible(false);
@@ -173,6 +189,7 @@ public class EstoqueController implements Initializable{
 
     @FXML
     void cadastrarOnAction(ActionEvent event) {
+
         this.inputQtd.setText("");
         this.inputPreco.setText("");
         this.inputPeca.setText("");
@@ -189,11 +206,13 @@ public class EstoqueController implements Initializable{
 
     @FXML
     void excluirOnAction(ActionEvent event) {
+
         this.nomeTela.setText("Excluir");
         this.salvarAtualizacao.setVisible(false);
         this.salvarCadastro.setVisible(false);
         this.salvarExclusao.setVisible(true);
         this.tela.setVisible(true);
+
     }
 
     @FXML
@@ -213,10 +232,12 @@ public class EstoqueController implements Initializable{
         inputPreco.setText("");
         inputPeca.setText("");
         this.tela.setVisible(false);
+
     }
 
     @FXML
     void salvarCadastroOnAction(ActionEvent event) {
+
         Peca peca = new Peca(inputPeca.getText());
         peca.setQnt(Integer.parseInt(inputQtd.getText()));
         peca.setValor(Double.valueOf(inputPreco.getText()));
@@ -229,10 +250,12 @@ public class EstoqueController implements Initializable{
         inputPreco.setText("");
         inputPeca.setText("");
         this.tela.setVisible(false);
+
     }
 
     @FXML
     void salvarExclusaoOnAction(ActionEvent event) {
+
         DAO.getPeca().deletar(DAO.getPeca().buscarPorNome(inputPeca.getText()));
 
         this.inputQtd.setText("");
@@ -245,5 +268,7 @@ public class EstoqueController implements Initializable{
         initialize();
 
         this.tela.setVisible(false);
+
     }
+
 }
