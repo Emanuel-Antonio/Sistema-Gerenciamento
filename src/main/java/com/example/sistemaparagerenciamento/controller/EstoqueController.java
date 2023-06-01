@@ -26,6 +26,8 @@ public class EstoqueController implements Initializable{
     @FXML
     private GridPane gridContainer;
 
+    private Mylistener mylistener;
+
     @FXML
     private Button home;
 
@@ -37,6 +39,38 @@ public class EstoqueController implements Initializable{
 
     @FXML
     private Button ordens;
+
+    @FXML
+    private TextField inputPreco;
+
+    @FXML
+    private TextField inputPeca;
+
+    @FXML
+    private TextField inputQtd;
+
+    @FXML
+    private Label preco;
+
+    @FXML
+    private Label nome;
+
+    @FXML
+    private Label qtd;
+
+    @FXML
+    private VBox tela;
+
+    @FXML
+    private Label nomeTela;
+    @FXML
+    private Button salvarAtualizacao;
+
+    @FXML
+    private Button salvarCadastro;
+
+    @FXML
+    private Button salvarExclusao;
 
     @FXML
     void homeOnAction(ActionEvent event) {
@@ -64,20 +98,6 @@ public class EstoqueController implements Initializable{
         Main.telaScreen("ordens");
     }
 
-    private Mylistener mylistener;
-
-    @FXML
-    private TextField inputPreco;
-
-    @FXML
-    private TextField inputQtd;
-
-    @FXML
-    private Label preco;
-
-    @FXML
-    private TextField inputPeca;
-
     public void setChosenPeca(Peca peca){
         nome.setText(peca.getNome());
         qtd.setText(String.valueOf(peca.getQnt()));
@@ -87,32 +107,8 @@ public class EstoqueController implements Initializable{
         inputPeca.setText(peca.getNome());
     }
 
-    @FXML
-    void salvarOnAction(ActionEvent event) {
-
-        DAO.getPeca().buscarPorNome(nome.getText()).setQnt(Integer.parseInt(inputQtd.getText()));
-        DAO.getPeca().buscarPorNome(nome.getText()).setValor(Double.valueOf((inputPreco.getText())));
-        setChosenPeca(DAO.getPeca().buscarPorNome(nome.getText()));
-        Peca peca = new Peca(nome.getText());
-        peca.setQnt(Integer.parseInt(inputQtd.getText()));
-        peca.setValor(Double.valueOf((inputPreco.getText())));
-        DAO.getPeca().atualizar(peca);
-        initialize();
-        inputQtd.setText("");
-        inputPreco.setText("");
-        inputPeca.setText("");
-    }
-
-
-    @FXML
-    private Label nome;
-
-    @FXML
-    private Label qtd;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         initialize();
 
     }
@@ -163,5 +159,91 @@ public class EstoqueController implements Initializable{
 
     private List<Peca> getData(){
         return DAO.getPeca().getPecas();
+    }
+
+    @FXML
+    void atualizarOnAction(ActionEvent event) {
+        this.nomeTela.setText("Alterar");
+        this.salvarExclusao.setVisible(false);
+        this.salvarCadastro.setVisible(false);
+        this.salvarAtualizacao.setVisible(true);
+        this.tela.setVisible(true);
+
+    }
+
+    @FXML
+    void cadastrarOnAction(ActionEvent event) {
+        this.inputQtd.setText("");
+        this.inputPreco.setText("");
+        this.inputPeca.setText("");
+        this.nome.setText("");
+        this.qtd.setText("");
+        this.preco.setText("");
+        this.nomeTela.setText("Cadastrar");
+        this.salvarExclusao.setVisible(false);
+        this.salvarAtualizacao.setVisible(false);
+        this.salvarCadastro.setVisible(true);
+        this.tela.setVisible(true);
+
+    }
+
+    @FXML
+    void excluirOnAction(ActionEvent event) {
+        this.nomeTela.setText("Excluir");
+        this.salvarAtualizacao.setVisible(false);
+        this.salvarCadastro.setVisible(false);
+        this.salvarExclusao.setVisible(true);
+        this.tela.setVisible(true);
+    }
+
+    @FXML
+    void salvarAtualizacaoOnAction(ActionEvent event) {
+
+        DAO.getPeca().buscarPorNome(nome.getText()).setQnt(Integer.parseInt(inputQtd.getText()));
+        DAO.getPeca().buscarPorNome(nome.getText()).setValor(Double.valueOf((inputPreco.getText())));
+        setChosenPeca(DAO.getPeca().buscarPorNome(nome.getText()));
+        Peca peca = new Peca(nome.getText());
+        peca.setQnt(Integer.parseInt(inputQtd.getText()));
+        peca.setValor(Double.valueOf((inputPreco.getText())));
+        DAO.getPeca().atualizar(peca);
+
+        initialize();
+
+        inputQtd.setText("");
+        inputPreco.setText("");
+        inputPeca.setText("");
+        this.tela.setVisible(false);
+    }
+
+    @FXML
+    void salvarCadastroOnAction(ActionEvent event) {
+        Peca peca = new Peca(inputPeca.getText());
+        peca.setQnt(Integer.parseInt(inputQtd.getText()));
+        peca.setValor(Double.valueOf(inputPreco.getText()));
+
+        DAO.getPeca().criar(peca);
+
+        initialize();
+
+        inputQtd.setText("");
+        inputPreco.setText("");
+        inputPeca.setText("");
+        this.tela.setVisible(false);
+    }
+
+    @FXML
+    void salvarExclusaoOnAction(ActionEvent event) {
+        DAO.getPeca().deletar(DAO.getPeca().buscarPorNome(inputPeca.getText()));
+
+        this.inputQtd.setText("");
+        this.inputPreco.setText("");
+        this.inputPeca.setText("");
+        this.nome.setText("");
+        this.qtd.setText("");
+        this.preco.setText("");
+
+        initialize();
+
+        this.tela.setVisible(false);
     }
 }

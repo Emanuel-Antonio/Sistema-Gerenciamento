@@ -105,25 +105,37 @@
             </DropShadow>
          </effect>
       </HBox>
-      <VBox layoutX="44.0" layoutY="103.0" prefHeight="321.0" prefWidth="341.0" styleClass="Button">
+      <VBox fx:id="tela" layoutX="24.0" layoutY="100.0" prefHeight="284.0" prefWidth="436.0" styleClass="Button3" visible="false" AnchorPane.bottomAnchor="296.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="840.0" AnchorPane.topAnchor="100.0">
          <children>
-            <HBox prefHeight="8.0" prefWidth="341.0">
+            <HBox prefHeight="17.0" prefWidth="386.0">
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <children>
+                  <Label fx:id="nomeTela" alignment="TOP_LEFT" contentDisplay="TOP" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="180.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="8.0" prefWidth="426.0">
                <children>
                   <Label text="Peça: " textFill="WHITE">
                      <HBox.margin>
                         <Insets left="10.0" top="20.0" />
                      </HBox.margin>
                   </Label>
-                  <Label fx:id="nome" textFill="WHITE">
+                  <Label fx:id="nome" prefHeight="17.0" prefWidth="342.0" textFill="WHITE">
                      <HBox.margin>
-                        <Insets />
+                        <Insets top="20.0" />
                      </HBox.margin>
                   </Label>
                </children>
             </HBox>
             <HBox prefHeight="20.0" prefWidth="202.0">
                <children>
-                  <TextField fx:id="inputPeca" prefHeight="3.0" prefWidth="331.0">
+                  <TextField fx:id="inputPeca" prefHeight="25.0" prefWidth="440.0">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
@@ -160,10 +172,41 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
             </TextField>
+            <Button fx:id="salvarExclusao" layoutX="360.0" layoutY="186.0" mnemonicParsing="false" onAction="#salvarExclusaoOnAction" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" stylesheets="@styles/style.css" text="Salvar" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="350.0" top="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="salvarCadastro" layoutX="360.0" layoutY="221.0" mnemonicParsing="false" onAction="#salvarCadastroOnAction" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" stylesheets="@styles/style.css" text="Salvar" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="350.0" top="-25.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="salvarAtualizacao" layoutX="360.0" layoutY="221.0" mnemonicParsing="false" onAction="#salvarAtualizacaoOnAction" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" stylesheets="@styles/style.css" text="Salvar" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="350.0" top="-25.0" />
+               </VBox.margin>
+            </Button>
          </children>
       </VBox>
-      <Button layoutX="181.0" layoutY="434.0" mnemonicParsing="false" onAction="#salvarOnAction" prefHeight="25.0" prefWidth="67.0" styleClass="Button" text="Atualizar" textFill="WHITE" AnchorPane.leftAnchor="181.0" />
-      <Button layoutX="84.0" layoutY="434.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" styleClass="Button" text="Cadastrar" textFill="WHITE" AnchorPane.leftAnchor="84.0" />
-      <Button layoutX="274.0" layoutY="434.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" styleClass="Button" text="Excluir" textFill="WHITE" />
+      <VBox layoutX="24.0" layoutY="394.0" prefHeight="230.0" prefWidth="426.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#cadastrarOnAction" prefHeight="110.0" prefWidth="466.0" styleClass="Button3" text="Cadastrar" textFill="WHITE">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#atualizarOnAction" prefHeight="110.0" prefWidth="466.0" styleClass="Button3" text="Atualizar" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#excluirOnAction" prefHeight="110.0" prefWidth="466.0" styleClass="Button3" text="Excluir" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
