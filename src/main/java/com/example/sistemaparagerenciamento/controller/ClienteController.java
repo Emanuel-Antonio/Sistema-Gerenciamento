@@ -145,7 +145,9 @@ public class ClienteController implements Initializable {
     @FXML
     void atualizarOnAction(ActionEvent event) {
 
+        this.inputCliente.setDisable(true);
         this.nomeTela.setText("Alterar");
+        this.clienteId.setText("");
         this.salvarExclusao.setVisible(false);
         this.salvarCadastro.setVisible(false);
         this.salvarAtualizacao.setVisible(true);
@@ -156,6 +158,7 @@ public class ClienteController implements Initializable {
     @FXML
     void cadastrarOnAction(ActionEvent event) {
 
+        this.inputCliente.setDisable(false);
         this.inputCliente.setText("");
         this.inputTelefone.setText("");
         this.inputEndereco.setText("");
@@ -163,6 +166,7 @@ public class ClienteController implements Initializable {
         this.endereco.setText("");
         this.telefone.setText("");
         this.nomeTela.setText("Cadastrar");
+        this.clienteId.setText("");
         this.salvarExclusao.setVisible(false);
         this.salvarAtualizacao.setVisible(false);
         this.salvarCadastro.setVisible(true);
@@ -182,12 +186,15 @@ public class ClienteController implements Initializable {
 
         Main.telaScreen("estoque");
 
+
     }
 
     @FXML
     void excluirOnAction(ActionEvent event) {
 
+        this.inputCliente.setDisable(true);
         this.nomeTela.setText("Excluir");
+        this.clienteId.setText("");
         this.salvarAtualizacao.setVisible(false);
         this.salvarCadastro.setVisible(false);
         this.salvarExclusao.setVisible(true);
@@ -229,10 +236,13 @@ public class ClienteController implements Initializable {
 
         initialize();
 
+        nomeCliente.setText("");
+        endereco.setText("");
+        telefone.setText("");
         inputCliente.setText("");
         inputEndereco.setText("");
         inputTelefone.setText("");
-        this.tela.setVisible(false);
+        clienteId.setText("");
 
     }
 
@@ -247,7 +257,7 @@ public class ClienteController implements Initializable {
         inputCliente.setText("");
         inputTelefone.setText("");
         inputEndereco.setText("");
-        this.tela.setVisible(false);
+        clienteId.setText("");
 
     }
 
@@ -262,10 +272,9 @@ public class ClienteController implements Initializable {
         this.nomeCliente.setText("");
         this.telefone.setText("");
         this.endereco.setText("");
+        this.clienteId.setText("");
 
         initialize();
-
-        this.tela.setVisible(false);
 
     }
 

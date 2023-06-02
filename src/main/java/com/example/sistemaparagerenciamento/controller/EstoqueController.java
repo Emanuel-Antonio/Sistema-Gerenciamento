@@ -179,17 +179,18 @@ public class EstoqueController implements Initializable{
     @FXML
     void atualizarOnAction(ActionEvent event) {
 
+        this.inputPeca.setDisable(true);
         this.nomeTela.setText("Alterar");
         this.salvarExclusao.setVisible(false);
         this.salvarCadastro.setVisible(false);
         this.salvarAtualizacao.setVisible(true);
-        this.tela.setVisible(true);
 
     }
 
     @FXML
     void cadastrarOnAction(ActionEvent event) {
 
+        this.inputPeca.setDisable(false);
         this.inputQtd.setText("");
         this.inputPreco.setText("");
         this.inputPeca.setText("");
@@ -200,18 +201,17 @@ public class EstoqueController implements Initializable{
         this.salvarExclusao.setVisible(false);
         this.salvarAtualizacao.setVisible(false);
         this.salvarCadastro.setVisible(true);
-        this.tela.setVisible(true);
 
     }
 
     @FXML
     void excluirOnAction(ActionEvent event) {
 
+        this.inputPeca.setDisable(false);
         this.nomeTela.setText("Excluir");
         this.salvarAtualizacao.setVisible(false);
         this.salvarCadastro.setVisible(false);
         this.salvarExclusao.setVisible(true);
-        this.tela.setVisible(true);
 
     }
 
@@ -231,7 +231,9 @@ public class EstoqueController implements Initializable{
         inputQtd.setText("");
         inputPreco.setText("");
         inputPeca.setText("");
-        this.tela.setVisible(false);
+        nome.setText("");
+        qtd.setText("");
+        preco.setText("");
 
     }
 
@@ -249,7 +251,9 @@ public class EstoqueController implements Initializable{
         inputQtd.setText("");
         inputPreco.setText("");
         inputPeca.setText("");
-        this.tela.setVisible(false);
+        nome.setText("");
+        qtd.setText("");
+        preco.setText("");
 
     }
 
@@ -266,8 +270,6 @@ public class EstoqueController implements Initializable{
         this.preco.setText("");
 
         initialize();
-
-        this.tela.setVisible(false);
 
     }
 

@@ -11,7 +11,7 @@
    <children>
       <ImageView fx:id="img" fitHeight="130.0" fitWidth="148.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@img/icone-caixa.png" />
+            <Image url="@img/icone-peca.png" />
          </image>
          <VBox.margin>
             <Insets left="15.0" />

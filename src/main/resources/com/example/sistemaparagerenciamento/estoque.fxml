@@ -105,7 +105,7 @@
             </DropShadow>
          </effect>
       </HBox>
-      <VBox fx:id="tela" layoutX="24.0" layoutY="100.0" prefHeight="284.0" prefWidth="436.0" styleClass="Button3" visible="false" AnchorPane.bottomAnchor="296.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="840.0" AnchorPane.topAnchor="100.0">
+      <VBox fx:id="tela" layoutX="24.0" layoutY="100.0" prefHeight="284.0" prefWidth="436.0" styleClass="Button3" AnchorPane.bottomAnchor="296.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="840.0" AnchorPane.topAnchor="100.0">
          <children>
             <HBox prefHeight="17.0" prefWidth="386.0">
                <VBox.margin>

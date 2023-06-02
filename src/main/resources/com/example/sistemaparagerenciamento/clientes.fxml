@@ -121,7 +121,7 @@
             </HBox>
             <HBox prefHeight="8.0" prefWidth="426.0">
                <children>
-                  <Label text="Cliente:" textFill="WHITE">
+                  <Label text="Cliente: " textFill="WHITE">
                      <HBox.margin>
                         <Insets left="10.0" top="20.0" />
                      </HBox.margin>
@@ -131,7 +131,7 @@
                         <Insets top="20.0" />
                      </HBox.margin>
                   </Label>
-                  <Label text="Id:" textFill="WHITE">
+                  <Label text="Id: " textFill="WHITE">
                      <HBox.margin>
                         <Insets top="20.0" />
                      </HBox.margin>
@@ -154,7 +154,7 @@
             </HBox>
             <HBox prefHeight="20.0" prefWidth="100.0">
                <children>
-                  <Label text="Endereço:" textFill="WHITE">
+                  <Label text="Endereço: " textFill="WHITE">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
