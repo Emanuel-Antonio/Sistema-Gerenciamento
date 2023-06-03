@@ -105,7 +105,7 @@
             </DropShadow>
          </effect>
       </HBox>
-      <VBox fx:id="tela" layoutX="24.0" layoutY="100.0" prefHeight="284.0" prefWidth="436.0" styleClass="Button3" AnchorPane.bottomAnchor="296.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="840.0" AnchorPane.topAnchor="100.0">
+      <VBox fx:id="tela" layoutX="24.0" layoutY="92.0" prefHeight="287.0" prefWidth="436.0" styleClass="Button3" AnchorPane.bottomAnchor="296.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="840.0" AnchorPane.topAnchor="100.0">
          <children>
             <HBox prefHeight="17.0" prefWidth="386.0">
                <VBox.margin>
@@ -172,17 +172,12 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
             </TextField>
-            <Button fx:id="salvarExclusao" layoutX="360.0" layoutY="186.0" mnemonicParsing="false" onAction="#salvarExclusaoOnAction" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" stylesheets="@styles/style.css" text="Salvar" textFill="WHITE">
+            <Button fx:id="salvarAtualizacao" layoutX="360.0" layoutY="221.0" mnemonicParsing="false" onAction="#salvarAtualizacaoOnAction" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" stylesheets="@styles/style.css" text="Salvar" textFill="WHITE">
                <VBox.margin>
                   <Insets left="350.0" top="5.0" />
                </VBox.margin>
             </Button>
             <Button fx:id="salvarCadastro" layoutX="360.0" layoutY="221.0" mnemonicParsing="false" onAction="#salvarCadastroOnAction" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" stylesheets="@styles/style.css" text="Salvar" textFill="WHITE">
-               <VBox.margin>
-                  <Insets left="350.0" top="-25.0" />
-               </VBox.margin>
-            </Button>
-            <Button fx:id="salvarAtualizacao" layoutX="360.0" layoutY="221.0" mnemonicParsing="false" onAction="#salvarAtualizacaoOnAction" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" stylesheets="@styles/style.css" text="Salvar" textFill="WHITE">
                <VBox.margin>
                   <Insets left="350.0" top="-25.0" />
                </VBox.margin>

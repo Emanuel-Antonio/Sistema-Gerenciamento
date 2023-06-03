@@ -3,6 +3,7 @@ package com.example.sistemaparagerenciamento.controller;
 import com.example.sistemaparagerenciamento.Main;
 import com.example.sistemaparagerenciamento.Mylistener;
 import com.example.sistemaparagerenciamento.dao.DAO;
+import com.example.sistemaparagerenciamento.model.Cliente;
 import com.example.sistemaparagerenciamento.model.Peca;
 
 import javafx.event.ActionEvent;
@@ -69,9 +70,6 @@ public class EstoqueController implements Initializable{
     @FXML
     private Button salvarCadastro;
 
-    @FXML
-    private Button salvarExclusao;
-
     private List<Peca> pecas = new ArrayList<>();
 
     @FXML
@@ -124,6 +122,7 @@ public class EstoqueController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        this.nomeTela.setText("Cadastro");
         initialize();
 
     }
@@ -181,7 +180,6 @@ public class EstoqueController implements Initializable{
 
         this.inputPeca.setDisable(true);
         this.nomeTela.setText("Alterar");
-        this.salvarExclusao.setVisible(false);
         this.salvarCadastro.setVisible(false);
         this.salvarAtualizacao.setVisible(true);
 
@@ -198,7 +196,6 @@ public class EstoqueController implements Initializable{
         this.qtd.setText("");
         this.preco.setText("");
         this.nomeTela.setText("Cadastrar");
-        this.salvarExclusao.setVisible(false);
         this.salvarAtualizacao.setVisible(false);
         this.salvarCadastro.setVisible(true);
 
@@ -211,54 +208,6 @@ public class EstoqueController implements Initializable{
         this.nomeTela.setText("Excluir");
         this.salvarAtualizacao.setVisible(false);
         this.salvarCadastro.setVisible(false);
-        this.salvarExclusao.setVisible(true);
-
-    }
-
-    @FXML
-    void salvarAtualizacaoOnAction(ActionEvent event) {
-
-        DAO.getPeca().buscarPorNome(nome.getText()).setQnt(Integer.parseInt(inputQtd.getText()));
-        DAO.getPeca().buscarPorNome(nome.getText()).setValor(Double.valueOf((inputPreco.getText())));
-        setChosenPeca(DAO.getPeca().buscarPorNome(nome.getText()));
-        Peca peca = new Peca(nome.getText());
-        peca.setQnt(Integer.parseInt(inputQtd.getText()));
-        peca.setValor(Double.valueOf((inputPreco.getText())));
-        DAO.getPeca().atualizar(peca);
-
-        initialize();
-
-        inputQtd.setText("");
-        inputPreco.setText("");
-        inputPeca.setText("");
-        nome.setText("");
-        qtd.setText("");
-        preco.setText("");
-
-    }
-
-    @FXML
-    void salvarCadastroOnAction(ActionEvent event) {
-
-        Peca peca = new Peca(inputPeca.getText());
-        peca.setQnt(Integer.parseInt(inputQtd.getText()));
-        peca.setValor(Double.valueOf(inputPreco.getText()));
-
-        DAO.getPeca().criar(peca);
-
-        initialize();
-
-        inputQtd.setText("");
-        inputPreco.setText("");
-        inputPeca.setText("");
-        nome.setText("");
-        qtd.setText("");
-        preco.setText("");
-
-    }
-
-    @FXML
-    void salvarExclusaoOnAction(ActionEvent event) {
 
         DAO.getPeca().deletar(DAO.getPeca().buscarPorNome(inputPeca.getText()));
 
@@ -272,5 +221,102 @@ public class EstoqueController implements Initializable{
         initialize();
 
     }
+
+    @FXML
+    void salvarAtualizacaoOnAction(ActionEvent event) {
+
+        try {
+            boolean isAlphaQuantidade = (inputQtd != null && inputQtd.getText().matches("[a-z]+"));
+            boolean isAlphaValor = (inputPreco != null && inputPreco.getText().matches("[a-z]+"));
+            if (!(isAlphaValor || isAlphaQuantidade)) {
+                if (("".equals(this.inputPreco.getText())) || ("".equals(this.inputQtd.getText()))) {
+                    this.nomeTela.setText("Erro ao atualizar cliente!");
+                    this.nomeTela.setVisible(true);
+                    System.out.println("1");
+                } else {
+                    DAO.getPeca().buscarPorNome(nome.getText()).setQnt(Integer.parseInt(inputQtd.getText()));
+                    DAO.getPeca().buscarPorNome(nome.getText()).setValor(Double.valueOf((inputPreco.getText())));
+                    setChosenPeca(DAO.getPeca().buscarPorNome(nome.getText()));
+
+                    initialize();
+
+                    inputQtd.setText("");
+                    inputPreco.setText("");
+                    inputPeca.setText("");
+                    nome.setText("");
+                    qtd.setText("");
+                    preco.setText("");
+                    this.nomeTela.setText("Cadastro");
+                    salvarAtualizacao.setVisible(false);
+                    salvarCadastro.setVisible(true);
+                    inputPeca.setDisable(false);
+
+                }
+                }
+                else{
+                    this.nomeTela.setText("Dados inválidos!");
+                }
+        }
+        catch (Exception e){
+            this.nomeTela.setText("Erro ao atualizar Peça!");
+            this.nomeTela.setVisible(true);
+        }
+
+    }
+
+    @FXML
+    void salvarCadastroOnAction(ActionEvent event) {
+
+        try {
+            for (int i = 0; i < DAO.getPeca().getPecas().size(); i++) {
+                //Aqui eu verifico se a peça já existe
+                if (DAO.getPeca().getPecas().get(i).getNome().equals(this.inputPeca.getText())) {
+                    this.nomeTela.setText("Essa Peça já existe!");
+                    this.nomeTela.setVisible(true);
+                }
+            }
+            if (!("Essa Peça já existe!".equals(this.nomeTela.getText()))) {
+                boolean isNumericNome = (inputPeca != null && inputPeca.getText().matches("[0-9]+"));
+                if (isNumericNome) {
+                    this.nomeTela.setText("Dados inválidos!");
+                } else {
+                    boolean isAlphaQuantidade = (inputQtd != null && inputQtd.getText().matches("[a-z]+"));
+                    boolean isAlphaValor = (inputPreco != null && inputPreco.getText().matches("[a-z]+"));
+                    if (!(isAlphaValor || isAlphaQuantidade)) {
+                        if (("".equals(this.inputPeca.getText())) || ("".equals(this.inputPreco.getText())) || ("".equals(this.inputQtd.getText()))) {
+                            this.nomeTela.setText("Erro ao registrar cliente!");
+                            this.nomeTela.setVisible(true);
+                            System.out.println("1");
+                        } else {
+                            Peca peca = new Peca(inputPeca.getText());
+                            peca.setQnt(Integer.parseInt(inputQtd.getText()));
+                            peca.setValor(Double.valueOf(inputPreco.getText()));
+
+                            DAO.getPeca().criar(peca);
+
+                            initialize();
+
+                            inputQtd.setText("");
+                            inputPreco.setText("");
+                            inputPeca.setText("");
+                            nome.setText("");
+                            qtd.setText("");
+                            preco.setText("");
+                            this.nomeTela.setText("Cadastro");
+
+                        }
+                    }
+                    else{
+                        this.nomeTela.setText("Dados inválidos!");
+                    }
+                }
+            }
+        }
+        catch (Exception e){
+                this.nomeTela.setText("Erro ao registrar Peça!");
+                this.nomeTela.setVisible(true);
+            }
+
+        }
 
 }

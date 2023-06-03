@@ -182,17 +182,12 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
             </TextField>
-            <Button fx:id="salvarExclusao" layoutX="360.0" layoutY="186.0" mnemonicParsing="false" onAction="#salvarExclusaoOnAction" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" stylesheets="@styles/style.css" text="Salvar" textFill="WHITE">
+            <Button fx:id="salvarAtualizacao" layoutX="360.0" layoutY="221.0" mnemonicParsing="false" onAction="#salvarAtualizacaoOnAction" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" stylesheets="@styles/style.css" text="Salvar" textFill="WHITE">
                <VBox.margin>
                   <Insets left="350.0" top="5.0" />
                </VBox.margin>
             </Button>
             <Button fx:id="salvarCadastro" layoutX="360.0" layoutY="221.0" mnemonicParsing="false" onAction="#salvarCadastroOnAction" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" stylesheets="@styles/style.css" text="Salvar" textFill="WHITE">
-               <VBox.margin>
-                  <Insets left="350.0" top="-25.0" />
-               </VBox.margin>
-            </Button>
-            <Button fx:id="salvarAtualizacao" layoutX="360.0" layoutY="221.0" mnemonicParsing="false" onAction="#salvarAtualizacaoOnAction" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" stylesheets="@styles/style.css" text="Salvar" textFill="WHITE">
                <VBox.margin>
                   <Insets left="350.0" top="-25.0" />
                </VBox.margin>

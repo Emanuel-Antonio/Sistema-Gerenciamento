@@ -25,6 +25,7 @@ public class RegistroController {
 
     @FXML
     void registrar(ActionEvent event) {
+
         try {
             for (int i = 0; i < DAO.getTecnico().getTecnicos().size(); i++) {
                 //Aqui eu verifico se o técnico já existe
@@ -43,23 +44,28 @@ public class RegistroController {
             int ii = this.email.getText().indexOf("@");
             String s = "";
             //Aqui eu cadastro o técnico através do DAO de Tecnico
-            if(("".equals(this.email.getText())) || ("".equals(this.nome.getText())) || ("".equals(this.senha.getText()))) {
-                this.erroRegistrar.setText("Erro ao registrar técnico!");
+            boolean isNumericNome = (nome != null && nome.getText().matches("[0-9]+"));
+            if (isNumericNome) {
+                this.erroRegistrar.setText("Dados inválidos");
                 this.erroRegistrar.setVisible(true);
-            }
-            else if(-1 == ii) {
-                this.erroRegistrar.setText("Email Inválido!");
-                this.erroRegistrar.setVisible(true);
-            }
-            else{
-                DAO.getTecnico().criar(tecnico);
-                Main.telaScreen("login");
-                this.email.setText("");
-                this.senha.setText("");
-                this.nome.setText("");
-                this.erroRegistrar.setVisible(false);
+            } else {
+                if (("".equals(this.email.getText())) || ("".equals(this.nome.getText())) || ("".equals(this.senha.getText()))) {
+                    this.erroRegistrar.setText("Erro ao registrar técnico!");
+                    this.erroRegistrar.setVisible(true);
+                } else if (-1 == ii || email.getText().length() < 6) {
+                    this.erroRegistrar.setText("Email Inválido!");
+                    this.erroRegistrar.setVisible(true);
+                } else {
+                    DAO.getTecnico().criar(tecnico);
+                    Main.telaScreen("login");
+                    this.email.setText("");
+                    this.senha.setText("");
+                    this.nome.setText("");
+                    this.erroRegistrar.setVisible(false);
+
                 }
 
+            }
         }
         catch (Exception TecnicoInvalido){
             this.erroRegistrar.setText("Erro ao registrar usuário!");

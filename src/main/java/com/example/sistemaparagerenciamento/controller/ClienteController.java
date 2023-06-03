@@ -1,11 +1,10 @@
 package com.example.sistemaparagerenciamento.controller;
 
 import com.example.sistemaparagerenciamento.Main;
-import com.example.sistemaparagerenciamento.Mylistener;
 import com.example.sistemaparagerenciamento.Mylistener1;
 import com.example.sistemaparagerenciamento.dao.DAO;
 import com.example.sistemaparagerenciamento.model.Cliente;
-import com.example.sistemaparagerenciamento.model.Peca;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -61,9 +60,6 @@ public class ClienteController implements Initializable {
     private Button salvarCadastro;
 
     @FXML
-    private Button salvarExclusao;
-
-    @FXML
     private VBox tela;
 
     @FXML
@@ -79,6 +75,7 @@ public class ClienteController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        this.nomeTela.setText("Cadastro");
         initialize();
 
     }
@@ -148,7 +145,6 @@ public class ClienteController implements Initializable {
         this.inputCliente.setDisable(true);
         this.nomeTela.setText("Alterar");
         this.clienteId.setText("");
-        this.salvarExclusao.setVisible(false);
         this.salvarCadastro.setVisible(false);
         this.salvarAtualizacao.setVisible(true);
         this.tela.setVisible(true);
@@ -167,7 +163,6 @@ public class ClienteController implements Initializable {
         this.telefone.setText("");
         this.nomeTela.setText("Cadastrar");
         this.clienteId.setText("");
-        this.salvarExclusao.setVisible(false);
         this.salvarAtualizacao.setVisible(false);
         this.salvarCadastro.setVisible(true);
         this.tela.setVisible(true);
@@ -192,13 +187,23 @@ public class ClienteController implements Initializable {
     @FXML
     void excluirOnAction(ActionEvent event) {
 
-        this.inputCliente.setDisable(true);
-        this.nomeTela.setText("Excluir");
-        this.clienteId.setText("");
+        this.inputCliente.setDisable(false);
         this.salvarAtualizacao.setVisible(false);
         this.salvarCadastro.setVisible(false);
-        this.salvarExclusao.setVisible(true);
         this.tela.setVisible(true);
+
+        DAO.getCliente().deletar(Integer.parseInt(clienteId.getText()));
+
+        this.inputCliente.setText("");
+        this.inputEndereco.setText("");
+        this.inputTelefone.setText("");
+        this.nomeCliente.setText("");
+        this.telefone.setText("");
+        this.endereco.setText("");
+        this.clienteId.setText("");
+
+        initialize();
+        this.nomeTela.setText("Excluir");
 
     }
 
@@ -227,54 +232,95 @@ public class ClienteController implements Initializable {
     @FXML
     void salvarAtualizacaoOnAction(ActionEvent event) {
 
-        DAO.getCliente().buscarPorId(Integer.parseInt(clienteId.getText())).setEndereco(inputEndereco.getText());
-        DAO.getCliente().buscarPorId(Integer.parseInt(clienteId.getText())).setTelefone(inputTelefone.getText());
-        setChosenCliente(DAO.getCliente().buscarPorId(Integer.parseInt(clienteId.getText())));
-        Cliente cliente1 = new Cliente(inputCliente.getText(), inputEndereco.getText(),inputTelefone.getText());
-        cliente1.setClienteId(Integer.parseInt(clienteId.getText()));
-        DAO.getCliente().atualizar(cliente1);
+        try {
+            boolean isNumericEndereco = (inputEndereco != null && inputEndereco.getText().matches("[0-9]+"));
+            if(isNumericEndereco){
+                this.nomeTela.setText("Endereço inválido!");
+            }
+            else {
+                if (("".equals(this.inputEndereco.getText())) || ("".equals(this.inputTelefone.getText()))) {
+                    this.nomeTela.setText("Erro ao atualizar cliente!");
+                    this.nomeTela.setVisible(true);
+                    System.out.println("1");
+                } else if (!inputTelefone.getText().matches("(\\(?\\d{2}\\)?\\s)?(\\d{4,5}-\\d{4})")) {
+                    this.nomeTela.setText("Telefone Inválido!");
+                    this.nomeTela.setVisible(true);
+                    System.out.println("2");
+                } else {
+                    Cliente cliente = new Cliente(this.inputCliente.getText(), this.inputEndereco.getText(), this.inputTelefone.getText());
+                    //Aqui eu cadastro o cliente através do DAO de cliente
+                    setChosenCliente(DAO.getCliente().buscarPorId(Integer.parseInt(clienteId.getText())));
+                    cliente.setClienteId(Integer.parseInt(clienteId.getText()));
+                    DAO.getCliente().atualizar(cliente);
+                    initialize();
 
-        initialize();
+                    nomeCliente.setText("");
+                    endereco.setText("");
+                    telefone.setText("");
+                    inputCliente.setText("");
+                    inputEndereco.setText("");
+                    inputTelefone.setText("");
+                    clienteId.setText("");
+                    this.nomeTela.setText("Cadastro");
+                    salvarAtualizacao.setVisible(false);
+                    salvarCadastro.setVisible(true);
+                    inputCliente.setDisable(false);
 
-        nomeCliente.setText("");
-        endereco.setText("");
-        telefone.setText("");
-        inputCliente.setText("");
-        inputEndereco.setText("");
-        inputTelefone.setText("");
-        clienteId.setText("");
+                }
+            }
+        }
+        catch (Exception e){
+            this.nomeTela.setText("Erro ao atualizar cliente!");
+            this.nomeTela.setVisible(true);
+        }
 
     }
 
     @FXML
     void salvarCadastroOnAction(ActionEvent event) {
 
-        Cliente cliente = new Cliente(inputCliente.getText(), inputEndereco.getText(), inputTelefone.getText());
-        DAO.getCliente().criar(cliente);
+        try {
+            for (int i = 0; i < DAO.getCliente().getClientes().size(); i++) {
+                //Aqui eu verifico se o cliente já existe
+                if (DAO.getCliente().getClientes().get(i).getNome().equals(this.inputCliente.getText()) && DAO.getCliente().getClientes().get(i).getEndereco().equals(this.inputEndereco.getText()) && DAO.getCliente().getClientes().get(i).getTelefone().equals(this.inputTelefone.getText())) {
+                    this.nomeTela.setText("Esse Cliente já existe!");
+                    this.nomeTela.setVisible(true);
+                }
+            }
+            if(!("Esse Cliente já existe!".equals(this.nomeTela.getText()))) {
+                boolean isNumericNome = (inputCliente != null && inputCliente.getText().matches("[0-9]+"));
+                boolean isNumericEndereco = (inputEndereco != null && inputEndereco.getText().matches("[0-9]+"));
+                if (isNumericNome || isNumericEndereco) {
+                    this.nomeTela.setText("Dados inválidos!");
+                } else {
+                    if (("".equals(this.inputEndereco.getText())) || ("".equals(this.inputCliente.getText())) || ("".equals(this.inputTelefone.getText()))) {
+                        this.nomeTela.setText("Erro ao registrar cliente!");
+                        this.nomeTela.setVisible(true);
+                        System.out.println("1");
+                    } else if (!inputTelefone.getText().matches("(\\(?\\d{2}\\)?\\s)?(\\d{4,5}-\\d{4})")) {
+                        this.nomeTela.setText("Telefone Inválido!");
+                        this.nomeTela.setVisible(true);
+                        System.out.println("2");
+                    } else {
+                        Cliente cliente = new Cliente(this.inputCliente.getText(), this.inputEndereco.getText(), this.inputTelefone.getText());
+                        //Aqui eu cadastro o cliente através do DAO de cliente
+                        DAO.getCliente().criar(cliente);
+                        initialize();
 
-        initialize();
+                        inputCliente.setText("");
+                        inputTelefone.setText("");
+                        inputEndereco.setText("");
+                        clienteId.setText("");
+                        this.nomeTela.setText("Cadastro");
 
-        inputCliente.setText("");
-        inputTelefone.setText("");
-        inputEndereco.setText("");
-        clienteId.setText("");
-
-    }
-
-    @FXML
-    void salvarExclusaoOnAction(ActionEvent event) {
-
-        DAO.getCliente().deletar(Integer.parseInt(clienteId.getText()));
-
-        this.inputCliente.setText("");
-        this.inputEndereco.setText("");
-        this.inputTelefone.setText("");
-        this.nomeCliente.setText("");
-        this.telefone.setText("");
-        this.endereco.setText("");
-        this.clienteId.setText("");
-
-        initialize();
+                    }
+                }
+            }
+        }
+        catch (Exception e){
+            this.nomeTela.setText("Erro ao registrar cliente!");
+            this.nomeTela.setVisible(true);
+        }
 
     }
 
