@@ -230,6 +230,11 @@ public class ClienteController implements Initializable {
     }
 
     @FXML
+    void servicoOnAction(ActionEvent event) {
+        Main.telaScreen("servico");
+    }
+
+    @FXML
     void salvarAtualizacaoOnAction(ActionEvent event) {
 
         try {

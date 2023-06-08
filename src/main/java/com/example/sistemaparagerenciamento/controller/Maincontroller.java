@@ -83,6 +83,11 @@ public class Maincontroller implements Initializable {
     }
 
     @FXML
+    void servicoOnAction(ActionEvent event) {
+        Main.telaScreen("servico");
+    }
+
+    @FXML
     void pegarOrdemOnAction(ActionEvent event) {
 
     }

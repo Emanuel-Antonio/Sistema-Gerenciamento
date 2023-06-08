@@ -24,6 +24,8 @@ public class Main extends Application {
 
     private static Scene ordemScene;
 
+    private static Scene servicoScene;
+
     @Override
     public void start(Stage primaryStage) throws IOException {
         stage = primaryStage;
@@ -52,6 +54,9 @@ public class Main extends Application {
 
         Parent fxmlOrdem = FXMLLoader.load(getClass().getResource("ordens.fxml"));
         ordemScene = new Scene(fxmlOrdem);
+
+        Parent fxmlServico = FXMLLoader.load(getClass().getResource("servicos.fxml"));
+        servicoScene = new Scene(fxmlServico);
     }
 
 
@@ -94,6 +99,11 @@ public class Main extends Application {
                 stage.setHeight(680);
                 stage.setResizable(false);
                 break;
+            case "servico":
+                stage.setScene(servicoScene);
+                stage.setWidth(1300);
+                stage.setHeight(680);
+                stage.setResizable(false);
         }
     }
     public static void main(String[] args) { launch(args); }

@@ -108,6 +108,13 @@ public class EstoqueController implements Initializable{
 
     }
 
+    @FXML
+    void servicoOnAction(ActionEvent event) {
+
+        Main.telaScreen("servico");
+
+    }
+
     public void setChosenPeca(Peca peca){
 
         nome.setText(peca.getNome());
