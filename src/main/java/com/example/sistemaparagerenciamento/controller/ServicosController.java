@@ -3,14 +3,13 @@ package com.example.sistemaparagerenciamento.controller;
 import com.example.sistemaparagerenciamento.Main;
 import com.example.sistemaparagerenciamento.Mylistener3;
 import com.example.sistemaparagerenciamento.dao.DAO;
-import com.example.sistemaparagerenciamento.model.CategoriaServico;
 import com.example.sistemaparagerenciamento.model.Servico;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
@@ -36,6 +35,30 @@ public class ServicosController implements Initializable {
     private Mylistener3 mylistener3;
 
     private List<Servico> servicos = new ArrayList<>();
+
+    @FXML
+    private ChoiceBox<String> inputCategoria;
+
+    @FXML
+    private TextField inputOrdemId;
+
+    @FXML
+    private TextField inputValor;
+
+    @FXML
+    private Label nomeTela;
+
+    @FXML
+    private VBox tela;
+
+    @FXML
+    private TextArea inputDescricao;
+
+    @FXML
+    private TextField inputServicoId;
+
+    @FXML
+    private TextField inputPeca;
 
     @FXML
     void clientesOnAction(ActionEvent event) {
@@ -71,7 +94,8 @@ public class ServicosController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        this.inputDescricao.setWrapText(true);
+        this.inputCategoria.getItems().addAll("LIMPEZA", "MONTAGEM_INSTALACAO", "FORMATACAO_INSTALACAO");
         initialize();
 
     }
@@ -120,10 +144,28 @@ public class ServicosController implements Initializable {
     }
 
     public void setChosenCliente(Servico servico){
+        this.inputCategoria.setValue(servico.getCategoria().toString());
+        this.inputOrdemId.setText(String.valueOf(servico.getOrdemId()));
+        this.inputValor.setText(String.valueOf(servico.getValor()));
     }
 
     private List<Servico> getData(){
         return DAO.getServico().getServicos();
+    }
+
+    @FXML
+    void atualizarOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void cadastrarOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void excluirOnAction(ActionEvent event) {
+
     }
 
 

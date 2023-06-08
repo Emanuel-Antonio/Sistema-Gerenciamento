@@ -19,29 +19,32 @@
       </ImageView>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label text="Servico: " textFill="WHITE">
+            <Label text="OrdemId:  " textFill="WHITE">
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin>
             </Label>
+            <Label fx:id="labelOrdemId" textFill="WHITE" />
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="164.0">
          <children>
-            <Label text="Endereço: " textFill="WHITE">
+            <Label text="Categoria: " textFill="WHITE">
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin>
             </Label>
+            <Label fx:id="labelCategoria" textFill="WHITE" />
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label text="Telefone: " textFill="WHITE">
+            <Label text="Valor:  " textFill="WHITE">
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin>
             </Label>
+            <Label fx:id="labelValor" textFill="WHITE" />
          </children>
       </HBox>
    </children>

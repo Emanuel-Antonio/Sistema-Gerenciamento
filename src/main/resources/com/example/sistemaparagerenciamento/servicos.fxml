@@ -2,7 +2,11 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -91,11 +95,11 @@
             </Button>
          </children>
       </HBox>
-      <HBox layoutX="10.0" layoutY="100.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #8EA399;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="476.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
+      <HBox layoutX="10.0" layoutY="100.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #8EA399;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="476.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="100.0">
          <children>
             <VBox prefHeight="490.0" prefWidth="696.0" HBox.hgrow="ALWAYS">
                <children>
-                  <ScrollPane prefHeight="570.0" prefWidth="696.0" VBox.vgrow="ALWAYS">
+                  <ScrollPane prefHeight="570.0" prefWidth="790.0" VBox.vgrow="ALWAYS">
                      <content>
                         <GridPane fx:id="gridContainer">
                            <rowConstraints>
@@ -115,5 +119,146 @@
             </DropShadow>
          </effect>
       </HBox>
+      <VBox layoutX="17.0" layoutY="98.0" prefHeight="570.0" prefWidth="440.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="840.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <VBox fx:id="tela" prefHeight="276.0" prefWidth="400.0" styleClass="Button3">
+               <children>
+                  <HBox prefHeight="17.0" prefWidth="386.0">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label fx:id="nomeTela" alignment="TOP_LEFT" contentDisplay="TOP" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="180.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="8.0" prefWidth="426.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="143.0" text="OrdemId:" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="10.0" top="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label prefHeight="17.0" prefWidth="101.0" text="ServicoId: " textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="220.0" right="5.0" top="20.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="20.0" prefWidth="202.0">
+                     <children>
+                        <TextField fx:id="inputOrdemId" prefHeight="25.0" prefWidth="228.0">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <TextField fx:id="inputServicoId" disable="true" prefHeight="25.0" prefWidth="233.0">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="15.0" prefWidth="430.0">
+                     <children>
+                        <Label text="Categoria: " textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ChoiceBox fx:id="inputCategoria" prefHeight="25.0" prefWidth="435.0">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </ChoiceBox>
+                     </children>
+                  </HBox>
+                  <Label text="Peca: " textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="inputPeca">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <HBox prefHeight="9.0" prefWidth="341.0">
+                     <children>
+                        <Label text="Valor: " textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <TextField fx:id="inputValor" disable="true">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label text="Descrição: " textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextArea fx:id="inputDescricao" prefHeight="105.0" prefWidth="426.0">
+                     <VBox.margin>
+                        <Insets bottom="40.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </TextArea>
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" text="Salvar" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="350.0" right="5.0" top="-25.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" text="Salvar" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="350.0" right="5.0" top="-29.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox prefHeight="95.0" prefWidth="420.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#cadastrarOnAction" prefHeight="40.0" prefWidth="426.0" styleClass="Button3" text="Cadastrar" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#atualizarOnAction" prefHeight="40.0" prefWidth="426.0" styleClass="Button3" text="Atualizar" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#excluirOnAction" prefHeight="40.0" prefWidth="426.0" styleClass="Button3" text="Excluir" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </VBox>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

@@ -17,7 +17,7 @@ public interface PecaDAO {
      * @param peca valor referente a um objeto Peca
      * @return Peca
      */
-     Peca criar(Peca peca);
+    Peca criar(Peca peca);
 
     /**
      * M&eacute;todo que atualiza uma pe&ccedil;a
@@ -31,7 +31,7 @@ public interface PecaDAO {
      *
      * @param peca valor referente a um objeto Peca
      */
-     void deletar(Peca peca);
+    void deletar(Peca peca);
 
     /**
      * M&eacute;todo que busca uma pe&ccedil;a pelo seu nome
@@ -39,7 +39,7 @@ public interface PecaDAO {
      * @param nome valor referente ao nome da pe&ccedil;a
      * @return Peca
      */
-     Peca buscarPorNome(String nome);
+    Peca buscarPorNome(String nome);
 
     /**
      * M&eacute;todo que retorna uma lista de pe&ccedil;as
@@ -52,5 +52,7 @@ public interface PecaDAO {
      * M&eacute;todo que reseta a lista de pe&ccedil;as
      */
     void resetar();
+
+    List<String> listPecasNomes();
 
 }

@@ -1,5 +1,6 @@
 package com.example.sistemaparagerenciamento.dao.peca;
 
+import com.example.sistemaparagerenciamento.dao.DAO;
 import com.example.sistemaparagerenciamento.model.Peca;
 
 import java.io.FileInputStream;
@@ -140,6 +141,14 @@ public class PecaFileImpl implements PecaDAO{
     public void resetar() {
         this.pecas = new ArrayList<>();
         salvar(this.pecas);
+    }
+
+    public List<String> listPecasNomes(){
+        List<String> pecas = new ArrayList<>();
+        for(int i = 0; i< this.pecas.size(); i++){
+            pecas.add(this.pecas.get(i).getNome());
+        }
+        return pecas;
     }
 
 }

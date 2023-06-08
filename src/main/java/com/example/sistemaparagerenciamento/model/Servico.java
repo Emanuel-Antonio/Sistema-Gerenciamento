@@ -12,16 +12,16 @@ import java.util.List;
  * @version 1.0
  */
 public class Servico implements Serializable {
-    private static final long serialVersionUID = 1L;
-    private final CategoriaServico categoria;
-    private double valor;
-    private final Calendar horarioAbertura;
-    private Calendar horarioFechamento;
+    private static final long serialVersionUID = 1L; //desnecessário
+    private final CategoriaServico categoria; //ok
+    private double valor; //ok
+    private final Calendar horarioAbertura; //desnecessário
+    private Calendar horarioFechamento; //desnecessário
     private double avaliacaoCliente;
-    private final int ordemId;
+    private final int ordemId; //ok
     private List<Peca> pecas;
-    private String descricao;
-    private int servicoId;
+    private String descricao; //ok
+    private int servicoId; //ok
 
     /**
      * Construtor de servico, ser&aacute; necess&aacute;rio passar alguns parametros para cria um objeto Servico, tais quais os listados abaixo.
