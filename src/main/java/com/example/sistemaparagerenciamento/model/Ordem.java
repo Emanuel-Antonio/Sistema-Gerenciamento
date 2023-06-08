@@ -17,17 +17,17 @@ import java.util.Locale;
  */
 public class Ordem implements Serializable {
     private static final long serialVersionUID = 1L;
-    private List<Servico> servicos;
-    private StatusOrdem status;
-    private Fatura fatura;
-    private final int clienteId;
-    private int tecnicoId;
-    private int ordemId;
-    private String avaliacaoFinal;
+    private List<Servico> servicos; //não
+    private StatusOrdem status; //ok
+    private Fatura fatura; //não
+    private final int clienteId; //ok
+    private int tecnicoId; //ok
+    private int ordemId; //ok
+    private String avaliacaoFinal; //ok
 
-    private String nomeCliente;
+    private String nomeCliente; //ok
 
-    private String data;
+    private String data; //ok
 
     /**
      * Construtor de ordem, ser&aacute; necess&aacute;rio passar alguns parametros para cria um objeto Ordem, tais quais os listados abaixo.

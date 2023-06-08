@@ -6,6 +6,7 @@ import com.example.sistemaparagerenciamento.dao.DAO;
 import com.example.sistemaparagerenciamento.model.Cliente;
 import com.example.sistemaparagerenciamento.model.Ordem;
 
+import com.example.sistemaparagerenciamento.model.StatusOrdem;
 import com.example.sistemaparagerenciamento.model.Tecnico;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +14,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
@@ -38,6 +42,15 @@ public class OrdemController implements Initializable {
     private List<Ordem> ordens = new ArrayList<>();
 
     private Mylistener2 mylistener2;
+
+    @FXML
+    private Label nomeTela;
+
+    @FXML
+    private ChoiceBox<String> inputAvaliacao;
+
+    @FXML
+    private ChoiceBox<String> inputStatus;
 
     @FXML
     void clientesOnAction(ActionEvent event) {
@@ -66,7 +79,8 @@ public class OrdemController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        this.inputStatus.getItems().addAll("PAGAMENTO", "FECHADA", "CANCELADA", "ANDAMENTO");
+        this.inputAvaliacao.getItems().addAll("Ótimo", "Bom", "Médio", "Ruim", "Péssimo");
         initialize();
 
     }
