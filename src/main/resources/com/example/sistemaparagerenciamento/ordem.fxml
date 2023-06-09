@@ -9,39 +9,72 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMousePressed="#click" prefHeight="193.0" prefWidth="164.0" styleClass="Button" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.CardOrdemController">
    <children>
-      <ImageView fx:id="img" fitHeight="130.0" fitWidth="148.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img" fitHeight="111.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@img/icone-cliente.png" />
+            <Image url="@img/icone-ordem.png" />
          </image>
          <VBox.margin>
-            <Insets left="15.0" />
+            <Insets left="35.0" />
          </VBox.margin>
       </ImageView>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox prefHeight="16.0" prefWidth="164.0">
          <children>
             <Label text="Cliente: " textFill="WHITE">
                <HBox.margin>
-                  <Insets left="5.0" />
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="cliente" textFill="WHITE">
+               <HBox.margin>
+                  <Insets top="10.0" />
                </HBox.margin>
             </Label>
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="164.0">
+      <HBox prefHeight="12.0" prefWidth="164.0">
          <children>
-            <Label text="Endereço: " textFill="WHITE">
+            <Label text="Id cliente: " textFill="WHITE">
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin>
             </Label>
+            <Label fx:id="idCliente" textFill="WHITE" />
+            <Label text="Id Técnico: " textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="idTecnico" textFill="WHITE" />
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox prefHeight="10.0" prefWidth="164.0">
          <children>
-            <Label text="Telefone: " textFill="WHITE">
+            <Label text="Id Ordem: " textFill="WHITE">
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin>
             </Label>
+            <Label fx:id="idOrdem" textFill="WHITE" />
+         </children>
+      </HBox>
+      <HBox prefHeight="8.0" prefWidth="164.0">
+         <children>
+            <Label prefHeight="8.0" prefWidth="57.0" text="Avaliação: " textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="avaliacao" textFill="WHITE" />
+         </children>
+      </HBox>
+      <HBox prefHeight="14.0" prefWidth="164.0">
+         <children>
+            <Label text="Status: " textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="status" textFill="WHITE" />
          </children>
       </HBox>
    </children>

@@ -143,7 +143,7 @@
             </HBox>
             <HBox prefHeight="20.0" prefWidth="202.0">
                <children>
-                  <TextField disable="true" prefHeight="25.0" prefWidth="440.0">
+                  <TextField fx:id="inputNomeCliente" disable="true" prefHeight="25.0" prefWidth="440.0">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
@@ -176,22 +176,22 @@
             </HBox>
             <HBox prefHeight="27.0" prefWidth="436.0">
                <children>
-                  <TextField prefHeight="25.0" prefWidth="48.0">
+                  <TextField fx:id="inputIdCliente" prefHeight="25.0" prefWidth="48.0">
                      <HBox.margin>
                         <Insets left="5.0" />
                      </HBox.margin>
                   </TextField>
-                  <TextField prefWidth="48.0">
+                  <TextField fx:id="inputIdTecnico" prefWidth="48.0">
                      <HBox.margin>
                         <Insets left="65.0" />
                      </HBox.margin>
                   </TextField>
-                  <TextField prefHeight="25.0" prefWidth="48.0">
+                  <TextField fx:id="inputIdOrdem" prefHeight="25.0" prefWidth="48.0">
                      <HBox.margin>
                         <Insets left="70.0" />
                      </HBox.margin>
                   </TextField>
-                  <TextField prefHeight="25.0" prefWidth="48.0" promptText="Id:">
+                  <TextField fx:id="inputIdServico" prefHeight="25.0" prefWidth="48.0" promptText="Id:">
                      <HBox.margin>
                         <Insets left="65.0" />
                      </HBox.margin>
@@ -226,12 +226,12 @@
                   </ChoiceBox>
                </children>
             </HBox>
-            <Button layoutX="360.0" layoutY="228.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" stylesheets="@styles/style.css" text="Salvar" textFill="WHITE">
+            <Button fx:id="salvarAtualizacao" layoutX="360.0" layoutY="228.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" stylesheets="@styles/style.css" text="Salvar" textFill="WHITE">
                <VBox.margin>
                   <Insets left="350.0" top="30.0" />
                </VBox.margin>
             </Button>
-            <Button layoutX="360.0" layoutY="228.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" stylesheets="@styles/style.css" text="Salvar" textFill="WHITE">
+            <Button fx:id="salvarCadastro" layoutX="360.0" layoutY="228.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" stylesheets="@styles/style.css" text="Salvar" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="10.0" left="350.0" top="-25.0" />
                </VBox.margin>

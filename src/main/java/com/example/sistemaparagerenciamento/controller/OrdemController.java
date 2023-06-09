@@ -13,10 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
@@ -51,6 +48,27 @@ public class OrdemController implements Initializable {
 
     @FXML
     private ChoiceBox<String> inputStatus;
+
+    @FXML
+    private TextField inputIdCliente;
+
+    @FXML
+    private TextField inputIdServico;
+
+    @FXML
+    private TextField inputIdTecnico;
+
+    @FXML
+    private TextField inputNomeCliente;
+
+    @FXML
+    private TextField inputIdOrdem;
+
+    @FXML
+    private Button salvarAtualizacao;
+
+    @FXML
+    private Button salvarCadastro;
 
     @FXML
     void clientesOnAction(ActionEvent event) {
@@ -129,6 +147,12 @@ public class OrdemController implements Initializable {
     }
 
     public void setChosenCliente(Ordem ordem){
+        this.inputNomeCliente.setText(ordem.getNomeCliente());
+        this.inputIdCliente.setText(String.valueOf(ordem.getClienteId()));
+        this.inputIdTecnico.setText(String.valueOf(ordem.getTecnicoId()));
+        this.inputAvaliacao.setValue(ordem.getAvaliacaoFinal());
+        this.inputStatus.setValue(String.valueOf(ordem.getStatus()));
+        this.inputIdOrdem.setText(String.valueOf(ordem.getOrdemId()));
     }
 
     private List<Ordem> getData(){
