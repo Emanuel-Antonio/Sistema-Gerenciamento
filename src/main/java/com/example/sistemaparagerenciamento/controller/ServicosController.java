@@ -61,6 +61,12 @@ public class ServicosController implements Initializable {
     private TextField inputPeca;
 
     @FXML
+    private Button salvarAtualizacao;
+
+    @FXML
+    private Button salvarCadastro;
+
+    @FXML
     void clientesOnAction(ActionEvent event) {
         Main.telaScreen("clientes");
     }
@@ -147,6 +153,10 @@ public class ServicosController implements Initializable {
         this.inputCategoria.setValue(servico.getCategoria().toString());
         this.inputOrdemId.setText(String.valueOf(servico.getOrdemId()));
         this.inputValor.setText(String.valueOf(servico.getValor()));
+        this.inputServicoId.setText(String.valueOf(servico.getServicoId()));
+        this.inputDescricao.setText(servico.getDescricao());
+        this.inputPeca.setText(servico.getPecas().get(0).getNome());
+
     }
 
     private List<Servico> getData(){
@@ -168,5 +178,14 @@ public class ServicosController implements Initializable {
 
     }
 
+    @FXML
+    void salvarAtualizacaoOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void salvarCadastroOnAction(ActionEvent event) {
+
+    }
 
 }
