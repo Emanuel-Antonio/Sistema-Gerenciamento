@@ -3,7 +3,6 @@ package com.example.sistemaparagerenciamento.controller;
 import com.example.sistemaparagerenciamento.Main;
 import com.example.sistemaparagerenciamento.Mylistener;
 import com.example.sistemaparagerenciamento.dao.DAO;
-import com.example.sistemaparagerenciamento.model.Cliente;
 import com.example.sistemaparagerenciamento.model.Peca;
 
 import javafx.event.ActionEvent;
@@ -17,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
+import javafx.scene.input.MouseEvent;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -211,21 +211,27 @@ public class EstoqueController implements Initializable{
     @FXML
     void excluirOnAction(ActionEvent event) {
 
-        this.inputPeca.setDisable(false);
-        this.nomeTela.setText("Excluir");
-        this.salvarAtualizacao.setVisible(false);
-        this.salvarCadastro.setVisible(false);
+        try{
+            this.inputPeca.setDisable(false);
+            this.nomeTela.setText("Excluir");
+            this.salvarAtualizacao.setVisible(false);
+            this.salvarCadastro.setVisible(false);
 
-        DAO.getPeca().deletar(DAO.getPeca().buscarPorNome(inputPeca.getText()));
+            DAO.getPeca().deletar(DAO.getPeca().buscarPorNome(inputPeca.getText()));
 
-        this.inputQtd.setText("");
-        this.inputPreco.setText("");
-        this.inputPeca.setText("");
-        this.nome.setText("");
-        this.qtd.setText("");
-        this.preco.setText("");
+            this.inputQtd.setText("");
+            this.inputPreco.setText("");
+            this.inputPeca.setText("");
+            this.nome.setText("");
+            this.qtd.setText("");
+            this.preco.setText("");
 
-        initialize();
+            initialize();
+        }
+        catch(Exception e){
+
+        }
+
 
     }
 
@@ -285,45 +291,56 @@ public class EstoqueController implements Initializable{
             if (!("Essa Peça já existe!".equals(this.nomeTela.getText()))) {
                 boolean isNumericNome = (inputPeca != null && inputPeca.getText().matches("[0-9]+"));
                 if (isNumericNome) {
-                    this.nomeTela.setText("Dados inválidos!");
+                    this.nomeTela.setText("O nome da peça não pode ser números");
                 } else {
                     boolean isAlphaQuantidade = (inputQtd != null && inputQtd.getText().matches("[a-z]+"));
                     boolean isAlphaValor = (inputPreco != null && inputPreco.getText().matches("[a-z]+"));
                     if (!(isAlphaValor || isAlphaQuantidade)) {
-                        if (("".equals(this.inputPeca.getText())) || ("".equals(this.inputPreco.getText())) || ("".equals(this.inputQtd.getText()))) {
-                            this.nomeTela.setText("Erro ao registrar cliente!");
-                            this.nomeTela.setVisible(true);
-                            System.out.println("1");
-                        } else {
-                            Peca peca = new Peca(inputPeca.getText());
-                            peca.setQnt(Integer.parseInt(inputQtd.getText()));
-                            peca.setValor(Double.valueOf(inputPreco.getText()));
+                        if(Double.parseDouble(this.inputPreco.getText())>=0 && Integer.parseInt(this.inputQtd.getText())>=0){
+                            if (("".equals(this.inputPeca.getText())) || ("".equals(this.inputPreco.getText())) || ("".equals(this.inputQtd.getText()))) {
+                                this.nomeTela.setText("Nenhum campo pode estar vazio");
+                                this.nomeTela.setVisible(true);
+                                System.out.println("1");
+                            } else {
+                                Peca peca = new Peca(inputPeca.getText());
+                                peca.setQnt(Integer.parseInt(inputQtd.getText()));
+                                peca.setValor(Double.valueOf(inputPreco.getText()));
 
-                            DAO.getPeca().criar(peca);
+                                DAO.getPeca().criar(peca);
 
-                            initialize();
+                                initialize();
 
-                            inputQtd.setText("");
-                            inputPreco.setText("");
-                            inputPeca.setText("");
-                            nome.setText("");
-                            qtd.setText("");
-                            preco.setText("");
-                            this.nomeTela.setText("Cadastro");
+                                inputQtd.setText("");
+                                inputPreco.setText("");
+                                inputPeca.setText("");
+                                nome.setText("");
+                                qtd.setText("");
+                                preco.setText("");
+                                this.nomeTela.setText("Cadastro");
 
+                            }
                         }
+                        else {
+                            this.nomeTela.setText("valor e quantidade não podem ser negativos");
+                        }
+
                     }
                     else{
-                        this.nomeTela.setText("Dados inválidos!");
+                        this.nomeTela.setText("A quantidade e o valor não podem ser letras");
                     }
                 }
             }
         }
         catch (Exception e){
-                this.nomeTela.setText("Erro ao registrar Peça!");
+                this.nomeTela.setText("Preencha todos os campos");
                 this.nomeTela.setVisible(true);
             }
 
         }
+
+    @FXML
+    void onMouseEntered(MouseEvent event) {
+        initialize();
+    }
 
 }

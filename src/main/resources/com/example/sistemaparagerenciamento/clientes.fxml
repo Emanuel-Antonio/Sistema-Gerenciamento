@@ -14,6 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="680.0" prefWidth="1300.0" style="-fx-background-color: f5f5f5;" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.ClienteController">
    <children>
@@ -48,10 +49,13 @@
                   <Insets left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
                <children>
-                  <Label fx:id="nomeTela" alignment="TOP_LEFT" contentDisplay="TOP" textFill="WHITE">
+                  <Label fx:id="nomeTela" alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="17.0" prefWidth="447.0" textFill="WHITE">
                      <HBox.margin>
-                        <Insets left="180.0" />
+                        <Insets />
                      </HBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
                   </Label>
                </children>
             </HBox>
@@ -120,7 +124,7 @@
             </TextField>
             <Button fx:id="salvarAtualizacao" layoutX="360.0" layoutY="221.0" mnemonicParsing="false" onAction="#salvarAtualizacaoOnAction" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" stylesheets="@styles/style.css" text="Salvar" textFill="WHITE">
                <VBox.margin>
-                  <Insets left="350.0" top="5.0" />
+                  <Insets left="350.0" />
                </VBox.margin>
             </Button>
             <Button fx:id="salvarCadastro" layoutX="360.0" layoutY="221.0" mnemonicParsing="false" onAction="#salvarCadastroOnAction" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" stylesheets="@styles/style.css" text="Salvar" textFill="WHITE">

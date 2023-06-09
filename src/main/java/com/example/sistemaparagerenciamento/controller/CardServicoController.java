@@ -22,6 +22,8 @@ public class CardServicoController {
     private Label valor;
 
     @FXML
+    private Label peca;
+    @FXML
     private ImageView img;
 
     private Mylistener3 mylistener3;
@@ -40,6 +42,11 @@ public class CardServicoController {
         this.ordemId.setText(String.valueOf(servico.getOrdemId()));
         this.categoria.setText(servico.getCategoria().toString());
         this.valor.setText(String.valueOf(servico.getValor()));
+        try{
+            this.peca.setText(servico.getPecas().get(0).getNome());
+        }catch(Exception e){
+
+        }
 
     }
 

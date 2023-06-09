@@ -21,7 +21,7 @@
          <children>
             <Label text="ServicoId: " textFill="WHITE">
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets left="5.0" />
                </HBox.margin>
             </Label>
             <Label fx:id="servicoId" textFill="WHITE" />
@@ -31,7 +31,7 @@
          <children>
             <Label text="OrdemId: " textFill="WHITE">
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets left="5.0" />
                </HBox.margin>
             </Label>
             <Label fx:id="ordemId" textFill="WHITE" />
@@ -39,19 +39,22 @@
       </HBox>
       <HBox prefHeight="7.0" prefWidth="164.0">
          <children>
-            <Label text="Categoria: " textFill="WHITE">
+            <Label prefHeight="17.0" prefWidth="73.0" text="Categoria: " textFill="WHITE">
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets left="5.0" />
                </HBox.margin>
             </Label>
-            <Label fx:id="categoria" textFill="WHITE" />
+            <Label fx:id="categoria" prefHeight="17.0" prefWidth="117.0" textFill="WHITE">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></Label>
          </children>
       </HBox>
       <HBox prefHeight="0.0" prefWidth="164.0">
          <children>
             <Label text="Valor: " textFill="WHITE">
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets left="5.0" />
                </HBox.margin>
             </Label>
             <Label fx:id="valor" textFill="WHITE" />
@@ -59,9 +62,9 @@
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label text="Peca: " textFill="WHITE">
+            <Label text="Peça: " textFill="WHITE">
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets left="5.0" />
                </HBox.margin>
             </Label>
             <Label fx:id="peca" textFill="WHITE" />

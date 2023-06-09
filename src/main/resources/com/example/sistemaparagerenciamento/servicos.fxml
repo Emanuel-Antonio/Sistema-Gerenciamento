@@ -16,6 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="680.0" prefWidth="1300.0" style="-fx-background-color: f5f5f5;" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.ServicosController">
    <children>
@@ -123,15 +124,18 @@
          <children>
             <VBox fx:id="tela" prefHeight="276.0" prefWidth="400.0" styleClass="Button3">
                <children>
-                  <HBox prefHeight="17.0" prefWidth="386.0">
+                  <HBox alignment="TOP_CENTER" prefHeight="17.0" prefWidth="386.0">
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                      <children>
-                        <Label fx:id="nomeTela" alignment="TOP_LEFT" contentDisplay="TOP" textFill="WHITE">
+                        <Label fx:id="nomeTela" alignment="TOP_CENTER" contentDisplay="TOP" textFill="WHITE">
                            <HBox.margin>
-                              <Insets left="180.0" />
+                              <Insets />
                            </HBox.margin>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
                         </Label>
                      </children>
                   </HBox>
@@ -218,11 +222,6 @@
                         <Insets bottom="40.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </TextArea>
-                  <Button fx:id="salvarAtualizacao" mnemonicParsing="false" onAction="#salvarAtualizacaoOnAction" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" text="Salvar" textFill="WHITE">
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="350.0" right="5.0" top="-25.0" />
-                     </VBox.margin>
-                  </Button>
                   <Button fx:id="salvarCadastro" mnemonicParsing="false" onAction="#salvarCadastroOnAction" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" text="Salvar" textFill="WHITE">
                      <VBox.margin>
                         <Insets bottom="5.0" left="350.0" right="5.0" top="-29.0" />
@@ -235,17 +234,7 @@
             </VBox>
             <VBox prefHeight="199.0" prefWidth="440.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#cadastrarOnAction" prefHeight="45.0" prefWidth="426.0" styleClass="Button3" text="Cadastrar" textFill="WHITE">
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#atualizarOnAction" prefHeight="45.0" prefWidth="426.0" styleClass="Button3" text="Atualizar" textFill="WHITE">
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#excluirOnAction" prefHeight="45.0" prefWidth="426.0" styleClass="Button3" text="Excluir" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#excluirOnAction" prefHeight="110.0" prefWidth="426.0" styleClass="Button3" text="Excluir" textFill="WHITE">
                      <VBox.margin>
                         <Insets left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>

@@ -3,6 +3,8 @@ package com.example.sistemaparagerenciamento.controller;
 import com.example.sistemaparagerenciamento.Main;
 import com.example.sistemaparagerenciamento.Mylistener3;
 import com.example.sistemaparagerenciamento.dao.DAO;
+import com.example.sistemaparagerenciamento.model.CategoriaServico;
+import com.example.sistemaparagerenciamento.model.Peca;
 import com.example.sistemaparagerenciamento.model.Servico;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -61,9 +63,6 @@ public class ServicosController implements Initializable {
     private TextField inputPeca;
 
     @FXML
-    private Button salvarAtualizacao;
-
-    @FXML
     private Button salvarCadastro;
 
     @FXML
@@ -101,6 +100,7 @@ public class ServicosController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.inputDescricao.setWrapText(true);
+        this.nomeTela.setText("Cadastro");
         this.inputCategoria.getItems().addAll("LIMPEZA", "MONTAGEM_INSTALACAO", "FORMATACAO_INSTALACAO");
         initialize();
 
@@ -155,8 +155,11 @@ public class ServicosController implements Initializable {
         this.inputValor.setText(String.valueOf(servico.getValor()));
         this.inputServicoId.setText(String.valueOf(servico.getServicoId()));
         this.inputDescricao.setText(servico.getDescricao());
-        this.inputPeca.setText(servico.getPecas().get(0).getNome());
+        try{
+            this.inputPeca.setText(servico.getPecas().get(0).getNome());
+        }catch (Exception e){
 
+        }
     }
 
     private List<Servico> getData(){
@@ -164,28 +167,117 @@ public class ServicosController implements Initializable {
     }
 
     @FXML
-    void atualizarOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void cadastrarOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void excluirOnAction(ActionEvent event) {
+        try{
+            DAO.getServico().deletar(DAO.getServico().buscarPorId(Integer.parseInt(inputServicoId.getText())));
+            this.inputServicoId.setText("");
+            this.inputDescricao.setText("");
+            this.inputCategoria.setValue("");
+            this.inputOrdemId.setText("");
+            this.inputValor.setText("");
+            this.inputPeca.setText("");
+            initialize();
+        }
+        catch(Exception e){
 
-    }
-
-    @FXML
-    void salvarAtualizacaoOnAction(ActionEvent event) {
+        }
 
     }
 
     @FXML
     void salvarCadastroOnAction(ActionEvent event) {
+        boolean idExiste = false;
+        for(int i =0; i < DAO.getCliente().getClientes().size(); i++){
+            if(DAO.getCliente().getClientes().get(i).getClienteId() == Integer.parseInt(this.inputOrdemId.getText())){
+                idExiste = true;
+            }
+        }
+        boolean pecaExiste = false;
+        for(int i =0; i < DAO.getPeca().getPecas().size(); i++){
+            if(DAO.getPeca().getPecas().get(i).getNome().equals(this.inputPeca.getText())){
+                pecaExiste = true;
+            }
+        }
+        if(idExiste){
+            if(this.inputCategoria.getValue()!=null && !(this.inputOrdemId.getText().equals("")) && !(this.inputDescricao.getText().equals(""))){
+                boolean isNumericOrdemId = (inputOrdemId != null && inputOrdemId.getText().matches("[0-9]+"));
+                boolean isNumericDescricao = (inputDescricao != null && inputDescricao.getText().matches("[0-9]+"));
+                if(isNumericOrdemId){
+                    if(!(isNumericDescricao)){
+                        String id = this.inputOrdemId.getText();
+                        CategoriaServico categoriaServico;
+                        if(this.inputCategoria.getValue().toString().equals("FORMATACAO_INSTALACAO")) {
+                            categoriaServico = CategoriaServico.FORMATACAO_INSTALACAO;
+                        }
+                        else if(this.inputCategoria.getValue().toString().equals("MONTAGEM_INSTALACAO")) {
+                            categoriaServico = CategoriaServico.MONTAGEM_INSTALACAO;
+                        }
+                        else{
+                            categoriaServico = CategoriaServico.LIMPEZA;
+                        }
+                        Servico servico = new Servico(Integer.parseInt(id), categoriaServico);
 
+                        try{
+                            if(categoriaServico.toString().equals("LIMPEZA")){
+                                servico.setValor(70);
+                            } else if (categoriaServico.toString().equals("FORMATACAO_INSTALACAO") || categoriaServico.toString().equals("MONTAGEM_INSTALACAO")) {
+                                servico.setValor(DAO.getPeca().buscarPorNome(inputPeca.getText()).getValor());
+                            }
+                        }
+                        catch(Exception e){
+                        }
+
+                        servico.setDescricao(inputDescricao.getText());
+
+                        try{
+                            List<Peca> pecas = new ArrayList<>();
+                            pecas.add(DAO.getPeca().buscarPorNome(inputPeca.getText()));
+                            servico.setPeca(pecas);
+
+                            Peca peca = new Peca(inputPeca.getText());
+                            peca.setQnt(DAO.getPeca().buscarPorNome(inputPeca.getText()).getQnt() - 1);
+                            peca.setValor(DAO.getPeca().buscarPorNome(inputPeca.getText()).getValor());
+
+                            DAO.getPeca().atualizar(peca);
+                        }
+                        catch(Exception e){
+                        }
+
+                        if(!(this.inputPeca.getText().equals("")) && !(this.inputCategoria.getValue().toString().equals("LIMPEZA")) || this.inputPeca.getText().equals("") && this.inputCategoria.getValue().toString().equals("LIMPEZA")){
+                            if(pecaExiste){
+                                DAO.getServico().criar(servico);
+                                initialize();
+                                this.nomeTela.setText("Cadastro");
+                            }
+                            else if(!(pecaExiste) && this.inputCategoria.getValue().toString().equals("LIMPEZA")){
+                                DAO.getServico().criar(servico);
+                                initialize();
+                                this.nomeTela.setText("Cadastro");
+                            }
+                            else{
+                                this.nomeTela.setText("Essa peça não existe para ser adicionada");
+                            }
+
+                        }
+                        else{
+                            this.nomeTela.setText("Apenas LIMPEZA não exige o campo peça");
+                        }
+                    }
+                    else{
+                        this.nomeTela.setText("A descrição não pode conter só números");
+                    }
+                }
+                else{
+                    this.nomeTela.setText("O id da Ordem Não pode ser letra");
+                }
+            }
+            else{
+                this.nomeTela.setText("Preencha os campos Obrigatórios");
+            }
+        }
+        else {
+            this.nomeTela.setText("Id inexistente");
+        }
     }
 
 }

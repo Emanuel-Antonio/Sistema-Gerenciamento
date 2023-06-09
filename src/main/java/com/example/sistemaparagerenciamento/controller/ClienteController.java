@@ -187,23 +187,29 @@ public class ClienteController implements Initializable {
     @FXML
     void excluirOnAction(ActionEvent event) {
 
-        this.inputCliente.setDisable(false);
-        this.salvarAtualizacao.setVisible(false);
-        this.salvarCadastro.setVisible(false);
-        this.tela.setVisible(true);
+        try{
+            this.inputCliente.setDisable(false);
+            this.salvarAtualizacao.setVisible(false);
+            this.salvarCadastro.setVisible(false);
+            this.tela.setVisible(true);
 
-        DAO.getCliente().deletar(Integer.parseInt(clienteId.getText()));
+            DAO.getCliente().deletar(Integer.parseInt(clienteId.getText()));
 
-        this.inputCliente.setText("");
-        this.inputEndereco.setText("");
-        this.inputTelefone.setText("");
-        this.nomeCliente.setText("");
-        this.telefone.setText("");
-        this.endereco.setText("");
-        this.clienteId.setText("");
+            this.inputCliente.setText("");
+            this.inputEndereco.setText("");
+            this.inputTelefone.setText("");
+            this.nomeCliente.setText("");
+            this.telefone.setText("");
+            this.endereco.setText("");
+            this.clienteId.setText("");
 
-        initialize();
-        this.nomeTela.setText("Excluir");
+            initialize();
+            this.nomeTela.setText("Excluir");
+        }
+        catch(Exception e){
+
+        }
+
 
     }
 
@@ -296,16 +302,14 @@ public class ClienteController implements Initializable {
                 boolean isNumericNome = (inputCliente != null && inputCliente.getText().matches("[0-9]+"));
                 boolean isNumericEndereco = (inputEndereco != null && inputEndereco.getText().matches("[0-9]+"));
                 if (isNumericNome || isNumericEndereco) {
-                    this.nomeTela.setText("Dados inválidos!");
+                    this.nomeTela.setText("Nome e endereço não podem conter apenas números");
                 } else {
                     if (("".equals(this.inputEndereco.getText())) || ("".equals(this.inputCliente.getText())) || ("".equals(this.inputTelefone.getText()))) {
-                        this.nomeTela.setText("Erro ao registrar cliente!");
+                        this.nomeTela.setText("Preencha todos os campos");
                         this.nomeTela.setVisible(true);
-                        System.out.println("1");
                     } else if (!inputTelefone.getText().matches("(\\(?\\d{2}\\)?\\s)?(\\d{4,5}-\\d{4})")) {
                         this.nomeTela.setText("Telefone Inválido!");
                         this.nomeTela.setVisible(true);
-                        System.out.println("2");
                     } else {
                         Cliente cliente = new Cliente(this.inputCliente.getText(), this.inputEndereco.getText(), this.inputTelefone.getText());
                         //Aqui eu cadastro o cliente através do DAO de cliente
