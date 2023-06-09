@@ -12,6 +12,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.MouseDragEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
@@ -278,6 +282,22 @@ public class ServicosController implements Initializable {
         else {
             this.nomeTela.setText("Id inexistente");
         }
+    }
+
+    @FXML
+    void onMouseMoved(MouseEvent event) {
+        try{
+            if(this.inputCategoria.getValue().equals("LIMPEZA")){
+                this.inputPeca.setDisable(true);
+            }
+            else{
+                this.inputPeca.setDisable(false);
+            }
+        }
+        catch (Exception e){
+
+        }
+
     }
 
 }

@@ -122,7 +122,7 @@
       </HBox>
       <VBox layoutX="17.0" layoutY="98.0" prefHeight="570.0" prefWidth="440.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="840.0" AnchorPane.topAnchor="100.0">
          <children>
-            <VBox fx:id="tela" prefHeight="276.0" prefWidth="400.0" styleClass="Button3">
+            <VBox fx:id="tela" onMouseMoved="#onMouseMoved" prefHeight="276.0" prefWidth="400.0" styleClass="Button3">
                <children>
                   <HBox alignment="TOP_CENTER" prefHeight="17.0" prefWidth="386.0">
                      <VBox.margin>
