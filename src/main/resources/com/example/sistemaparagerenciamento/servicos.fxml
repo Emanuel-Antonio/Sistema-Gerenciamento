@@ -218,41 +218,41 @@
                         <Insets bottom="40.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </TextArea>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" text="Salvar" textFill="WHITE">
+                  <Button fx:id="salvarAtualizacao" mnemonicParsing="false" onAction="#salvarAtualizacaoOnAction" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" text="Salvar" textFill="WHITE">
                      <VBox.margin>
                         <Insets bottom="5.0" left="350.0" right="5.0" top="-25.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" text="Salvar" textFill="WHITE">
+                  <Button fx:id="salvarCadastro" mnemonicParsing="false" onAction="#salvarCadastroOnAction" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" text="Salvar" textFill="WHITE">
                      <VBox.margin>
                         <Insets bottom="5.0" left="350.0" right="5.0" top="-29.0" />
                      </VBox.margin>
                   </Button>
                </children>
                <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets bottom="10.0" left="10.0" right="10.0" />
                </VBox.margin>
             </VBox>
-            <VBox prefHeight="95.0" prefWidth="420.0">
+            <VBox prefHeight="199.0" prefWidth="440.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#cadastrarOnAction" prefHeight="40.0" prefWidth="426.0" styleClass="Button3" text="Cadastrar" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#cadastrarOnAction" prefHeight="45.0" prefWidth="426.0" styleClass="Button3" text="Cadastrar" textFill="WHITE">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#atualizarOnAction" prefHeight="40.0" prefWidth="426.0" styleClass="Button3" text="Atualizar" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#atualizarOnAction" prefHeight="45.0" prefWidth="426.0" styleClass="Button3" text="Atualizar" textFill="WHITE">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#excluirOnAction" prefHeight="40.0" prefWidth="426.0" styleClass="Button3" text="Excluir" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#excluirOnAction" prefHeight="45.0" prefWidth="426.0" styleClass="Button3" text="Excluir" textFill="WHITE">
                      <VBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </Button>
                </children>
                <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" />
                </VBox.margin>
                <padding>
                   <Insets top="10.0" />
