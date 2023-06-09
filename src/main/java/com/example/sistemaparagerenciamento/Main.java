@@ -4,8 +4,10 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class Main extends Application {
@@ -29,7 +31,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         stage = primaryStage;
-        primaryStage.setTitle("home");
+        primaryStage.setTitle("");
+        primaryStage.getIcons().add(new Image("C:\\Users\\55779\\git-intellij_ide_IdeaProjects\\Sistema-Gerenciamento\\src\\main\\resources\\com\\example\\sistemaparagerenciamento\\img\\icons8-myspace-quadrado-24.png"));
 
         Parent fxmlLogin = FXMLLoader.load(getClass().getResource("login.fxml"));
         loginScene = new Scene(fxmlLogin);
