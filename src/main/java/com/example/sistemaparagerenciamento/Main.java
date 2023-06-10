@@ -33,7 +33,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws IOException {
         stage = primaryStage;
         primaryStage.setTitle("");
-        primaryStage.getIcons().add(new Image("C:\\Users\\55779\\git-intellij_ide_IdeaProjects\\Sistema-Gerenciamento\\src\\main\\resources\\com\\example\\sistemaparagerenciamento\\img\\icone-app.png"));
+        primaryStage.getIcons().add(new Image("C:\\Users\\55779\\IdeaProjects\\Sistema-Gerenciamento\\src\\main\\resources\\com\\example\\sistemaparagerenciamento\\img\\icone-app.png"));
 
         Parent fxmlLogin = FXMLLoader.load(getClass().getResource("login.fxml"));
         loginScene = new Scene(fxmlLogin);

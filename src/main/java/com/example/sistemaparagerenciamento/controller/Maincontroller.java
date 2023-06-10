@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -56,6 +57,12 @@ public class Maincontroller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        initialize();
+
+    }
+
+    public void initialize(){
+        this.ordens0.clear();
         this.ordens0.addAll(DAO.getOrdem().getOrdens());
 
         clienteIdTabela.setCellValueFactory(new PropertyValueFactory<Ordem, String>("nomeCliente"));
@@ -63,7 +70,6 @@ public class Maincontroller implements Initializable {
         dataTabela.setCellValueFactory(new PropertyValueFactory<Ordem, String>("data"));
 
         this.tabelaOrdens.setItems(ordens0);
-
     }
 
     @FXML
@@ -100,5 +106,10 @@ public class Maincontroller implements Initializable {
     @FXML
     void ordemOnAction(ActionEvent event) {
         Main.telaScreen("ordens");
+    }
+
+    @FXML
+    void onMouseMoved(MouseEvent event) {
+        initialize();
     }
 }

@@ -58,7 +58,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#servicoOnAction" prefHeight="48.0" prefWidth="122.0" styleClass="Button2" text="Serviço">
+            <Button mnemonicParsing="false" onAction="#servicoOnAction" onMouseEntered="#onMouseEntered" prefHeight="48.0" prefWidth="122.0" styleClass="Button2" text="Serviço">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
@@ -155,7 +155,7 @@
                   </HBox>
                   <HBox prefHeight="20.0" prefWidth="202.0">
                      <children>
-                        <TextField fx:id="inputOrdemId" prefHeight="25.0" prefWidth="228.0">
+                        <TextField fx:id="inputOrdemId" disable="true" prefHeight="25.0" prefWidth="228.0">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>

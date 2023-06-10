@@ -173,6 +173,11 @@ public class ServicosController implements Initializable {
     @FXML
     void excluirOnAction(ActionEvent event) {
         try{
+            Peca peca = DAO.getPeca().buscarPorNome(inputPeca.getText());
+            peca.setQnt(DAO.getPeca().buscarPorNome(inputPeca.getText()).getQnt() + 1);
+
+            DAO.getPeca().atualizar(peca);
+
             DAO.getServico().deletar(DAO.getServico().buscarPorId(Integer.parseInt(inputServicoId.getText())));
             this.inputServicoId.setText("");
             this.inputDescricao.setText("");
@@ -190,25 +195,16 @@ public class ServicosController implements Initializable {
 
     @FXML
     void salvarCadastroOnAction(ActionEvent event) {
-        boolean idExiste = false;
-        for(int i =0; i < DAO.getCliente().getClientes().size(); i++){
-            if(DAO.getCliente().getClientes().get(i).getClienteId() == Integer.parseInt(this.inputOrdemId.getText())){
-                idExiste = true;
-            }
-        }
         boolean pecaExiste = false;
         for(int i =0; i < DAO.getPeca().getPecas().size(); i++){
             if(DAO.getPeca().getPecas().get(i).getNome().equals(this.inputPeca.getText())){
                 pecaExiste = true;
             }
         }
-        if(idExiste){
-            if(this.inputCategoria.getValue()!=null && !(this.inputOrdemId.getText().equals("")) && !(this.inputDescricao.getText().equals(""))){
-                boolean isNumericOrdemId = (inputOrdemId != null && inputOrdemId.getText().matches("[0-9]+"));
-                boolean isNumericDescricao = (inputDescricao != null && inputDescricao.getText().matches("[0-9]+"));
-                if(isNumericOrdemId){
+            if(this.inputCategoria.getValue()!=null && !(this.inputDescricao.getText().equals(""))){
+                if(this.inputPeca.getText().equals("") || DAO.getPeca().buscarPorNome(inputPeca.getText()).getQnt()>0){
+                    boolean isNumericDescricao = (inputDescricao != null && inputDescricao.getText().matches("[0-9]+"));
                     if(!(isNumericDescricao)){
-                        String id = this.inputOrdemId.getText();
                         CategoriaServico categoriaServico;
                         if(this.inputCategoria.getValue().toString().equals("FORMATACAO_INSTALACAO")) {
                             categoriaServico = CategoriaServico.FORMATACAO_INSTALACAO;
@@ -219,7 +215,7 @@ public class ServicosController implements Initializable {
                         else{
                             categoriaServico = CategoriaServico.LIMPEZA;
                         }
-                        Servico servico = new Servico(Integer.parseInt(id), categoriaServico);
+                        Servico servico = new Servico(-1, categoriaServico);
 
                         try{
                             if(categoriaServico.toString().equals("LIMPEZA")){
@@ -270,24 +266,20 @@ public class ServicosController implements Initializable {
                     else{
                         this.nomeTela.setText("A descrição não pode conter só números");
                     }
-                }
-                else{
-                    this.nomeTela.setText("O id da Ordem Não pode ser letra");
+                }else{
+                    this.nomeTela.setText("Não há quantidade dessa peça no estoque");
                 }
             }
             else{
                 this.nomeTela.setText("Preencha os campos Obrigatórios");
             }
-        }
-        else {
-            this.nomeTela.setText("Id inexistente");
-        }
     }
 
     @FXML
     void onMouseMoved(MouseEvent event) {
         try{
             if(this.inputCategoria.getValue().equals("LIMPEZA")){
+                this.inputPeca.setText("");
                 this.inputPeca.setDisable(true);
             }
             else{
@@ -300,4 +292,8 @@ public class ServicosController implements Initializable {
 
     }
 
+    @FXML
+    void onMouseEntered(MouseEvent event) {
+        initialize();
+    }
 }
