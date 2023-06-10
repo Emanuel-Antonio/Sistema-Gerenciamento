@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.DropShadow?>
@@ -9,9 +10,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="680.0" prefWidth="1300.0" style="-fx-background-color: f5f5f5;" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.Maincontroller">
+<AnchorPane onMouseEntered="#onMouseEntered" prefHeight="680.0" prefWidth="1300.0" style="-fx-background-color: f5f5f5;" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.Maincontroller">
    <children>
       <TableView fx:id="tabelaOrdens" layoutX="754.0" layoutY="325.0" prefHeight="265.0" prefWidth="570.0" styleClass="tabela" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="88.0">
          <columns>
@@ -33,7 +36,7 @@
       <Button fx:id="pegarOrdem" layoutX="901.0" layoutY="638.0" mnemonicParsing="false" onAction="#pegarOrdemOnAction" prefHeight="34.0" prefWidth="88.0" styleClass="Button3" text="Pegar Ordem" textFill="WHITE" AnchorPane.bottomAnchor="8.0" />
       <HBox fillHeight="false" maxHeight="135.0" maxWidth="1300.0" minHeight="50.0" minWidth="1200.0" prefHeight="91.0" prefWidth="1300.0" style="-fx-background-color: #294a58;" AnchorPane.bottomAnchor="588.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="home" mnemonicParsing="false" onAction="#homeOnAction" onMouseEntered="#onMouseMoved" prefHeight="48.0" prefWidth="105.0" styleClass="Button2" text="Home" textFill="#294a58">
+            <Button fx:id="home" mnemonicParsing="false" onAction="#homeOnAction" prefHeight="48.0" prefWidth="105.0" styleClass="Button2" text="Home" textFill="#294a58">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
@@ -107,5 +110,132 @@
             </Button>
          </children>
       </HBox>
+      <VBox layoutX="24.0" layoutY="84.0" prefHeight="566.0" prefWidth="355.0" styleClass="tabela" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="922.0" AnchorPane.topAnchor="88.0">
+         <children>
+            <ImageView fitHeight="324.0" fitWidth="267.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets left="45.0" />
+               </VBox.margin>
+               <image>
+                  <Image url="@img/icone-cliente.png" />
+               </image>
+            </ImageView>
+            <HBox prefHeight="30.0" prefWidth="354.0">
+               <children>
+                  <Label fx:id="adm" prefHeight="0.0" prefWidth="114.0" text="Administrador" textFill="#100525" visible="false">
+                     <HBox.margin>
+                        <Insets left="130.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="6.0" prefWidth="354.0">
+               <children>
+                  <Label prefHeight="4.0" prefWidth="38.0" text="Nome: ">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="nomeTecnico" />
+               </children>
+            </HBox>
+            <HBox prefHeight="11.0" prefWidth="354.0">
+               <children>
+                  <Label text="Email: ">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="email" />
+               </children>
+            </HBox>
+            <HBox prefHeight="30.0" prefWidth="354.0">
+               <children>
+                  <Label text="Id: ">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="idTecnico" />
+               </children>
+            </HBox>
+            <HBox prefHeight="0.0" prefWidth="354.0">
+               <children>
+                  <Label text="Ordem Atual: ">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="30.0" prefWidth="354.0">
+               <children>
+                  <Label text="Nome do Cliente: ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="nomeCliente" />
+               </children>
+               <VBox.margin>
+                  <Insets left="30.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="30.0" prefWidth="354.0">
+               <children>
+                  <Label text="Id da Ordem: ">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="idOrdem" />
+                  <Label text="Id do Cliente: ">
+                     <HBox.margin>
+                        <Insets left="70.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="idCliente" />
+               </children>
+            </HBox>
+            <HBox prefHeight="30.0" prefWidth="354.0">
+               <children>
+                  <Label text="Status: ">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="statusOrdem" />
+               </children>
+            </HBox>
+            <HBox prefHeight="5.0" prefWidth="354.0">
+               <children>
+                  <Label text="Data: ">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="data" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

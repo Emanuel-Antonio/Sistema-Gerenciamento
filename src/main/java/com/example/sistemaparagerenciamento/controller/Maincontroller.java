@@ -3,12 +3,14 @@ package com.example.sistemaparagerenciamento.controller;
 import com.example.sistemaparagerenciamento.Main;
 import com.example.sistemaparagerenciamento.dao.DAO;
 import com.example.sistemaparagerenciamento.model.Ordem;
+import com.example.sistemaparagerenciamento.model.Tecnico;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -33,6 +35,33 @@ public class Maincontroller implements Initializable {
 
     @FXML
     private Button ordem;
+
+    @FXML
+    private Label email;
+
+    @FXML
+    private Label idCliente;
+
+    @FXML
+    private Label idOrdem;
+
+    @FXML
+    private Label idTecnico;
+
+    @FXML
+    private Label nomeCliente;
+
+    @FXML
+    private Label statusOrdem;
+
+    @FXML
+    private Label nomeTecnico;
+
+    @FXML
+    private Label adm;
+
+    @FXML
+    private Label data;
 
     @FXML
     private TableColumn<Ordem, Integer> ordemIdTabela;
@@ -70,6 +99,23 @@ public class Maincontroller implements Initializable {
         dataTabela.setCellValueFactory(new PropertyValueFactory<Ordem, String>("data"));
 
         this.tabelaOrdens.setItems(ordens0);
+
+        try {
+            if (DAO.getTecnico().getTecnicoLogado().isAdm()) {
+                this.adm.setVisible(true);
+            }
+            this.nomeTecnico.setText(DAO.getTecnico().getTecnicoLogado().getNome());
+            this.email.setText(DAO.getTecnico().getTecnicoLogado().getEmail());
+            this.idTecnico.setText(String.valueOf(DAO.getTecnico().getTecnicoLogado().getTecnicoId()));
+
+            this.nomeCliente.setText(DAO.getTecnico().getTecnicoLogado().getOrdem().getNomeCliente());
+            this.idCliente.setText(String.valueOf(DAO.getTecnico().getTecnicoLogado().getOrdem().getClienteId()));
+            this.idOrdem.setText(String.valueOf(DAO.getTecnico().getTecnicoLogado().getOrdem().getOrdemId()));
+            this.statusOrdem.setText(String.valueOf(DAO.getTecnico().getTecnicoLogado().getOrdem().getStatus()));
+            this.data.setText(DAO.getTecnico().getTecnicoLogado().getOrdem().getData());
+        }catch (Exception e){
+
+        }
     }
 
     @FXML
@@ -95,7 +141,23 @@ public class Maincontroller implements Initializable {
 
     @FXML
     void pegarOrdemOnAction(ActionEvent event) {
+        if (DAO.getOrdem().getOrdens() != null) {
+            for (int i = 0; i < DAO.getOrdem().getOrdens().size(); i++) {
+                //Aqui verifica se a ordem não possui técnico
+                if (DAO.getOrdem().getOrdens().get(i).getTecnicoId() == -1) {
+                    //Aqui eu vinculo ordem a técnico
+                    Tecnico tecnico = DAO.getTecnico().buscarPorId(Integer.parseInt(this.idTecnico.getText()));
+                    tecnico.setOrdem(DAO.getOrdem().getOrdens().get(i));
+                    DAO.getTecnico().atualizar(tecnico);
+                    //Aqui eu vinculo técnico a ordem
+                    Ordem ordem = DAO.getOrdem().getOrdens().get(i);
+                    ordem.setTecnicoId(Integer.parseInt(this.idTecnico.getText()));
+                    DAO.getOrdem().atualizar(ordem);
+                }
+            }
+        }
 
+        initialize();
     }
 
     @FXML
@@ -109,7 +171,8 @@ public class Maincontroller implements Initializable {
     }
 
     @FXML
-    void onMouseMoved(MouseEvent event) {
+    void onMouseEntered(MouseEvent event) {
+
         initialize();
     }
 }
