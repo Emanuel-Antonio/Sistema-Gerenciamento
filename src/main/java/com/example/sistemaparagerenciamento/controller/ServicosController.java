@@ -177,7 +177,11 @@ public class ServicosController implements Initializable {
             peca.setQnt(DAO.getPeca().buscarPorNome(inputPeca.getText()).getQnt() + 1);
 
             DAO.getPeca().atualizar(peca);
+        }
+        catch(Exception e){
 
+        }
+        try{
             DAO.getServico().deletar(DAO.getServico().buscarPorId(Integer.parseInt(inputServicoId.getText())));
             this.inputServicoId.setText("");
             this.inputDescricao.setText("");
@@ -190,6 +194,7 @@ public class ServicosController implements Initializable {
         catch(Exception e){
 
         }
+
 
     }
 

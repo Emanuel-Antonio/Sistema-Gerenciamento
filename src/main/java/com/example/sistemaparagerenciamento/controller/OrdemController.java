@@ -283,22 +283,28 @@ public class OrdemController implements Initializable {
     }
     @FXML
     void excluirOnAction(ActionEvent event) {
-        for(int i = 0; i < DAO.getServico().getServicos().size(); i++){
-            if(DAO.getServico().getServicos().get(i).getOrdemId() == Integer.parseInt(this.inputIdOrdem.getText()) ){
-                Servico servico = DAO.getServico().getServicos().get(i);
-                servico.setOrdemId(-1);
-                DAO.getServico().atualizar(servico);
+        try{
+            for(int i = 0; i < DAO.getServico().getServicos().size(); i++){
+                if(DAO.getServico().getServicos().get(i).getOrdemId() == Integer.parseInt(this.inputIdOrdem.getText()) ){
+                    Servico servico = DAO.getServico().getServicos().get(i);
+                    servico.setOrdemId(-1);
+                    DAO.getServico().atualizar(servico);
+                }
             }
+            DAO.getOrdem().deletar(Integer.parseInt(this.inputIdOrdem.getText()));
+            initialize();
+            this.nomeTela.setTextFill(rgb(255, 255, 255));
+            this.inputIdOrdem.setText("");
+            this.inputIdCliente.setText("");
+            this.inputAvaliacao.setValue("");
+            this.inputStatus.setValue("");
+            this.inputIdServico.setText("");
+            this.inputNomeCliente.setText("");
         }
-        DAO.getOrdem().deletar(Integer.parseInt(this.inputIdOrdem.getText()));
-        initialize();
-        this.nomeTela.setTextFill(rgb(255, 255, 255));
-        this.inputIdOrdem.setText("");
-        this.inputIdCliente.setText("");
-        this.inputAvaliacao.setValue("");
-        this.inputStatus.setValue("");
-        this.inputIdServico.setText("");
-        this.inputNomeCliente.setText("");
+        catch (Exception e){
+
+        }
+
     }
 
     @FXML
