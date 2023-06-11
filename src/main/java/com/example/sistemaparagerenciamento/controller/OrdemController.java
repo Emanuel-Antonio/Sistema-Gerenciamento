@@ -199,6 +199,9 @@ public class OrdemController implements Initializable {
                 ordem.setStatus(StatusOrdem.ANDAMENTO);
             } else if (this.inputStatus.getValue().equals("FECHADA")) {
                 ordem.setStatus(StatusOrdem.FECHADA);
+                Tecnico tecnico = DAO.getTecnico().getTecnicoLogado();
+                tecnico.setOrdem(null);
+                DAO.getTecnico().atualizar(tecnico);
             } else if (this.inputStatus.getValue().equals("CANCELADA")) {
                 ordem.setStatus(StatusOrdem.CANCELADA);
             } else if (this.inputStatus.getValue().equals("PAGAMENTO")) {
@@ -325,15 +328,23 @@ public class OrdemController implements Initializable {
 
     @FXML
     void onMouseMoved(MouseEvent event) {
-        if(this.inputStatus.getValue().equals("ANDAMENTO") || this.inputStatus.getValue().equals("")){
-            this.inputIdServico.setDisable(false);
-        }else{
-            this.inputIdServico.setDisable(true);
+        try {
+            if (this.inputStatus.getValue().equals("ANDAMENTO") || this.inputStatus.getValue().equals("")) {
+                this.inputIdServico.setDisable(false);
+            } else {
+                this.inputIdServico.setDisable(true);
+            }
+            if (this.inputStatus.getValue().equals("FECHADA")) {
+                this.inputAvaliacao.setDisable(false);
+            } else {
+                this.inputAvaliacao.setDisable(true);
+            }
+        }catch (Exception e){
+
         }
-        if(this.inputStatus.getValue().equals("FECHADA")){
-            this.inputAvaliacao.setDisable(false);
-        }else{
-            this.inputAvaliacao.setDisable(true);
-        }
+    }
+    @FXML
+    void onMouseEntered(MouseEvent event) {
+        initialize();
     }
 }

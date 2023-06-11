@@ -17,6 +17,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class Maincontroller implements Initializable {
@@ -92,7 +94,13 @@ public class Maincontroller implements Initializable {
 
     public void initialize(){
         this.ordens0.clear();
-        this.ordens0.addAll(DAO.getOrdem().getOrdens());
+        List<Ordem> ordens = new ArrayList<>();
+        for(int i = 0; i < DAO.getOrdem().getOrdens().size(); i++){
+            if(DAO.getOrdem().getOrdens().get(i).getTecnicoId() == -1){
+                ordens.add(DAO.getOrdem().getOrdens().get(i));
+            }
+        }
+        this.ordens0.addAll(ordens);
 
         clienteIdTabela.setCellValueFactory(new PropertyValueFactory<Ordem, String>("nomeCliente"));
         ordemIdTabela.setCellValueFactory(new PropertyValueFactory<Ordem, Integer>("ordemId"));
@@ -108,11 +116,19 @@ public class Maincontroller implements Initializable {
             this.email.setText(DAO.getTecnico().getTecnicoLogado().getEmail());
             this.idTecnico.setText(String.valueOf(DAO.getTecnico().getTecnicoLogado().getTecnicoId()));
 
-            this.nomeCliente.setText(DAO.getTecnico().getTecnicoLogado().getOrdem().getNomeCliente());
-            this.idCliente.setText(String.valueOf(DAO.getTecnico().getTecnicoLogado().getOrdem().getClienteId()));
-            this.idOrdem.setText(String.valueOf(DAO.getTecnico().getTecnicoLogado().getOrdem().getOrdemId()));
-            this.statusOrdem.setText(String.valueOf(DAO.getTecnico().getTecnicoLogado().getOrdem().getStatus()));
-            this.data.setText(DAO.getTecnico().getTecnicoLogado().getOrdem().getData());
+            if(DAO.getTecnico().getTecnicoLogado().getOrdem() == null){
+                this.nomeCliente.setText("");
+                this.idCliente.setText("");
+                this.idOrdem.setText("");
+                this.statusOrdem.setText("");
+                this.data.setText("");
+            }else {
+                this.nomeCliente.setText(DAO.getTecnico().getTecnicoLogado().getOrdem().getNomeCliente());
+                this.idCliente.setText(String.valueOf(DAO.getTecnico().getTecnicoLogado().getOrdem().getClienteId()));
+                this.idOrdem.setText(String.valueOf(DAO.getTecnico().getTecnicoLogado().getOrdem().getOrdemId()));
+                this.statusOrdem.setText(String.valueOf(DAO.getTecnico().getTecnicoLogado().getOrdem().getStatus()));
+                this.data.setText(DAO.getTecnico().getTecnicoLogado().getOrdem().getData());
+            }
         }catch (Exception e){
 
         }
@@ -144,7 +160,7 @@ public class Maincontroller implements Initializable {
         if (DAO.getOrdem().getOrdens() != null) {
             for (int i = 0; i < DAO.getOrdem().getOrdens().size(); i++) {
                 //Aqui verifica se a ordem não possui técnico
-                if (DAO.getOrdem().getOrdens().get(i).getTecnicoId() == -1) {
+                if (DAO.getOrdem().getOrdens().get(i).getTecnicoId() == -1 && DAO.getTecnico().getTecnicoLogado().getOrdem() == null) {
                     //Aqui eu vinculo ordem a técnico
                     Tecnico tecnico = DAO.getTecnico().buscarPorId(Integer.parseInt(this.idTecnico.getText()));
                     tecnico.setOrdem(DAO.getOrdem().getOrdens().get(i));
