@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+
+<AnchorPane prefHeight="680.0" prefWidth="1300.0" style="-fx-background-color: f5f5f5;" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.FaturaController">
+   <children>
+      <HBox layoutY="90.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #8EA399;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="476.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <VBox prefHeight="490.0" prefWidth="696.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <ScrollPane prefHeight="570.0" prefWidth="696.0" VBox.vgrow="ALWAYS">
+                     <content>
+                        <GridPane fx:id="gridContainer">
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+         </children>
+         <effect>
+            <DropShadow blurType="TWO_PASS_BOX" height="47.379999999999995" radius="27.5875" width="64.97">
+               <color>
+                  <Color red="0.007456140127032995" blue="0.44736841320991516" />
+               </color>
+            </DropShadow>
+         </effect>
+      </HBox>
+      <HBox fillHeight="false" maxHeight="135.0" maxWidth="1300.0" minHeight="50.0" minWidth="1200.0" prefHeight="91.0" prefWidth="1300.0" style="-fx-background-color: #294a58;" AnchorPane.bottomAnchor="588.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="home" mnemonicParsing="false" onAction="#homeOnAction" prefHeight="48.0" prefWidth="105.0" styleClass="Button2" text="Home" textFill="#294a58">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icone-casa.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#estoqueOnAction" onMouseEntered="#onMouseEntered" prefHeight="48.0" prefWidth="105.0" styleClass="Button2" text="Estoque" textFill="#294a58">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icone-caixa.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#clientesOnAction" prefHeight="48.0" prefWidth="105.0" styleClass="Button2" text="Clientes" textFill="#294a58">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icone-clientes.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#faturaOnAction" prefHeight="48.0" prefWidth="122.0" styleClass="Button2" text="Fatura">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="36.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icone-peca.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#ordemOnAction" prefHeight="48.0" prefWidth="105.0" styleClass="Button2" text="Ordens" textFill="#294a58">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icone-ordem.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="sair" mnemonicParsing="false" onAction="#sairOnAction" prefHeight="48.0" prefWidth="105.0" styleClass="Button2" text="Sair" textFill="#294a58">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icone-sair.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="650.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

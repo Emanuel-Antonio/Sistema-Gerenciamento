@@ -72,7 +72,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#servicoOnAction" prefHeight="48.0" prefWidth="122.0" styleClass="Button2" text="Serviço">
+            <Button mnemonicParsing="false" onAction="#faturaOnAction" prefHeight="48.0" prefWidth="122.0" styleClass="Button2" text="Fatura">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
@@ -122,9 +122,9 @@
             </ImageView>
             <HBox prefHeight="30.0" prefWidth="354.0">
                <children>
-                  <Label fx:id="adm" prefHeight="0.0" prefWidth="114.0" text="Administrador" textFill="#100525" visible="false">
+                  <Label fx:id="adm" alignment="TOP_CENTER" prefHeight="27.0" prefWidth="393.0" text="Administrador" textFill="#100525" underline="true" visible="false">
                      <HBox.margin>
-                        <Insets left="130.0" />
+                        <Insets />
                      </HBox.margin>
                      <font>
                         <Font size="18.0" />
@@ -134,10 +134,13 @@
             </HBox>
             <HBox prefHeight="6.0" prefWidth="354.0">
                <children>
-                  <Label prefHeight="4.0" prefWidth="38.0" text="Nome: ">
+                  <Label prefHeight="27.0" prefWidth="61.0" text="Nome: ">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
                   </Label>
                   <Label fx:id="nomeTecnico" />
                </children>
@@ -148,6 +151,9 @@
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
                   </Label>
                   <Label fx:id="email" />
                </children>
@@ -158,6 +164,9 @@
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
                   </Label>
                   <Label fx:id="idTecnico" />
                </children>

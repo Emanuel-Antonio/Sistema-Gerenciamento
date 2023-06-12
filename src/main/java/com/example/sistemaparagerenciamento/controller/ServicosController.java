@@ -1,7 +1,7 @@
 package com.example.sistemaparagerenciamento.controller;
 
 import com.example.sistemaparagerenciamento.Main;
-import com.example.sistemaparagerenciamento.Mylistener3;
+import com.example.sistemaparagerenciamento.Mylistener;
 import com.example.sistemaparagerenciamento.dao.DAO;
 import com.example.sistemaparagerenciamento.model.CategoriaServico;
 import com.example.sistemaparagerenciamento.model.Peca;
@@ -12,10 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
@@ -23,6 +20,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import static javafx.scene.paint.Color.rgb;
 
 public class ServicosController implements Initializable {
 
@@ -38,7 +37,7 @@ public class ServicosController implements Initializable {
     @FXML
     private GridPane gridContainer;
 
-    private Mylistener3 mylistener3;
+    private Mylistener mylistener3;
 
     private List<Servico> servicos = new ArrayList<>();
 
@@ -70,34 +69,7 @@ public class ServicosController implements Initializable {
     private Button salvarCadastro;
 
     @FXML
-    void clientesOnAction(ActionEvent event) {
-        Main.telaScreen("clientes");
-    }
-
-    @FXML
-    void estoqueOnAction(ActionEvent event) {
-        Main.telaScreen("estoque");
-    }
-
-    @FXML
-    void homeOnAction(ActionEvent event) {
-        Main.telaScreen("paginaprincipal");
-
-    }
-
-    @FXML
-    void sairOnAction(ActionEvent event) {
-        DAO.getTecnico().setTecnicoLogado(null);
-        Main.telaScreen("login");
-    }
-
-    @FXML
-    void servicoOnAction(ActionEvent event) {
-        Main.telaScreen("servico");
-    }
-
-    @FXML
-    void ordemOnAction(ActionEvent event) {
+    void voltarOnAction(ActionEvent event) {
         Main.telaScreen("ordens");
     }
 
@@ -116,10 +88,11 @@ public class ServicosController implements Initializable {
         servicos.clear();
         servicos.addAll(getData());
         if(servicos.size()>0){
-            mylistener3 = new Mylistener3() {
+            mylistener3 = new Mylistener() {
                 @Override
-                public void onClickListener3(Servico servico) {
-                    setChosenCliente(servico);
+                public void onClickListener(Object servico) {
+                    Servico servico1 = (Servico) servico;
+                    setChosenCliente(servico1);
                 }
             };
         }
@@ -173,18 +146,24 @@ public class ServicosController implements Initializable {
     @FXML
     void excluirOnAction(ActionEvent event) {
         try{
-            Peca peca = DAO.getPeca().buscarPorNome(inputPeca.getText());
-            peca.setQnt(DAO.getPeca().buscarPorNome(inputPeca.getText()).getQnt() + 1);
+            if(DAO.getServico().buscarPorId(Integer.parseInt(this.inputServicoId.getText())).getOrdemId() != -1) {
+                Peca peca = DAO.getPeca().buscarPorNome(inputPeca.getText());
+                peca.setQnt(DAO.getPeca().buscarPorNome(inputPeca.getText()).getQnt() + 1);
 
-            DAO.getPeca().atualizar(peca);
+                DAO.getPeca().atualizar(peca);
 
-            DAO.getServico().deletar(DAO.getServico().buscarPorId(Integer.parseInt(inputServicoId.getText())));
-            this.inputServicoId.setText("");
-            this.inputDescricao.setText("");
-            this.inputCategoria.setValue("");
-            this.inputOrdemId.setText("");
-            this.inputValor.setText("");
-            this.inputPeca.setText("");
+                DAO.getServico().deletar(DAO.getServico().buscarPorId(Integer.parseInt(inputServicoId.getText())));
+                this.inputServicoId.setText("");
+                this.inputDescricao.setText("");
+                this.inputCategoria.setValue("");
+                this.inputOrdemId.setText("");
+                this.inputValor.setText("");
+                this.inputPeca.setText("");
+
+            }else{
+                this.nomeTela.setTextFill(rgb(255,0,0));
+                this.nomeTela.setText("Esse serviço não pode ser excluido!");
+            }
             initialize();
         }
         catch(Exception e){

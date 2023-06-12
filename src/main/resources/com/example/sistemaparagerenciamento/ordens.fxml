@@ -56,7 +56,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#servicoOnAction" prefHeight="48.0" prefWidth="122.0" styleClass="Button2" text="Serviço">
+            <Button mnemonicParsing="false" onAction="#faturaOnAction" prefHeight="48.0" prefWidth="122.0" styleClass="Button2" text="Fatura">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
@@ -125,9 +125,9 @@
                   <Insets left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
                <children>
-                  <Label fx:id="nomeTela" alignment="TOP_LEFT" contentDisplay="TOP" textFill="WHITE">
+                  <Label fx:id="nomeTela" alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="17.0" prefWidth="478.0" textFill="WHITE">
                      <HBox.margin>
-                        <Insets left="180.0" />
+                        <Insets />
                      </HBox.margin>
                   </Label>
                </children>
@@ -224,6 +224,11 @@
             <Button fx:id="salvarCadastro" layoutX="360.0" layoutY="228.0" mnemonicParsing="false" onAction="#salvarCadastroOnAction" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" stylesheets="@styles/style.css" text="Salvar" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="10.0" left="350.0" top="-25.0" />
+               </VBox.margin>
+            </Button>
+            <Button layoutX="360.0" layoutY="228.0" mnemonicParsing="false" onAction="#servicoOnAction" prefHeight="25.0" prefWidth="63.0" styleClass="Button1" stylesheets="@styles/style.css" text="Servicos" textFill="WHITE">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="25.0" top="-35.0" />
                </VBox.margin>
             </Button>
          </children>

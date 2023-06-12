@@ -1,6 +1,6 @@
 package com.example.sistemaparagerenciamento.controller;
 
-import com.example.sistemaparagerenciamento.Mylistener2;
+import com.example.sistemaparagerenciamento.Mylistener;
 import com.example.sistemaparagerenciamento.model.Ordem;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -12,7 +12,7 @@ public class CardOrdemController {
     @FXML
     private ImageView img;
 
-    private Mylistener2 mylistener2;
+    private Mylistener mylistener2;
 
     private Ordem ordem;
 
@@ -35,10 +35,10 @@ public class CardOrdemController {
 
     @FXML
     void click(MouseEvent event) {
-        mylistener2.onClickListener2(ordem);
+        mylistener2.onClickListener(ordem);
     }
 
-    public void setData(Ordem ordem, Mylistener2 mylistener2){
+    public void setData(Ordem ordem, Mylistener mylistener2){
         this.ordem = ordem;
         this.mylistener2 = mylistener2;
         this.avaliacao.setText(ordem.getAvaliacaoFinal());

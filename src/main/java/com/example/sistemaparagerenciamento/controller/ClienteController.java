@@ -1,7 +1,7 @@
 package com.example.sistemaparagerenciamento.controller;
 
 import com.example.sistemaparagerenciamento.Main;
-import com.example.sistemaparagerenciamento.Mylistener1;
+import com.example.sistemaparagerenciamento.Mylistener;
 import com.example.sistemaparagerenciamento.dao.DAO;
 import com.example.sistemaparagerenciamento.model.Cliente;
 
@@ -67,7 +67,7 @@ public class ClienteController implements Initializable {
 
     private List<Cliente> clientes = new ArrayList<>();
 
-    private Mylistener1 mylistener1;
+    private Mylistener mylistener1;
 
     @FXML
     private Label clienteId;
@@ -86,10 +86,11 @@ public class ClienteController implements Initializable {
         clientes.clear();
         clientes.addAll(getData());
         if(clientes.size()>0){
-            mylistener1 = new Mylistener1() {
+            mylistener1 = new Mylistener() {
                 @Override
-                public void onClickListener1(Cliente cliente) {
-                    setChosenCliente(cliente);
+                public void onClickListener(Object cliente) {
+                    Cliente cliente1 = (Cliente) cliente;
+                    setChosenCliente(cliente1);
                 }
             };
         }
@@ -236,8 +237,8 @@ public class ClienteController implements Initializable {
     }
 
     @FXML
-    void servicoOnAction(ActionEvent event) {
-        Main.telaScreen("servico");
+    void faturaOnAction(ActionEvent event) {
+        Main.telaScreen("fatura");
     }
 
     @FXML

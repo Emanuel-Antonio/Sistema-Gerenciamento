@@ -1,7 +1,7 @@
 package com.example.sistemaparagerenciamento.controller;
 
 import com.example.sistemaparagerenciamento.Main;
-import com.example.sistemaparagerenciamento.Mylistener2;
+import com.example.sistemaparagerenciamento.Mylistener;
 import com.example.sistemaparagerenciamento.dao.DAO;
 import com.example.sistemaparagerenciamento.model.*;
 
@@ -38,7 +38,7 @@ public class OrdemController implements Initializable {
 
     private List<Ordem> ordens = new ArrayList<>();
 
-    private Mylistener2 mylistener2;
+    private Mylistener mylistener2;
 
     @FXML
     private Label nomeTela;
@@ -97,8 +97,16 @@ public class OrdemController implements Initializable {
         this.nomeTela.setTextFill(rgb(255, 255, 255));
     }
 
+    @FXML
+    void faturaOnAction(ActionEvent event) {
+        Main.telaScreen("fatura");
+        this.nomeTela.setTextFill(rgb(255, 255, 255));
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.nomeTela.setText("Cadastro");
+        this.nomeTela.setTextFill(rgb(255,255,255));
         this.inputStatus.getItems().addAll("PAGAMENTO", "FECHADA", "CANCELADA", "ANDAMENTO");
         this.inputAvaliacao.getItems().addAll("","Ótimo", "Bom", "Médio", "Ruim", "Péssimo");
         initialize();
@@ -111,10 +119,11 @@ public class OrdemController implements Initializable {
         ordens.clear();
         ordens.addAll(getData());
         if(ordens.size()>0){
-            mylistener2 = new Mylistener2() {
+            mylistener2 = new Mylistener() {
                 @Override
-                public void onClickListener2(Ordem ordem) {
-                    setChosenCliente(ordem);
+                public void onClickListener(Object ordem) {
+                    Ordem ordem1 = (Ordem) ordem;
+                    setChosenCliente(ordem1);
                 }
             };
         }
@@ -192,49 +201,55 @@ public class OrdemController implements Initializable {
     @FXML
     void salvarAtualizacaoOnAction(ActionEvent event) {
         try {
-            this.inputIdCliente.setDisable(true);
-            Ordem ordem = DAO.getOrdem().getOrdens().get(Integer.parseInt(this.inputIdOrdem.getText()));
+            if(DAO.getOrdem().buscarPorId(Integer.parseInt(this.inputIdOrdem.getText())).getTecnicoId() == -1 || DAO.getOrdem().buscarPorId(Integer.parseInt(this.inputIdOrdem.getText())).getTecnicoId() == DAO.getTecnico().getTecnicoLogado().getTecnicoId() || DAO.getTecnico().getTecnicoLogado().isAdm()) {
+                this.inputIdCliente.setDisable(true);
+                Ordem ordem = DAO.getOrdem().getOrdens().get(Integer.parseInt(this.inputIdOrdem.getText()));
 
-            if (this.inputStatus.getValue().equals("ANDAMENTO")) {
-                ordem.setStatus(StatusOrdem.ANDAMENTO);
-            } else if (this.inputStatus.getValue().equals("FECHADA")) {
-                ordem.setStatus(StatusOrdem.FECHADA);
-                Tecnico tecnico = DAO.getTecnico().getTecnicoLogado();
-                tecnico.setOrdem(null);
-                DAO.getTecnico().atualizar(tecnico);
-            } else if (this.inputStatus.getValue().equals("CANCELADA")) {
-                ordem.setStatus(StatusOrdem.CANCELADA);
-            } else if (this.inputStatus.getValue().equals("PAGAMENTO")) {
-                ordem.setStatus(StatusOrdem.PAGAMENTO);
-            }
-
-            if (this.inputStatus.getValue().equals("ANDAMENTO") && existeServicoId(inputIdServico.getText()) && DAO.getServico().buscarPorId(Integer.parseInt(inputIdServico.getText())).getOrdemId() == -1) {
-                if (DAO.getServico().buscarPorId(Integer.parseInt(inputIdServico.getText())).getOrdemId() == -1) {
-                    List<Servico> servicos = DAO.getOrdem().getOrdens().get(Integer.parseInt(this.inputIdOrdem.getText())).getServicos();
-                    servicos.add(DAO.getServico().buscarPorId(Integer.parseInt(this.inputIdServico.getText())));
-
-                    ordem.setServicos(servicos);
-                    Servico servico = DAO.getServico().buscarPorId(Integer.parseInt(inputIdServico.getText()));
-                    servico.setOrdemId(DAO.getOrdem().buscarPorId(Integer.parseInt(this.inputIdOrdem.getText())).getOrdemId());
-                    DAO.getServico().atualizar(servico);
-
+                if (this.inputStatus.getValue().equals("ANDAMENTO")) {
+                    ordem.setStatus(StatusOrdem.ANDAMENTO);
+                } else if (this.inputStatus.getValue().equals("FECHADA")) {
+                    ordem.setStatus(StatusOrdem.FECHADA);
+                    Tecnico tecnico = DAO.getTecnico().getTecnicoLogado();
+                    tecnico.setOrdem(null);
+                    DAO.getTecnico().atualizar(tecnico);
+                } else if (this.inputStatus.getValue().equals("CANCELADA")) {
+                    ordem.setStatus(StatusOrdem.CANCELADA);
+                } else if (this.inputStatus.getValue().equals("PAGAMENTO")) {
+                    ordem.setStatus(StatusOrdem.PAGAMENTO);
                 }
-            } else if (this.inputStatus.getValue().equals("FECHADA")) {
-                if (this.inputAvaliacao.getValue() != null) {
-                    ordem.setAvaliacaoFinal(this.inputAvaliacao.getValue());
+
+                if (this.inputStatus.getValue().equals("ANDAMENTO") && existeServicoId(inputIdServico.getText()) && DAO.getServico().buscarPorId(Integer.parseInt(inputIdServico.getText())).getOrdemId() == -1) {
+                    if (DAO.getServico().buscarPorId(Integer.parseInt(inputIdServico.getText())).getOrdemId() == -1) {
+                        List<Servico> servicos = DAO.getOrdem().getOrdens().get(Integer.parseInt(this.inputIdOrdem.getText())).getServicos();
+                        servicos.add(DAO.getServico().buscarPorId(Integer.parseInt(this.inputIdServico.getText())));
+
+                        ordem.setServicos(servicos);
+                        Servico servico = DAO.getServico().buscarPorId(Integer.parseInt(inputIdServico.getText()));
+                        servico.setOrdemId(DAO.getOrdem().buscarPorId(Integer.parseInt(this.inputIdOrdem.getText())).getOrdemId());
+                        DAO.getServico().atualizar(servico);
+
+                    }
+                } else if (this.inputStatus.getValue().equals("FECHADA")) {
+                    if (this.inputAvaliacao.getValue() != null) {
+                        ordem.setAvaliacaoFinal(this.inputAvaliacao.getValue());
+                    }
+                } else {
+                    this.nomeTela.setTextFill(rgb(255, 0, 0));
+                    this.nomeTela.setText("Dados Inválidos!");
                 }
+                DAO.getOrdem().atualizar(ordem);
+                initialize();
+                this.inputIdOrdem.setText("");
+                this.inputIdCliente.setText("");
+                this.inputAvaliacao.setValue("");
+                this.inputStatus.setValue("");
+                this.inputIdServico.setText("");
+                this.inputNomeCliente.setText("");
             }else{
-                this.nomeTela.setTextFill(rgb(255, 0, 0));
-                this.nomeTela.setText("Dados Inválidos!");
+                this.nomeTela.setText("Você não tem permissão para realizar essa ação!");
+                this.nomeTela.setTextFill(rgb(255,0,0));
+                this.nomeTela.setVisible(true);
             }
-            DAO.getOrdem().atualizar(ordem);
-            initialize();
-            this.inputIdOrdem.setText("");
-            this.inputIdCliente.setText("");
-            this.inputAvaliacao.setValue("");
-            this.inputStatus.setValue("");
-            this.inputIdServico.setText("");
-            this.inputNomeCliente.setText("");
         }catch (Exception e){
 
         }
@@ -283,22 +298,37 @@ public class OrdemController implements Initializable {
     }
     @FXML
     void excluirOnAction(ActionEvent event) {
-        for(int i = 0; i < DAO.getServico().getServicos().size(); i++){
-            if(DAO.getServico().getServicos().get(i).getOrdemId() == Integer.parseInt(this.inputIdOrdem.getText()) ){
-                Servico servico = DAO.getServico().getServicos().get(i);
-                servico.setOrdemId(-1);
-                DAO.getServico().atualizar(servico);
+        if(DAO.getOrdem().buscarPorId(Integer.parseInt(this.inputIdOrdem.getText())).getTecnicoId() == -1 || DAO.getOrdem().buscarPorId(Integer.parseInt(this.inputIdOrdem.getText())).getTecnicoId() == DAO.getTecnico().getTecnicoLogado().getTecnicoId() || DAO.getTecnico().getTecnicoLogado().isAdm()){
+                for (int i = 0; i < DAO.getServico().getServicos().size(); i++) {
+                    if (DAO.getServico().getServicos().get(i).getOrdemId() == Integer.parseInt(this.inputIdOrdem.getText())) {
+                        Servico servico = DAO.getServico().getServicos().get(i);
+                        servico.setOrdemId(-1);
+                        DAO.getServico().atualizar(servico);
+                    }
+                }
+            if(DAO.getOrdem().buscarPorId(Integer.parseInt(this.inputIdOrdem.getText())).getTecnicoId() != -1){
+                Tecnico tecnico = DAO.getTecnico().buscarPorId(Integer.parseInt(this.inputIdOrdem.getText()));
+                tecnico.setOrdem(null);
+                DAO.getTecnico().atualizar(tecnico);
             }
+            for(int i = 0; i < DAO.getOrdem().buscarPorId(Integer.parseInt(this.inputIdOrdem.getText())).getServicos().size(); i++){
+                DAO.getServico().deletar(DAO.getOrdem().buscarPorId(Integer.parseInt(this.inputIdOrdem.getText())).getServicos().get(i));
+            }
+                DAO.getOrdem().deletar(Integer.parseInt(this.inputIdOrdem.getText()));
+
+                this.nomeTela.setTextFill(rgb(255, 255, 255));
+                this.inputIdOrdem.setText("");
+                this.inputIdCliente.setText("");
+                this.inputAvaliacao.setValue("");
+                this.inputStatus.setValue("");
+                this.inputIdServico.setText("");
+                this.inputNomeCliente.setText("");
+        }else {
+            this.nomeTela.setText("Você não tem permissão para realizar essa ação!");
+            this.nomeTela.setTextFill(rgb(255,0,0));
+            this.nomeTela.setVisible(true);
         }
-        DAO.getOrdem().deletar(Integer.parseInt(this.inputIdOrdem.getText()));
         initialize();
-        this.nomeTela.setTextFill(rgb(255, 255, 255));
-        this.inputIdOrdem.setText("");
-        this.inputIdCliente.setText("");
-        this.inputAvaliacao.setValue("");
-        this.inputStatus.setValue("");
-        this.inputIdServico.setText("");
-        this.inputNomeCliente.setText("");
     }
 
     @FXML

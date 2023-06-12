@@ -181,7 +181,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#servicoOnAction" prefHeight="48.0" prefWidth="122.0" styleClass="Button2" text="Serviço">
+            <Button mnemonicParsing="false" onAction="#faturaOnAction" prefHeight="48.0" prefWidth="122.0" styleClass="Button2" text="Fatura">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>

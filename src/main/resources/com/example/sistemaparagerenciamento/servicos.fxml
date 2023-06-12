@@ -22,77 +22,17 @@
    <children>
       <HBox fillHeight="false" maxHeight="135.0" maxWidth="1300.0" minHeight="50.0" minWidth="1200.0" prefHeight="91.0" prefWidth="1300.0" style="-fx-background-color: #294a58;" AnchorPane.bottomAnchor="588.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="home" mnemonicParsing="false" onAction="#homeOnAction" prefHeight="48.0" prefWidth="105.0" styleClass="Button2" text="Home" textFill="#294a58">
+            <Button mnemonicParsing="false" onAction="#voltarOnAction" prefHeight="48.0" prefWidth="105.0" styleClass="Button2" text="Voltar" textFill="#294a58">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/icone-casa.png" />
+                        <Image url="@img/icone-volta.png" />
                      </image>
                   </ImageView>
                </graphic>
-            </Button>
-            <Button fx:id="estoque" mnemonicParsing="false" onAction="#estoqueOnAction" prefHeight="48.0" prefWidth="105.0" styleClass="Button2" text="Estoque" textFill="#294a58">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/icone-caixa.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <HBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </HBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#clientesOnAction" prefHeight="48.0" prefWidth="105.0" styleClass="Button2" text="Clientes" textFill="#294a58">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/icone-clientes.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <HBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </HBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#servicoOnAction" onMouseEntered="#onMouseEntered" prefHeight="48.0" prefWidth="122.0" styleClass="Button2" text="Serviço">
-               <HBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </HBox.margin>
-               <graphic>
-                  <ImageView fitHeight="36.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/icone-peca.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#ordemOnAction" prefHeight="48.0" prefWidth="105.0" styleClass="Button2" text="Ordens" textFill="#294a58">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/icone-ordem.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <HBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </HBox.margin>
-            </Button>
-            <Button fx:id="sair" mnemonicParsing="false" onAction="#sairOnAction" prefHeight="48.0" prefWidth="105.0" styleClass="Button2" text="Sair" textFill="#294a58">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/icone-sair.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <HBox.margin>
-                  <Insets bottom="5.0" left="650.0" right="5.0" top="5.0" />
-               </HBox.margin>
             </Button>
          </children>
       </HBox>

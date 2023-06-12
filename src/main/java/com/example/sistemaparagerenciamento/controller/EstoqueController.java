@@ -109,9 +109,9 @@ public class EstoqueController implements Initializable{
     }
 
     @FXML
-    void servicoOnAction(ActionEvent event) {
+    void faturaOnAction(ActionEvent event) {
 
-        Main.telaScreen("servico");
+        Main.telaScreen("fatura");
 
     }
 
@@ -142,9 +142,10 @@ public class EstoqueController implements Initializable{
         if(pecas.size()>0){
             mylistener = new Mylistener() {
                 @Override
-                public void onClickListener(Peca peca) {
+                public void onClickListener(Object peca) {
 
-                    setChosenPeca(peca);
+                    Peca peca1 = (Peca) peca;
+                    setChosenPeca(peca1);
                 }
             };
         }

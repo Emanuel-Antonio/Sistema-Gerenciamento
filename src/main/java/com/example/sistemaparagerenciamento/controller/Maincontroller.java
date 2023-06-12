@@ -111,6 +111,8 @@ public class Maincontroller implements Initializable {
         try {
             if (DAO.getTecnico().getTecnicoLogado().isAdm()) {
                 this.adm.setVisible(true);
+            }else{
+                this.adm.setVisible(false);
             }
             this.nomeTecnico.setText(DAO.getTecnico().getTecnicoLogado().getNome());
             this.email.setText(DAO.getTecnico().getTecnicoLogado().getEmail());
@@ -151,8 +153,8 @@ public class Maincontroller implements Initializable {
     }
 
     @FXML
-    void servicoOnAction(ActionEvent event) {
-        Main.telaScreen("servico");
+    void faturaOnAction(ActionEvent event) {
+        Main.telaScreen("fatura");
     }
 
     @FXML

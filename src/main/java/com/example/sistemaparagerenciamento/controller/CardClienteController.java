@@ -1,6 +1,6 @@
 package com.example.sistemaparagerenciamento.controller;
 
-import com.example.sistemaparagerenciamento.Mylistener1;
+import com.example.sistemaparagerenciamento.Mylistener;
 import com.example.sistemaparagerenciamento.model.Cliente;
 
 import javafx.fxml.FXML;
@@ -22,16 +22,16 @@ public class CardClienteController {
     @FXML
     private Label telefone;
 
-    private Mylistener1 mylistener1;
+    private Mylistener mylistener1;
 
     private Cliente cliente;
 
     @FXML
     void click(MouseEvent event) {
-        mylistener1.onClickListener1(cliente);
+        mylistener1.onClickListener(cliente);
     }
 
-    public void setData(Cliente cliente, Mylistener1 mylistener1){
+    public void setData(Cliente cliente, Mylistener mylistener1){
         this.cliente = cliente;
         this.mylistener1 = mylistener1;
         telefone.setText(cliente.getTelefone());
