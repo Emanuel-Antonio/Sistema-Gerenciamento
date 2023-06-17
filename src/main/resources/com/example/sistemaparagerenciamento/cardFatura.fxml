@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMousePressed="#click" prefHeight="193.0" prefWidth="164.0" styleClass="Button" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.CardFaturaController">
+   <children>
+      <ImageView fx:id="img" fitHeight="130.0" fitWidth="148.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/icone-peca.png" />
+         </image>
+         <VBox.margin>
+            <Insets left="15.0" />
+         </VBox.margin>
+      </ImageView>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label text="Id Ordem: " textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="idOrdem" textFill="WHITE" />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="164.0">
+         <children>
+            <Label text="Valor Total: " textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="valorTotal" textFill="WHITE" />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label text="Valor Pago:  " textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="valorPago" textFill="WHITE" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

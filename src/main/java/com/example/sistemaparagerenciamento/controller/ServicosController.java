@@ -92,7 +92,7 @@ public class ServicosController implements Initializable {
                 @Override
                 public void onClickListener(Object servico) {
                     Servico servico1 = (Servico) servico;
-                    setChosenCliente(servico1);
+                    setChosenServico(servico1);
                 }
             };
         }
@@ -126,7 +126,7 @@ public class ServicosController implements Initializable {
         }
     }
 
-    public void setChosenCliente(Servico servico){
+    public void setChosenServico(Servico servico){
         this.inputCategoria.setValue(servico.getCategoria().toString());
         this.inputOrdemId.setText(String.valueOf(servico.getOrdemId()));
         this.inputValor.setText(String.valueOf(servico.getValor()));

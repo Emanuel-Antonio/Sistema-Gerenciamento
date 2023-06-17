@@ -24,4 +24,8 @@ public interface OrdemDAO extends CRUD<Ordem> {
      */
      void resetar();
 
-}
+    Ordem buscarPorId(int id);
+
+    void atualizar(Ordem ordem);
+
+    }

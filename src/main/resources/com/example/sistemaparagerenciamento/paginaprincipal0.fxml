@@ -16,7 +16,7 @@
 
 <AnchorPane onMouseEntered="#onMouseEntered" prefHeight="680.0" prefWidth="1300.0" style="-fx-background-color: f5f5f5;" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.Maincontroller">
    <children>
-      <TableView fx:id="tabelaOrdens" layoutX="754.0" layoutY="325.0" prefHeight="265.0" prefWidth="570.0" styleClass="tabela" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="88.0">
+      <TableView fx:id="tabelaOrdens" layoutX="754.0" layoutY="325.0" prefHeight="265.0" prefWidth="570.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="88.0">
          <columns>
             <TableColumn fx:id="ordemIdTabela" prefWidth="115.0" text="OrdemId" />
             <TableColumn fx:id="clienteIdTabela" prefWidth="245.0" text="ClienteId" />
@@ -142,7 +142,10 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="nomeTecnico" />
+                  <Label fx:id="nomeTecnico">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
                </children>
             </HBox>
             <HBox prefHeight="11.0" prefWidth="354.0">
@@ -155,7 +158,10 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="email" />
+                  <Label fx:id="email">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
                </children>
             </HBox>
             <HBox prefHeight="30.0" prefWidth="354.0">
@@ -168,7 +174,10 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="idTecnico" />
+                  <Label fx:id="idTecnico">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
                </children>
             </HBox>
             <HBox prefHeight="0.0" prefWidth="354.0">
@@ -190,7 +199,10 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="nomeCliente" />
+                  <Label fx:id="nomeCliente">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
                </children>
                <VBox.margin>
                   <Insets left="30.0" />
@@ -206,7 +218,10 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="idOrdem" />
+                  <Label fx:id="idOrdem">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
                   <Label text="Id do Cliente: ">
                      <HBox.margin>
                         <Insets left="70.0" />
@@ -215,7 +230,10 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="idCliente" />
+                  <Label fx:id="idCliente">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
                </children>
             </HBox>
             <HBox prefHeight="30.0" prefWidth="354.0">
@@ -228,7 +246,10 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="statusOrdem" />
+                  <Label fx:id="statusOrdem">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
                </children>
             </HBox>
             <HBox prefHeight="5.0" prefWidth="354.0">
@@ -241,7 +262,10 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="data" />
+                  <Label fx:id="data">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
                </children>
             </HBox>
          </children>

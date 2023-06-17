@@ -91,4 +91,8 @@ public class PagamentoListImpl implements PagamentoDAO {
         this.novoId = 0;
     }
 
+    public List<Pagamento> getPagamentos() {
+        return this.pagamentos;
+    }
+
 }

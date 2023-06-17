@@ -2,6 +2,8 @@ package com.example.sistemaparagerenciamento.dao.pagamento;
 
 import com.example.sistemaparagerenciamento.model.Pagamento;
 
+import java.util.List;
+
 /**
  * Interface PagamentoDAO que define m&eacute;todos que devem implementados
  *
@@ -45,5 +47,7 @@ public interface PagamentoDAO {
      * M&eacute;todo que reseta a lista de pagamentos
      */
     void resetar();
+
+    List<Pagamento> getPagamentos();
 
 }

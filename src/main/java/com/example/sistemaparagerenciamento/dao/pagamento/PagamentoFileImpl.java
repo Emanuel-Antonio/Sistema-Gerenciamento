@@ -1,6 +1,7 @@
 package com.example.sistemaparagerenciamento.dao.pagamento;
 
 import com.example.sistemaparagerenciamento.model.Pagamento;
+import com.example.sistemaparagerenciamento.model.Peca;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -146,5 +147,9 @@ public class PagamentoFileImpl implements PagamentoDAO{
         this.pagamentos = new ArrayList<>();
         this.novoId = 0;
         salvar(this.pagamentos);
+    }
+
+    public List<Pagamento> getPagamentos() {
+        return this.pagamentos;
     }
 }

@@ -111,7 +111,7 @@ public class OrdemFileImpl implements OrdemDAO{
     @Override
     public void atualizar(Ordem ordem) {
         for (int i = 0; i < this.ordens.size(); i++) {
-            if (this.ordens.get(i).equals(ordem)) {
+            if (this.ordens.get(i).getOrdemId() == ordem.getOrdemId()) {
                 this.ordens.set(i, ordem);
             }
         }

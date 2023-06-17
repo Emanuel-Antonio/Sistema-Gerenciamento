@@ -1,5 +1,6 @@
 package com.example.sistemaparagerenciamento.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
  * @author Emanuel Antonio Lima Pereira e &Eacute;merson Rodrigo Lima Pereira
  * @version 1.0
  */
-public class Fatura {
+public class Fatura implements Serializable {
 
     private double valorTotal;
     private List<Pagamento> pagamentos;

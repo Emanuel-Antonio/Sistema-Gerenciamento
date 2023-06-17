@@ -123,7 +123,7 @@ public class OrdemController implements Initializable {
                 @Override
                 public void onClickListener(Object ordem) {
                     Ordem ordem1 = (Ordem) ordem;
-                    setChosenCliente(ordem1);
+                    setChosenOrdem(ordem1);
                 }
             };
         }
@@ -157,7 +157,7 @@ public class OrdemController implements Initializable {
         }
     }
 
-    public void setChosenCliente(Ordem ordem){
+    public void setChosenOrdem(Ordem ordem){
         this.inputNomeCliente.setText(ordem.getNomeCliente());
         this.inputIdCliente.setText(String.valueOf(ordem.getClienteId()));
         this.inputAvaliacao.setValue(ordem.getAvaliacaoFinal());
@@ -238,6 +238,8 @@ public class OrdemController implements Initializable {
                     this.nomeTela.setText("Dados Inválidos!");
                 }
                 DAO.getOrdem().atualizar(ordem);
+                this.nomeTela.setText("Atualizar");
+                this.nomeTela.setTextFill(rgb(255,255,255));
                 initialize();
                 this.inputIdOrdem.setText("");
                 this.inputIdCliente.setText("");
@@ -292,20 +294,20 @@ public class OrdemController implements Initializable {
                 this.nomeTela.setText("Dados Inválidos!");
             }
 
-            } catch (Exception e) {
+        } catch (Exception e) {
 
         }
     }
     @FXML
     void excluirOnAction(ActionEvent event) {
         if(DAO.getOrdem().buscarPorId(Integer.parseInt(this.inputIdOrdem.getText())).getTecnicoId() == -1 || DAO.getOrdem().buscarPorId(Integer.parseInt(this.inputIdOrdem.getText())).getTecnicoId() == DAO.getTecnico().getTecnicoLogado().getTecnicoId() || DAO.getTecnico().getTecnicoLogado().isAdm()){
-                for (int i = 0; i < DAO.getServico().getServicos().size(); i++) {
-                    if (DAO.getServico().getServicos().get(i).getOrdemId() == Integer.parseInt(this.inputIdOrdem.getText())) {
-                        Servico servico = DAO.getServico().getServicos().get(i);
-                        servico.setOrdemId(-1);
-                        DAO.getServico().atualizar(servico);
-                    }
+            for (int i = 0; i < DAO.getServico().getServicos().size(); i++) {
+                if (DAO.getServico().getServicos().get(i).getOrdemId() == Integer.parseInt(this.inputIdOrdem.getText())) {
+                    Servico servico = DAO.getServico().getServicos().get(i);
+                    servico.setOrdemId(-1);
+                    DAO.getServico().atualizar(servico);
                 }
+            }
             if(DAO.getOrdem().buscarPorId(Integer.parseInt(this.inputIdOrdem.getText())).getTecnicoId() != -1){
                 Tecnico tecnico = DAO.getTecnico().buscarPorId(Integer.parseInt(this.inputIdOrdem.getText()));
                 tecnico.setOrdem(null);
@@ -314,15 +316,15 @@ public class OrdemController implements Initializable {
             for(int i = 0; i < DAO.getOrdem().buscarPorId(Integer.parseInt(this.inputIdOrdem.getText())).getServicos().size(); i++){
                 DAO.getServico().deletar(DAO.getOrdem().buscarPorId(Integer.parseInt(this.inputIdOrdem.getText())).getServicos().get(i));
             }
-                DAO.getOrdem().deletar(Integer.parseInt(this.inputIdOrdem.getText()));
+            DAO.getOrdem().deletar(Integer.parseInt(this.inputIdOrdem.getText()));
 
-                this.nomeTela.setTextFill(rgb(255, 255, 255));
-                this.inputIdOrdem.setText("");
-                this.inputIdCliente.setText("");
-                this.inputAvaliacao.setValue("");
-                this.inputStatus.setValue("");
-                this.inputIdServico.setText("");
-                this.inputNomeCliente.setText("");
+            this.nomeTela.setTextFill(rgb(255, 255, 255));
+            this.inputIdOrdem.setText("");
+            this.inputIdCliente.setText("");
+            this.inputAvaliacao.setValue("");
+            this.inputStatus.setValue("");
+            this.inputIdServico.setText("");
+            this.inputNomeCliente.setText("");
         }else {
             this.nomeTela.setText("Você não tem permissão para realizar essa ação!");
             this.nomeTela.setTextFill(rgb(255,0,0));
