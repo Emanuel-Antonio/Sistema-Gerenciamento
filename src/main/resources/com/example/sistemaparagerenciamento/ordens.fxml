@@ -5,8 +5,11 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,7 +17,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane onMouseEntered="#onMouseEntered" prefHeight="680.0" prefWidth="1300.0" style="-fx-background-color: f5f5f5;" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.OrdemController">
    <children>
@@ -94,7 +97,7 @@
             </Button>
          </children>
       </HBox>
-      <HBox layoutX="10.0" layoutY="100.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #8EA399;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="476.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="100.0">
+      <HBox fx:id="verCardOrdens" layoutX="10.0" layoutY="100.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #8EA399;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="476.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="100.0">
          <children>
             <VBox prefHeight="490.0" prefWidth="696.0" HBox.hgrow="ALWAYS">
                <children>
@@ -110,13 +113,6 @@
                </children>
             </VBox>
          </children>
-         <effect>
-            <DropShadow blurType="TWO_PASS_BOX" height="47.379999999999995" radius="27.5875" width="64.97">
-               <color>
-                  <Color red="0.007456140127032995" blue="0.44736841320991516" />
-               </color>
-            </DropShadow>
-         </effect>
       </HBox>
       <VBox layoutX="22.0" layoutY="114.0" onMouseMoved="#onMouseMoved" prefHeight="284.0" prefWidth="436.0" styleClass="Button3" AnchorPane.bottomAnchor="296.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="840.0" AnchorPane.topAnchor="100.0">
          <children>
@@ -143,7 +139,7 @@
             </HBox>
             <HBox prefHeight="20.0" prefWidth="202.0">
                <children>
-                  <TextField fx:id="inputNomeCliente" disable="true" prefHeight="25.0" prefWidth="440.0">
+                  <TextField fx:id="inputNomeCliente" disable="true" prefHeight="25.0" prefWidth="440.0" promptText="Nome Cliente">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
@@ -171,19 +167,19 @@
             </HBox>
             <HBox prefHeight="27.0" prefWidth="436.0">
                <children>
-                  <TextField fx:id="inputIdCliente" prefHeight="25.0" prefWidth="48.0">
+                  <TextField fx:id="inputIdCliente" prefHeight="25.0" prefWidth="69.0" promptText="Id Cliente">
                      <HBox.margin>
                         <Insets left="5.0" />
                      </HBox.margin>
                   </TextField>
-                  <TextField fx:id="inputIdOrdem" disable="true" prefHeight="25.0" prefWidth="48.0">
+                  <TextField fx:id="inputIdOrdem" disable="true" prefHeight="25.0" prefWidth="67.0" promptText="Id Ordem">
                      <HBox.margin>
-                        <Insets left="100.0" />
+                        <Insets left="80.0" />
                      </HBox.margin>
                   </TextField>
                   <TextField fx:id="inputIdServico" prefHeight="25.0" prefWidth="48.0" promptText="Id:">
                      <HBox.margin>
-                        <Insets left="100.0" />
+                        <Insets left="80.0" />
                      </HBox.margin>
                   </TextField>
                </children>
@@ -231,6 +227,11 @@
                   <Insets bottom="10.0" left="25.0" top="-35.0" />
                </VBox.margin>
             </Button>
+            <Button mnemonicParsing="false" onAction="#gerarRelatorioOnAction" prefHeight="25.0" prefWidth="108.0" styleClass="Button" text="Gerar Relatório" textFill="WHITE">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="170.0" />
+               </VBox.margin>
+            </Button>
          </children>
       </VBox>
       <VBox layoutX="29.0" layoutY="394.0" prefHeight="270.0" prefWidth="443.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="833.0" AnchorPane.topAnchor="394.0">
@@ -252,5 +253,213 @@
             </Button>
          </children>
       </VBox>
+      <HBox fx:id="verRelatorio" layoutX="501.0" layoutY="140.0" prefHeight="533.0" prefWidth="795.0" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="476.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <VBox prefHeight="533.0" prefWidth="797.0" style="-fx-border-color: #ffffff;">
+               <children>
+                  <HBox prefHeight="173.0" prefWidth="795.0">
+                     <children>
+                        <Label prefHeight="74.0" prefWidth="219.0" text="Relatório">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <VBox prefHeight="135.0" prefWidth="330.0">
+                           <children>
+                              <Label text="Data: ">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="270.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox prefHeight="24.0" prefWidth="329.0" />
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Status da Ordem: Finalizada">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Satisfação: ">
+                                       <HBox.margin>
+                                          <Insets left="30.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="avaliacao">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="17.0" prefWidth="322.0">
+                                 <children>
+                                    <Label text="Técnico Responsável: ">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label fx:id="nometecnico">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="40.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="18.0" prefWidth="322.0">
+                                 <children>
+                                    <Label text="Cliente: ">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="nomeCliente">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="16.0" prefWidth="322.0">
+                                 <children>
+                                    <Label text="Endereço: ">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="endereco">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Telefone: ">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="telefone">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="160.0" prefWidth="238.0">
+                           <children>
+                              <HBox prefHeight="15.0" prefWidth="210.0">
+                                 <children>
+                                    <Label fx:id="data" prefHeight="20.0" prefWidth="230.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="27.0" prefWidth="179.0">
+                                 <children>
+                                    <Label text="Valor Total: ">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label fx:id="valorTotal">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="60.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="14.0" prefWidth="182.0">
+                                 <children>
+                                    <Label text="Valor Pago: ">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label fx:id="valorPago">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <TableView fx:id="tabelaServicos" prefHeight="250.0" prefWidth="795.0">
+                     <columns>
+                        <TableColumn fx:id="tipoServicoTabela" prefWidth="260.0" text="Tipo Serviço" />
+                        <TableColumn fx:id="descricaoTabela" prefWidth="379.0" text="Descrição" />
+                        <TableColumn fx:id="valorServicoTabela" prefWidth="155.0" text="Valor" />
+                     </columns>
+                     <VBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </VBox.margin>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </TableView>
+                  <TableView fx:id="tabelaPagamentos" prefHeight="250.0" prefWidth="795.0">
+                     <columns>
+                        <TableColumn fx:id="tipoPagamentoTabela" prefWidth="493.0" text="Tipo Pagamento" />
+                        <TableColumn fx:id="valorPagamentoTabela" prefWidth="247.0" text="Valor" />
+                     </columns>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+               <effect>
+                  <Blend>
+                     <topInput>
+                        <InnerShadow />
+                     </topInput>
+                  </Blend>
+               </effect>
+            </VBox>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

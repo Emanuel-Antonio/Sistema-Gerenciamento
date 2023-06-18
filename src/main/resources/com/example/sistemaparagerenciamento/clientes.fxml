@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,7 +12,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="680.0" prefWidth="1300.0" style="-fx-background-color: f5f5f5;" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.ClienteController">
@@ -34,13 +32,6 @@
                </children>
             </VBox>
          </children>
-         <effect>
-            <DropShadow blurType="TWO_PASS_BOX" height="47.379999999999995" radius="27.5875" width="64.97">
-               <color>
-                  <Color red="0.007456140127032995" blue="0.44736841320991516" />
-               </color>
-            </DropShadow>
-         </effect>
       </HBox>
       <VBox fx:id="tela" layoutX="24.0" layoutY="100.0" prefHeight="284.0" prefWidth="436.0" styleClass="Button3" AnchorPane.bottomAnchor="296.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="840.0" AnchorPane.topAnchor="100.0">
          <children>
@@ -85,7 +76,7 @@
             </HBox>
             <HBox prefHeight="20.0" prefWidth="202.0">
                <children>
-                  <TextField fx:id="inputCliente" prefHeight="25.0" prefWidth="440.0">
+                  <TextField fx:id="inputCliente" prefHeight="25.0" prefWidth="440.0" promptText="Endereço">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
@@ -102,7 +93,7 @@
                   <Label fx:id="endereco" textFill="WHITE" />
                </children>
             </HBox>
-            <TextField fx:id="inputEndereco">
+            <TextField fx:id="inputEndereco" promptText="Endereço">
                <VBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
@@ -117,7 +108,7 @@
                   <Label fx:id="telefone" textFill="WHITE" />
                </children>
             </HBox>
-            <TextField fx:id="inputTelefone">
+            <TextField fx:id="inputTelefone" promptText="( ) xxxxx-xxxx">
                <VBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </VBox.margin>

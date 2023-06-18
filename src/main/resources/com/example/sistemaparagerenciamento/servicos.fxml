@@ -7,7 +7,6 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,7 +14,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="680.0" prefWidth="1300.0" style="-fx-background-color: f5f5f5;" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemaparagerenciamento.controller.ServicosController">
@@ -52,13 +50,6 @@
                </children>
             </VBox>
          </children>
-         <effect>
-            <DropShadow blurType="TWO_PASS_BOX" height="47.379999999999995" radius="27.5875" width="64.97">
-               <color>
-                  <Color red="0.007456140127032995" blue="0.44736841320991516" />
-               </color>
-            </DropShadow>
-         </effect>
       </HBox>
       <VBox layoutX="17.0" layoutY="98.0" prefHeight="570.0" prefWidth="440.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="840.0" AnchorPane.topAnchor="100.0">
          <children>
@@ -95,12 +86,12 @@
                   </HBox>
                   <HBox prefHeight="20.0" prefWidth="202.0">
                      <children>
-                        <TextField fx:id="inputOrdemId" disable="true" prefHeight="25.0" prefWidth="228.0">
+                        <TextField fx:id="inputOrdemId" disable="true" prefHeight="25.0" prefWidth="228.0" promptText="OrdemId">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
                         </TextField>
-                        <TextField fx:id="inputServicoId" disable="true" prefHeight="25.0" prefWidth="233.0">
+                        <TextField fx:id="inputServicoId" disable="true" prefHeight="25.0" prefWidth="233.0" promptText="ServiçoId">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
@@ -133,7 +124,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="inputPeca">
+                  <TextField fx:id="inputPeca" promptText="Peça">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
@@ -147,7 +138,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <TextField fx:id="inputValor" disable="true">
+                  <TextField fx:id="inputValor" disable="true" promptText="Valor">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
@@ -157,7 +148,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </Label>
-                  <TextArea fx:id="inputDescricao" prefHeight="105.0" prefWidth="426.0">
+                  <TextArea fx:id="inputDescricao" prefHeight="105.0" prefWidth="426.0" promptText="Descrição">
                      <VBox.margin>
                         <Insets bottom="40.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>

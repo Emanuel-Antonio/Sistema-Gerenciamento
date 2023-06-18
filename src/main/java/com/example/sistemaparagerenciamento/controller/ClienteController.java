@@ -48,9 +48,6 @@ public class ClienteController implements Initializable {
     private Label nomeTela;
 
     @FXML
-    private Button ordens;
-
-    @FXML
     private Button sair;
 
     @FXML

@@ -24,19 +24,10 @@ import java.util.ResourceBundle;
 public class Maincontroller implements Initializable {
 
     @FXML
-    private Button clientes;
-
-    @FXML
     private TableColumn<Ordem, String> clienteIdTabela;
 
     @FXML
-    private Button estoque;
-
-    @FXML
     private Button home;
-
-    @FXML
-    private Button ordem;
 
     @FXML
     private Label email;

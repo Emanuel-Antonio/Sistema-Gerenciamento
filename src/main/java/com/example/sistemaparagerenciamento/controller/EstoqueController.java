@@ -36,12 +36,6 @@ public class EstoqueController implements Initializable{
     private Button sair;
 
     @FXML
-    private Button clientes;
-
-    @FXML
-    private Button ordens;
-
-    @FXML
     private TextField inputPreco;
 
     @FXML

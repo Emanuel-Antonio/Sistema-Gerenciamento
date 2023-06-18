@@ -5,14 +5,18 @@ import com.example.sistemaparagerenciamento.Mylistener;
 import com.example.sistemaparagerenciamento.dao.DAO;
 import com.example.sistemaparagerenciamento.model.*;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
@@ -20,7 +24,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import static javafx.scene.paint.Color.rgb;
 
 
 public class OrdemController implements Initializable {
@@ -68,45 +71,147 @@ public class OrdemController implements Initializable {
     private Button salvarCadastro;
 
     @FXML
+    private Label data;
+
+    @FXML
+    private TableColumn<Servico, String> descricaoTabela;
+
+    @FXML
+    private Label endereco;
+
+    @FXML
+    private Label nomeCliente;
+
+    @FXML
+    private Label nometecnico;
+
+    @FXML
+    private TableView<Pagamento> tabelaPagamentos;
+
+    @FXML
+    private TableView<Servico> tabelaServicos;
+
+    @FXML
+    private Label telefone;
+
+    @FXML
+    private TableColumn<Pagamento, String> tipoPagamentoTabela;
+
+    @FXML
+    private TableColumn<Servico, CategoriaServico> tipoServicoTabela;
+
+    @FXML
+    private TableColumn<Pagamento, Integer> valorPagamentoTabela;
+
+    @FXML
+    private Label valorPago;
+
+    @FXML
+    private TableColumn<Servico, Integer> valorServicoTabela;
+
+    @FXML
+    private Label valorTotal;
+
+    @FXML
+    private HBox verRelatorio;
+
+    @FXML
+    private HBox verCardOrdens;
+
+    private Ordem ordem;
+
+    @FXML
+    private Label avaliacao;
+
+    private ObservableList<Servico> servicos = FXCollections.observableArrayList();
+
+    private ObservableList<Pagamento> pagamentos = FXCollections.observableArrayList();
+
+    public void preencherTabelas(){
+        try{
+            this.valorPago.setText(String.valueOf(this.ordem.getFatura().getValorPago()));
+            this.valorTotal.setText(String.valueOf(this.ordem.getFatura().getValorTotal()));
+            this.nometecnico.setText(String.valueOf(DAO.getTecnico().buscarPorId(this.ordem.getTecnicoId())));
+            this.nomeCliente.setText(this.ordem.getNomeCliente());
+            this.endereco.setText(DAO.getCliente().buscarPorId(this.ordem.getClienteId()).getEndereco());
+            this.telefone.setText(DAO.getCliente().buscarPorId(this.ordem.getClienteId()).getTelefone());
+            this.avaliacao.setText(this.ordem.getAvaliacaoFinal());
+            this.data.setText(this.ordem.getData());
+        }catch(Exception e){
+
+        }
+
+        this.servicos.clear();
+        List<Servico> servicos1 = new ArrayList<>();
+        for(int i = 0; i < DAO.getOrdem().buscarPorId(this.ordem.getOrdemId()).getServicos().size(); i++){
+            servicos1.add(this.ordem.getServicos().get(i));
+        }
+        this.servicos.addAll(servicos1);
+
+        descricaoTabela.setCellValueFactory(new PropertyValueFactory<Servico, String>("descricao"));
+        valorServicoTabela.setCellValueFactory(new PropertyValueFactory<Servico, Integer>("valor"));
+        tipoServicoTabela.setCellValueFactory(new PropertyValueFactory<Servico, CategoriaServico>("categoria"));
+
+        this.tabelaServicos.setItems(servicos);
+
+        this.pagamentos.clear();
+        List<Pagamento> pagamentos1 = new ArrayList<>();
+        for(int i = 0; i < this.ordem.getFatura().getPagamentos().size(); i++){
+            pagamentos1.add(this.ordem.getFatura().getPagamentos().get(i));
+        }
+        this.pagamentos.addAll(pagamentos1);
+
+        tipoPagamentoTabela.setCellValueFactory(new PropertyValueFactory<Pagamento, String>("tipoPagamento"));
+        valorPagamentoTabela.setCellValueFactory(new PropertyValueFactory<Pagamento, Integer>("valor"));
+
+        this.tabelaPagamentos.setItems(pagamentos);
+    }
+
+    @FXML
     void clientesOnAction(ActionEvent event) {
+        this.verRelatorio.setVisible(false);
+        this.verCardOrdens.setVisible(true);
         Main.telaScreen("clientes");
-        this.nomeTela.setTextFill(rgb(255, 255, 255));
     }
 
     @FXML
     void homeOnAction(ActionEvent event) {
+        this.verRelatorio.setVisible(false);
+        this.verCardOrdens.setVisible(true);
         Main.telaScreen("paginaprincipal");
-        this.nomeTela.setTextFill(rgb(255, 255, 255));
     }
 
     @FXML
     void sairOnAction(ActionEvent event) {
+        this.verRelatorio.setVisible(false);
+        this.verCardOrdens.setVisible(true);
         DAO.getTecnico().setTecnicoLogado(null);
         Main.telaScreen("login");
-        this.nomeTela.setTextFill(rgb(255, 255, 255));
     }
 
     @FXML
     void estoqueOnAction(ActionEvent event) {
+        this.verRelatorio.setVisible(false);
+        this.verCardOrdens.setVisible(true);
         Main.telaScreen("estoque");
-        this.nomeTela.setTextFill(rgb(255, 255, 255));
     }
     @FXML
     void servicoOnAction(ActionEvent event) {
+        this.verRelatorio.setVisible(false);
+        this.verCardOrdens.setVisible(true);
         Main.telaScreen("servico");
-        this.nomeTela.setTextFill(rgb(255, 255, 255));
     }
 
     @FXML
     void faturaOnAction(ActionEvent event) {
+        this.verRelatorio.setVisible(false);
+        this.verCardOrdens.setVisible(true);
         Main.telaScreen("fatura");
-        this.nomeTela.setTextFill(rgb(255, 255, 255));
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.nomeTela.setText("Cadastro");
-        this.nomeTela.setTextFill(rgb(255,255,255));
         this.inputStatus.getItems().addAll("PAGAMENTO", "FECHADA", "CANCELADA", "ANDAMENTO");
         this.inputAvaliacao.getItems().addAll("","Ótimo", "Bom", "Médio", "Ruim", "Péssimo");
         initialize();
@@ -158,6 +263,7 @@ public class OrdemController implements Initializable {
     }
 
     public void setChosenOrdem(Ordem ordem){
+        this.ordem = ordem;
         this.inputNomeCliente.setText(ordem.getNomeCliente());
         this.inputIdCliente.setText(String.valueOf(ordem.getClienteId()));
         this.inputAvaliacao.setValue(ordem.getAvaliacaoFinal());
@@ -203,7 +309,7 @@ public class OrdemController implements Initializable {
         try {
             if(DAO.getOrdem().buscarPorId(Integer.parseInt(this.inputIdOrdem.getText())).getTecnicoId() == -1 || DAO.getOrdem().buscarPorId(Integer.parseInt(this.inputIdOrdem.getText())).getTecnicoId() == DAO.getTecnico().getTecnicoLogado().getTecnicoId() || DAO.getTecnico().getTecnicoLogado().isAdm()) {
                 this.inputIdCliente.setDisable(true);
-                Ordem ordem = DAO.getOrdem().getOrdens().get(Integer.parseInt(this.inputIdOrdem.getText()));
+                Ordem ordem = DAO.getOrdem().buscarPorId((Integer.parseInt(this.inputIdOrdem.getText())));
 
                 if (this.inputStatus.getValue().equals("ANDAMENTO")) {
                     ordem.setStatus(StatusOrdem.ANDAMENTO);
@@ -234,12 +340,10 @@ public class OrdemController implements Initializable {
                         ordem.setAvaliacaoFinal(this.inputAvaliacao.getValue());
                     }
                 } else {
-                    this.nomeTela.setTextFill(rgb(255, 0, 0));
                     this.nomeTela.setText("Dados Inválidos!");
                 }
                 DAO.getOrdem().atualizar(ordem);
                 this.nomeTela.setText("Atualizar");
-                this.nomeTela.setTextFill(rgb(255,255,255));
                 initialize();
                 this.inputIdOrdem.setText("");
                 this.inputIdCliente.setText("");
@@ -249,7 +353,6 @@ public class OrdemController implements Initializable {
                 this.inputNomeCliente.setText("");
             }else{
                 this.nomeTela.setText("Você não tem permissão para realizar essa ação!");
-                this.nomeTela.setTextFill(rgb(255,0,0));
                 this.nomeTela.setVisible(true);
             }
         }catch (Exception e){
@@ -280,7 +383,6 @@ public class OrdemController implements Initializable {
                 Servico servico = DAO.getServico().buscarPorId(Integer.parseInt(inputIdServico.getText()));
                 servico.setOrdemId(ordem.getOrdemId());
                 DAO.getServico().atualizar(servico);
-                this.nomeTela.setTextFill(rgb(255, 255, 255));
                 this.nomeTela.setText("Cadastro");
                 initialize();
                 this.inputIdOrdem.setText("");
@@ -290,7 +392,6 @@ public class OrdemController implements Initializable {
                 this.inputIdServico.setText("");
                 this.inputNomeCliente.setText("");
             } else {
-                this.nomeTela.setTextFill(rgb(255, 0, 0));
                 this.nomeTela.setText("Dados Inválidos!");
             }
 
@@ -306,19 +407,23 @@ public class OrdemController implements Initializable {
                     Servico servico = DAO.getServico().getServicos().get(i);
                     servico.setOrdemId(-1);
                     DAO.getServico().atualizar(servico);
+                    initialize();
+
                 }
             }
             if(DAO.getOrdem().buscarPorId(Integer.parseInt(this.inputIdOrdem.getText())).getTecnicoId() != -1){
-                Tecnico tecnico = DAO.getTecnico().buscarPorId(Integer.parseInt(this.inputIdOrdem.getText()));
+                Tecnico tecnico = DAO.getTecnico().buscarPorId(DAO.getOrdem().buscarPorId(Integer.parseInt(this.inputIdOrdem.getText())).getTecnicoId());
                 tecnico.setOrdem(null);
                 DAO.getTecnico().atualizar(tecnico);
+                initialize();
+
             }
             for(int i = 0; i < DAO.getOrdem().buscarPorId(Integer.parseInt(this.inputIdOrdem.getText())).getServicos().size(); i++){
                 DAO.getServico().deletar(DAO.getOrdem().buscarPorId(Integer.parseInt(this.inputIdOrdem.getText())).getServicos().get(i));
             }
             DAO.getOrdem().deletar(Integer.parseInt(this.inputIdOrdem.getText()));
+            initialize();
 
-            this.nomeTela.setTextFill(rgb(255, 255, 255));
             this.inputIdOrdem.setText("");
             this.inputIdCliente.setText("");
             this.inputAvaliacao.setValue("");
@@ -327,24 +432,24 @@ public class OrdemController implements Initializable {
             this.inputNomeCliente.setText("");
         }else {
             this.nomeTela.setText("Você não tem permissão para realizar essa ação!");
-            this.nomeTela.setTextFill(rgb(255,0,0));
             this.nomeTela.setVisible(true);
+            this.verRelatorio.setVisible(false);
+            this.verCardOrdens.setVisible(true);
         }
-        initialize();
     }
 
     @FXML
     void atualizarOnAction(ActionEvent event) {
-        this.nomeTela.setTextFill(rgb(255, 255, 255));
         this.inputIdCliente.setDisable(true);
         this.salvarAtualizacao.setVisible(true);
         this.salvarCadastro.setVisible(false);
         this.nomeTela.setText("Atualizar");
+        this.verRelatorio.setVisible(false);
+        this.verCardOrdens.setVisible(true);
     }
 
     @FXML
     void cadastrarOnAction(ActionEvent event) {
-        this.nomeTela.setTextFill(rgb(255, 255, 255));
         this.inputIdCliente.setDisable(false);
         this.salvarCadastro.setVisible(true);
         this.salvarAtualizacao.setVisible(false);
@@ -356,6 +461,8 @@ public class OrdemController implements Initializable {
         this.inputIdServico.setText("");
         this.inputNomeCliente.setText("");
         this.nomeTela.setText("Cadastrar");
+        this.verRelatorio.setVisible(false);
+        this.verCardOrdens.setVisible(true);
     }
 
     @FXML
@@ -375,6 +482,26 @@ public class OrdemController implements Initializable {
 
         }
     }
+
+    @FXML
+    void gerarRelatorioOnAction(ActionEvent event) {
+        if(DAO.getOrdem().buscarPorId(Integer.parseInt(this.inputIdOrdem.getText())).getTecnicoId() == DAO.getTecnico().getTecnicoLogado().getTecnicoId() || DAO.getTecnico().getTecnicoLogado().isAdm()){
+            this.verRelatorio.setVisible(true);
+            this.verCardOrdens.setVisible(false);
+            preencherTabelas();
+        }
+        else{
+            this.nomeTela.setText("Você não tem permissão para realizar essa ação");
+        }
+
+        this.inputIdOrdem.setText("");
+        this.inputIdCliente.setText("");
+        this.inputAvaliacao.setValue("");
+        this.inputStatus.setValue("");
+        this.inputIdServico.setText("");
+        this.inputNomeCliente.setText("");
+    }
+
     @FXML
     void onMouseEntered(MouseEvent event) {
         initialize();

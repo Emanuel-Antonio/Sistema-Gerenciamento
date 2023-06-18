@@ -21,18 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import static javafx.scene.paint.Color.rgb;
-
 public class ServicosController implements Initializable {
-
-    @FXML
-    private Button estoque;
-
-    @FXML
-    private Button home;
-
-    @FXML
-    private Button sair;
 
     @FXML
     private GridPane gridContainer;
@@ -146,11 +135,16 @@ public class ServicosController implements Initializable {
     @FXML
     void excluirOnAction(ActionEvent event) {
         try{
-            if(DAO.getServico().buscarPorId(Integer.parseInt(this.inputServicoId.getText())).getOrdemId() != -1) {
-                Peca peca = DAO.getPeca().buscarPorNome(inputPeca.getText());
-                peca.setQnt(DAO.getPeca().buscarPorNome(inputPeca.getText()).getQnt() + 1);
+            if(DAO.getServico().buscarPorId(Integer.parseInt(this.inputServicoId.getText())).getOrdemId() == -1) {
+                try{
+                    Peca peca = DAO.getPeca().buscarPorNome(inputPeca.getText());
+                    peca.setQnt(DAO.getPeca().buscarPorNome(inputPeca.getText()).getQnt() + 1);
 
-                DAO.getPeca().atualizar(peca);
+                    DAO.getPeca().atualizar(peca);
+                }catch(Exception e){
+
+                }
+
 
                 DAO.getServico().deletar(DAO.getServico().buscarPorId(Integer.parseInt(inputServicoId.getText())));
                 this.inputServicoId.setText("");
@@ -161,7 +155,6 @@ public class ServicosController implements Initializable {
                 this.inputPeca.setText("");
 
             }else{
-                this.nomeTela.setTextFill(rgb(255,0,0));
                 this.nomeTela.setText("Esse serviço não pode ser excluido!");
             }
             initialize();
